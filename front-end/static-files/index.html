@@ -4,14 +4,15 @@
 <head>
     <title>Aplicación Microservicios Plantilla</title>
 
-    <!-- Cargamos biblioteca Jasmine -->
+    <!-- Cargamos biblioteca Jasmine 
 
     <link rel="stylesheet" href="lib/jasmine-4.5.0/jasmine.css">
     <script src="lib/jasmine-4.5.0/jasmine.js"></script>
     <script src="lib/jasmine-4.5.0/jasmine-html.js"></script>
     <script src="lib/jasmine-4.5.0/boot0.js"></script>
     <script src="lib/jasmine-4.5.0/boot1.js"></script>
-
+    -->
+    
     <!-- Cargamos nuestros CSS -->
     <link rel="stylesheet" href="css/front-end.css">
     <link rel="stylesheet" href="css/ms-plantilla.css">
@@ -20,8 +21,8 @@
 </head>
 
 <body>
-    <h1>Aplicación Microservicios Plantilla</h1>
-    <!-- Barra de navegación de la aplicación -->
+    <h1>Aplicación Microservicios Deportes</h1>
+    <!-- Barra de navegación de Kung-fu -->
     <nav>
         <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
@@ -67,11 +68,30 @@
         <button class="btn" onclick="Plantilla.jugadorBuscadoPorAspectoExactos(document.getElementById('aspecto-1').value, document.getElementById('aspecto-2').value, document.getElementById('aspecto-3').value)">Buscar por asectos exactos</button>
     </nav>
 
-     <!-- 
-        BARRA DE NAVEGACION GIMNASIA
-    -->
 
-       <nav>
+    <!--  Barra de navegación de Equitación -->
+    <nav>
+        <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Plantilla">Home</a>
+        <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
+        <a href="javascript:Plantilla.listar_nombres()" class="opcion-principal"
+            title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD">Listar nombres</a>
+        <a href="javascript:Plantilla.listar_alfabeticamente()" class="opcion-principal"
+            title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD por orden alfabetico">Listar nombres alfabeticamente</a>
+		<a href="javascript:Plantilla.listar()" class="opcion-principal"
+            title="Realiza un listado con toda la información de los deportistas de equitación que hay en la BBDD">Listar informacion completa</a>
+        <a href="javascript:Plantilla.mostrarDeportista('359074418347999438')" class="opcion-principal mostrar"
+            title="Muestra los datos de un deportista como ejemplo">Mostrar/Editar un deportista</a>
+        <a href="javascript:Plantilla.mostrar()" class="opcion-principal"
+            title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por nombre</a>   
+        <a href="javascript:Plantilla.mostrar_dos()" class="opcion-principal"
+            title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por campos</a>   
+    </nav>
+
+    <!--  Barra de navegación de Gimnasia -->
+
+    <nav>
         <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
         <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
@@ -146,14 +166,16 @@
     <!-- Cargamos ficheros JS propios del proyecto -->
     <script src="js/front-end.js"></script>
     <script src="js/ms-kung-fu.js"></script>
+    <script src="js/ms-equitacion.js"></script>
     <script src="js/ms-gimnasia.js"></script>
 
 
-    <!-- Cargamos ficheros spec con los tests -->
+    <!-- Cargamos ficheros spec con los tests 
     <script src="js/front-end-spec.js"></script>
     <script src="js/ms-kung-fu-spec.js"></script>
+    <script src="js/ms-equitacion-spec.js"></script>
     <script src="js/ms-gimnasia-spec.js"></script>
-
+    -->
 </body>
 
 </html>
