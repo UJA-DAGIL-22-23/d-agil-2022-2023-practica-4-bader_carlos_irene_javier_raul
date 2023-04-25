@@ -67,6 +67,61 @@
         <button class="btn" onclick="Plantilla.jugadorBuscadoPorAspectoExactos(document.getElementById('aspecto-1').value, document.getElementById('aspecto-2').value, document.getElementById('aspecto-3').value)">Buscar por asectos exactos</button>
     </nav>
 
+     <!-- 
+        BARRA DE NAVEGACION GIMNASIA
+    -->
+
+       <nav>
+        <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Plantilla">Home</a>
+        <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
+        <a href="javascript:Plantilla.listarPersona()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Nombre completo de los Participantes</a>
+        <a href="javascript:Plantilla.listarAlfb()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Participantes ordenados alfabéticamente</a>
+        <a href="javascript:Plantilla.listar()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Participantes</a>
+        <a href="javascript:Plantilla.mostrarP('359558425872433356')" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Mostrar un participante por id</a>
+        <a href="javascript:Plantilla.listar2()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Modificar el nombre de un participante</a>  
+            <br/>
+            <br/>
+            <h1>Formulario para obtener un jugador introduciendo su nombre y apellidos</h1>
+         <form>
+            <label>Buscar por nombre:</label>
+            <br/>
+            <input type="text" id="search" name="search">
+            <button type="button" onclick="buscar()">Buscar</button>
+        </form>
+        <script>
+            function buscar(){
+                var searchTerm=document.getElementById("search").value;
+                Plantilla.listarParaForm(searchTerm);
+            }
+        </script>
+          <br/>
+          <br/>
+          <h1>Formulario para obtener un jugador introduciendo varios campos</h1>
+          <form>
+             <input type="text" id="nomb" name="nomb" placeholder="Nombre">
+             <input type="text" id="eda" name="eda"  placeholder="Edad">
+             <input type="text" id="pai" name="pai" placeholder="Pais">
+             <input type="text" id="grup" name="grup" placeholder="Grupo">
+             <button type="button" onclick="buscarHistoria10()">Buscar</button>
+         </form>
+         <script>
+            function buscarHistoria10(){
+                var term1 = document.getElementById("nomb").value;
+                var term2 = document.getElementById("eda").value;
+                var term3 = document.getElementById("pai").value;
+                var term4 = document.getElementById("grup").value;
+                Plantilla.historia10(term1,term2,term3,term4);
+             }
+         </script>
+    </nav>
+
     <!-- 
         Article en el que se va a mostrar la info cuando se pinche una opción del menú 
         Todos los apartados de este article se rellenarán con funciones en Javascript
