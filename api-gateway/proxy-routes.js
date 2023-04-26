@@ -27,6 +27,16 @@ const ROUTES = [
             },
         }
     }
+    {
+        url: '/motociclismo',
+        proxy: {
+            target: "http://localhost:8004",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/motociclismo`]: '',
+            },
+        }
+    }
 ]
 
 exports.routes = ROUTES;
