@@ -32,7 +32,7 @@
  
  Equitacion.deportistaMostrado = null
  
- Equitacion.EquitacionTags = {
+ Equitacion.equitacionTags = {
      ID: "### ID ###",
      NOMBRE: "### NOMBRE ###",
      APELLIDO: "### APELLIDO ###",
@@ -47,10 +47,10 @@
  }
  
  // Funciones para mostrar una deportista como formulario.
- Equitacion.EquitacionFormularioDeportista = {}
+ Equitacion.equitacionFormularioDeportista = {}
  
  //Cabecera del formulario.
- Equitacion.EquitacionFormularioDeportista.formulario =
+ Equitacion.equitacionFormularioDeportista.formulario =
      `
  <form method='post' action=''>
      <table class="listado-Equitacion">
@@ -60,33 +60,33 @@
              <th>Años de participación en los JJOO</th><th>Editar Nombre</th><th>Editar</th><th>Guardar</th><th>Cancelar</th>
          </thead>
          <tbody>
-             <tr title ="${Equitacion.EquitacionTags.ID}">
+             <tr title ="${Equitacion.equitacionTags.ID}">
                  <td><input type="text" class="form-deportista-elemento" disabled id="form-deportista-id"
-                         value="${Equitacion.EquitacionTags.ID}" name="id_deportista"/>
+                         value="${Equitacion.equitacionTags.ID}" name="id_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-nombre"
-                         value="${Equitacion.EquitacionTags.NOMBRE}" name="nombre_deportista"/>
+                         value="${Equitacion.equitacionTags.NOMBRE}" name="nombre_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-apellido"
-                         value="${Equitacion.EquitacionTags.APELLIDO}" name="apellido_deportista"/>
+                         value="${Equitacion.equitacionTags.APELLIDO}" name="apellido_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-fechanac"
-                         value="${Equitacion.EquitacionTags.FECHANACIMIENTODia}/${Equitacion.EquitacionTags.FECHANACIMIENTOMes}/${Equitacion.EquitacionTags.FECHANACIMIENTOAnio}" name="fechaNac_deportista"/>
+                         value="${Equitacion.equitacionTags.FECHANACIMIENTODia}/${Equitacion.equitacionTags.FECHANACIMIENTOMes}/${Equitacion.equitacionTags.FECHANACIMIENTOAnio}" name="fechaNac_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-nacionalidad"
-                         value="${Equitacion.EquitacionTags.NACIONALIDAD}" name="nacionalidad_deportista"/>
+                         value="${Equitacion.equitacionTags.NACIONALIDAD}" name="nacionalidad_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-edad"
-                         value="${Equitacion.EquitacionTags.EDAD}" name="edad_deportista"/>
+                         value="${Equitacion.equitacionTags.EDAD}" name="edad_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-disciplinas"
-                         value="${Equitacion.EquitacionTags.DISCIPLINAS}" name="diciplinas_deportista"/>
+                         value="${Equitacion.equitacionTags.DISCIPLINAS}" name="diciplinas_deportista"/>
                  </td>
                  <td><input type="vector" class="form-deportista-elemento editable" disabled id="form-deportista-caballos"
-                         value="${Equitacion.EquitacionTags.CABALLOS}" name="caballos_deportista"/>
+                         value="${Equitacion.equitacionTags.CABALLOS}" name="caballos_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-JJOO"
-                         value="${Equitacion.EquitacionTags.ANIOSPARTICPACIONJJOO}" name="JJOO_deportista"/>
+                         value="${Equitacion.equitacionTags.ANIOSPARTICPACIONJJOO}" name="JJOO_deportista"/>
                  </td>
                  <td>
                      <div><a href="javascript:Equitacion.editarNombre()">Editar Nombre</a></div>
@@ -106,27 +106,27 @@
  </form>
  `;
  
- Equitacion.sustituyeTags = function (Equitacion, deportista) {
-     return Equitacion
-         .replace(new RegExp(Equitacion.EquitacionTags.ID, 'g'), deportista.ref['@ref'].id)
-         .replace(new RegExp(Equitacion.EquitacionTags.NOMBRE, 'g'), deportista.data.nombre)
-         .replace(new RegExp(Equitacion.EquitacionTags.APELLIDO, 'g'), deportista.data.apellido)
-         .replace(new RegExp(Equitacion.EquitacionTags.FECHANACIMIENTODia, 'g'), deportista.data.fechaNacimiento.dia)
-         .replace(new RegExp(Equitacion.EquitacionTags.FECHANACIMIENTOMes, 'g'), deportista.data.fechaNacimiento.mes)
-         .replace(new RegExp(Equitacion.EquitacionTags.FECHANACIMIENTOAnio, 'g'), deportista.data.fechaNacimiento.anio)
-         .replace(new RegExp(Equitacion.EquitacionTags.NACIONALIDAD, 'g'), deportista.data.nacionalidad)
-         .replace(new RegExp(Equitacion.EquitacionTags.EDAD, 'g'), deportista.data.edad)
-         .replace(new RegExp(Equitacion.EquitacionTags.DISCIPLINAS, 'g'), deportista.data.disciplinas)
-         .replace(new RegExp(Equitacion.EquitacionTags.CABALLOS, 'g'), deportista.data.caballos)
-         .replace(new RegExp(Equitacion.EquitacionTags.ANIOSPARTICPACIONJJOO, 'g'), deportista.data.aniosParticipacionJJOO)
+ Equitacion.sustituyeTags = function (equitacion, deportista) {
+     return equitacion
+         .replace(new RegExp(Equitacion.equitacionTags.ID, 'g'), deportista.ref['@ref'].id)
+         .replace(new RegExp(Equitacion.equitacionTags.NOMBRE, 'g'), deportista.data.nombre)
+         .replace(new RegExp(Equitacion.equitacionTags.APELLIDO, 'g'), deportista.data.apellido)
+         .replace(new RegExp(Equitacion.equitacionTags.FECHANACIMIENTODia, 'g'), deportista.data.fechaNacimiento.dia)
+         .replace(new RegExp(Equitacion.equitacionTags.FECHANACIMIENTOMes, 'g'), deportista.data.fechaNacimiento.mes)
+         .replace(new RegExp(Equitacion.equitacionTags.FECHANACIMIENTOAnio, 'g'), deportista.data.fechaNacimiento.anio)
+         .replace(new RegExp(Equitacion.equitacionTags.NACIONALIDAD, 'g'), deportista.data.nacionalidad)
+         .replace(new RegExp(Equitacion.equitacionTags.EDAD, 'g'), deportista.data.edad)
+         .replace(new RegExp(Equitacion.equitacionTags.DISCIPLINAS, 'g'), deportista.data.disciplinas)
+         .replace(new RegExp(Equitacion.equitacionTags.CABALLOS, 'g'), deportista.data.caballos)
+         .replace(new RegExp(Equitacion.equitacionTags.ANIOSPARTICPACIONJJOO, 'g'), deportista.data.aniosParticipacionJJOO)
  }
  
- Equitacion.EquitacionFormularioDeportista.actualiza = function (deportista) {
+ Equitacion.equitacionFormularioDeportista.actualiza = function (deportista) {
      return Equitacion.sustituyeTags(this.formulario, deportista);
  }
  
  Equitacion.deportistaComoFormulario = function (deportista) {
-     return Equitacion.EquitacionFormularioDeportista.actualiza(deportista)
+     return Equitacion.equitacionFormularioDeportista.actualiza(deportista)
  }
  
  // Funciones para mostrar como TABLE

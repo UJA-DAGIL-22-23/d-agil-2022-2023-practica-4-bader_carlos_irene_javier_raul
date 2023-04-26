@@ -20,6 +20,7 @@ Frontend.CLASS_OCULTAR = "ocultar"
 Frontend.ID_SECCION_PRINCIPAL = "seccion-principal"
 Frontend.ID_SECCION_PRINCIPAL_TITULO = "seccion-principal-titulo"
 Frontend.ID_SECCION_PRINCIPAL_CONTENIDO = "seccion-principal-contenido"
+Frontend.ID_SECCION_PRINCIPAL_RESULTADOS = "seccion-principal-resultados"
 
 
 /// Objeto Article dentro Frontend para tratar con el contenido del elemento Article del DOM
