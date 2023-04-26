@@ -366,7 +366,6 @@ Parkour.sustituyeTags = function (Parkour, persona) {
         .replace(new RegExp(Parkour.ParkourTags.PARTICIPACIONES_INTERNACIONALES, 'g'), persona.data.Participaciones_en_eventos_a_nivel_internacional)
         .replace(new RegExp(Parkour.ParkourTags.TROFEOS_CONSEGUIDOS, 'g'), persona.data.numero_de_trofeos_conseguidos)
         
-
 }
 
 Parkour.ParkourFormularioPersona = {}
