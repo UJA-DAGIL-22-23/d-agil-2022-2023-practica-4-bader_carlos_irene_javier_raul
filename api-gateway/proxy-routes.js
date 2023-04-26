@@ -26,7 +26,7 @@ const ROUTES = [
                 [`^/equitacion`]: '',
             },
         }
-    }
+    },
     {
         url: '/motociclismo',
         proxy: {
