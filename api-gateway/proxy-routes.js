@@ -36,7 +36,18 @@ const ROUTES = [
                 [`^/motociclismo`]: '',
             },
         }
+    },    
+     {
+        url: '/parkour',
+        proxy: {
+            target: "http://localhost:8006",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/parkour`]: '',
+            },
+        }
     }
+
 ]
 
 exports.routes = ROUTES;
