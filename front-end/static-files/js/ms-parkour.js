@@ -98,14 +98,14 @@ Parkour.mostrarAcercaDe = function (datosDescargados) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Parkour.procesarHome = function () {
-    this.descargarRuta("/Parkour/", this.mostrarHome);
+    this.descargarRuta("/parkour/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 Parkour.procesarAcercaDe = function () {
-    this.descargarRuta("/Parkour/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/parkour/acercade", this.mostrarAcercaDe);
 }
 
 
@@ -155,7 +155,7 @@ Parkour.recupera = async function (callBackFn) {
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/Parkour/getTodas"
+        const url = Frontend.API_GATEWAY + "/parkour/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -207,7 +207,7 @@ Parkour.recupera1 = async function (callBackFn) {
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/Parkour/getTodas"
+        const url = Frontend.API_GATEWAY + "/parkour/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -332,7 +332,7 @@ Parkour.imprimeUnaPersona = function (persona) {
 
 Parkour.recuperaUnaPersona = async function (idPersona, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/Parkour/getPorId/" + idPersona
+        const url = Frontend.API_GATEWAY + "/parkour/getPorId/" + idPersona
         const response = await fetch(url);
             if (response) {
                 const persona = await response.json()
@@ -448,7 +448,7 @@ Parkour.recuperaBuscador = async function (callBackFn,nombre) {
   
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/Parkour/getTodas"
+        const url = Frontend.API_GATEWAY + "/parkour/getTodas"
         response = await fetch(url)
   
     } catch (error) {
@@ -716,7 +716,7 @@ Parkour.recuperaBuscar2 = async function (callBackFn,nombre) {
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/Parkour/getTodas"
+        const url = Frontend.API_GATEWAY + "/parkour/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -740,7 +740,7 @@ Parkour.recuperaBuscar2 = async function (callBackFn,nombre) {
  */
 Parkour.guardar = async function () {
     try {
-        let url = Frontend.API_GATEWAY + "/Parkour/setTodo/"
+        let url = Frontend.API_GATEWAY + "/parkour/setTodo/"
         let id_persona = document.getElementById("form-persona-id").value
         const response = await fetch(url, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -848,7 +848,7 @@ Parkour.BuscaCampos = async function (callBackFn,dato) {
   
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/Parkour/getTodas"
+        const url = Frontend.API_GATEWAY + "/parkour/getTodas"
         response = await fetch(url)
   
     } catch (error) {
