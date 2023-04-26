@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/front-end.css">
     <link rel="stylesheet" href="css/ms-plantilla.css">
     <link rel="stylesheet" href="css/ms-equitacion.css">
+    <link rel="stylesheet" href="css/ms-parkour.css">
 
 </head>
 
@@ -68,7 +69,6 @@
         <button class="btn" onclick="Plantilla.jugadorBuscadoPorAspectoExactos(document.getElementById('aspecto-1').value, document.getElementById('aspecto-2').value, document.getElementById('aspecto-3').value)">Buscar por asectos exactos</button>
     </nav>
 
-
     <!--  Barra de navegación de Equitación -->
     <nav>
         <br>
@@ -80,7 +80,7 @@
             title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD">Listar nombres</a>
         <a href="javascript:Equitacion.listar_alfabeticamente()" class="opcion-principal"
             title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD por orden alfabetico">Listar nombres alfabeticamente</a>
-		<a href="javascript:Equitacion.listar()" class="opcion-principal"
+        <a href="javascript:Equitacion.listar()" class="opcion-principal"
             title="Realiza un listado con toda la información de los deportistas de equitación que hay en la BBDD">Listar informacion completa</a>
         <a href="javascript:Equitacion.mostrarDeportista('359074418347999438')" class="opcion-principal mostrar"
             title="Muestra los datos de un deportista como ejemplo">Mostrar/Editar un deportista</a>
@@ -142,6 +142,53 @@
              }
          </script>
     </nav>
+    <!--  Barra de navegación de Parkour -->
+
+    <nav>
+        <a href="javascript:Parkour.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Parkour">Home</a>
+        <a href="javascript:Parkour.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Parkour">Acerca de</a>
+        <a href="javascript:Parkour.listar()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Solo Nombres</a>
+        <a href="javascript:Parkour.listar1()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Nombres Alfabeticamente</a>
+        <a href="javascript:Parkour.listarTodo()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Todos los datos</a>
+        <a href="javascript:Parkour.mostrarP('359809616226287820')" class="opcion-principal"
+            title="Realiza un listado de la informacion de el usuario marcado">Ver datos de un jugador</a>
+        <a href="javascript:Parkour.ModificarDatos()" class="opcion-principal"
+            title="Modificar varios de los datos a la vez de un jugador">Modificar Datos</a>
+            <br/>
+            <br/>
+            <h1>Buscador de jugadores por nombre</h1>
+            <form>
+                <label>Buscar por nombre:</label>
+                <br/>
+                <input type="text" id="search" name="search">
+                <button type="button" onclick="buscador()">Buscar</button>
+            </form>
+            <script>
+                function buscador(){
+                    var searchTerm=document.getElementById("search").value;
+                    Parkour.listarBuscador(searchTerm);
+                }
+            </script>
+            <h1>Buscador de jugadores por varios campos</h1>
+            <form>
+                <label>Buscar por varios campos:</label>
+                <br/>
+                <input type="text" id="search2" name="search2">
+                <button type="button" onclick="buscarCampos()">Buscar</button>
+            </form>
+            <script>
+                function buscarCampos(){
+                    var searchTerm=document.getElementById("search2").value;
+                    Parkour.buscarCampos(searchTerm);
+                }
+            </script>
+        </nav>
+
 
     <!-- 
         Article en el que se va a mostrar la info cuando se pinche una opción del menú 
@@ -156,7 +203,6 @@
         </div>
     </article>
 
-
     <!-- 
         ...............  ZONA DE CARGA DE FICHEROS JS .........................
     
@@ -169,14 +215,16 @@
     <script src="js/ms-kung-fu.js"></script>
     <script src="js/ms-equitacion.js"></script>
     <script src="js/ms-gimnasia.js"></script>
-
+    <script src="js/ms-parkour.js"></script>
 
     <!-- Cargamos ficheros spec con los tests -->
     <!--<script src="js/front-end-spec.js"></script>-->
     <!--<script src="js/ms-kung-fu-spec.js"></script>-->
     <!--<script src="js/ms-equitacion-spec.js"></script>-->
     <!--<script src="js/ms-gimnasia-spec.js"></script>-->
+    <!--<script src="js/ms-parkour-spec.js"></script>-->
     
 </body>
 
 </html>
+
