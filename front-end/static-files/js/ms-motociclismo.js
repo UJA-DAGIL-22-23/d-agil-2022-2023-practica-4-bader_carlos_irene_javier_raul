@@ -1,5 +1,5 @@
 /**
- * @file Plantilla.js
+ * @file Motociclismo.js
  * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
@@ -11,7 +11,7 @@
 let Plantilla = {};
 
 // Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+Motociclismo.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -24,7 +24,7 @@ Plantilla.datosDescargadosNulos = {
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+Motociclismo.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
    // Intento conectar con el microservicio Plantilla
@@ -52,7 +52,7 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
 /**
  * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+Motociclismo.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -68,7 +68,7 @@ Plantilla.mostrarHome = function (datosDescargados) {
 /**
  * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+Motociclismo.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -98,14 +98,14 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
+Motociclismo.procesarHome = function () {
     this.descargarRuta("/plantilla/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
+Motociclismo.procesarAcercaDe = function () {
     this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
 }
 
@@ -115,7 +115,7 @@ Plantilla.procesarAcercaDe = function () {
  * Función que recuperar todos los datos llamando al MS Plantilla
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recupera = async function (callBackFn) {
+Motociclismo.recupera = async function (callBackFn) {
     let response = null
 
     // Intento conectar con el microservicio proyectos
@@ -130,10 +130,10 @@ Plantilla.recupera = async function (callBackFn) {
     }
 
     // Muestro todos los proyectos que se han descargado
-    let vectorPlantilla = null
+    let vectorMotociclismo = null
     if (response) {
-        vectorPlantilla = await response.json()
-        callBackFn(vectorPlantilla.data)
+        vectorMotociclismo = await response.json()
+        callBackFn(vectorMotociclismo.data)
     }
 }
 
@@ -142,12 +142,12 @@ Plantilla.recupera = async function (callBackFn) {
  * Función para mostrar en pantalla todos los proyectos que se han recuperado de la BBDD.
  * @param {Vector_de_motociclistas} vector Vector con los datos de los motociclistas a mostrar
  */
-Plantilla.imprime = function (vector) {
+Motociclismo.imprime = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabeceraTable();
-    vector.forEach(e => msj += Plantilla.cuerpoTr(e))
-    msj += Plantilla.pieTable();
+    msj += Motociclismo.cabeceraTable();
+    vector.forEach(e => msj += Motociclismo.cuerpoTr(e))
+    msj += Motociclismo.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de motociclistas", msj )
@@ -160,7 +160,7 @@ Plantilla.imprime = function (vector) {
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
-Plantilla.cabeceraTable = function () {
+Motociclismo.cabeceraTable = function () {
     return `<table class="listado-Plantilla">
         <thead>
         <th>Nombre</th><th>Nombre_Equipo</th><th>Tipo_Moto</th><th>Fecha_Nacimiento</th><th>Anios_Experiencia</th><th>Puntuaciones_Carrera</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th>
@@ -174,7 +174,7 @@ Plantilla.cabeceraTable = function () {
  * @param {motociclistas} p Datos del motociclista a mostrar
  * @returns Cadena conteniendo todo el elemento TR que muestra el proyecto.
  */
-Plantilla.cuerpoTr = function (p) {
+Motociclismo.cuerpoTr = function (p) {
     const d = p.data
     const fecha = d.fecha_nacimiento;
     const anios_experiencia = d.anios_experiencia.join(', ');
@@ -200,7 +200,7 @@ Plantilla.cuerpoTr = function (p) {
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
-Plantilla.pieTable = function () {
+Motociclismo.pieTable = function () {
     return "</tbody></table>";
 }
 
@@ -210,7 +210,7 @@ Plantilla.pieTable = function () {
  * @returns True
  */
 
-Plantilla.listar = function () {
+Motociclismo.listar = function () {
   this.recupera(this.imprime);
 }
 
@@ -219,13 +219,13 @@ Plantilla.listar = function () {
 // REALIZAMOS LA OPCIÓN DE MOSTRAR SOLO NOMBRES
 
 /**
- * Función que recuperar todos los datos llamando al MS Plantilla
+ * Función que recuperar todos los datos llamando al MS Motociclismo
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaNombres = async function (callBackFn) {
+Motociclismo.recuperaNombres = async function (callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio Motociclismo
     try {
         const url = Frontend.API_GATEWAY + "/plantilla/getNombres"
         response = await fetch(url)
@@ -237,10 +237,10 @@ Plantilla.recuperaNombres = async function (callBackFn) {
     }
 
     // Muestro todos los datos que se han descargado
-    let vectorPlantilla = null
+    let vectorMotociclismo = null
     if (response) {
         vectorPlantilla = await response.json()
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorMotociclismo.data)
     }
 }
 
@@ -249,12 +249,12 @@ Plantilla.recuperaNombres = async function (callBackFn) {
  * Función para mostrar en pantalla todos los DATOS que se han recuperado de la BBDD.
  * @param {Vector_de_motociclistas} vector Vector con los datos de los motociclistas a mostrar
  */
-Plantilla.imprimeNombres = function (vector) {
+Motociclismo.imprimeNombres = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabeceraTableN();
-    vector.forEach(e => msj += Plantilla.cuerpoTrN(e))
-    msj += Plantilla.pieTableN();
+    msj += Motociclismo.cabeceraTableN();
+    vector.forEach(e => msj += Motociclismo.cuerpoTrN(e))
+    msj += Motociclismo.pieTableN();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de NOMBRES de motociclistas", msj )
@@ -267,7 +267,7 @@ Plantilla.imprimeNombres = function (vector) {
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
-Plantilla.cabeceraTableN = function () {
+Motociclismo.cabeceraTableN = function () {
     return `<table class="listado-Plantilla">
         <thead>
         <th>Nombre</th>
@@ -282,7 +282,7 @@ Plantilla.cabeceraTableN = function () {
  * @param {motociclistas} m Datos del motociclista a mostrar
  * @returns Cadena conteniendo todo el elemento TR que muestra el proyecto.
  */
-Plantilla.cuerpoTrN = function (nombre) {
+Motociclismo.cuerpoTrN = function (nombre) {
    
     return `
     <tr">
@@ -296,7 +296,7 @@ Plantilla.cuerpoTrN = function (nombre) {
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
-Plantilla.pieTableN = function () {
+Motociclismo.pieTableN = function () {
     return "</tbody></table>";
 }
 
@@ -305,7 +305,7 @@ Plantilla.pieTableN = function () {
  * @returns True
  */
 
-Plantilla.listarNombres = function () {
+Motociclismo.listarNombres = function () {
   this.recuperaNombres(this.imprimeNombres);
 }
 
@@ -317,7 +317,7 @@ Plantilla.listarNombres = function () {
  * Función que recuperar todos los datos llamando al MS Plantilla
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaNombresAZ = async function (callBackFn) {
+Motociclismo.recuperaNombresAZ = async function (callBackFn) {
     let response = null
 
     // Intento conectar con el microservicio Plantilla
@@ -332,10 +332,10 @@ Plantilla.recuperaNombresAZ = async function (callBackFn) {
     }
 
     // Muestro todos los datos que se han descargado
-    let vectorPlantilla = null
+    let vectorMotociclismo = null
     if (response) {
-        vectorPlantilla = await response.json()
-        callBackFn(vectorPlantilla.data.sort())
+        vectorMotociclismo = await response.json()
+        callBackFn(vectorMotociclismo.data.sort())
     }
 }
 
@@ -344,12 +344,12 @@ Plantilla.recuperaNombresAZ = async function (callBackFn) {
  * Función para mostrar en pantalla todos los DATOS que se han recuperado de la BBDD.
  * @param {Vector_de_motociclistas} vector Vector con los datos de los motociclistas a mostrar
  */
-Plantilla.imprimeNAZ = function (vector) {
+Motociclismo.imprimeNAZ = function (vector) {
     console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabeceraTableNAZ();
-    vector.forEach(e => msj += Plantilla.cuerpoTrNAZ(e))
-    msj += Plantilla.pieTableNAZ();
+    msj += Motociclismo.cabeceraTableNAZ();
+    vector.forEach(e => msj += Motociclismo.cuerpoTrNAZ(e))
+    msj += Motociclismo.pieTableNAZ();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de NOMBRES Aa-Zz de motociclistas", msj )
@@ -362,7 +362,7 @@ Plantilla.imprimeNAZ = function (vector) {
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
-Plantilla.cabeceraTableNAZ = function () {
+Motociclismo.cabeceraTableNAZ = function () {
     return `<table class="listado-Plantilla">
         <thead>
         <th>Nombre</th>
@@ -377,7 +377,7 @@ Plantilla.cabeceraTableNAZ = function () {
  * @param {motociclistas} m Datos del motociclista a mostrar
  * @returns Cadena conteniendo todo el elemento TR que muestra el proyecto.
  */
-Plantilla.cuerpoTrNAZ = function (nombre) {
+Motociclismo.cuerpoTrNAZ = function (nombre) {
 
     return `
     <tr">
@@ -391,7 +391,7 @@ Plantilla.cuerpoTrNAZ = function (nombre) {
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
-Plantilla.pieTableNAZ = function () {
+Motociclismo.pieTableNAZ = function () {
     return "</tbody></table>";
 }
 
@@ -400,14 +400,14 @@ Plantilla.pieTableNAZ = function () {
  * @returns True
  */
 
-Plantilla.listarNombresAZ = function () {
+Motociclismo.listarNombresAZ = function () {
   this.recuperaNombresAZ(this.imprimeNAZ);
 }
 
 //HU 08 : Ver un listado de todos los datos de jugadores/equipos cuyo nombre cumple con un criterio de búsqueda indicado por el usuario. (Por ejemplo: buscar todos aquellos cuyo nombre incluye “Antonio”).
 
 // Tags que voy a usar para sustituir los campos
-Plantilla.plantillaTags = {
+Motociclismo.plantillaTags = {
     "NOMBRE": "### NOMBRE ###",
     "NOMBRE_EQUIPO": "### NOMBRE_EQUIPO ###",
     "TIPO_MOTO": "### TIPO_MOTO ###",
@@ -418,11 +418,11 @@ Plantilla.plantillaTags = {
     "POSICION_CAMPEONATO": "### POSICION_CAMPEONATO ###",
 }
 /// Plantilla para poner los datos de varias personas dentro de una tabla
-Plantilla.plantillaTablaMotociclistas = {}
+Motociclismo.plantillaTablaMotociclistas = {}
 
 
 // Cabecera de la tabla
-Plantilla.plantillaTablaMotociclistas.cabecera = `<table width="100%" class="listado-motociclistas">
+Motociclismo.plantillaTablaMotociclistas.cabecera = `<table width="100%" class="listado-motociclistas">
                     <thead>
                         <th>Nombre</th>
                         <th>Nombre_Equipo</th>
@@ -437,22 +437,22 @@ Plantilla.plantillaTablaMotociclistas.cabecera = `<table width="100%" class="lis
     `;
 
 // Elemento TR que muestra los datos de una persona
-Plantilla.plantillaTablaMotociclistas.cuerpo = `
-    <tr title="${Plantilla.plantillaTags.NOMBRE}">
-        <td>${Plantilla.plantillaTags.NOMBRE}</td>
-        <td>${Plantilla.plantillaTags.NOMBRE_EQUIPO}</td>
-        <td>${Plantilla.plantillaTags.TIPO_MOTO}</td>
-        <td>${Plantilla.plantillaTags["FECHA_NACIMIENTO"]}</td>
-        <td>${Plantilla.plantillaTags["ANIOS_EXPERIENCIA"]}</td>
-        <td>${Plantilla.plantillaTags["PUNTUACIONES_CARRERA"]}</td>
-        <td>${Plantilla.plantillaTags["MARCAS_MOTOCICLETAS"]}</td>
-        <td>${Plantilla.plantillaTags.POSICION_CAMPEONATO}</td>
+Motociclismo.plantillaTablaMotociclistas.cuerpo = `
+    <tr title="${Motociclismo.plantillaTags.NOMBRE}">
+        <td>${Motociclismo.plantillaTags.NOMBRE}</td>
+        <td>${Motociclismo.plantillaTags.NOMBRE_EQUIPO}</td>
+        <td>${Motociclismo.plantillaTags.TIPO_MOTO}</td>
+        <td>${Motociclismo.plantillaTags["FECHA_NACIMIENTO"]}</td>
+        <td>${Motociclismo.plantillaTags["ANIOS_EXPERIENCIA"]}</td>
+        <td>${Motociclismo.plantillaTags["PUNTUACIONES_CARRERA"]}</td>
+        <td>${Motociclismo.plantillaTags["MARCAS_MOTOCICLETAS"]}</td>
+        <td>${Motociclismo.plantillaTags.POSICION_CAMPEONATO}</td>
         
     </tr>
     `;
 
 // Pie de la tabla
-Plantilla.plantillaTablaMotociclistas.pie = `        </tbody>
+Motociclismo.plantillaTablaMotociclistas.pie = `        </tbody>
              </table>
              `;
 
@@ -463,16 +463,16 @@ Plantilla.plantillaTablaMotociclistas.pie = `        </tbody>
  * @param {Persona} Persona Objeto con los datos de la persona que queremos escribir en el TR
  * @returns La plantilla del cuerpo de la tabla con los datos actualizados 
  */           
-Plantilla.sustituyeTags = function (plantilla, persona) {
+Motociclismo.sustituyeTags = function (plantilla, persona) {
     return plantilla
-        .replace(new RegExp(Plantilla.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
-        .replace(new RegExp(Plantilla.plantillaTags.NOMBRE_EQUIPO, 'g'), persona.data.nombre_equipo)
-        .replace(new RegExp(Plantilla.plantillaTags.TIPO_MOTO, 'g'), persona.data.tipo_moto)
-        .replace(new RegExp(Plantilla.plantillaTags["FECHA_NACIMIENTO"], 'g'),  persona.data.fecha_nacimiento.dia + "/" + persona.data.fecha_nacimiento.mes + "/" + persona.data.fecha_nacimiento.anio)
-        .replace(new RegExp(Plantilla.plantillaTags["ANIOS_EXPERIENCIA"], 'g'), persona.data.anios_experiencia.join( ", "))
-        .replace(new RegExp(Plantilla.plantillaTags["PUNTUACIONES_CARRERA"], 'g'), persona.data.puntuaciones_carrera.join( ", "))
-        .replace(new RegExp(Plantilla.plantillaTags["MARCAS_MOTOCICLETAS"], 'g'), persona.data.marcas_motocicletas.join( ", "))
-        .replace(new RegExp(Plantilla.plantillaTags.POSICION_CAMPEONATO, 'g'), persona.data.posicion_campeonato)
+        .replace(new RegExp(Motociclismo.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(Motociclismo.plantillaTags.NOMBRE_EQUIPO, 'g'), persona.data.nombre_equipo)
+        .replace(new RegExp(Motociclismo.plantillaTags.TIPO_MOTO, 'g'), persona.data.tipo_moto)
+        .replace(new RegExp(Motociclismo.plantillaTags["FECHA_NACIMIENTO"], 'g'),  persona.data.fecha_nacimiento.dia + "/" + persona.data.fecha_nacimiento.mes + "/" + persona.data.fecha_nacimiento.anio)
+        .replace(new RegExp(Motociclismo.plantillaTags["ANIOS_EXPERIENCIA"], 'g'), persona.data.anios_experiencia.join( ", "))
+        .replace(new RegExp(Motociclismo.plantillaTags["PUNTUACIONES_CARRERA"], 'g'), persona.data.puntuaciones_carrera.join( ", "))
+        .replace(new RegExp(Motociclismo.plantillaTags["MARCAS_MOTOCICLETAS"], 'g'), persona.data.marcas_motocicletas.join( ", "))
+        .replace(new RegExp(Motociclismo.plantillaTags.POSICION_CAMPEONATO, 'g'), persona.data.posicion_campeonato)
         
 }
 
@@ -481,20 +481,20 @@ Plantilla.sustituyeTags = function (plantilla, persona) {
  * @param {Persona} Persona Objeto con los datos de la persona que queremos escribir en el TR
  * @returns La plantilla del cuerpo de la tabla con los datos actualizados 
  */
-Plantilla.plantillaTablaMotociclistas.actualiza = function (persona) {
-    return Plantilla.sustituyeTags(this.cuerpo, persona)
+Motociclismo.plantillaTablaMotociclistas.actualiza = function (persona) {
+    return Motociclismo.sustituyeTags(this.cuerpo, persona)
 }
 
-Plantilla.recuperapersonaBuscar = async function (nombreBuscar,callBackFn) {
+Motociclismo.recuperapersonaBuscar = async function (nombreBuscar,callBackFn) {
 
     // Intento conectar con el microservicio proyectos
     try {
         const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
         const response = await fetch(url);
-        let vectorPlantilla = null
+        let vectorMotociclismo = null
         if (response) {
-            vectorPlantilla = await response.json()
-            const filtro = vectorPlantilla.data.filter(persona => persona.data.nombre === nombreBuscar)
+            vectorMotociclismo = await response.json()
+            const filtro = vectorMotociclismo.data.filter(persona => persona.data.nombre === nombreBuscar)
             callBackFn(filtro)
         }
 
@@ -511,13 +511,13 @@ Plantilla.recuperapersonaBuscar = async function (nombreBuscar,callBackFn) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.imprimeTodosMotociclistas = function (vector) {
+Motociclismoa.imprimeTodosMotociclistas = function (vector) {
     // console.log(vector) // Para comprobar lo que hay en vector
 
     // Compongo el contenido que se va a mostrar dentro de la tabla
-    let msj = Plantilla.plantillaTablaMotociclistas.cabecera
-    vector.forEach(e => msj += Plantilla.plantillaTablaMotociclistas.actualiza(e))
-    msj += Plantilla.plantillaTablaMotociclistas.pie
+    let msj = Motociclismo.plantillaTablaMotociclistas.cabecera
+    vector.forEach(e => msj += Motociclismo.plantillaTablaMotociclistas.actualiza(e))
+    msj += Motociclismo.plantillaTablaMotociclistas.pie
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("Listado de motocilistas", msj)
@@ -528,7 +528,7 @@ Plantilla.imprimeTodosMotociclistas = function (vector) {
  * Función principal para recuperar los nombres por orden alfabético de los motociclistas desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.personaBuscar = function (nombreBuscar){
+Motociclismo.personaBuscar = function (nombreBuscar){
     this.recuperapersonaBuscar(nombreBuscar, this.imprimeTodosMotociclistas);
 }
 
@@ -539,16 +539,16 @@ Plantilla.personaBuscar = function (nombreBuscar){
  * Función que recuperar todos los datos llamando al MS Plantilla
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaCumpleVariosCriterios = async function (criterio1,criterio2,criterio3,callBackFn) {
+Motociclismo.recuperaCumpleVariosCriterios = async function (criterio1,criterio2,criterio3,callBackFn) {
 
     // Intento conectar con el microservicio proyectos
     try {
         const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
         const response = await fetch(url);
-        let vectorPlantilla = null
+        let vectorMotociclismo = null
         if (response) {
-            vectorPlantilla = await response.json()
-            const filtro = vectorPlantilla.data.filter(persona => persona.data.tipo_moto === criterio1 && persona.data.nombre_equipo === criterio2 && persona.data.posicion_campeonato === criterio3)
+            vectorMotociclismo = await response.json()
+            const filtro = vectorMotociclismo.data.filter(persona => persona.data.tipo_moto === criterio1 && persona.data.nombre_equipo === criterio2 && persona.data.posicion_campeonato === criterio3)
             
             callBackFn(filtro)
         }
@@ -567,7 +567,7 @@ Plantilla.recuperaCumpleVariosCriterios = async function (criterio1,criterio2,cr
  * @param {string} criterio3 - Tercer criterio de búsqueda.
  * @returns {boolean} - Retorna verdadero.
  */
-Plantilla.BuscarCumpleVariosCriterios = function (criterio1, criterio2, criterio3){
+Motociclismo.BuscarCumpleVariosCriterios = function (criterio1, criterio2, criterio3){
     this.recuperaCumpleVariosCriterios(criterio1, criterio2, criterio3, this.imprimeTodosMotociclistas);
 
 }
@@ -579,16 +579,16 @@ Plantilla.BuscarCumpleVariosCriterios = function (criterio1, criterio2, criterio
  * Función que recuperar todos los datos llamando al MS Plantilla
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaVariosCriterios = async function (criterio1p,criterio2p,criterio3p,callBackFn) {
+Motociclismo.recuperaVariosCriterios = async function (criterio1p,criterio2p,criterio3p,callBackFn) {
 
     // Intento conectar con el microservicio proyectos
     try {
         const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
         const response = await fetch(url);
-        let vectorPlantilla = null
+        let vectorMotociclismo = null
         if (response) {
-            vectorPlantilla = await response.json()
-            const filtro = vectorPlantilla.data.filter(persona => persona.data.tipo_moto === criterio1p || persona.data.nombre_equipo === criterio2p || persona.data.posicion_campeonato === criterio3p)
+            vectorMotociclismo = await response.json()
+            const filtro = vectorMotociclismo.data.filter(persona => persona.data.tipo_moto === criterio1p || persona.data.nombre_equipo === criterio2p || persona.data.posicion_campeonato === criterio3p)
             
             callBackFn(filtro)
         }
@@ -607,7 +607,7 @@ Plantilla.recuperaVariosCriterios = async function (criterio1p,criterio2p,criter
  * @param {string} criterio3p - Tercer criterio de búsqueda.
  * @returns {boolean} - Retorna verdadero.
  */
-Plantilla.BuscarVariosCriterios = function (criterio1p, criterio2p, criterio3p){
+Motociclismo.BuscarVariosCriterios = function (criterio1p, criterio2p, criterio3p){
     this.recuperaVariosCriterios(criterio1p, criterio2p, criterio3p, this.imprimeTodosMotociclistas);
 
 }
