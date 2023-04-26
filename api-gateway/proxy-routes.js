@@ -16,6 +16,16 @@ const ROUTES = [
                 [`^/plantilla`]: '',
             },
         }
+    },
+    {
+        url: '/equitacion',
+        proxy: {
+            target: "http://localhost:8003",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/equitacion`]: '',
+            },
+        }
     }
 ]
 

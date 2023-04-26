@@ -288,7 +288,7 @@
  
      // Intento conectar con el microservicio Equitacion
      try {
-         const url = Frontend.API_GATEWAY + "/Equitacion/getNombres"
+         const url = Frontend.API_GATEWAY + "/equitacion/getNombres"
          response = await fetch(url)
  
      } catch (error) {
@@ -314,7 +314,7 @@
  
      // Intento conectar con el microservicio Equitacion
      try {
-         const url = Frontend.API_GATEWAY + "/Equitacion/getAlfabeticamente"
+         const url = Frontend.API_GATEWAY + "/equitacion/getAlfabeticamente"
          response = await fetch(url)
  
      } catch (error) {
@@ -340,7 +340,7 @@
  
      // Intento conectar con el microservicio Equitacion
      try {
-         const url = Frontend.API_GATEWAY + "/Equitacion/getTodosInfo"
+         const url = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
          response = await fetch(url)
  
      } catch (error) {
@@ -363,7 +363,7 @@
  */
  Equitacion.recuperaUnDeportista = async function (idDeportista, callBackFn) {
      try {
-         const url = Frontend.API_GATEWAY + "/Equitacion/getPorId/" + idDeportista
+         const url = Frontend.API_GATEWAY + "/equitacion/getPorId/" + idDeportista
          const response = await fetch(url);
          if (response) {
              const deportista = await response.json()
@@ -385,7 +385,7 @@
          var nuevoVector = [];
          document.getElementById("div_resultados").innerHTML = "<br><h1>Los resultados de la busqueda de arriba es/son los siguientes:</h1>"
          // Código copiado y adaptado de https://es.stackoverflow.com/questions/202409/hacer-una-peticion-get-con-fetch
-         let url = new URL(Frontend.API_GATEWAY + "/Equitacion/getTodosInfo")
+         let url = new URL(Frontend.API_GATEWAY + "/equitacion/getTodosInfo")
          const params = {}
          if (document.getElementById("nombre").value) params.nombre = document.getElementById("nombre").value
  
@@ -423,7 +423,7 @@
          try {
              document.getElementById( "div_resultados" ).innerHTML = "<br><h1>Los resultados de la busqueda de arriba es/son los siguientes:</h1>"
              // Código copiado y adaptado de https://es.stackoverflow.com/questions/202409/hacer-una-peticion-get-con-fetch
-             let url = new URL( Frontend.API_GATEWAY + "/Equitacion/getTodosInfo") 
+             let url = new URL( Frontend.API_GATEWAY + "/equitacion/getTodosInfo") 
              const params = {}
              if( document.getElementById("nombre").value ) params.nombre = document.getElementById("nombre").value
              if( document.getElementById("apellido").value ) params.apellido = document.getElementById("apellido").value
@@ -618,14 +618,14 @@
  * Función principal para responder al evento de elegir la opción "Home"
  */
  Equitacion.procesarHome = function () {
-     this.descargarRuta("/Equitacion/", this.mostrarHome);
+     this.descargarRuta("/equitacion/", this.mostrarHome);
  }
  
  /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
  Equitacion.procesarAcercaDe = function () {
-     this.descargarRuta("/Equitacion/acercade", this.mostrarAcercaDe);
+     this.descargarRuta("/equitacion/acercade", this.mostrarAcercaDe);
  }
  
  /**
@@ -768,8 +768,8 @@
  ///////////////////////TEST////////////////////////
  Equitacion.guardar = async function () {
      try {
-         //let url = Frontend.API_GATEWAY + "/Equitacion/setNombre/"
-         let url = Frontend.API_GATEWAY + "/Equitacion/setCuatroCampos/"
+         //let url = Frontend.API_GATEWAY + "/equitacion/setNombre/"
+         let url = Frontend.API_GATEWAY + "/equitacion/setCuatroCampos/"
          let id_deportista = document.getElementById("form-deportista-id").value
          const response = await fetch(url, {
              method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -795,5 +795,3 @@
          //console.error(error)
      }
  }
- 
- 
