@@ -115,3 +115,101 @@ table.listado_jugadores {
     display: block;
   }
   
+/*///////////////////////////*/
+/*ESTILOS CSS PARA EQUITACIÓN*/
+/*///////////////////////////*/
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+table.listado-Equitacion {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 100, 0.8);
+}
+
+table.listado-Equitacion thead th,
+table.listado-Equitacion tbody th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+
+}
+
+table.listado-Equitacion tbody th {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+table.listado-Equitacion tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.listado-Equitacion tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(0, 0, 100, 0.1)
+}
+ 
+
+table.listado-deportistas {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 100, 0.8);
+}
+
+table.listado-deportistas thead th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+
+}
+
+table.listado-deportistas tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.listado-deportistas tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(0, 0, 100, 0.1)
+}
+
+.listado-Equitacion {
+    max-width: 100%;
+    overflow-x: auto;
+}
+  
+.form-deportista-elemento {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+
+.form-deportista-elemento:disabled {
+    color: black;
+    background-color: inherit;
+    border-width: 0px;
+    text-align: center;
+}
+
+.form-deportista-elemento:enabled {
+    color:rgba(0, 0, 100, 0.8);
+}
+
+.form-deportista-elemento:enabled:required {
+    color:rgba(100, 0, 0, 0.8);
+}
+
+table.listado-deportistas thead,
+table.listado-deportistas tbody,
+table.listado-deportistas tr,
+table.listado-deportistas td {
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+table.listado-deportistas {
+    width: 100%;
+}
