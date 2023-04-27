@@ -8,7 +8,7 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let Motociclismo = {};
 
 // Plantilla de datosDescargados vacíos
 Motociclismo.datosDescargadosNulos = {
