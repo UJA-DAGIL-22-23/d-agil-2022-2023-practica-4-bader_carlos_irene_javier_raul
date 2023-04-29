@@ -147,7 +147,7 @@ Gimnasia.recupera = async function (callBackFn) { //no TDD -> funcion async
         response = await fetch(url)
 
     } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway")
+        alert("ErrorRecupera: No se han podido acceder al API Gateway")
         console.error(error)
         //throw error
     }
@@ -391,7 +391,7 @@ Gimnasia.GimnasiaTablaPersonas.cabecera = `<table width="100%" class="listado-pr
                     <tbody>
     `;
 
-    Gimnasia.recuperaUnaPersona = async function (idPersona, callBackFn) { //no se hace TDD porque es asyncPo
+Gimnasia.recuperaUnaPersona = async function (idPersona, callBackFn) { //no se hace TDD porque es asyncPo
     try {
         const url = Frontend.API_GATEWAY + "/gimnasia/getPorId/" + idPersona
         console.log("url: ",url);
@@ -618,7 +618,7 @@ Gimnasia.recuperaBuscar = async function (callBackFn,nombre) {     //no se hace 
         response = await fetch(url)
 
     } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway")
+        alert("ErrorRecuperaBuscar: No se han podido acceder al API Gateway")
         console.error(error)
         //throw error
     }
@@ -641,7 +641,7 @@ Gimnasia.recuperaBuscar2 = async function (callBackFn,nombre) {    //no se hace 
         response = await fetch(url)
 
     } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway")
+        alert("ErrorRecuperaBuscar2: No se han podido acceder al API Gateway")
         console.error(error)
         //throw error
     }
@@ -703,7 +703,7 @@ Gimnasia.recuperahistoria10 = async function(callBackFn, nombre, edad, pais, gru
         const url = Frontend.API_GATEWAY + "/gimnasia/getTodas";
         response = await fetch(url);
     } catch (error) {
-        alert("Error: No se pudo acceder al API Gateway. Intente de nuevo más tarde.");
+        alert("ErrorRecuperaHistoria10: No se pudo acceder al API Gateway. Intente de nuevo más tarde.");
         console.error(error);
     }
     
