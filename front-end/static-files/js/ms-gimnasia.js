@@ -430,8 +430,8 @@ Gimnasia.GimnasiaTablaPersonas.pie = `        </tbody>
              `;
 
 
-Gimnasia.sustituyeTags = function (Gimnasia, persona) {   //hecho el TDD
-    return Gimnasia
+Gimnasia.sustituyeTags = function (gimnasia, persona) {   //hecho el TDD
+    return gimnasia
     .replace(new RegExp(Gimnasia.GimnasiaTags.ID, 'g'), persona.ref['@ref'].id)
     .replace(new RegExp(Gimnasia.GimnasiaTags.NOMBRE, 'g'), persona.data.nombre)
     .replace(new RegExp(Gimnasia.GimnasiaTags.PAIS, 'g'), persona.data.pais)
