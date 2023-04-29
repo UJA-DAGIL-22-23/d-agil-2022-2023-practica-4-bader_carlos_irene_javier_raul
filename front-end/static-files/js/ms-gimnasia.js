@@ -97,7 +97,7 @@ Gimnasia.mostrarAcercaDe = function (datosDescargados) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Gimnasia.procesarHome = function () {
-    this.descargarRuta("/Gimnasia/", this.mostrarHome);
+    this.descargarRuta("/gimnasia/", this.mostrarHome);
 }
 
 Gimnasia.listar = function () { //no TDD -> funcion async
@@ -143,7 +143,7 @@ Gimnasia.recupera = async function (callBackFn) { //no TDD -> funcion async
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/Gimnasia/getTodas"
+        const url = Frontend.API_GATEWAY + "/gimnasia/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -165,7 +165,7 @@ Gimnasia.recuperaAlf = async function (callBackFn) { //no TDD -> funcion async
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/Gimnasia/getTodas"
+        const url = Frontend.API_GATEWAY + "/gimnasia/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -244,7 +244,7 @@ Gimnasia.cuerpoTrr = function (p) { //hecho el TDD
 }
 
 Gimnasia.procesarAcercaDe = function () {
-    this.descargarRuta("/Gimnasia/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/gimnasia/acercade", this.mostrarAcercaDe);
 }
 
 
@@ -393,7 +393,7 @@ Gimnasia.GimnasiaTablaPersonas.cabecera = `<table width="100%" class="listado-pr
 
     Gimnasia.recuperaUnaPersona = async function (idPersona, callBackFn) { //no se hace TDD porque es asyncPo
     try {
-        const url = Frontend.API_GATEWAY + "/Gimnasia/getPorId/" + idPersona
+        const url = Frontend.API_GATEWAY + "/gimnasia/getPorId/" + idPersona
         console.log("url: ",url);
         const response = await fetch(url);
             if (response) {
@@ -614,7 +614,7 @@ Gimnasia.recuperaBuscar = async function (callBackFn,nombre) {     //no se hace 
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/Gimnasia/getTodas"
+        const url = Frontend.API_GATEWAY + "/gimnasia/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -637,7 +637,7 @@ Gimnasia.recuperaBuscar2 = async function (callBackFn,nombre) {    //no se hace 
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/Gimnasia/getTodas"
+        const url = Frontend.API_GATEWAY + "/gimnasia/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -658,7 +658,7 @@ Gimnasia.recuperaBuscar2 = async function (callBackFn,nombre) {    //no se hace 
 
 Gimnasia.guardar = async function () {     //no se hace TDD, es async
     try {
-        let url = Frontend.API_GATEWAY + "/Gimnasia/setTodo/"
+        let url = Frontend.API_GATEWAY + "/gimnasia/setTodo/"
         let id_persona = document.getElementById("form-persona-id").value
         const response = await fetch(url, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -700,7 +700,7 @@ Gimnasia.historia10 = function(term1, term2, term3, term4) {
 Gimnasia.recuperahistoria10 = async function(callBackFn, nombre, edad, pais, grupo) {
     let response = null;
     try {
-        const url = Frontend.API_GATEWAY + "/Gimnasia/getTodas";
+        const url = Frontend.API_GATEWAY + "/gimnasia/getTodas";
         response = await fetch(url);
     } catch (error) {
         alert("Error: No se pudo acceder al API Gateway. Intente de nuevo más tarde.");
