@@ -193,15 +193,15 @@
 <!--  Barra de navegación de Motociclismo-->
 <nav>
     <h1>Aplicación Motociclismo</h1>
-    <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
-        title="Llama a la ruta / del MS Plantilla">Home</a>
-    <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
-        title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-    <a href="javascript:Plantilla.listar()" class="opcion-principal mostrar"
+    <a href="javascript:Motociclismo.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Motociclismo">Home</a>
+    <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Motociclismo">Acerca de</a>
+    <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
         title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
-    <a href="javascript:Plantilla.listarNombres()" class="opcion-principal mostrar"
+    <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
         title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
-    <a href="javascript:Plantilla.listarNombresAZ()" class="opcion-principal mostrar"
+    <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
         title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>
         <br>
      
@@ -217,7 +217,7 @@
         </form>
         <script>function Buscar(){
             var searchTerm = document.getElementById("search").value;
-            Plantilla.personaBuscar(searchTerm);
+            Motociclismo.personaBuscar(searchTerm);
         }
         </script>
 
@@ -276,7 +276,7 @@
 var criterio1term = document.getElementById('criterio1').value;
 var criterio2term = document.getElementById('criterio2').value;
 var criterio3term = document.getElementById('criterio3').value;
-Plantilla.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3term);
+Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3term);
 }
 </script>
 </nav>
@@ -339,7 +339,7 @@ Plantilla.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3term)
     var criterio1term = document.getElementById('criterio1p').value;
     var criterio2term = document.getElementById('criterio2p').value;
     var criterio3term = document.getElementById('criterio3p').value;
-    Plantilla.BuscarVariosCriterios(criterio1term,criterio2term,criterio3term);
+    Motociclismo.BuscarVariosCriterios(criterio1term,criterio2term,criterio3term);
 }
 </script>
 </nav>
