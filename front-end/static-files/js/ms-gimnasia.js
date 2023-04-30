@@ -479,9 +479,9 @@ Gimnasia.personaComoFormulario12 = function (persona) {        //hecho el TDD
 
 
 Gimnasia.imprimeMuchasPersonas = function (vector) { //sin hacer el TDD
-    let msj = Gimnasia.GimnasiaTablaPersonas.cabecera
+    let msj = Gimnasia.plantillaTablaPersonas.cabecera
     vector.forEach(e => msj += Gimnasia.plantillaTablaPersonas.actualiza(e))
-    msj += Gimnasia.GimnasiaTablaPersonas.pie
+    msj += Gimnasia.plantillaTablaPersonas.pie
 
     
     Frontend.Article.actualizarBoton("Listado de proyectos", msj)
