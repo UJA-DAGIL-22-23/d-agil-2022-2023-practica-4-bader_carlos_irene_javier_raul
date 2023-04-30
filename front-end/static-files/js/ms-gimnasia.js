@@ -264,7 +264,7 @@ Gimnasia.form = { //hecho el TDD
 Gimnasia.personaMostrada = null
 
 
-Gimnasia.GimnasiaTags = { //hecho el TDD
+Gimnasia.plantillaTags = { //hecho el TDD
     "ID": "### ID ###",
     "NOMBRE": "### NOMBRE ###",
     "PAIS": "### PAIS ###",
@@ -274,10 +274,10 @@ Gimnasia.GimnasiaTags = { //hecho el TDD
     "AniosJJOO": "### AniosJJOO ###",
 }
 
-Gimnasia.GimnasiaFormularioPersona = {}
+Gimnasia.plantillaFormularioPersona = {}
 
 //hecho el TDD
-Gimnasia.GimnasiaFormularioPersona.formulario = ` 
+Gimnasia.plantillaFormularioPersona.formulario = ` 
 <form method='post' action=''>
     <table class="listado-proyectos">
         <thead>
@@ -293,30 +293,30 @@ Gimnasia.GimnasiaFormularioPersona.formulario = `
             <th>AniosJJOO</th>
         </thead>
         <tbody>
-            <tr title="${Gimnasia.GimnasiaTags.ID}">
+            <tr title="${Gimnasia.plantillaTags.ID}">
                 <td><input type="text" class="form-persona-elemento" disabled id="form-persona-id"
-                        value="${Gimnasia.GimnasiaTags.ID}" 
+                        value="${Gimnasia.plantillaTags.ID}" 
                         name="id_persona"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-nombre" required value="${Gimnasia.GimnasiaTags.NOMBRE}" 
+                        id="form-persona-nombre" required value="${Gimnasia.plantillaTags.NOMBRE}" 
                         name="nombre_persona"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-pais" required value="${Gimnasia.GimnasiaTags.PAIS}" 
+                        id="form-persona-pais" required value="${Gimnasia.plantillaTags.PAIS}" 
                         name="pais_persona"/></td>
                 <td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-edad" required value="${Gimnasia.GimnasiaTags.EDAD}" 
+                        id="form-persona-edad" required value="${Gimnasia.plantillaTags.EDAD}" 
                         name="edad_persona"/></td>
                 <td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-modalidad" required value="${Gimnasia.GimnasiaTags.MODALIDAD}"
+                        id="form-persona-modalidad" required value="${Gimnasia.plantillaTags.MODALIDAD}"
                         name="modalidad_persona"/></td>
                 <td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-grupo" required value="${Gimnasia.GimnasiaTags.GRUPO}" 
+                        id="form-persona-grupo" required value="${Gimnasia.plantillaTags.GRUPO}" 
                         name="grupo_persona"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-aniosjjoo" required value="${Gimnasia.GimnasiaTags.AniosJJOO}" 
+                        id="form-persona-aniosjjoo" required value="${Gimnasia.plantillaTags.AniosJJOO}" 
                         name="aniosjjoo_persona"/></td>
             </tr>
         </tbody>
@@ -325,7 +325,7 @@ Gimnasia.GimnasiaFormularioPersona.formulario = `
 `; //hecho el TDD
 
 //HECHO el TDD
-Gimnasia.GimnasiaFormularioPersona.formulario1 = `
+Gimnasia.plantillaFormularioPersona.formulario1 = `
 <form method='post' action=''>
     <table width="100%" class="listado-proyectos">
         <thead>
@@ -339,23 +339,23 @@ Gimnasia.GimnasiaFormularioPersona.formulario1 = `
             <th width="40%">Acciones</th>
         </thead>
         <tbody>
-            <tr title="${Gimnasia.GimnasiaTags.ID}">
+            <tr title="${Gimnasia.plantillaTags.ID}">
                 <td><input type="text" class="form-persona-elemento" disabled id="form-persona-id"
-                        value="${Gimnasia.GimnasiaTags.ID}"
+                        value="${Gimnasia.plantillaTags.ID}"
                         name="id_persona"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-nombre" required value="${Gimnasia.GimnasiaTags.NOMBRE}"
+                        id="form-persona-nombre" required value="${Gimnasia.plantillaTags.NOMBRE}"
                         name="nombre_persona"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-pais" required value="${Gimnasia.GimnasiaTags.PAIS}"
+                        id="form-persona-pais" required value="${Gimnasia.plantillaTags.PAIS}"
                         name="pais_persona"/></td>
                 <td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-edad" required value="${Gimnasia.GimnasiaTags.EDAD}"
+                        id="form-persona-edad" required value="${Gimnasia.plantillaTags.EDAD}"
                         name="edad_persona"/></td>
                 <td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-persona-grupo" required value="${Gimnasia.GimnasiaTags.GRUPO}"
+                        id="form-persona-grupo" required value="${Gimnasia.plantillaTags.GRUPO}"
                         name="grupo_persona"/></td>
                 <td>
                     <div><a href="javascript:Gimnasia.editar()" class="opcion-secundaria mostrar">Editar</a></div>
@@ -370,8 +370,9 @@ Gimnasia.GimnasiaFormularioPersona.formulario1 = `
 //hecho el TDD
 
 
+
 /// Gimnasia para poner los datos de varias personas dentro de una tabla
-Gimnasia.GimnasiaTablaPersonas = {}
+Gimnasia.plantillaTablaPersonas = {}
 
 Gimnasia.listarParaForm= function (search){ //no se hace TDD porque es asyncPo
     this.recuperaBuscar(this.imprime,search);
@@ -379,7 +380,7 @@ Gimnasia.listarParaForm= function (search){ //no se hace TDD porque es asyncPo
 
 
 //hecho el TDD
-Gimnasia.GimnasiaTablaPersonas.cabecera = `<table width="100%" class="listado-proyectos">
+Gimnasia.plantillaTablaPersonas.cabecera = `<table width="100%" class="listado-proyectos">
                     <thead>
                         <th width="20%">Id</th>
                         <th width="20%">Nombre</th>
@@ -411,47 +412,47 @@ Gimnasia.mostrar = function (idPersona) { //no se hace TDD porque es asyncPo
 }
 
 //TDD SIN HACER
-Gimnasia.GimnasiaTablaPersonas.cuerpo = `
-    <tr title="${Gimnasia.GimnasiaTags.ID}">
-        <td>${Gimnasia.GimnasiaTags.ID}</td>
-        <td>${Gimnasia.GimnasiaTags.NOMBRE}</td>
-        <td>${Gimnasia.GimnasiaTags.PAIS}</td>
-        <td>${Gimnasia.GimnasiaTags.EDAD}</td>
-        <td>${Gimnasia.GimnasiaTags.GRUPO}</td>
+Gimnasia.plantillaTablaPersonas.cuerpo = `
+    <tr title="${Gimnasia.plantillaTags.ID}">
+        <td>${Gimnasia.plantillaTags.ID}</td>
+        <td>${Gimnasia.plantillaTags.NOMBRE}</td>
+        <td>${Gimnasia.plantillaTags.PAIS}</td>
+        <td>${Gimnasia.plantillaTags.EDAD}</td>
+        <td>${Gimnasia.plantillaTags.GRUPO}</td>
         <td>
-                    <div><a href="javascript:Gimnasia.mostrar('${Gimnasia.GimnasiaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
+                    <div><a href="javascript:Gimnasia.mostrar('${Gimnasia.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
         </td>
     </tr>
     `;
 
 //hecho el TDD
-Gimnasia.GimnasiaTablaPersonas.pie = `        </tbody>
+Gimnasia.plantillaTablaPersonas.pie = `        </tbody>
              </table>
              `;
 
 
-Gimnasia.sustituyeTags = function (Gimnasia, persona) {   //hecho el TDD
-    return Gimnasia
-    .replace(new RegExp(Gimnasia.GimnasiaTags.ID, 'g'), persona.ref['@ref'].id)
-    .replace(new RegExp(Gimnasia.GimnasiaTags.NOMBRE, 'g'), persona.data.nombre)
-    .replace(new RegExp(Gimnasia.GimnasiaTags.PAIS, 'g'), persona.data.pais)
-    .replace(new RegExp(Gimnasia.GimnasiaTags.EDAD, 'g'), persona.data.edad)
-    .replace(new RegExp(Gimnasia.GimnasiaTags.MODALIDAD, 'g'), persona.data.modalidad)
-    .replace(new RegExp(Gimnasia.GimnasiaTags.GRUPO, 'g'), persona.data.grupo)
-    .replace(new RegExp(Gimnasia.GimnasiaTags.AniosJJOO, 'g'), persona.data.aniosJJOO)
+Gimnasia.sustituyeTags = function (gimnasia, persona) {   //hecho el TDD
+    return gimnasia
+    .replace(new RegExp(Gimnasia.plantillaTags.ID, 'g'), persona.ref['@ref'].id)
+    .replace(new RegExp(Gimnasia.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
+    .replace(new RegExp(Gimnasia.plantillaTags.PAIS, 'g'), persona.data.pais)
+    .replace(new RegExp(Gimnasia.plantillaTags.EDAD, 'g'), persona.data.edad)
+    .replace(new RegExp(Gimnasia.plantillaTags.MODALIDAD, 'g'), persona.data.modalidad)
+    .replace(new RegExp(Gimnasia.plantillaTags.GRUPO, 'g'), persona.data.grupo)
+    .replace(new RegExp(Gimnasia.plantillaTags.AniosJJOO, 'g'), persona.data.aniosJJOO)
 }
 
 
-Gimnasia.GimnasiaTablaPersonas.actualiza = function (persona) {  //hecho el TDD
+Gimnasia.plantillaTablaPersonas.actualiza = function (persona) {  //hecho el TDD
     return Gimnasia.sustituyeTags(this.cuerpo, persona)
 }
 
 
-Gimnasia.GimnasiaFormularioPersona.actualiza = function (persona) { //hecho el TDD
+Gimnasia.plantillaFormularioPersona.actualiza = function (persona) { //hecho el TDD
     return Gimnasia.sustituyeTags(this.formulario, persona)
 }
 
-Gimnasia.GimnasiaFormularioPersona.actualiza12 = function (persona) { //hecho el TDD
+Gimnasia.plantillaFormularioPersona.actualiza12 = function (persona) { //hecho el TDD
     return Gimnasia.sustituyeTags(this.formulario1, persona)
 }
 
@@ -461,25 +462,25 @@ Gimnasia.mostrarP = function (idPersona) { // hecho el TDD, pero no se deberia d
 
 
 Gimnasia.personaComoTabla = function (persona) { // SIN HACER EL TDD
-    return Gimnasia.GimnasiaTablaPersonas.cabecera
-        + Gimnasia.GimnasiaTablaPersonas.actualiza(persona)
-        + Gimnasia.GimnasiaTablaPersonas.pie;
+    return Gimnasia.plantillaTablaPersonas.cabecera
+        + Gimnasia.plantillaTablaPersonas.actualiza(persona)
+        + Gimnasia.plantillaTablaPersonas.pie;
 }
 
 
 Gimnasia.personaComoFormulario = function (persona) {          //hecho el TDD
-    return Gimnasia.GimnasiaFormularioPersona.actualiza( persona );
+    return Gimnasia.plantillaFormularioPersona.actualiza( persona );
 }
 
 Gimnasia.personaComoFormulario12 = function (persona) {        //hecho el TDD
-    return Gimnasia.GimnasiaFormularioPersona.actualiza12( persona );
+    return Gimnasia.plantillaFormularioPersona.actualiza12( persona );
 }
 
 
 
 Gimnasia.imprimeMuchasPersonas = function (vector) { //sin hacer el TDD
     let msj = Gimnasia.GimnasiaTablaPersonas.cabecera
-    vector.forEach(e => msj += Gimnasia.GimnasiaTablaPersonas.actualiza(e))
+    vector.forEach(e => msj += Gimnasia.plantillaTablaPersonas.actualiza(e))
     msj += Gimnasia.GimnasiaTablaPersonas.pie
 
     
