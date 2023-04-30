@@ -54,14 +54,14 @@
      `
  <form method='post' action=''>
      <table class="listado-Equitacion">
-         <thead>
-             <th>Id</th><th>Nombre</th><th>Apellido</th><th>Fecha de nacimiento</th>
-             <th>Nacionalidad</th><th>Edad</th><th>Disciplina/s</th><th>Caballos</th>
-             <th>Años de participación en los JJOO</th><th>Editar Nombre</th><th>Editar</th><th>Guardar</th><th>Cancelar</th>
-         </thead>
-         <tbody>
-             <tr title ="${Equitacion.equitacionTags.ID}">
-                 <td><input type="text" class="form-deportista-elemento" disabled id="form-deportista-id"
+        <thead>
+            <th>Id</th><th>Nombre</th><th>Apellido</th><th>Fecha de nacimiento</th>
+            <th>Nacionalidad</th><th>Edad</th><th>Disciplina/s</th><th>Caballos</th>
+            <th>Años de participación en los JJOO</th><th>Editar Nombre</th><th>Editar</th><th>Guardar</th><th>Cancelar</th>
+        </thead>
+        <tbody>
+            <tr title ="${Equitacion.equitacionTags.ID}">
+                <td><input type="text" class="form-deportista-elemento" disabled id="form-deportista-id"
                          value="${Equitacion.equitacionTags.ID}" name="id_deportista"/>
                  </td>
                  <td><input type="text" class="form-deportista-elemento editable" disabled id="form-deportista-nombre"
@@ -169,18 +169,18 @@
   * @param {proyecto} p Datos del proyecto a mostrar
   * @returns Cadena conteniendo todo el elemento TR que muestra el proyecto.
   */
- Equitacion.cuerpoTrResultadosFormulario = function (p) {
-     const d = p.data;
-     return `<tr><td>${p.ref["@ref"].id}</td>
-     <td>${d.nombre}</td>
-     <td>${d.apellido}</td>
-     <td>${d.fechaNacimiento.dia}/${d.fechaNacimiento.mes}/${d.fechaNacimiento.anio}</td>
-     <td>${d.nacionalidad}</td>
-     <td>${d.edad}</td>
-     <td>${d.disciplinas.join(", ")}</td>
-     <td>${d.caballos}</td>
-     <td>${d.aniosParticipacionJJOO}</td>
-     </tr>`;
+Equitacion.cuerpoTrResultadosFormulario = function (p) {
+    const d = p.data;
+    return `<tr><td>${p.ref["@ref"].id}</td>
+    <td>${d.nombre}</td>
+    <td>${d.apellido}</td>
+    <td>${d.fechaNacimiento.dia}/${d.fechaNacimiento.mes}/${d.fechaNacimiento.anio}</td>
+    <td>${d.nacionalidad}</td>
+    <td>${d.edad}</td>
+    <td>${d.disciplinas.join(", ")}</td>
+    <td>${d.caballos}</td>
+    <td>${d.aniosParticipacionJJOO}</td>
+    </tr>`;
  };
  
  /**
@@ -201,29 +201,29 @@
  }
  
  //Funciones para mostrar el formulario para preguntar al cliente.
- Equitacion.formulario = function () {
-     return `<div id="div_formulario">
-         <form method='get' id="forulario">
-         <table class="listado-Equitacion">
-         <thead>
-             <th>Nombre</th><th>Opcion</th>
-         </thead>
-         <tbody>
-         <tr>
-             <td>
-             <label for="nombre">Nombre:</label>
-             <input type="text" id="nombre" name="nombre"><br><br>
-             </td> 
-             <td>
-             <div><a href="javascript:Equitacion.buscar_nombre()" class="boton_buscar">Buscar</a></div>
-             </td>
-         </tr>
-         </tbody>
-         </table>
-     </form> 
-     </div>
-     <div id="div_resultados"></div>`
- }
+Equitacion.formulario = function () {
+    return `<div id="div_formulario">
+        <form method='get' id="forulario">
+        <table class="listado-Equitacion">
+        <thead>
+            <th>Nombre</th><th>Opcion</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br><br>
+            </td> 
+            <td>
+            <div><a href="javascript:Equitacion.buscar_nombre()" class="boton_buscar">Buscar</a></div>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+    </form> 
+    </div>
+    <div id="div_resultados"></div>`
+}
  
  ///////////////////////TEST////////////////////////
  Equitacion.formulario_dos = function (){

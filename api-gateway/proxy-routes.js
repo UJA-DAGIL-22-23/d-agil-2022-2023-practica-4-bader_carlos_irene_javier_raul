@@ -37,7 +37,7 @@ const ROUTES = [
             },
         }
     },    
-     {
+    {
         url: '/parkour',
         proxy: {
             target: "http://localhost:8006",
@@ -46,7 +46,18 @@ const ROUTES = [
                 [`^/parkour`]: '',
             },
         }
+    },
+    {
+        url: '/gimnasia',
+        proxy: {
+            target: "http://localhost:8007",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/gimnasia`]: '',
+            },
+        }
     }
+
 
 ]
 

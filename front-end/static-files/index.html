@@ -5,13 +5,13 @@
     <title>Aplicación Microservicios Plantilla</title>
 
     <!-- Cargamos biblioteca Jasmine -->
-    <!--
+    <!-- -->
     <link rel="stylesheet" href="lib/jasmine-4.5.0/jasmine.css">
     <script src="lib/jasmine-4.5.0/jasmine.js"></script>
     <script src="lib/jasmine-4.5.0/jasmine-html.js"></script>
     <script src="lib/jasmine-4.5.0/boot0.js"></script>
     <script src="lib/jasmine-4.5.0/boot1.js"></script>
-    -->
+    
     
     
     <!-- Cargamos nuestros CSS -->
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/ms-plantilla.css">
     <link rel="stylesheet" href="css/ms-equitacion.css">
     <link rel="stylesheet" href="css/ms-parkour.css">
+    <link rel="stylesheet" href="css/ms-gimnasia.css">
 
 </head>
 
@@ -92,20 +93,21 @@
 
     <!--  Barra de navegación de Gimnasia -->
     <nav>
+        <h1>Aplicación Gimnasia</h1>
         <br>
-        <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
-            title="Llama a la ruta / del MS Plantilla">Home</a>
-        <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-        <a href="javascript:Plantilla.listarPersona()" class="opcion-principal"
+        <a href="javascript:Gimnasia.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Gimnasia">Home</a>
+        <a href="javascript:Gimnasia.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Gimnasia">Acerca de</a>
+        <a href="javascript:Gimnasia.listarPersona()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Nombre completo de los Participantes</a>
-        <a href="javascript:Plantilla.listarAlfb()" class="opcion-principal"
+        <a href="javascript:Gimnasia.listarAlfb()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Participantes ordenados alfabéticamente</a>
-        <a href="javascript:Plantilla.listar()" class="opcion-principal"
+        <a href="javascript:Gimnasia.listar()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Participantes</a>
-        <a href="javascript:Plantilla.mostrarP('359558425872433356')" class="opcion-principal"
+        <a href="javascript:Gimnasia.mostrarP('359558425872433356')" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Mostrar un participante por id</a>
-        <a href="javascript:Plantilla.listar2()" class="opcion-principal"
+        <a href="javascript:Gimnasia.listar2()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Modificar el nombre de un participante</a>  
             <br/>
             <br/>
@@ -119,11 +121,9 @@
         <script>
             function buscar(){
                 var searchTerm=document.getElementById("search").value;
-                Plantilla.listarParaForm(searchTerm);
+                Gimnasia.listarParaForm(searchTerm);
             }
         </script>
-          <br/>
-          <br/>
           <h1>Formulario para obtener un jugador introduciendo varios campos</h1>
           <form>
              <input type="text" id="nomb" name="nomb" placeholder="Nombre">
@@ -138,13 +138,14 @@
                 var term2 = document.getElementById("eda").value;
                 var term3 = document.getElementById("pai").value;
                 var term4 = document.getElementById("grup").value;
-                Plantilla.historia10(term1,term2,term3,term4);
+                Gimnasia.historia10(term1,term2,term3,term4);
              }
          </script>
     </nav>
     <!--  Barra de navegación de Parkour -->
-
+    <br>
     <nav>
+        <h1>Aplicación Parkour</h1>
         <a href="javascript:Parkour.procesarHome()" class="opcion-principal"
             title="Llama a la ruta / del MS Parkour">Home</a>
         <a href="javascript:Parkour.procesarAcercaDe()" class="opcion-principal"
@@ -375,7 +376,7 @@ Plantilla.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3term)
     <!-- Cargamos ficheros spec con los tests -->
     <!--<script src="js/front-end-spec.js"></script>-->
     <!--<script src="js/ms-kung-fu-spec.js"></script>-->
-    <!--<script src="js/ms-equitacion-spec.js"></script>-->
+    <!----><script src="js/ms-equitacion-spec.js"></script>
     <!--<script src="js/ms-gimnasia-spec.js"></script>-->
     <!--<script src="js/ms-parkour-spec.js"></script>-->
     

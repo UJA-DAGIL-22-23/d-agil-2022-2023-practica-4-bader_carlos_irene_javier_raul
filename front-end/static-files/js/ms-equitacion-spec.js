@@ -11,7 +11,7 @@
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
 const TITULO_HOME = "Equitacion Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_ACERCA_DE = "Equitacion Acerca de"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -253,6 +253,7 @@ describe("Equitacion.deportistaComoFormulario", function () {
         <tbody>
             <tr title ="123">
                 <td><input type="text" class="form-deportista-elemento" disabled id="form-deportista-id"`
+
         const result = Equitacion.deportistaComoFormulario(deportista);
         expect(result).toContain(contain);
     });
@@ -375,14 +376,11 @@ describe("Equitacion.pieTable", function () {
 
 //Equitacion.formulario
 describe('Equitacion.formulario', function () {
-    it('La función debe devolver una cadena de texto', function() {
-        expect(typeof Equitacion.formulario()).toBe('string');
-    });
     it("Devuelve un string que contiene el formulario de búsqueda por nombre", function(){
         const expected =
-          `<div id="div_formulario">
+           `<div id="div_formulario">
         <form method='get' id="forulario">
-        <table class="listado-equitacion">
+        <table class="listado-Equitacion">
         <thead>
             <th>Nombre</th><th>Opcion</th>
         </thead>
