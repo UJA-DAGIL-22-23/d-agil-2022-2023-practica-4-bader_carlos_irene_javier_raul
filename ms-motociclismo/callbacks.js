@@ -156,27 +156,27 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio MS Motociclismo: acerca de",
+                mensaje: "Microservicio MS Motociclismo: ",
                 autor: "Irene Rubiales Arguelles",
                 email: "ira00026@red.ujaen.es",
                 fecha: "Mayo 2023",
 
-                mensajekungfu: "Microservicio MS Kung-Fu: acerca de",
+                mensajekungfu: "Microservicio MS Kung-Fu: ",
                 autorkungfu: "Bader Irheem",
                 emailkungfu: "bsi00001@red.ujaen.es",
                 fechakungfu: "Mayo 2023",
 
-                mensajequitacion: "Microservicio MS Equitación: acerca de",
+                mensajequitacion: "Microservicio MS Equitación:",
                 autorequitacion: "Carlos Garvin Rubiales",
                 emailequitacion: "cgr00064@red.ujaen.es",
                 fechaequitacion: "Mayo 2023",
 
-                mensajegimnasia: "Microservicio MS Gimnasia: acerca de",
+                mensajegimnasia: "Microservicio MS Gimnasia: ",
                 autorgimnasia: "Javier Martínez López",
                 emailgimnasia: "jml00059@red.ujaen.es",
                 fechagimnasia: "Mayo 2023",
 
-                mensajeparkour: "Microservicio MS Parkour: acerca de",
+                mensajeparkour: "Microservicio MS Parkour:",
                 autorparkour: "Raúl Fernandez Cortes",
                 emailparkour: "rfc00024@red.ujaen.es",
                 fechaparkour: "Mayo 2023",
