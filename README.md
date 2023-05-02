@@ -155,6 +155,10 @@ Deporte: Parkour
 ## Captura TRELLO "Historias de usuario":
 ![Captura Trello](./assets/img/x.jpg)
 
+## HU 01.Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Bader
+
+## HU 02. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Carlos
+
 ## HU 03: Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene.
 ## Captura TRELLO "HU 03":
 ![Captura Trello HU3](./assets/img/trello1.jpeg)
@@ -163,6 +167,18 @@ Deporte: Parkour
 ![Captura Trello HU3](./assets/img/trello4.jpeg)
 ![Captura Index1](./assets/img/motociclismoindex.png)
 Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente.
+
+## HU 04. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Javier
+
+## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
+
+## HU 06. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
+
+## HU 07. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
+
+## HU 08. Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app.
+
+## HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
 
 # *TDDS Y expects*
 Aquí inserto la captura de los TDD's de los deportes de : Motociclismo y equitación. Demostrando así, su correcto funcionamiento, adaptación al código e implementación:
