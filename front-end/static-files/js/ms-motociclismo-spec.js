@@ -8,18 +8,18 @@
 // SPECS para Jasmine
 
 // Constantes para usar en las pruebas
-const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
-const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
-const TITULO_IMPRIME = "Listado de motociclistas"
-const TITULO_NAZ = "Listado de NOMBRES Aa-Zz de motociclistas"
-const TITULO_MOTOCICLISTAS = "Listado de motocilistas"
-const TITULO_NOMBRE = "Listado de NOMBRES de motociclistas"
+const elementoTituloMotociclismo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
+const elementoContenidoMotociclismo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+const TITULO_HOME_MOTOCICLISMO = "Plantilla Home"
+const TITULO_ACERCA_DE_MOTOCICLISMO = "Plantilla Acerca de"
+const TITULO_IMPRIME_MOTOCICLISMO = "Listado de motociclistas"
+const TITULO_NAZ_MOTOCICLISMO = "Listado de NOMBRES Aa-Zz de motociclistas"
+const TITULO_MOTOCICLISTAS_MOTOCICLISMO = "Listado de motocilistas"
+const TITULO_NOMBRE_MOTOCICLISMO = "Listado de NOMBRES de motociclistas"
 
 
 
-const datosDescargadosPrueba = {
+const datosDescargadosPrueba_MOTOCICLISMO = {
     mensaje: "Datos descargados",
     autor: "",
     email: "",
@@ -45,35 +45,35 @@ describe("Motociclismo.mostrarHome: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Motociclismo.mostrarHome()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_HOME_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Motociclismo.mostrarHome(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_HOME_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
             Motociclismo.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_HOME_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
             Motociclismo.mostrarHome({ foo: "bar" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_HOME_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML).toBe(Motociclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Motociclismo.mostrarHome(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
+            Motociclismo.mostrarHome(datosDescargadosPrueba_MOTOCICLISMO)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_HOME_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML).toBe(datosDescargadosPrueba_MOTOCICLISMO.mensaje)
         })
 })
 
@@ -82,50 +82,50 @@ describe("Motociclismo.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Motociclismo.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Motociclismo.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
             Motociclismo.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Motociclismo.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Motociclismo.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Motociclismo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Motociclismo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
+            expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Motociclismo.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            Motociclismo.mostrarAcercaDe(datosDescargadosPrueba_MOTOCICLISMO)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
+            expect(elementoContenidoMotociclismo.innerHTML.search(datosDescargadosPrueba_MOTOCICLISMO.autor) >= 0).toBeTrue()
+            expect(elementoContenidoMotociclismo.innerHTML.search(datosDescargadosPrueba_MOTOCICLISMO.email) >= 0).toBeTrue()
+            expect(elementoContenidoMotociclismo.innerHTML.search(datosDescargadosPrueba_MOTOCICLISMO.fecha) >= 0).toBeTrue()
         })
 })
 
@@ -140,7 +140,7 @@ it("llama al API Gateway para obtener todos los datos y ejecuta la función call
     async function () {
         // Mock del resultado del fetch
         const respuestaMock = {
-            json: function () { return { data: [datosDescargadosPrueba] } }
+            json: function () { return { data: [datosDescargadosPrueba_MOTOCICLISMO] } }
         }
         spyOn(window, 'fetch').and.returnValue(Promise.resolve(respuestaMock))
 
@@ -152,7 +152,7 @@ it("llama al API Gateway para obtener todos los datos y ejecuta la función call
 
         // Verificaciones
         expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getTodos")
-        expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba])
+        expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba_MOTOCICLISMO])
         expect(window.alert).not.toHaveBeenCalled()
         expect(console.error).not.toHaveBeenCalled()
     })
@@ -183,7 +183,7 @@ describe("Motociclismo.imprime: ", function() {
         function () {
             // Objeto vacio
             Motociclismo.imprime([])
-            expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_IMPRIME)
            
     })
 })
@@ -277,7 +277,7 @@ describe("Motociclismo.recuperaNombres", function () {
         async function () {
             // Mock del resultado del fetch
             const respuestaMock = {
-                json: function () { return { data: [datosDescargadosPrueba] } }
+                json: function () { return { data: [datosDescargadosPrueba_MOTOCICLISMO] } }
             }
             spyOn(window, 'fetch').and.returnValue(Promise.resolve(respuestaMock))
     
@@ -289,7 +289,7 @@ describe("Motociclismo.recuperaNombres", function () {
     
             // Verificaciones
             expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getNombres")
-            expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba])
+            expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba_MOTOCICLISMO])
             expect(window.alert).not.toHaveBeenCalled()
             expect(console.error).not.toHaveBeenCalled()
         })
@@ -320,7 +320,7 @@ describe("Motociclismo.recuperaNombres", function () {
             function () {
                 // Objeto vacio
                 Motociclismo.imprimeNombres([])
-                expect(elementoTitulo.innerHTML).toBe(TITULO_NOMBRE)
+                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_NOMBRE)
                
         })
     })
@@ -371,7 +371,7 @@ describe("Motociclismo.recuperaNombresAZ", function () {
         async function () {
             // Mock del resultado del fetch
             const respuestaMock = {
-                json: function () { return { data: [datosDescargadosPrueba] } }
+                json: function () { return { data: [datosDescargadosPrueba_MOTOCICLISMO] } }
             }
             spyOn(window, 'fetch').and.returnValue(Promise.resolve(respuestaMock))
     
@@ -383,7 +383,7 @@ describe("Motociclismo.recuperaNombresAZ", function () {
     
             // Verificaciones
             expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getNAlfabeticamente")
-            expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba])
+            expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba_MOTOCICLISMO])
             expect(window.alert).not.toHaveBeenCalled()
             expect(console.error).not.toHaveBeenCalled()
         })
@@ -414,7 +414,7 @@ describe("Motociclismo.recuperaNombresAZ", function () {
             function () {
                 // Objeto vacio
                 Motociclismo.imprimeNAZ([])
-                expect(elementoTitulo.innerHTML).toBe(TITULO_NAZ)
+                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_NAZ)
                
         })
     })
@@ -522,7 +522,7 @@ describe('Motociclismo.sustituyeTags', function () {
             function () {
                 // Objeto vacio
                 Motociclismo.imprimeTodosMotociclistas([])
-                expect(elementoTitulo.innerHTML).toBe(TITULO_MOTOCICLISTAS)
+                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_MOTOCICLISTAS)
                 
         })})
 
