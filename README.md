@@ -13,7 +13,7 @@ Nombre: Bader
 
 Apellidos: Irheem
 
-Correo Electronico: 
+Correo Electronico: bsi00001@red.ujaen.es
 
 Deporte: Kung-Fu
 
@@ -37,7 +37,7 @@ Nombre: Carlos
 
 Apellidos: Garvin Rubiales
 
-Correo Electronico: 
+Correo Electronico: cgr00064@red.ujaen.es
 
 Deporte: Equitación
 
@@ -98,9 +98,9 @@ Deporte: Motociclismo
 
 Nombre: Javier
 
-Apellidos: Martinez
+Apellidos: Martinez López
 
-Correo Electronico: 
+Correo Electronico: jml00059@red.ujaen.es
 
 Deporte: Gimnasia
 
@@ -121,9 +121,9 @@ Deporte: Gimnasia
 
 Nombre: Raúl
 
-Apellidos:
+Apellidos: Fernandez Cortes
 
-Correo Electronico: 
+Correo Electronico: rfc00024@red.ujaen.es
 
 Deporte: Parkour
 
@@ -160,13 +160,14 @@ Deporte: Parkour
 ## HU 02. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Carlos
 
 ## HU 03: Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene.
-## Captura TRELLO "HU 03":
+## Capturas TRELLO "HU 03":
 ![Captura Trello HU3](./assets/img/trello1.jpeg)
 ![Captura Trello HU3](./assets/img/trello2.jpeg)
 ![Captura Trello HU3](./assets/img/trello3.jpeg)
 ![Captura Trello HU3](./assets/img/trello4.jpeg)
 
-Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+* Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+
 ![Captura Index1](./assets/img/motociclismoindex.png)
 
 
@@ -175,14 +176,16 @@ Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo d
 ## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
 
 ## HU 06. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
+## Capturas TRELLO "HU 06":
 ![Captura Trello HU6](./assets/img/trello5.jpeg)
 ![Captura Trello HU6](./assets/img/trello6.jpeg)
 ![Captura Trello HU6](./assets/img/trello7.jpeg)
 ![Captura Trello HU6](./assets/img/trello8.jpeg)
-Esta es la captura para demostrar el correcto funcionamiento de la historia de usuario 6, al hacer click en el botón de "Acerca De", muestra los datos de todos los miembros del grupo, además del microservicio y deporte que han llevado a cabo:
+
+* Esta es la captura para demostrar el correcto funcionamiento de la historia de usuario 6, al hacer click en el botón de "Acerca De", muestra los datos de todos los miembros del grupo, además del microservicio y deporte que han llevado a cabo:
 ![Captura Index2](./assets/img/capHU6.jpeg)
 
-En la siguiente captura, se muestra la nueva barra de navegación que hemos creado para que aparezcan los botones comunes a todas las aplicaciones integradas en el proyecto: "Home" y "Acerca De":
+* En la siguiente captura, se muestra la nueva barra de navegación que hemos creado para que aparezcan los botones comunes a todas las aplicaciones integradas en el proyecto: "Home" y "Acerca De":
 ![Captura Index3](./assets/img/capbarranavegacion.png)
 
 ## HU 07. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
