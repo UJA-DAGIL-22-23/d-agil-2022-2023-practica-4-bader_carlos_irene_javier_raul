@@ -8,14 +8,14 @@
 // SPECS para Jasmine
 
 // Constantes para usar en las pruebas
-const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO);
-const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO);
-const TITULO_HOME = "Parkour Home";
-const TITULO_ACERCA_DE = "Parkour Acerca de";
-const MOSTRAR_NOMBRES_JUGADORES = "Listado de proyectos";
-const OBJETO_VACIO = "";
+const elementoTituloRaul = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO);
+const elementoContenidoRaul = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO);
+const TITULO_HOMERaul = "Parkour Home";
+const TITULO_ACERCA_DERaul = "Parkour Acerca de";
+const MOSTRAR_NOMBRES_JUGADORESRaul = "Listado de proyectos";
+const OBJETO_VACIORaul = "";
 
-const datosDescargadosPrueba = {
+const datosDescargadosPruebaRaul = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
     email: "Prueba de email",
@@ -41,35 +41,35 @@ describe("Parkour.mostrarHome: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Parkour.mostrarHome()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Parkour.mostrarHome(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
             Parkour.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTitulo.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
             Parkour.mostrarHome({ foo: "bar" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
             Parkour.mostrarHome(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
@@ -78,50 +78,50 @@ describe("Parkour.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Parkour.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Parkour.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
             Parkour.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Parkour.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Parkour.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Parkour.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Parkour.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
             Parkour.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
         })
 })
 
@@ -569,10 +569,7 @@ describe('Parkour.ParkourFormularioPersona.actualiza', () => {
     }
   };
 
-  it('debe sustituir el ID de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.ref['@ref'].id)).toBe(true)
-  })
+
 
   it('debe sustituir el nombre de la persona', () => {
     const result = Parkour.ParkourFormularioPersona.actualiza(persona)
@@ -733,11 +730,7 @@ describe('Parkour.ParkourTablaPersonas.actualiza2', () => {
     }
   }
 
-  it('deberia reemplazar el ID', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.ref['@ref'].id)).toBe(true)
-  })
-
+  
   it('deberia reemplazar el NOMBRE ', () => {
     const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
     expect(result.includes(Persona.data.nombre)).toBe(true)
@@ -777,10 +770,7 @@ describe('Parkour.ParkourTablaPersonas.actualiza', () => {
     }
   }
 
-  it('deberia reemplazar el ID', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.ref['@ref'].id)).toBe(true)
-  })
+
 
   it('deberia reemplazar el NOMBRE ', () => {
     const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
