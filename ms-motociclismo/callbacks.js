@@ -159,8 +159,30 @@ const CB_OTHERS = {
                 mensaje: "Microservicio MS Motociclismo: acerca de",
                 autor: "Irene Rubiales Arguelles",
                 email: "ira00026@red.ujaen.es",
-                fecha: "Marzo 2023"
+                fecha: "Mayo 2023",
+
+                mensajekungfu: "Microservicio MS Kung-Fu: acerca de",
+                autorkungfu: "Bader Irheem",
+                emailkungfu: "bsi00001@red.ujaen.es",
+                fechakungfu: "Mayo 2023",
+
+                mensajequitacion: "Microservicio MS Equitación: acerca de",
+                autorequitacion: "Carlos Garvin Rubiales",
+                emailequitacion: "cgr00064@red.ujaen.es",
+                fechaequitacion: "Mayo 2023",
+
+                mensajegimnasia: "Microservicio MS Gimnasia: acerca de",
+                autorgimnasia: "Javier Martínez López",
+                emailgimnasia: "jml00059@red.ujaen.es",
+                fechagimnasia: "Mayo 2023",
+
+                mensajeparkour: "Microservicio MS Parkour: acerca de",
+                autorparkour: "Raúl Fernandez Cortes",
+                emailparkour: "rfc00024@red.ujaen.es",
+                fechaparkour: "Mayo 2023",
+                
             });
+            
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }

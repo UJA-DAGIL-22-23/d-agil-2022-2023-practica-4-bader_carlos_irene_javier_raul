@@ -79,7 +79,23 @@ Motociclismo.mostrarAcercaDe = function (datosDescargados) {
     if (typeof datosDescargados.mensaje === "undefined" ||
         typeof datosDescargados.autor === "undefined" ||
         typeof datosDescargados.email === "undefined" ||
-        typeof datosDescargados.fecha === "undefined"
+        typeof datosDescargados.fecha === "undefined" ||
+        typeof datosDescargados.mensajekungfu === "undefined" ||
+        typeof datosDescargados.autorkungfu === "undefined" ||
+        typeof datosDescargados.emailkungfu === "undefined" ||
+        typeof datosDescargados.fechakungfu === "undefined" ||
+        typeof datosDescargados.mensajequitacion === "undefined" ||
+        typeof datosDescargados.autorequitacion === "undefined" ||
+        typeof datosDescargados.emailequitacion === "undefined" ||
+        typeof datosDescargados.fechaequitacion === "undefined" ||
+        typeof datosDescargados.mensajegimnasia === "undefined" ||
+        typeof datosDescargados.autorgimnasia === "undefined" ||
+        typeof datosDescargados.emailgimnasia === "undefined" ||
+        typeof datosDescargados.fechagimnasia === "undefined" ||
+        typeof datosDescargados.mensajeparkour === "undefined" ||
+        typeof datosDescargados.autorparkour === "undefined" ||
+        typeof datosDescargados.emailparkour === "undefined" ||
+        typeof datosDescargados.fechaparkour === "undefined"
     ) datosDescargados = this.datosDescargadosNulos
 
     const mensajeAMostrar = `<div>
@@ -89,6 +105,35 @@ Motociclismo.mostrarAcercaDe = function (datosDescargados) {
         <li><b>E-mail</b>: ${datosDescargados.email}</li>
         <li><b>Fecha</b>: ${datosDescargados.fecha}</li>
     </ul>
+
+    <p>${datosDescargados.mensajekungfu}</p>
+    <ul>
+        <li><b>Autor/a</b>: ${datosDescargados.autorkungfu}</li>
+        <li><b>E-mail</b>: ${datosDescargados.emailkungfu}</li>
+        <li><b>Fecha</b>: ${datosDescargados.fechakungfu}</li>
+     </ul>
+
+     <p>${datosDescargados.mensajequitacion}</p>
+     <ul>
+         <li><b>Autor/a</b>: ${datosDescargados.autorequitacion}</li>
+         <li><b>E-mail</b>: ${datosDescargados.emailequitacion}</li>
+         <li><b>Fecha</b>: ${datosDescargados.fechaequitacion}</li>
+      </ul>
+
+      <p>${datosDescargados.mensajegimnasia}</p>
+      <ul>
+          <li><b>Autor/a</b>: ${datosDescargados.autorgimnasia}</li>
+          <li><b>E-mail</b>: ${datosDescargados.emailgimnasia}</li>
+          <li><b>Fecha</b>: ${datosDescargados.fechagimnasia}</li>
+       </ul>
+
+       <p>${datosDescargados.mensajeparkour}</p>
+       <ul>
+           <li><b>Autor/a</b>: ${datosDescargados.autorparkour}</li>
+           <li><b>E-mail</b>: ${datosDescargados.emailparkour}</li>
+           <li><b>Fecha</b>: ${datosDescargados.fechaparkour}</li>
+        </ul>
+
     </div>
     `;
     Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
