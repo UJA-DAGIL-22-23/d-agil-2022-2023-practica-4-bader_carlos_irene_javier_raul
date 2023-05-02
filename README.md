@@ -183,7 +183,7 @@ Deporte: Parkour
 ![Captura Trello HU6](./assets/img/trello8.jpeg)
 
 * Esta es la captura para demostrar el correcto funcionamiento de la historia de usuario 6, al hacer click en el botón de "Acerca De", muestra los datos de todos los miembros del grupo, además del microservicio y deporte que han llevado a cabo:
-![Captura Index2](./assets/img/capHU6.jpeg)
+![Captura Index2](./assets/img/capHU6.png)
 
 * En la siguiente captura, se muestra la nueva barra de navegación que hemos creado para que aparezcan los botones comunes a todas las aplicaciones integradas en el proyecto: "Home" y "Acerca De":
 ![Captura Index3](./assets/img/capbarranavegacion.png)
