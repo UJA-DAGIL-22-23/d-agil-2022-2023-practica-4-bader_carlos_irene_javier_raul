@@ -153,7 +153,7 @@ Deporte: Parkour
 * HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
 
 ## Captura TRELLO "Historias de usuario":
-![Captura Trello](./assets/img/x.jpeg)
+![Captura Trello](./assets/img/x.jpg)
 
 ## HU 03: Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene.
 ## Captura TRELLO "HU 03":
@@ -163,5 +163,7 @@ Deporte: Parkour
 ![Captura Trello HU3](./assets/img/trello4.jpeg)
 ![Captura Index1](./assets/img/motociclismoindex.png)
 Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente.
+
+# *TDDS Y expects*
 ![Captura Tdds](./assets/img/TDD23.png)
 Aquí inserto la captura de los TDD's de los deportes de : Motociclismo y equitación. Demostrando así, su correcto funcionamiento, adaptación al código e implementación.
