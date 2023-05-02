@@ -2,9 +2,9 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10921813&assignment_repo_type=AssignmentRepo)
 
 
-Trello Tablero: https://trello.com/b/UQcDXxuk/varios-microservicios-api-gateway-front-end
-GitHub: https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-bader_carlos_irene_javier_raul
-Daily Scrum: https://docs.google.com/document/d/1olmXA_z8nd6RmnHquL04fEoVBWBdoe5aGUP_Z9PwRIg/edit
+* Trello Tablero: https://trello.com/b/UQcDXxuk/varios-microservicios-api-gateway-front-end
+* GitHub: https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-bader_carlos_irene_javier_raul
+* Daily Scrum: https://docs.google.com/document/d/1olmXA_z8nd6RmnHquL04fEoVBWBdoe5aGUP_Z9PwRIg/edit
 
 # *Datos Estudiantes*
 
@@ -153,7 +153,7 @@ Deporte: Parkour
 * HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
 
 ## Captura TRELLO "Historias de usuario":
-![Captura T3](./assets/img/x.jpeg)
+![Captura Trello](./assets/img/x.jpeg)
 
 ## HU 03: Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene.
 ## Captura TRELLO "HU 03":
@@ -161,3 +161,7 @@ Deporte: Parkour
 ![Captura Trello HU3](./assets/img/trello2.jpeg)
 ![Captura Trello HU3](./assets/img/trello3.jpeg)
 ![Captura Trello HU3](./assets/img/trello4.jpeg)
+![Captura Index1](./assets/img/motociclismoindex.png)
+Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente.
+![Captura Tdds](./assets/img/TDD23.png)
+Aquí inserto la captura de los TDD's de los deportes de : Motociclismo y equitación. Demostrando así, su correcto funcionamiento, adaptación al código e implementación.
