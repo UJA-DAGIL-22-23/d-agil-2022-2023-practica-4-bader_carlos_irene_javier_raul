@@ -49,13 +49,13 @@ const CB_MODEL_SELECTS = {
      */
     test_db: async (req, res) => {
         try {
-            let Plantilla = await client.query(
+            let motociclistas = await client.query(
                 q.Map(
                     q.Paginate(q.Documents(q.Collection(COLLECTION))),
                     q.Lambda("X", q.Get(q.Var("X")))
                 )
             )
-            res.status(200).json(Plantilla)
+            res.status(200).json(motociclistas)
         } catch (error) {
            res.status(500).json({ error: error.description })
         }
@@ -142,7 +142,7 @@ const CB_OTHERS = {
      */
     home: async (req, res) => {
         try {
-            CORS(res).status(200).json({ mensaje: "Microservicio MS Plantilla: home" });
+            CORS(res).status(200).json({ mensaje: "Microservicio MS Motociclismo: home" });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
@@ -156,7 +156,7 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio MS Plantilla: acerca de",
+                mensaje: "Microservicio MS Motociclismo: acerca de",
                 autor: "Irene Rubiales Arguelles",
                 email: "ira00026@red.ujaen.es",
                 fecha: "Marzo 2023"

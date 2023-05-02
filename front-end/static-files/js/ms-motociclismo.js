@@ -120,7 +120,7 @@ Motociclismo.recupera = async function (callBackFn) {
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/motociclismo/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -161,7 +161,7 @@ Motociclismo.imprime = function (vector) {
  * @returns Cabecera de la tabla
  */
 Motociclismo.cabeceraTable = function () {
-    return `<table class="listado-Motociclistas">
+    return `<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th><th>Nombre_Equipo</th><th>Tipo_Moto</th><th>Fecha_Nacimiento</th><th>Anios_Experiencia</th><th>Puntuaciones_Carrera</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th>
         </thead>
@@ -227,7 +227,7 @@ Motociclismo.recuperaNombres = async function (callBackFn) {
 
     // Intento conectar con el microservicio Motociclismo
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getNombres"
+        const url = Frontend.API_GATEWAY + "/motociclismo/getNombres"
         response = await fetch(url)
 
     } catch (error) {
@@ -268,7 +268,7 @@ Motociclismo.imprimeNombres = function (vector) {
  * @returns Cabecera de la tabla
  */
 Motociclismo.cabeceraTableN = function () {
-    return `<table class="listado-Motociclistas">
+    return `<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th>
         </thead>
@@ -322,7 +322,7 @@ Motociclismo.recuperaNombresAZ = async function (callBackFn) {
 
     // Intento conectar con el microservicio Plantilla
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getNAlfabeticamente"
+        const url = Frontend.API_GATEWAY + "/motociclismo/getNAlfabeticamente"
         response = await fetch(url)
 
     } catch (error) {
@@ -363,7 +363,7 @@ Motociclismo.imprimeNAZ = function (vector) {
  * @returns Cabecera de la tabla
  */
 Motociclismo.cabeceraTableNAZ = function () {
-    return `<table class="listado-Motociclistas">
+    return `<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th>
         </thead>
@@ -489,7 +489,7 @@ Motociclismo.recuperapersonaBuscar = async function (nombreBuscar,callBackFn) {
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/motociclismo/getTodos"
         const response = await fetch(url);
         let vectorMotociclismo = null
         if (response) {
@@ -511,7 +511,7 @@ Motociclismo.recuperapersonaBuscar = async function (nombreBuscar,callBackFn) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Motociclismoa.imprimeTodosMotociclistas = function (vector) {
+Motociclismo.imprimeTodosMotociclistas = function (vector) {
     // console.log(vector) // Para comprobar lo que hay en vector
 
     // Compongo el contenido que se va a mostrar dentro de la tabla
@@ -543,7 +543,7 @@ Motociclismo.recuperaCumpleVariosCriterios = async function (criterio1,criterio2
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/motociclismo/getTodos"
         const response = await fetch(url);
         let vectorMotociclismo = null
         if (response) {
@@ -583,7 +583,7 @@ Motociclismo.recuperaVariosCriterios = async function (criterio1p,criterio2p,cri
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/motociclismo/getTodos"
         const response = await fetch(url);
         let vectorMotociclismo = null
         if (response) {
