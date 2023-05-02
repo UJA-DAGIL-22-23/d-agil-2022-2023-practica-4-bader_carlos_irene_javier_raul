@@ -151,7 +151,7 @@ it("llama al API Gateway para obtener todos los datos y ejecuta la función call
         await Motociclismo.recupera(callBackFn)
 
         // Verificaciones
-        expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getTodos")
+        expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getTodos")
         expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba_MOTOCICLISMO])
         expect(window.alert).not.toHaveBeenCalled()
         expect(console.error).not.toHaveBeenCalled()
@@ -169,7 +169,7 @@ it("muestra un mensaje de error si no se puede acceder al API Gateway",
         await Motociclismo.recupera(callBackFn)
 
         // Verificaciones
-        expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getTodos")
+        expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getTodos")
         expect(callBackFn).not.toHaveBeenCalled()
         expect(window.alert).toHaveBeenCalledWith("Error: No se han podido acceder al API Gateway")
         expect(console.error).toHaveBeenCalled()
@@ -288,7 +288,7 @@ describe("Motociclismo.recuperaNombres", function () {
             await Motociclismo.recuperaNombres(callBackFn)
     
             // Verificaciones
-            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getNombres")
+            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getNombres")
             expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba_MOTOCICLISMO])
             expect(window.alert).not.toHaveBeenCalled()
             expect(console.error).not.toHaveBeenCalled()
@@ -306,7 +306,7 @@ describe("Motociclismo.recuperaNombres", function () {
             await Motociclismo.recuperaNombres(callBackFn)
     
             // Verificaciones
-            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getNombres")
+            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getNombres")
             expect(callBackFn).not.toHaveBeenCalled()
             expect(window.alert).toHaveBeenCalledWith("Error: No se han podido acceder al API Gateway")
             expect(console.error).toHaveBeenCalled()
@@ -382,7 +382,7 @@ describe("Motociclismo.recuperaNombresAZ", function () {
             await Motociclismo.recuperaNombresAZ(callBackFn)
     
             // Verificaciones
-            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getNAlfabeticamente")
+            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getNAlfabeticamente")
             expect(callBackFn).toHaveBeenCalledWith([datosDescargadosPrueba_MOTOCICLISMO])
             expect(window.alert).not.toHaveBeenCalled()
             expect(console.error).not.toHaveBeenCalled()
@@ -400,7 +400,7 @@ describe("Motociclismo.recuperaNombresAZ", function () {
             await Motociclismo.recuperaNombresAZ(callBackFn)
     
             // Verificaciones
-            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getNAlfabeticamente")
+            expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getNAlfabeticamente")
             expect(callBackFn).not.toHaveBeenCalled()
             expect(window.alert).toHaveBeenCalledWith("Error: No se han podido acceder al API Gateway")
             expect(console.error).toHaveBeenCalled()
@@ -508,7 +508,7 @@ describe('Motociclismo.sustituyeTags', function () {
                 await Motociclismo.recuperapersonaBuscar(nombreBuscar, callBackFn)
     
                 // Verificaciones
-                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getTodos")
+                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getTodos")
                 expect(callBackFn).not.toHaveBeenCalled()
                 expect(window.alert).toHaveBeenCalledWith("Error: No se han podido acceder al API Gateway")
                 expect(console.error).toHaveBeenCalled()
@@ -547,7 +547,7 @@ describe('Motociclismo.sustituyeTags', function () {
                 await Motociclismo.recuperaCumpleVariosCriterios("MotoGP", "Yamaha", "1", callBackFn)
         
                 // Verificaciones
-                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getTodos")
+                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getTodos")
                 expect(callBackFn).not.toHaveBeenCalled()
                 expect(window.alert).toHaveBeenCalledWith("Error: No se han podido acceder al API Gateway")
                 expect(console.error).toHaveBeenCalled()
@@ -602,7 +602,7 @@ describe('Motociclismo.sustituyeTags', function () {
                 await Motociclismo.recuperaVariosCriterios("MotoGP", null, null, callBackFn)
         
                 // Verificaciones
-                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getTodos")
+                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getTodos")
                 expect(callBackFn).toHaveBeenCalledWith([datosPrueba[0]])
                 expect(window.alert).not.toHaveBeenCalled()
                 expect(console.error).not.toHaveBeenCalled()
@@ -620,7 +620,7 @@ describe('Motociclismo.sustituyeTags', function () {
                 await Motociclismo.recuperaVariosCriterios("MotoGP", null, null, callBackFn)
         
                 // Verificaciones
-                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/plantilla/getTodos")
+                expect(window.fetch).toHaveBeenCalledWith(Frontend.API_GATEWAY + "/motociclismo/getTodos")
                 expect(callBackFn).not.toHaveBeenCalled()
                 expect(window.alert).toHaveBeenCalledWith("Error: No se han podido acceder al API Gateway")
                 expect(console.error).toHaveBeenCalled()
