@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-gimnasia-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS Gimnasia en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,8 +10,8 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_HOME = "Gimnasia Home"
+const TITULO_ACERCA_DE = "Gimnasia Acerca de"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -34,86 +34,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("Gimnasia.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            Gimnasia.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Gimnasia.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            Gimnasia.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Gimnasia.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            Gimnasia.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Gimnasia.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            Gimnasia.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Gimnasia.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            Gimnasia.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("Gimnasia.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            Gimnasia.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Gimnasia.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            Gimnasia.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Gimnasia.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            Gimnasia.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Gimnasia.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            Gimnasia.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Gimnasia.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            Gimnasia.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Gimnasia.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            Gimnasia.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Gimnasia.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            Gimnasia.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Gimnasia.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            Gimnasia.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -126,8 +126,8 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
                                                                               /*    TDD     HU      2*/
 
 
-describe("Plantilla.imprime", function () {
-    it("Debe mostrar una tabla con los datos de las personas de la plantilla",
+describe("Gimnasia.imprime", function () {
+    it("Debe mostrar una tabla con los datos de las personas de la Gimnasia",
         function () {
             const vector = [
                 {
@@ -145,55 +145,55 @@ describe("Plantilla.imprime", function () {
                 }
             ];
   
-            const expectedMsj = Plantilla.cabeceraTablee() + Plantilla.cuerpoTrr(vector[0]) + Plantilla.cuerpoTrr(vector[1]) + Plantilla.pieTable();
+            const expectedMsj = Gimnasia.cabeceraTablee() + Gimnasia.cuerpoTrr(vector[0]) + Gimnasia.cuerpoTrr(vector[1]) + Gimnasia.pieTable();
             spyOn(Frontend.Article, 'actualizar');
-            Plantilla.imprimee(vector);
+            Gimnasia.imprimee(vector);
             expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de proyectos', expectedMsj);
         });
   });
 
 
-  describe("Plantilla.pieTable ", function () {
+  describe("Gimnasia.pieTable ", function () {
     it("Debe devolver el codigo del pie de tabla",
         function () {
-            expect(Plantilla.pieTable()).toBe("</tbody></table>");
+            expect(Gimnasia.pieTable()).toBe("</tbody></table>");
         });
   });
 
 
                                                                                           /*    TDD     HU      3*/
 
-  describe("Plantilla.cabeceraTablee", function() {
+  describe("Gimnasia.cabeceraTablee", function() {
     it('existe la función cabeceraTablee', () => {
-      expect(Plantilla.cabeceraTablee).toBeDefined();
+      expect(Gimnasia.cabeceraTablee).toBeDefined();
     });
   
     it('devuelve una cadena de texto', () => {
-      const resultado = Plantilla.cabeceraTablee();
+      const resultado = Gimnasia.cabeceraTablee();
       expect(typeof resultado).toBe('string');
     });
   
     it('devuelve una tabla con la clase "listado-proyectos"', () => {
-      const resultado = Plantilla.cabeceraTablee();
+      const resultado = Gimnasia.cabeceraTablee();
       expect(resultado).toContain('<table class="listado-proyectos"');
     });
   
     it('devuelve una tabla con la etiqueta "thead"', () => {
-      const resultado = Plantilla.cabeceraTablee();
+      const resultado = Gimnasia.cabeceraTablee();
       expect(resultado).toContain('<thead>');
     });
   
     it('devuelve una tabla', () => {
-      const resultado = Plantilla.cabeceraTablee();
+      const resultado = Gimnasia.cabeceraTablee();
       expect(resultado).toContain('<th>Nombre de los participantes</th>');
     });
   });
 
 
-  describe("Plantilla.cuerpoTrr", function() {
+  describe("Gimnasia.cuerpoTrr", function() {
     it('devuelve una fila de tabla HTML con el título correcto', () => {
       const proyecto = { ref: { '@ref': { id: '359558425872433356' } }, data: { nombre: 'Marta Ruiz' } };
-      const resultado = Plantilla.cuerpoTrr(proyecto);
+      const resultado = Gimnasia.cuerpoTrr(proyecto);
       expect(resultado).toContain('<td>Marta Ruiz</td>');
     });
   });
@@ -201,7 +201,7 @@ describe("Plantilla.imprime", function () {
 
                                                                     /*    TDD     HU      4*/
 
-  describe("Plantilla.imprime todos los participantes", function(){
+  describe("Gimnasia.imprime todos los participantes", function(){
     it("debe mostrar una tabla con todos los datos de los participantes",
     function () {
         const vector = [
@@ -230,67 +230,67 @@ describe("Plantilla.imprime", function () {
             }
           }
       ];
-        const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(vector[0]) + Plantilla.cuerpoTr(vector[1]) + Plantilla.pieTable();
+        const expectedMsj = Gimnasia.cabeceraTable() + Gimnasia.cuerpoTr(vector[0]) + Gimnasia.cuerpoTr(vector[1]) + Gimnasia.pieTable();
         spyOn(Frontend.Article, 'actualizar');
-        Plantilla.imprime(vector);
+        Gimnasia.imprime(vector);
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de proyectos', expectedMsj);
     })
   });
 
 
 
-  describe("Plantilla.cabeceraTable", function() {
+  describe("Gimnasia.cabeceraTable", function() {
     it('existe la función cabeceraTable', () => {
-      expect(Plantilla.cabeceraTable).toBeDefined();
+      expect(Gimnasia.cabeceraTable).toBeDefined();
     });
   
     it('devuelve una cadena de texto', () => {
-      const resultado = Plantilla.cabeceraTable();
+      const resultado = Gimnasia.cabeceraTable();
       expect(typeof resultado).toBe('string');
     });
   
     it('devuelve una tabla con la clase "listado-proyectos"', () => {
-      const resultado = Plantilla.cabeceraTable();
+      const resultado = Gimnasia.cabeceraTable();
       expect(resultado).toContain('<table class="listado-proyectos"');
     });
   
     it('devuelve una tabla con la etiqueta "thead"', () => {
-      const resultado = Plantilla.cabeceraTable();
+      const resultado = Gimnasia.cabeceraTable();
       expect(resultado).toContain('<thead>');
     });
   
     it('devuelve una tabla', () => {
-      const resultado = Plantilla.cabeceraTable();
+      const resultado = Gimnasia.cabeceraTable();
       expect(resultado).toContain('<th>Nombre</th>');
     });
 
     it('devuelve una tabla', () => {
-        const resultado = Plantilla.cabeceraTable();
+        const resultado = Gimnasia.cabeceraTable();
         expect(resultado).toContain('<th>Fecha</th>');
     });
 
     it('devuelve una tabla', () => {
-        const resultado = Plantilla.cabeceraTable();
+        const resultado = Gimnasia.cabeceraTable();
         expect(resultado).toContain('<th>Pais</th>');
     });  
 
     it('devuelve una tabla', () => {
-        const resultado = Plantilla.cabeceraTable();
+        const resultado = Gimnasia.cabeceraTable();
         expect(resultado).toContain('<th>Edad</th>');
     });
 
     it('devuelve una tabla', () => {
-        const resultado = Plantilla.cabeceraTable();
+        const resultado = Gimnasia.cabeceraTable();
         expect(resultado).toContain('<th>Modalidad</th>');
     });
       
     it('devuelve una tabla', () => {
-        const resultado = Plantilla.cabeceraTable();
+        const resultado = Gimnasia.cabeceraTable();
         expect(resultado).toContain('<th>Grupo</th>');
     });
     
     it('devuelve una tabla', () => {
-        const resultado = Plantilla.cabeceraTable();
+        const resultado = Gimnasia.cabeceraTable();
         expect(resultado).toContain('<th>AniosJJOO</th>');
     });  
 
@@ -301,7 +301,7 @@ describe("Plantilla.imprime", function () {
 
                                                                         /*    TDD     HU      6*/
 
-describe('Plantilla.almacenaDatos', () => {
+describe('Gimnasia.almacenaDatos', () => {
       it('debe almacenar correctamente la persona mostrada', () => {
         const persona = {
           ref: { '@ref': { id: '359558425872433356' } },
@@ -315,14 +315,14 @@ describe('Plantilla.almacenaDatos', () => {
           }
         };
 
-    Plantilla.almacenaDatos(persona);
+        Gimnasia.almacenaDatos(persona);
 
-    expect(Plantilla.personaMostrada).toEqual(persona);
+    expect(Gimnasia.personaMostrada).toEqual(persona);
   });
 });
 
 
-describe("Plantilla.imprimeUnaPersona", function () {
+describe("Gimnasia.imprimeUnaPersona", function () {
   let persona = {
     ref: {
       '@ref': {
@@ -340,29 +340,29 @@ describe("Plantilla.imprimeUnaPersona", function () {
   };
 
   beforeEach(function () {
-    spyOn(Plantilla, 'personaComoFormulario').and.returnValue('<form></form>');
+    spyOn(Gimnasia, 'personaComoFormulario').and.returnValue('<form></form>');
     spyOn(Frontend.Article, 'actualizar');
-    spyOn(Plantilla, 'almacenaDatos');
+    spyOn(Gimnasia, 'almacenaDatos');
   });
 
   it("llama a la funcion personaComoFormulario con la persona correspondiente", function () {
-    Plantilla.imprimeUnaPersona(persona);
-    expect(Plantilla.personaComoFormulario).toHaveBeenCalledWith(persona);
+    Gimnasia.imprimeUnaPersona(persona);
+    expect(Gimnasia.personaComoFormulario).toHaveBeenCalledWith(persona);
   });
 
-  it("actualiza el artículo con el formulario generado por Plantilla.personaComoFormulario", function () {
-    Plantilla.imprimeUnaPersona(persona);
+  it("actualiza el artículo con el formulario generado por Gimnasia.personaComoFormulario", function () {
+    Gimnasia.imprimeUnaPersona(persona);
     expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Mostrar a Marta Ruiz", '<form></form>');
   });
 
   it("almacena los datos de la persona", function () {
-    Plantilla.imprimeUnaPersona(persona);
-    expect(Plantilla.almacenaDatos).toHaveBeenCalledWith(persona);
+    Gimnasia.imprimeUnaPersona(persona);
+    expect(Gimnasia.almacenaDatos).toHaveBeenCalledWith(persona);
   });
 
 });
 
-describe("Plantilla", function() {
+describe("Gimnasia", function() {
   describe("personaComoFormulario", function() {
     it("debe comprobar que la función devuelve el formulario de persona bien actualizado", function() {
       const persona = {
@@ -390,28 +390,28 @@ describe("Plantilla", function() {
                           '<input type="hidden" name="id" value="' + persona.ref['@ref'].id + '">' +
                           '<input type="submit" value="Enviar"></form>';
 
-      spyOn(Plantilla, 'sustituyeTags').and.returnValue(formulario);
+      spyOn(Gimnasia, 'sustituyeTags').and.returnValue(formulario);
 
-      const resultado = Plantilla.personaComoFormulario(persona);
+      const resultado = Gimnasia.personaComoFormulario(persona);
 
-      expect(Plantilla.sustituyeTags).toHaveBeenCalledWith(Plantilla.plantillaFormularioPersona.formulario, persona);
+      expect(Gimnasia.sustituyeTags).toHaveBeenCalledWith(Gimnasia.GimnasiaFormularioPersona.formulario, persona);
       expect(resultado).toBe(formulario);
     });
   });
 });
 
 
-describe("Plantilla.mostrarP()", function() {
+describe("Gimnasia.mostrarP()", function() {
   let recuperaUnaPersonaSpy, imprimeUnaPersonaSpy;
 
   beforeEach(function() {
-    recuperaUnaPersonaSpy = spyOn(Plantilla, "recuperaUnaPersona");
-    imprimeUnaPersonaSpy = spyOn(Plantilla, "imprimeUnaPersona");
+    recuperaUnaPersonaSpy = spyOn(Gimnasia, "recuperaUnaPersona");
+    imprimeUnaPersonaSpy = spyOn(Gimnasia, "imprimeUnaPersona");
   });
 
   it("debe llamar a la funcion recuperaUnaPersona() con el ID de la persona", function() {
     const idPersona = "333";
-    Plantilla.mostrarP(idPersona);
+    Gimnasia.mostrarP(idPersona);
     expect(recuperaUnaPersonaSpy).toHaveBeenCalledWith(idPersona, jasmine.any(Function));
   });
 
@@ -430,38 +430,38 @@ describe("Plantilla.mostrarP()", function() {
     recuperaUnaPersonaSpy.and.callFake(function(id, callBackFn) {
       callBackFn(persona);
     });
-    Plantilla.mostrarP("333");
+    Gimnasia.mostrarP("333");
     expect(imprimeUnaPersonaSpy).toHaveBeenCalledWith(persona);
   });
 });
 
 
 
-describe('Plantilla.plantillaTags', () => {
-  it('debe ser un objeto con las etiquetas de la plantilla', () => {
-    const plantillaTags = Plantilla.plantillaTags;
-    expect(plantillaTags).toBeDefined();
-    expect(plantillaTags).toBeInstanceOf(Object);
-    expect(plantillaTags.ID).toBeDefined();
-    expect(plantillaTags.NOMBRE).toBeDefined();
-    expect(plantillaTags.PAIS).toBeDefined();
-    expect(plantillaTags.EDAD).toBeDefined();
-    expect(plantillaTags.MODALIDAD).toBeDefined();
-    expect(plantillaTags.GRUPO).toBeDefined();
-    expect(plantillaTags.AniosJJOO).toBeDefined();
-    expect(typeof plantillaTags.ID).toBe('string');
-    expect(typeof plantillaTags.NOMBRE).toBe('string');
-    expect(typeof plantillaTags.PAIS).toBe('string');
-    expect(typeof plantillaTags.EDAD).toBe('string');
-    expect(typeof plantillaTags.MODALIDAD).toBe('string');
-    expect(typeof plantillaTags.GRUPO).toBe('string');
-    expect(typeof plantillaTags.AniosJJOO).toBe('string');
+describe('Gimnasia.GimnasiaTags', () => {
+  it('debe ser un objeto con las etiquetas de la Gimnasia', () => {
+    const GimnasiaTags = Gimnasia.GimnasiaTags;
+    expect(GimnasiaTags).toBeDefined();
+    expect(GimnasiaTags).toBeInstanceOf(Object);
+    expect(GimnasiaTags.ID).toBeDefined();
+    expect(GimnasiaTags.NOMBRE).toBeDefined();
+    expect(GimnasiaTags.PAIS).toBeDefined();
+    expect(GimnasiaTags.EDAD).toBeDefined();
+    expect(GimnasiaTags.MODALIDAD).toBeDefined();
+    expect(GimnasiaTags.GRUPO).toBeDefined();
+    expect(GimnasiaTags.AniosJJOO).toBeDefined();
+    expect(typeof GimnasiaTags.ID).toBe('string');
+    expect(typeof GimnasiaTags.NOMBRE).toBe('string');
+    expect(typeof GimnasiaTags.PAIS).toBe('string');
+    expect(typeof GimnasiaTags.EDAD).toBe('string');
+    expect(typeof GimnasiaTags.MODALIDAD).toBe('string');
+    expect(typeof GimnasiaTags.GRUPO).toBe('string');
+    expect(typeof GimnasiaTags.AniosJJOO).toBe('string');
   });
 });
 
 
 
-describe('Plantilla.plantillaTablaPersonas.cabecera', () => {
+describe('Gimnasia.GimnasiaTablaPersonas.cabecera', () => {
   it('Debería estar definida correctamente', () => {
     const expected = `<table width="100%" class="listado-proyectos">
                     <thead>
@@ -474,13 +474,13 @@ describe('Plantilla.plantillaTablaPersonas.cabecera', () => {
                     </thead>
                     <tbody>
     `;
-    expect(Plantilla.plantillaTablaPersonas.cabecera).toEqual(expected);
+    expect(Gimnasia.GimnasiaTablaPersonas.cabecera).toEqual(expected);
   });
 });
 
 
 
-describe('Plantilla.form', () => {
+describe('Gimnasia.form', () => {
   it('debe tener las etiquetas de formulario correctas', () => {
     const esperado = {
       ID: "form-persona-id",
@@ -491,79 +491,79 @@ describe('Plantilla.form', () => {
       GRUPO: "form-persona-grupo",
       AniosJJOO: "form-persona-aniosjjoo"
     };
-    expect(Plantilla.form).toEqual(esperado);
+    expect(Gimnasia.form).toEqual(esperado);
   });
 });
 
 
 
-describe('Plantilla.plantillaFormularioPersona.formulario', () => {
+describe('Gimnasia.GimnasiaFormularioPersona.formulario', () => {
   it('debería ser una cadena de texto', () => {
-    expect(typeof Plantilla.plantillaFormularioPersona.formulario).toBe('string');
+    expect(typeof Gimnasia.GimnasiaFormularioPersona.formulario).toBe('string');
   });
 
   it('debería contener la etiqueta form', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('<form');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('<form');
   });
 
   it('debería contener la etiqueta table', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('<table');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('<table');
   });
 
   it('debería contener la etiqueta thead', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('<thead');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('<thead');
   });
 
   it('debería contener la etiqueta tbody', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('<tbody');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('<tbody');
   });
 
   it('debería contener la etiqueta tr', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('<tr');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('<tr');
   });
 
   it('debería contener la etiqueta td', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('<td');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('<td');
   });
 
   it('debería contener la etiqueta input', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('<input');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('<input');
   });
 
   it('debería contener la etiqueta name="id_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('name="id_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('name="id_persona"');
   });
 
   it('debería contener la etiqueta name="nombre_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('name="nombre_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('name="nombre_persona"');
   });
 
   it('debería contener la etiqueta name="pais_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('name="pais_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('name="pais_persona"');
   });
 
   it('debería contener la etiqueta name="edad_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('name="edad_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('name="edad_persona"');
   });
 
   it('debería contener la etiqueta name="modalidad_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('name="modalidad_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('name="modalidad_persona"');
   });
 
   it('debería contener la etiqueta name="grupo_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('name="grupo_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('name="grupo_persona"');
   });
 
   it('debería contener la etiqueta name="aniosjjoo_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario).toContain('name="aniosjjoo_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario).toContain('name="aniosjjoo_persona"');
   });
 });
 
 
-describe('Plantilla.sustituyeTags', () => {
+describe('Gimnasia.sustituyeTags', () => {
   it('sustituye los tags por los valores de la persona', () => {
     // Arrange
-    const plantilla = `
+    const Gimnasia = `
       <p>ID: ### ID ###</p>
       <p>Nombre: ### NOMBRE ###</p>
       <p>País: ### PAIS ###</p>
@@ -594,7 +594,7 @@ describe('Plantilla.sustituyeTags', () => {
     `;
 
     // Act
-    const result = Plantilla.sustituyeTags(plantilla, persona);
+    const result = Gimnasia.sustituyeTags(Gimnasia, persona);
 
     // Assert
     expect(result).toBe(expected);
@@ -602,7 +602,7 @@ describe('Plantilla.sustituyeTags', () => {
 });
 
 
-describe('Plantilla.plantillaFormularioPersona.actualiza', () => {
+describe('Gimnasia.GimnasiaFormularioPersona.actualiza', () => {
   const mockPersona = {
     ref: { '@ref': { id: '1234' } },
     data: {
@@ -616,37 +616,37 @@ describe('Plantilla.plantillaFormularioPersona.actualiza', () => {
   }
 
   it('should replace the ID tag with the persona id', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza(mockPersona)
     expect(result.includes(mockPersona.ref['@ref'].id)).toBe(true)
   })
 
   it('deberia reemplazar el tag NOMBRE por nombre', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.nombre)).toBe(true)
   })
 
   it('deberia reemplazar el tag PAIS por pais', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.pais)).toBe(true)
   })
 
   it('deberia reemplazar el tag EDAD por edad', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.edad)).toBe(true)
   })
 
   it('deberia reemplazar el tag MODALIDAD por modalidad', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.modalidad)).toBe(true)
   })
 
   it('deberia reemplazar el tag GRUPO por grupo', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.grupo)).toBe(true)
   })
 
   it('deberia reemplazar el tag ANIOSJJOO por aniosJJOO', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.aniosJJOO)).toBe(true)
   })
 })
@@ -654,23 +654,23 @@ describe('Plantilla.plantillaFormularioPersona.actualiza', () => {
 
                                                                               /*    TDD     HU12      &&        HU13*/
   
-  describe('Plantilla.plantillaTablaPersonas.pie', () => {
+  describe('Gimnasia.GimnasiaTablaPersonas.pie', () => {
   it('should be a string', () => {
-    expect(typeof Plantilla.plantillaTablaPersonas.pie).toBe('string');
+    expect(typeof Gimnasia.GimnasiaTablaPersonas.pie).toBe('string');
   });
 
   it('should contain </tbody> tag', () => {
-    expect(Plantilla.plantillaTablaPersonas.pie).toContain('</tbody>');
+    expect(Gimnasia.GimnasiaTablaPersonas.pie).toContain('</tbody>');
   });
 
   it('should contain </table> tag', () => {
-    expect(Plantilla.plantillaTablaPersonas.pie).toContain('</table>');
+    expect(Gimnasia.GimnasiaTablaPersonas.pie).toContain('</table>');
   });
 });
 
 
 
-describe('Plantilla.plantillaTablaPersonas.actualiza', () => {
+describe('Gimnasia.GimnasiaTablaPersonas.actualiza', () => {
   const mockPersona = {
     ref: { '@ref': { id: '1234' } },
     data: {
@@ -682,34 +682,34 @@ describe('Plantilla.plantillaTablaPersonas.actualiza', () => {
   }
 
   it('should replace the ID tag with the persona id', () => {
-    const result = Plantilla.plantillaTablaPersonas.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaTablaPersonas.actualiza(mockPersona)
     expect(result.includes(mockPersona.ref['@ref'].id)).toBe(true)
   })
 
   it('deberia reemplazar el tag NOMBRE por nombre', () => {
-    const result = Plantilla.plantillaTablaPersonas.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaTablaPersonas.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.nombre)).toBe(true)
   })
 
   it('deberia reemplazar el tag PAIS por pais', () => {
-    const result = Plantilla.plantillaTablaPersonas.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaTablaPersonas.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.pais)).toBe(true)
   })
 
   it('deberia reemplazar el tag EDAD por edad', () => {
-    const result = Plantilla.plantillaTablaPersonas.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaTablaPersonas.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.edad)).toBe(true)
   })
 
 
   it('deberia reemplazar el tag GRUPO por grupo', () => {
-    const result = Plantilla.plantillaTablaPersonas.actualiza(mockPersona)
+    const result = Gimnasia.GimnasiaTablaPersonas.actualiza(mockPersona)
     expect(result.includes(mockPersona.data.grupo)).toBe(true)
   })
 })
 
 
-describe('Plantilla.plantillaFormularioPersona.actualiza12', () => {
+describe('Gimnasia.GimnasiaFormularioPersona.actualiza12', () => {
   const mockPersona = {
     ref: { '@ref': { id: '1234' } },
     data: {
@@ -721,33 +721,33 @@ describe('Plantilla.plantillaFormularioPersona.actualiza12', () => {
   }
 
   it('should replace the ID tag with the persona id', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza12(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza12(mockPersona)
     expect(result.includes(mockPersona.ref['@ref'].id)).toBe(true)
   })
 
   it('deberia reemplazar el tag NOMBRE por nombre', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza12(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza12(mockPersona)
     expect(result.includes(mockPersona.data.nombre)).toBe(true)
   })
 
   it('deberia reemplazar el tag PAIS por pais', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza12(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza12(mockPersona)
     expect(result.includes(mockPersona.data.pais)).toBe(true)
   })
 
   it('deberia reemplazar el tag EDAD por edad', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza12(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza12(mockPersona)
     expect(result.includes(mockPersona.data.edad)).toBe(true)
   })
 
   it('deberia reemplazar el tag GRUPO por grupo', () => {
-    const result = Plantilla.plantillaFormularioPersona.actualiza12(mockPersona)
+    const result = Gimnasia.GimnasiaFormularioPersona.actualiza12(mockPersona)
     expect(result.includes(mockPersona.data.grupo)).toBe(true)
   })
 })
 
 
-describe("Plantilla", function() {
+describe("Gimnasia", function() {
   describe("personaComoFormulario12", function() {
     it("debe comprobar que la función devuelve el formulario de persona bien actualizado", function() {
       const persona = {
@@ -775,18 +775,18 @@ describe("Plantilla", function() {
                           '<input type="hidden" name="id" value="' + persona.ref['@ref'].id + '">' +
                           '<input type="submit" value="Enviar"></form>';
 
-      spyOn(Plantilla, 'sustituyeTags').and.returnValue(formulario);
+      spyOn(Gimnasia, 'sustituyeTags').and.returnValue(formulario);
 
-      const resultado = Plantilla.personaComoFormulario12(persona);
+      const resultado = Gimnasia.personaComoFormulario12(persona);
 
-      expect(Plantilla.sustituyeTags).toHaveBeenCalledWith(Plantilla.plantillaFormularioPersona.formulario1, persona);
+      expect(Gimnasia.sustituyeTags).toHaveBeenCalledWith(Gimnasia.GimnasiaFormularioPersona.formulario1, persona);
       expect(resultado).toBe(formulario);
     });
   });
 });
 
 
-describe("Plantilla.recuperaDatosAlmacenados", () => {
+describe("Gimnasia.recuperaDatosAlmacenados", () => {
   it("devuelve la persona mostrada almacenada en la variable 'personaMostrada'", () => {
     const personaMostrada = { 
       ID: 1, 
@@ -795,112 +795,112 @@ describe("Plantilla.recuperaDatosAlmacenados", () => {
       EDAD: 30, 
       GRUPO: "A" 
     };
-    Plantilla.personaMostrada = personaMostrada;
-    const result = Plantilla.recuperaDatosAlmacenados();
+    Gimnasia.personaMostrada = personaMostrada;
+    const result = Gimnasia.recuperaDatosAlmacenados();
     expect(result).toEqual(personaMostrada);
   });
 });
 
 
-describe("Plantilla.editar", function() {
+describe("Gimnasia.editar", function() {
   it("La funcion habilitar los campos editables", function() {
-      spyOn(Plantilla, "habilitarDeshabilitarCamposEditables");
+      spyOn(Gimnasia, "habilitarDeshabilitarCamposEditables");
 
-      Plantilla.editar();
+      Gimnasia.editar();
 
-      expect(Plantilla.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(false);
+      expect(Gimnasia.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(false);
   });
 });
 
 
 
-describe('Plantilla.plantillaFormularioPersona.formulario1', () => {
+describe('Gimnasia.GimnasiaFormularioPersona.formulario1', () => {
   it('debería ser una cadena de texto', () => {
-    expect(typeof Plantilla.plantillaFormularioPersona.formulario1).toBe('string');
+    expect(typeof Gimnasia.GimnasiaFormularioPersona.formulario1).toBe('string');
   });
 
   it('debería contener la etiqueta form', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('<form');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('<form');
   });
 
   it('debería contener la etiqueta table', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('<table');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('<table');
   });
 
   it('debería contener la etiqueta thead', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('<thead');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('<thead');
   });
 
   it('debería contener la etiqueta tbody', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('<tbody');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('<tbody');
   });
 
   it('debería contener la etiqueta tr', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('<tr');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('<tr');
   });
 
   it('debería contener la etiqueta td', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('<td');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('<td');
   });
 
   it('debería contener la etiqueta input', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('<input');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('<input');
   });
 
   it('debería contener la etiqueta name="id_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('name="id_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('name="id_persona"');
   });
 
   it('debería contener la etiqueta name="nombre_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('name="nombre_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('name="nombre_persona"');
   });
 
   it('debería contener la etiqueta name="pais_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('name="pais_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('name="pais_persona"');
   });
 
   it('debería contener la etiqueta name="edad_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('name="edad_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('name="edad_persona"');
   });
 
   it('debería contener la etiqueta name="grupo_persona"', () => {
-    expect(Plantilla.plantillaFormularioPersona.formulario1).toContain('name="grupo_persona"');
+    expect(Gimnasia.GimnasiaFormularioPersona.formulario1).toContain('name="grupo_persona"');
   });
 
 });
 
 
-describe("Plantilla.cancelar", function() {
+describe("Gimnasia.cancelar", function() {
   it("debe cancelar todos los campos editables", function() {
-      spyOn(Plantilla, "habilitarDeshabilitarCamposEditables");
+      spyOn(Gimnasia, "habilitarDeshabilitarCamposEditables");
 
-      Plantilla.editar();
+      Gimnasia.editar();
 
-      expect(Plantilla.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(false);
+      expect(Gimnasia.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(false);
   });
 });
 
 
-describe("Plantilla.deshabilitarCamposEditables", function() {
+describe("Gimnasia.deshabilitarCamposEditables", function() {
   it("desabilita el campo editable", function() {
-    spyOn(Plantilla, "habilitarDeshabilitarCamposEditables");
+    spyOn(Gimnasia, "habilitarDeshabilitarCamposEditables");
 
-    Plantilla.deshabilitarCamposEditables();
+    Gimnasia.deshabilitarCamposEditables();
 
-    expect(Plantilla.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(true);
+    expect(Gimnasia.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(true);
   });
 });
 
 
-describe("Plantilla.mostrarOcionesTerciariasEditar", () => {
+describe("Gimnasia.mostrarOcionesTerciariasEditar", () => {
   it("Debería mostrar las opciones terciarias para editar", () => {
-    let plantilla;
+    let Gimnasia;
     const opcionesTerciarias = document.querySelectorAll(".opcion-terciaria.editar");
     opcionesTerciarias.forEach((opcion) => {
       opcion.classList.add("hidden");
     });
     
-    spyOn(Plantilla, "mostrarOcionesTerciariasEditar");
+    spyOn(Gimnasia, "mostrarOcionesTerciariasEditar");
 
     opcionesTerciarias.forEach((opcion) => {
       expect(opcion.classList.contains("hidden")).toBe(false);
@@ -909,9 +909,9 @@ describe("Plantilla.mostrarOcionesTerciariasEditar", () => {
 });
 
 
-describe("Plantilla.mostrarOpcionesSecundarias", () => {
+describe("Gimnasia.mostrarOpcionesSecundarias", () => {
   it("muestra todas las opciones secundarias", () => {
-    let plantilla;
+    let Gimnasia;
     const opciones = document.querySelectorAll(".opcion-secundaria");
     opciones.forEach((opcion) => {
       expect(opcion.style.display).toBe("");
@@ -921,9 +921,9 @@ describe("Plantilla.mostrarOpcionesSecundarias", () => {
 
 
 
-describe('Plantilla.ocultarOcionesTerciariasEditar', function () {
+describe('Gimnasia.ocultarOcionesTerciariasEditar', function () {
   it('debe ocultar las opciones terciarias de editar', function () {
-    let plantilla;
+    let Gimnasia;
     
     // Simulamos que se han mostrado las opciones terciarias de editar
     const opcionesTerciarias = document.querySelectorAll('.opcion-terciaria.editar');
@@ -937,11 +937,11 @@ describe('Plantilla.ocultarOcionesTerciariasEditar', function () {
 });
 
 
-describe("Plantilla.ocultarOpcionesSecundarias", () => {
+describe("Gimnasia.ocultarOpcionesSecundarias", () => {
   it("debería ocultar todas las opciones secundarias", () => {
     // Arrange
-    let plantilla;
-    spyOn(Plantilla, "ocultarOpcionesSecundarias");
+    let Gimnasia;
+    spyOn(Gimnasia, "ocultarOpcionesSecundarias");
     // Assert
     const opcionesSecundarias = document.querySelectorAll(".opcion-secundaria");
     expect(opcionesSecundarias.length).toBe(0);
@@ -949,81 +949,24 @@ describe("Plantilla.ocultarOpcionesSecundarias", () => {
 });
 
 
-describe("Plantilla.habilitarCamposEditables", function() {
+describe("Gimnasia.habilitarCamposEditables", function() {
   it("debe habilttrtr el campo editable", function() {
-    spyOn(Plantilla, "habilitarDeshabilitarCamposEditables");
+    spyOn(Gimnasia, "habilitarDeshabilitarCamposEditables");
 
-    Plantilla.habilitarCamposEditables();
+    Gimnasia.habilitarCamposEditables();
 
-    expect(Plantilla.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(false);
+    expect(Gimnasia.habilitarDeshabilitarCamposEditables).toHaveBeenCalledWith(false);
   });
 });
 
 
-/*describe("Plantilla.habilitarDeshabilitarCamposEditables", () => {
-  it("should disable all editable fields when given 'true'", () => {
-    // Arrange
-    const input1 = document.createElement("input");
-    const input2 = document.createElement("input");
-    input1.id = "field1";
-    input2.id = "field2";
-    document.body.appendChild(input1);
-    document.body.appendChild(input2);
-
-    Plantilla.form = {
-      field1: "field1",
-      field2: "field2",                                                                 FUNCIONAAAA
-    };
-
-    // Act
-    Plantilla.habilitarDeshabilitarCamposEditables(true);
-
-    // Assert
-    expect(document.getElementById("field1").disabled).toBe(true);
-    expect(document.getElementById("field2").disabled).toBe(true);
-
-    // Clean up
-    document.body.removeChild(input1);
-    document.body.removeChild(input2);
-  });
-
-  it("should enable all editable fields when given 'false'", () => {
-    // Arrange
-    const input1 = document.createElement("input");
-    const input2 = document.createElement("input");
-    input1.id = "field1";
-    input2.id = "field2";
-    input1.disabled = true;
-    input2.disabled = true;
-    document.body.appendChild(input1);
-    document.body.appendChild(input2);
-
-    Plantilla.form = {
-      field1: "field1",
-      field2: "field2",
-    };
-
-    // Act
-    Plantilla.habilitarDeshabilitarCamposEditables(false);
-
-    // Assert
-    expect(document.getElementById("field1").disabled).toBe(false);
-    expect(document.getElementById("field2").disabled).toBe(false);
-
-    // Clean up
-    document.body.removeChild(input1);
-    document.body.removeChild(input2);
-  });
-});*/
-
-
 console.assert(
-  Plantilla.opcionesMostrarOcultar("opcion-secundaria", false) === Plantilla,
-  "Error: No se ha devuelto la instancia de Plantilla"
+  Gimnasia.opcionesMostrarOcultar("opcion-secundaria", false) === Gimnasia,
+  "Error: No se ha devuelto la instancia de Gimnasia"
 );
 console.assert(
-  Plantilla.opcionesMostrarOcultar("opcion-terciaria editar", true) === Plantilla,
-  "Error: No se ha devuelto la instancia de Plantilla"
+  Gimnasia.opcionesMostrarOcultar("opcion-terciaria editar", true) === Gimnasia,
+  "Error: No se ha devuelto la instancia de Gimnasia"
 );
 
 
@@ -1080,9 +1023,9 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - Gimnasia.descargarRuta
+ - Gimnasia.procesarAcercaDe
+ - Gimnasia.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.

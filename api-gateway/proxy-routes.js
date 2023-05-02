@@ -16,7 +16,49 @@ const ROUTES = [
                 [`^/plantilla`]: '',
             },
         }
+    },
+    {
+        url: '/equitacion',
+        proxy: {
+            target: "http://localhost:8003",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/equitacion`]: '',
+            },
+        }
+    },
+    {
+        url: '/motociclismo',
+        proxy: {
+            target: "http://localhost:8004",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/motociclismo`]: '',
+            },
+        }
+    },    
+    {
+        url: '/parkour',
+        proxy: {
+            target: "http://localhost:8006",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/parkour`]: '',
+            },
+        }
+    },
+    {
+        url: '/gimnasia',
+        proxy: {
+            target: "http://localhost:8007",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/gimnasia`]: '',
+            },
+        }
     }
+
+
 ]
 
 exports.routes = ROUTES;

@@ -1,0 +1,84 @@
+/**
+ * @file ms-plantilla.css
+ * @description Estilos aplicables a la visualización de elementos relacionados con el MS Plantilla
+ * @author Irene Rubiales <ira00026@red.ujaen.es>
+ * @date 03-Feb-2023
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+table.listado-Motociclistas {
+    width: 100%;
+    border: 1px solid rgba(44, 131, 181, 0.8);
+}
+
+table.listado-Motociclistas thead th,
+table.listado-Motociclistas tbody th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(101, 161, 193, 0.704);
+    text-transform: uppercase;
+
+}
+
+
+table.listado-Motociclistas tbody th {
+    background-color: rgba(39, 154, 199, 0.611);
+}
+
+table.listado-Motociclistas tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.listado-Motociclistas tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(182, 229, 255, 0.441)
+}
+
+/**LISTADO MOTOCILISTAS**/
+
+table.listado-motociclistas {
+    width: 100%;
+    border: 1px solid rgba(44, 131, 181, 0.8);
+}
+
+table.listado-motociclistas thead th,
+table.listado-motociclistas tbody th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(101, 161, 193, 0.704);
+    text-transform: uppercase;
+
+}
+
+
+/**table.listado-motociclistas tbody th {
+    background-color: rgba(39, 154, 199, 0.611);
+}**/
+
+table.listado-motociclistas tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.listado-motociclistas tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(182, 229, 255, 0.441)
+}
+table.listado-motociclistas thead,
+table.listado-motociclistas tbody,
+table.listado-motociclistas tr,
+table.listado-motociclistas td {
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+table.listado-motociclistas {
+    width: 100%;
+}

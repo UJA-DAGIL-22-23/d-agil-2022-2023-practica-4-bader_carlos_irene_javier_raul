@@ -5,23 +5,29 @@
     <title>Aplicación Microservicios Plantilla</title>
 
     <!-- Cargamos biblioteca Jasmine -->
-
-    <!--<link rel="stylesheet" href="lib/jasmine-4.5.0/jasmine.css">
+    <!-- -->
+    <link rel="stylesheet" href="lib/jasmine-4.5.0/jasmine.css">
     <script src="lib/jasmine-4.5.0/jasmine.js"></script>
     <script src="lib/jasmine-4.5.0/jasmine-html.js"></script>
     <script src="lib/jasmine-4.5.0/boot0.js"></script>
-    <script src="lib/jasmine-4.5.0/boot1.js"></script>-->
-
+    <script src="lib/jasmine-4.5.0/boot1.js"></script>
+    
+    
+    
     <!-- Cargamos nuestros CSS -->
     <link rel="stylesheet" href="css/front-end.css">
     <link rel="stylesheet" href="css/ms-plantilla.css">
-
+    <link rel="stylesheet" href="css/ms-equitacion.css">
+    <link rel="stylesheet" href="css/ms-parkour.css">
+    <link rel="stylesheet" href="css/ms-gimnasia.css">
+    <link rel="stylesheet" href="css/ms-motociclismo.css">
 
 </head>
 
 <body>
-    <h1>Aplicación Microservicios Plantilla</h1>
-    <!-- Barra de navegación de la aplicación -->
+    <h1>Aplicación Microservicios Deportes</h1>
+
+    <!-- Barra de navegación de Kung-fu -->
     <nav>
         <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
@@ -55,8 +61,6 @@
 
             </div>
         </div>
-
-
         <input type="text" id="campo-busqueda">
         <button class="btn" onclick="Plantilla.jugadorBuscado(document.getElementById('campo-busqueda').value)">Buscar por nombre</button>
 
@@ -67,24 +71,44 @@
         <button class="btn" onclick="Plantilla.jugadorBuscadoPorAspectoExactos(document.getElementById('aspecto-1').value, document.getElementById('aspecto-2').value, document.getElementById('aspecto-3').value)">Buscar por asectos exactos</button>
     </nav>
 
-     <!-- 
-        BARRA DE NAVEGACION GIMNASIA
-    -->
-
-       <nav>
-        <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
+    <!--  Barra de navegación de Equitación -->
+    <nav>
+        <br>
+        <a href="javascript:Equitacion.procesarHome()" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
-        <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
+        <a href="javascript:Equitacion.procesarAcercaDe()" class="opcion-principal"
             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-        <a href="javascript:Plantilla.listarPersona()" class="opcion-principal"
+        <a href="javascript:Equitacion.listar_nombres()" class="opcion-principal"
+            title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD">Listar nombres</a>
+        <a href="javascript:Equitacion.listar_alfabeticamente()" class="opcion-principal"
+            title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD por orden alfabetico">Listar nombres alfabeticamente</a>
+        <a href="javascript:Equitacion.listar()" class="opcion-principal"
+            title="Realiza un listado con toda la información de los deportistas de equitación que hay en la BBDD">Listar informacion completa</a>
+        <a href="javascript:Equitacion.mostrarDeportista('359074418347999438')" class="opcion-principal mostrar"
+            title="Muestra los datos de un deportista como ejemplo">Mostrar/Editar un deportista</a>
+        <a href="javascript:Equitacion.mostrar()" class="opcion-principal"
+            title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por nombre</a>   
+        <a href="javascript:Equitacion.mostrar_dos()" class="opcion-principal"
+            title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por campos</a>   
+    </nav>
+
+    <!--  Barra de navegación de Gimnasia -->
+    <nav>
+        <h1>Aplicación Gimnasia</h1>
+        <br>
+        <a href="javascript:Gimnasia.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Gimnasia">Home</a>
+        <a href="javascript:Gimnasia.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Gimnasia">Acerca de</a>
+        <a href="javascript:Gimnasia.listarPersona()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Nombre completo de los Participantes</a>
-        <a href="javascript:Plantilla.listarAlfb()" class="opcion-principal"
+        <a href="javascript:Gimnasia.listarAlfb()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Participantes ordenados alfabéticamente</a>
-        <a href="javascript:Plantilla.listar()" class="opcion-principal"
+        <a href="javascript:Gimnasia.listar()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Participantes</a>
-        <a href="javascript:Plantilla.mostrarP('359558425872433356')" class="opcion-principal"
+        <a href="javascript:Gimnasia.mostrarP('359558425872433356')" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Mostrar un participante por id</a>
-        <a href="javascript:Plantilla.listar2()" class="opcion-principal"
+        <a href="javascript:Gimnasia.listar2()" class="opcion-principal"
             title="Realiza un listado de todas las personas que hay en la BBDD">Modificar el nombre de un participante</a>  
             <br/>
             <br/>
@@ -98,11 +122,9 @@
         <script>
             function buscar(){
                 var searchTerm=document.getElementById("search").value;
-                Plantilla.listarParaForm(searchTerm);
+                Gimnasia.listarParaForm(searchTerm);
             }
         </script>
-          <br/>
-          <br/>
           <h1>Formulario para obtener un jugador introduciendo varios campos</h1>
           <form>
              <input type="text" id="nomb" name="nomb" placeholder="Nombre">
@@ -117,10 +139,214 @@
                 var term2 = document.getElementById("eda").value;
                 var term3 = document.getElementById("pai").value;
                 var term4 = document.getElementById("grup").value;
-                Plantilla.historia10(term1,term2,term3,term4);
+                Gimnasia.historia10(term1,term2,term3,term4);
              }
          </script>
     </nav>
+    <!--  Barra de navegación de Parkour -->
+    <br>
+    <nav>
+        <h1>Aplicación Parkour</h1>
+        <a href="javascript:Parkour.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Parkour">Home</a>
+        <a href="javascript:Parkour.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Parkour">Acerca de</a>
+        <a href="javascript:Parkour.listar()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Solo Nombres</a>
+        <a href="javascript:Parkour.listar1()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Nombres Alfabeticamente</a>
+        <a href="javascript:Parkour.listarTodo()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Todos los datos</a>
+        <a href="javascript:Parkour.mostrarP('359809616226287820')" class="opcion-principal"
+            title="Realiza un listado de la informacion de el usuario marcado">Ver datos de un jugador</a>
+        <a href="javascript:Parkour.ModificarDatos()" class="opcion-principal"
+            title="Modificar varios de los datos a la vez de un jugador">Modificar Datos</a>
+            <br/>
+            <br/>
+            <h1>Buscador de jugadores por nombre</h1>
+            <form>
+                <label>Buscar por nombre:</label>
+                <br/>
+                <input type="text" id="search" name="search">
+                <button type="button" onclick="buscador()">Buscar</button>
+            </form>
+            <script>
+                function buscador(){
+                    var searchTerm=document.getElementById("search").value;
+                    Parkour.listarBuscador(searchTerm);
+                }
+            </script>
+            <h1>Buscador de jugadores por varios campos</h1>
+            <form>
+                <label>Buscar por varios campos:</label>
+                <br/>
+                <input type="text" id="search2" name="search2">
+                <button type="button" onclick="buscarCampos()">Buscar</button>
+            </form>
+            <script>
+                function buscarCampos(){
+                    var searchTerm=document.getElementById("search2").value;
+                    Parkour.buscarCampos(searchTerm);
+                }
+            </script>
+        </nav>
+
+<!--  Barra de navegación de Motociclismo-->
+<nav>
+    <h1>Aplicación Motociclismo</h1>
+    <a href="javascript:Motociclismo.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Motociclismo">Home</a>
+    <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Motociclismo">Acerca de</a>
+    <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
+        title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
+    <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
+        title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
+    <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
+        title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>
+        <br>
+     
+
+        <!--HU 08-->
+    
+        <form> 
+            <br>
+            <br>
+            <label>Buscar por nombre completo:</label> 
+        <input type="text" id="search" name="search">
+        <button type="button" onclick="Buscar()"> BUSCAR DATOS </button>
+        </form>
+        <script>function Buscar(){
+            var searchTerm = document.getElementById("search").value;
+            Motociclismo.personaBuscar(searchTerm);
+        }
+        </script>
+
+<!--HU 10-->
+
+<table class="listado-motociclistas">
+<br>
+<thead>
+    <thead>
+        <th>Buscar Motociclista que cumpla exactamente con los siguientes campos a rellenar</th>
+    </thead>
+    <th>Tipo_Moto</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th><th>Opción</th>
+</thead>
+<tbody>
+<tr>
+   
+    
+    <td>
+    <label for="Tipo_Moto">Tipo_Moto</label>
+    <select id="criterio1" name="criterio1">
+        <option value="">Selecciona una opción</option>
+        <option value="Yamaha YZR-M1">Yamaha YZR-M1</option>
+        <option value="Honda RC213V">Honda RC213V</option>
+        <option value="Suzuki GSX-RR">Suzuki GSX-RR</option>
+        <option value="Ducati Desmosedici GP">Ducati Desmosedici GP</option>
+        <option value="KTM RC16">KTM RC16</option>
+        
+    </select><br><br>
+    </td>
+    <td>
+    <label for="Nombre_Equipo">Nombre_Equipo:</label>
+    <select id="criterio2" name="criterio2">
+        <option value="">Selecciona una opción</option>
+        <option value="Yamaha Factory Racing">Yamaha Factory Racing</option>
+        <option value="Monster Energy Yamaha MotoGP">Monster Energy Yamaha MotoGP</option>
+        <option value="Repsol Honda Team">Repsol Honda Team</option>
+        <option value="Team Suzuki Ecstar">Team Suzuki Ecstar</option>
+        <option value="Pramac Racing">Pramac Racing</option>
+        <option value="Avintia Esponsorama Racing">Avintia Esponsorama Racing</option>
+        <option value="Tech 3 KTM Factory Racing">Tech 3 KTM Factory Racing</option>
+
+    </select><br><br>
+    </td>
+    <td>
+        <label for="Posicion_Campeonato">Posicion_Campeonato:</label>
+        <input type="number" id="criterio3" name="criterio3"><br><br>
+        </td> 
+    <td>
+    <div><button type="button" onclick="BuscarCumpleCriterios()">BUSCAR MOTOCILISTA/S</button></div>
+    </td>
+</tr>
+</tbody>
+</table>
+</form>
+<script>function BuscarCumpleCriterios(){
+var criterio1term = document.getElementById('criterio1').value;
+var criterio2term = document.getElementById('criterio2').value;
+var criterio3term = document.getElementById('criterio3').value;
+Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3term);
+}
+</script>
+</nav>
+</nav>
+
+<!--HU 11-->
+
+    
+    <table class="listado-motociclistas">
+        <br>
+    <thead>
+        <thead>
+            <th>Buscar motociclistas que cumplen/tienen en común alguno de los siguientes campos a rellenar</th>
+        </thead>
+        <th>Tipo_Moto</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th><th>Opción</th>
+    </thead>
+    <tbody>
+    <tr>
+       
+        
+        <td>
+        <label for="Tipo_Moto">Tipo_Moto</label>
+        <select id="criterio1p" name="criterio1p">
+            <option value="">Selecciona una opción</option>
+            <option value="Yamaha YZR-M1">Yamaha YZR-M1</option>
+            <option value="Honda RC213V">Honda RC213V</option>
+            <option value="Suzuki GSX-RR">Suzuki GSX-RR</option>
+            <option value="Ducati Desmosedici GP">Ducati Desmosedici GP</option>
+            <option value="KTM RC16">KTM RC16</option>
+            
+        </select><br><br>
+        </td>
+        <td>
+        <label for="Nombre_Equipo">Nombre_Equipo:</label>
+        <select id="criterio2p" name="criterio2p">
+            <option value="">Selecciona una opción</option>
+            <option value="Yamaha Factory Racing">Yamaha Factory Racing</option>
+            <option value="Monster Energy Yamaha MotoGP">Monster Energy Yamaha MotoGP</option>
+            <option value="Repsol Honda Team">Repsol Honda Team</option>
+            <option value="Team Suzuki Ecstar">Team Suzuki Ecstar</option>
+            <option value="Pramac Racing">Pramac Racing</option>
+            <option value="Avintia Esponsorama Racing">Avintia Esponsorama Racing</option>
+            <option value="Tech 3 KTM Factory Racing">Tech 3 KTM Factory Racing</option>
+
+        </select><br><br>
+        </td>
+        <td>
+            <label for="Posicion_Campeonato">Posicion_Campeonato:</label>
+            <input type="number" id="criterio3p" name="criterio3p"><br><br>
+            </td> 
+        
+        <td>
+        <div><button type="button" onclick="BuscarCriterios()">BUSCAR MOTOCILISTA/S</button></div>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+</form>
+<script>function BuscarCriterios(){
+    var criterio1term = document.getElementById('criterio1p').value;
+    var criterio2term = document.getElementById('criterio2p').value;
+    var criterio3term = document.getElementById('criterio3p').value;
+    Motociclismo.BuscarVariosCriterios(criterio1term,criterio2term,criterio3term);
+}
+</script>
+</nav>
+</nav>
+
+
 
     <!-- 
         Article en el que se va a mostrar la info cuando se pinche una opción del menú 
@@ -135,7 +361,6 @@
         </div>
     </article>
 
-
     <!-- 
         ...............  ZONA DE CARGA DE FICHEROS JS .........................
     
@@ -146,12 +371,20 @@
     <!-- Cargamos ficheros JS propios del proyecto -->
     <script src="js/front-end.js"></script>
     <script src="js/ms-kung-fu.js"></script>
-
+    <script src="js/ms-equitacion.js"></script>
+    <script src="js/ms-gimnasia.js"></script>
+    <script src="js/ms-parkour.js"></script>
+    <script src="js/ms-motociclismo.js"></script>
 
     <!-- Cargamos ficheros spec con los tests -->
-    <!--<script src="js/front-end-spec.js"></script>
-    <script src="js/ms-kung-fu-spec.js"></script>-->
-
+    <!--<script src="js/front-end-spec.js"></script>-->
+    <script src="js/ms-kung-fu-spec.js"></script>
+    <!--<script src="js/ms-equitacion-spec.js"></script>-->
+    <!--<script src="js/ms-gimnasia-spec.js"></script>-->
+    <!--<script src="js/ms-parkour-spec.js"></script>-->
+    <!--<script src="js/ms-motociclismo-spec.js"></script>-->
+    
 </body>
 
 </html>
+

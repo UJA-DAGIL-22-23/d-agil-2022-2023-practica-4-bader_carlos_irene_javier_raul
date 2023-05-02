@@ -169,3 +169,52 @@ describe("Frontend.Article.aniadirContenido", function() {
       expect(contenidoArticulo).toContain(contenido);
     });
 });
+
+
+/*TEST PARA EQUITACION*/
+describe("Frontend.Article.creaDivSeccionPrincipalResultados: ", function () {
+    const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+    
+    it("Debería crear un nuevo elemento div con el id 'seccion-principal-resultados' dentro del elemento con id 'seccion-principal-contenido'",
+        function () {
+            Frontend.Article.creaDivSeccionPrincipalResultados();
+            const seccionResultados = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_RESULTADOS);
+            expect(seccionResultados).not.toBeNull();
+            expect(seccionResultados.parentNode).toBe(elementoContenido);
+    })
+})
+
+describe("Frontend.Article.resultados: ", function () {
+    it("Para resultados nulos, debe establecer la sección de resultados como una cadena vacía",
+    function () {
+        Frontend.Article.resultados()
+        expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_RESULTADOS).innerHTML).toBe("")
+    })
+    it("Debe establecer el contenido de la sección de resultados correctamente",
+    function () {
+        const resultadosPrueba = "Resultados de prueba"
+        Frontend.Article.resultados(resultadosPrueba)
+        expect(document.getElementById(Frontend.ID_SECCION_PRINCIPAL_RESULTADOS).innerHTML).toBe(resultadosPrueba)
+    })
+    it("Debe crear la sección de resultados si no existe y establecer su contenido correctamente",
+    function () {
+        const resultadosPrueba = "Resultados de prueba"
+        // Se elimina la sección de resultados (si existe)
+        const seccionResultados = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_RESULTADOS)
+        if (seccionResultados !== null) {
+            seccionResultados.remove()
+        }
+        // Se llama a la función con el contenido de prueba
+        Frontend.Article.resultados(resultadosPrueba)
+        // Se comprueba que la sección de resultados ha sido creada y su contenido establecido correctamente
+        const seccionResultadosCreada = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_RESULTADOS)
+        expect(seccionResultadosCreada).not.toBeNull()
+        expect(seccionResultadosCreada.innerHTML).toBe(resultadosPrueba)
+    })
+    it("Debe devolver el propio objeto",
+    function () {
+        expect(Frontend.Article.resultados()).toBe(Frontend.Article)
+        expect(Frontend.Article.resultados("Resultados de prueba")).toBe(Frontend.Article)
+    })
+
+})

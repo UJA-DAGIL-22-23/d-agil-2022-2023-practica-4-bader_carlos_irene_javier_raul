@@ -20,6 +20,7 @@ Frontend.CLASS_OCULTAR = "ocultar"
 Frontend.ID_SECCION_PRINCIPAL = "seccion-principal"
 Frontend.ID_SECCION_PRINCIPAL_TITULO = "seccion-principal-titulo"
 Frontend.ID_SECCION_PRINCIPAL_CONTENIDO = "seccion-principal-contenido"
+Frontend.ID_SECCION_PRINCIPAL_RESULTADOS = "seccion-principal-resultados"
 
 
 /// Objeto Article dentro Frontend para tratar con el contenido del elemento Article del DOM
@@ -144,5 +145,31 @@ Frontend.Article.actualizarBoton = function (titulo, contenido) {
         .aniadirTitulo(titulo)
         .aniadirContenido(contenido)
         .mostrar()
+    return this;
+}
+
+/**
+ * Crea un div donde escribir los resultados de una búsqueda
+ * @returns El propio objeto Frontend.Article para encadenar llamadas
+ */
+ Frontend.Article.creaDivSeccionPrincipalResultados=function () {
+    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML += '<div id="seccion-principal-resultados"></div>'
+    return this;
+}
+
+
+/**
+ * Escribe los resultados de una búsqueda en el DIV Frontend.ID_SECCION_PRINCIPAL_RESULTADOS
+ * @param {String} resultados Información para la tabla de resultados
+ * @returns El propio Article para concatenar llamadas
+ */
+Frontend.Article.resultados = function (resultados) {
+    resultados = resultados || ""
+    // Comprueba si está la sección para escribir los resultados.
+    // Si no está, la crea y luego ya escribe.
+    if( document.getElementById( Frontend.ID_SECCION_PRINCIPAL_RESULTADOS )===null ) {
+        Frontend.Article.creaDivSeccionPrincipalResultados()
+    }
+    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_RESULTADOS ).innerHTML = resultados
     return this;
 }
