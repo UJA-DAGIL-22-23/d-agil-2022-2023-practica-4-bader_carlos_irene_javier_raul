@@ -183,7 +183,7 @@ describe("Motociclismo.imprime: ", function() {
         function () {
             // Objeto vacio
             Motociclismo.imprime([])
-            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_IMPRIME)
+            expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_IMPRIME_MOTOCICLISMO)
            
     })
 })
@@ -195,7 +195,7 @@ describe("Motociclismo.cabeceraTable: ", function () {
   
     it("debería devolver una cadena de texto que contienen las cabeceras de una tabla HTML",
         function () {
-            expect(Motociclismo.cabeceraTable()).toBe(`<table class="listado-Plantilla">
+            expect(Motociclismo.cabeceraTable()).toBe(`<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th><th>Nombre_Equipo</th><th>Tipo_Moto</th><th>Fecha_Nacimiento</th><th>Anios_Experiencia</th><th>Puntuaciones_Carrera</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th>
         </thead>
@@ -320,7 +320,7 @@ describe("Motociclismo.recuperaNombres", function () {
             function () {
                 // Objeto vacio
                 Motociclismo.imprimeNombres([])
-                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_NOMBRE)
+                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_NOMBRE_MOTOCICLISMO)
                
         })
     })
@@ -331,7 +331,7 @@ describe("Motociclismo.recuperaNombres", function () {
       
         it("debería devolver una cadena de texto que contienen las cabeceras de una tabla HTML",
             function () {
-                expect(Motociclismo.cabeceraTableN()).toBe(`<table class="listado-Plantilla">
+                expect(Motociclismo.cabeceraTableN()).toBe(`<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th>
         </thead>
@@ -414,7 +414,7 @@ describe("Motociclismo.recuperaNombresAZ", function () {
             function () {
                 // Objeto vacio
                 Motociclismo.imprimeNAZ([])
-                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_NAZ)
+                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_NAZ_MOTOCICLISMO)
                
         })
     })
@@ -425,7 +425,7 @@ describe("Motociclismo.recuperaNombresAZ", function () {
       
         it("debería devolver una cadena de texto que contienen las cabeceras de una tabla HTML",
             function () {
-                expect(Motociclismo.cabeceraTableNAZ()).toBe(`<table class="listado-Plantilla">
+                expect(Motociclismo.cabeceraTableNAZ()).toBe(`<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th>
         </thead>
@@ -522,7 +522,7 @@ describe('Motociclismo.sustituyeTags', function () {
             function () {
                 // Objeto vacio
                 Motociclismo.imprimeTodosMotociclistas([])
-                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_MOTOCICLISTAS)
+                expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_MOTOCICLISTAS_MOTOCICLISMO)
                 
         })})
 

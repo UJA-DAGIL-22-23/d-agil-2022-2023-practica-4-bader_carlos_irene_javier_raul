@@ -99,14 +99,14 @@ Motociclismo.mostrarAcercaDe = function (datosDescargados) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Motociclismo.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+    this.descargarRuta("/motociclismo/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 Motociclismo.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/motociclismo/acercade", this.mostrarAcercaDe);
 }
 
 //HU 04 : Ver un listado con todos los datos de todos los jugadores/equipos.
@@ -239,7 +239,7 @@ Motociclismo.recuperaNombres = async function (callBackFn) {
     // Muestro todos los datos que se han descargado
     let vectorMotociclismo = null
     if (response) {
-        vectorPlantilla = await response.json()
+        vectorMotociclismo  = await response.json()
         callBackFn(vectorMotociclismo.data)
     }
 }
