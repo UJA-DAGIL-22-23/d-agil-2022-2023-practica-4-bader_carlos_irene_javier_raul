@@ -141,7 +141,7 @@ Deporte: Parkour
 **-	CAMPOS TIPO NUMÉRICO:**
 
 
-## Historias de usuario elegidas a implementar en mi aplicación de microservicios: 
+# *Historias de usuario elegidas a implementar en mi aplicación de microservicios:* 
 * HU 01.Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Bader
 * HU 02. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Carlos
 * HU 03. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene
@@ -165,5 +165,5 @@ Deporte: Parkour
 Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente.
 
 # *TDDS Y expects*
+Aquí inserto la captura de los TDD's de los deportes de : Motociclismo y equitación. Demostrando así, su correcto funcionamiento, adaptación al código e implementación:
 ![Captura Tdds](./assets/img/TDD23.png)
-Aquí inserto la captura de los TDD's de los deportes de : Motociclismo y equitación. Demostrando así, su correcto funcionamiento, adaptación al código e implementación.
