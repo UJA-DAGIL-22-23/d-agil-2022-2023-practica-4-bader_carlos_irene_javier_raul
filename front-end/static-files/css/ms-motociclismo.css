@@ -82,3 +82,42 @@ table.listado-motociclistas td {
 table.listado-motociclistas {
     width: 100%;
 }
+
+
+/**LISTADO TABLA GENERAL**/
+
+table.listado-tablageneral {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 100, 0.8);
+}
+
+table.listado-tablageneral thead th,
+table.listado-tablageneral tbody th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+
+}
+
+
+table.listado-tablageneral tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.listado-tablageneral tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(0, 0, 100, 0.1)
+}
+table.listado-tablageneral thead,
+table.listado-tablageneral tbody,
+table.listado-tablageneral tr,
+table.listado-tablageneral td {
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+table.listado-tablageneral {
+    width: 100%;
+}

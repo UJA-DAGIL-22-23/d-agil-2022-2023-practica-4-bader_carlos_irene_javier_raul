@@ -124,14 +124,14 @@ table.listado_jugadores {
 
 table.Aplicacion-KungFu {
   width: 100%;
-  border: 1px solid rgba(44, 131, 181, 0.8);
+  border: 1px solid rgba(227, 124, 55, 0.8);
 }
 
 table.Aplicacion-KungFu thead th,
 table.Aplicacion-KungFu tbody th {
     margin: 3px;
     height: 2.5em;
-    background-color: rgba(101, 161, 193, 0.704);
+    background-color: rgba(227, 124, 55, 0.8);
     text-transform: uppercase;
 
 }
@@ -144,7 +144,7 @@ table.Aplicacion-KungFu tbody td {
 table.Aplicacion-KungFu tbody tr {
     margin: 3px;
     height: 2em;
-    background-color: rgba(182, 229, 255, 0.441)
+    background-color: rgba(218, 138, 77, 0.575)
 }
 table.Aplicacion-KungFu thead,
 table.Aplicacion-KungFu tbody,

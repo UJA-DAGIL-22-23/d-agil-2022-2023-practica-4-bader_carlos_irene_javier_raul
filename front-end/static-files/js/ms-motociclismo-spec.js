@@ -10,8 +10,8 @@
 // Constantes para usar en las pruebas
 const elementoTituloMotociclismo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenidoMotociclismo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME_MOTOCICLISMO = "Plantilla Home"
-const TITULO_ACERCA_DE_MOTOCICLISMO = "Plantilla Acerca de"
+const TITULO_HOME_MOTOCICLISMO = "Motociclismo Home"
+const TITULO_ACERCA_DE_MOTOCICLISMO = "Motociclismo Acerca de"
 const TITULO_IMPRIME_MOTOCICLISMO = "Listado de motociclistas"
 const TITULO_NAZ_MOTOCICLISMO = "Listado de NOMBRES Aa-Zz de motociclistas"
 const TITULO_MOTOCICLISTAS_MOTOCICLISMO = "Listado de motocilistas"
