@@ -1,6 +1,6 @@
 /**
  * @file callbacks.js
- * @description Callbacks para el MS Plantilla.
+ * @description Callbacks para el MS KungFu.
  * Los callbacks son las funciones que se llaman cada vez que se recibe una petición a través de la API.
  * Las peticiones se reciben en las rutas definidas en routes.js, pero se procesan aquí.
  * @author Víctor M. Rivas <vrivas@ujaen.es>
@@ -122,7 +122,7 @@ const CB_OTHERS = {
      */
     home: async (req, res) => {
         try {
-            CORS(res).status(200).json({ mensaje: "Microservicio MS Plantilla: home" });
+            CORS(res).status(200).json({ mensaje: "Microservicio MS KungFu: home" });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
@@ -136,7 +136,7 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio MS Plantilla: acerca de",
+                mensaje: "Microservicio MS KungFu: acerca de",
                 autor: "Bader Irheem",
                 email: "bsi00001@red.ujaen.es",
                 fecha: "17/8/2000"

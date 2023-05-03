@@ -1,6 +1,6 @@
 /**
- * @file Plantilla.js
- * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
+ * @file KungFu.js
+ * @description Funciones para el procesamiento de la info enviada por el MS KungFu
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -8,20 +8,19 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let KungFu = {};
+KungFu.jugadorMostrado = null
 
-Plantilla.jugadorMostrado = null
-
-// Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+// KungFu de datosDescargados vacíos
+KungFu.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
     fecha: ""
 }
 
-// Plantilla de datosJugadores vacíos
-Plantilla.datosJugadoresNulos = {
+// KungFu de datosJugadores vacíos
+KungFu.datosJugadoresNulos = {
     id: "undefined",
     nombre: "undefined",
     apellidos: "undefined",
@@ -33,7 +32,7 @@ Plantilla.datosJugadoresNulos = {
     nombre_gimnasio: "undefined"
 }
 
-Plantilla.plantillaTags = {
+KungFu.KungFuTags = {
     "ID": "### ID ###",
     "NOMBRE_COMPLETO": "### NOMBRE_COMPLETO ###",
     "NOMBRE": "### NOMBRE ###",
@@ -46,21 +45,21 @@ Plantilla.plantillaTags = {
     "NOMBRE_GIMNASIO": "### NOMBRE DEL GIMNASIO ###"
 }
 
-Plantilla.jugadorComoTabla = function (jugador) {
-    return Plantilla.plantillaTablaJugadores.cabeceraEspecifico
-        + Plantilla.plantillaTablaJugadores.actualizaEspecifico(jugador)
-        + Plantilla.plantillaTablaJugadores.pie;
+KungFu.jugadorComoTabla = function (jugador) {
+    return KungFu.KungFuTablaJugadores.cabeceraEspecifico
+        + KungFu.KungFuTablaJugadores.actualizaEspecifico(jugador)
+        + KungFu.KungFuTablaJugadores.pie;
 }
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS KungFu al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+KungFu.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio KungFu
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -80,9 +79,9 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "home" de MS KungFu
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+KungFu.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -92,13 +91,13 @@ Plantilla.mostrarHome = function (datosDescargados) {
     // Si datos descargados NO contiene el campo mensaje
     if (typeof datosDescargados.mensaje === "undefined") datosDescargados = this.datosDescargadosNulos
 
-    Frontend.Article.actualizar("Plantilla Home", datosDescargados.mensaje)
+    Frontend.Article.actualizar("KungFu Home", datosDescargados.mensaje)
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS KungFu
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+KungFu.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -121,14 +120,14 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("KungFu Acerca de", mensajeAMostrar)
 }
 
-// Plantilla para poner los datos de varios jugadores dentro de una tabla
-Plantilla.plantillaTablaJugadores = {}
+// KungFu para poner los datos de varios jugadores dentro de una tabla
+KungFu.KungFuTablaJugadores = {}
 
 // Cabecera de la tabla
-Plantilla.plantillaTablaJugadores.cabecera = `<table width="100%" class="listado_jugadores">
+KungFu.KungFuTablaJugadores.cabecera = `<table width="100%" class="listado_jugadores">
     <thead>
         <th>ID</th>
         <th>Nombre</th>
@@ -144,7 +143,7 @@ Plantilla.plantillaTablaJugadores.cabecera = `<table width="100%" class="listado
 <tbody>`;
 
 // Cabecera de la tabla
-Plantilla.plantillaTablaJugadores.cabeceraEspecifico = `<table width="100%" class="listado_jugadores">
+KungFu.KungFuTablaJugadores.cabeceraEspecifico = `<table width="100%" class="listado_jugadores">
     <thead>
         <th>ID</th>
         <th>Nombre</th>
@@ -159,7 +158,7 @@ Plantilla.plantillaTablaJugadores.cabeceraEspecifico = `<table width="100%" clas
 <tbody>`;
 
 // Cabecera de la tabla para solo los nombres
-Plantilla.plantillaTablaJugadores.cabeceraNombres = `<table width="100%" class="listado_jugadores">
+KungFu.KungFuTablaJugadores.cabeceraNombres = `<table width="100%" class="listado_jugadores">
 <thead>
     <th width="5%">ID</th>
     <th width="15%">Nombre</th>
@@ -168,117 +167,117 @@ Plantilla.plantillaTablaJugadores.cabeceraNombres = `<table width="100%" class="
 <tbody>`;
 
 //Elementos RT que muestra los datos de un jugador
-Plantilla.plantillaTablaJugadores.cuerpo = `
-<tr title="${Plantilla.plantillaTags.ID}">
-    <td>${Plantilla.plantillaTags.ID}</td>
-    <td>${Plantilla.plantillaTags.NOMBRE}</td>
-    <td>${Plantilla.plantillaTags.APELLIDOS}</td>
-    <td>${Plantilla.plantillaTags["FECHA_NACIMIENTO"]}</td>
-    <td>${Plantilla.plantillaTags.DIRECCION}</td>
-    <td>${Plantilla.plantillaTags.NUMERO_PARTICIPACIONES}</td>
-    <td>${Plantilla.plantillaTags["AÑOS PARTICIPACION"]}</td>
-    <td>${Plantilla.plantillaTags.COLOR_CINTURON}</td>
-    <td>${Plantilla.plantillaTags.NOMBRE_GIMNASIO}</td>
+KungFu.KungFuTablaJugadores.cuerpo = `
+<tr title="${KungFu.KungFuTags.ID}">
+    <td>${KungFu.KungFuTags.ID}</td>
+    <td>${KungFu.KungFuTags.NOMBRE}</td>
+    <td>${KungFu.KungFuTags.APELLIDOS}</td>
+    <td>${KungFu.KungFuTags["FECHA_NACIMIENTO"]}</td>
+    <td>${KungFu.KungFuTags.DIRECCION}</td>
+    <td>${KungFu.KungFuTags.NUMERO_PARTICIPACIONES}</td>
+    <td>${KungFu.KungFuTags["AÑOS PARTICIPACION"]}</td>
+    <td>${KungFu.KungFuTags.COLOR_CINTURON}</td>
+    <td>${KungFu.KungFuTags.NOMBRE_GIMNASIO}</td>
     <td>
-        <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
+        <div><a href="javascript:KungFu.mostrar('${KungFu.KungFuTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
     </td>
 </tr>
 `;
 
 //Elementos RT que muestra los datos de un jugador
-Plantilla.plantillaTablaJugadores.cuerpoEspecifico = `
-<tr title="${Plantilla.plantillaTags.ID}">
-    <td>${Plantilla.plantillaTags.ID}</td>
-    <td>${Plantilla.plantillaTags.NOMBRE}</td>
-    <td>${Plantilla.plantillaTags.APELLIDOS}</td>
-    <td>${Plantilla.plantillaTags["FECHA_NACIMIENTO"]}</td>
-    <td>${Plantilla.plantillaTags.DIRECCION}</td>
-    <td>${Plantilla.plantillaTags.NUMERO_PARTICIPACIONES}</td>
-    <td>${Plantilla.plantillaTags["AÑOS PARTICIPACION"]}</td>
-    <td>${Plantilla.plantillaTags.COLOR_CINTURON}</td>
-    <td>${Plantilla.plantillaTags.NOMBRE_GIMNASIO}</td>
+KungFu.KungFuTablaJugadores.cuerpoEspecifico = `
+<tr title="${KungFu.KungFuTags.ID}">
+    <td>${KungFu.KungFuTags.ID}</td>
+    <td>${KungFu.KungFuTags.NOMBRE}</td>
+    <td>${KungFu.KungFuTags.APELLIDOS}</td>
+    <td>${KungFu.KungFuTags["FECHA_NACIMIENTO"]}</td>
+    <td>${KungFu.KungFuTags.DIRECCION}</td>
+    <td>${KungFu.KungFuTags.NUMERO_PARTICIPACIONES}</td>
+    <td>${KungFu.KungFuTags["AÑOS PARTICIPACION"]}</td>
+    <td>${KungFu.KungFuTags.COLOR_CINTURON}</td>
+    <td>${KungFu.KungFuTags.NOMBRE_GIMNASIO}</td>
 </tr>
 `;
 
 //Elementos RT que muestra los datos de un jugador
-Plantilla.plantillaTablaJugadores.cuerpoNombres = `
-<tr title="${Plantilla.plantillaTags.ID}">
-    <td>${Plantilla.plantillaTags.ID}</td>
-    <td>${Plantilla.plantillaTags.NOMBRE}</td>
-    <td>${Plantilla.plantillaTags.APELLIDOS}</td>
+KungFu.KungFuTablaJugadores.cuerpoNombres = `
+<tr title="${KungFu.KungFuTags.ID}">
+    <td>${KungFu.KungFuTags.ID}</td>
+    <td>${KungFu.KungFuTags.NOMBRE}</td>
+    <td>${KungFu.KungFuTags.APELLIDOS}</td>
 </tr>
 `;
 
 //pie de la tabla 
-Plantilla.plantillaTablaJugadores.pie = `</tbody>
+KungFu.KungFuTablaJugadores.pie = `</tbody>
 </table>
 `;
 
 /**
- * Actualiza el cuerpo de la plantilla deseada con los datos de la persona que se le pasa
- * @param {String} plantilla Cadena conteniendo HTMLen la que se desea cambiar los campos de la plantilla por datos
+ * Actualiza el cuerpo de la KungFu deseada con los datos de la persona que se le pasa
+ * @param {String} KungFu Cadena conteniendo HTMLen la que se desea cambiar los campos de la KungFu por datos
  * @param {Jugador} jugador Objeto con los datos del jugador que queremos escribir en el TR
- * @returns La plantilla del cuerpo de la tabla con los datos actualizados
+ * @returns La KungFu del cuerpo de la tabla con los datos actualizados
  */
-Plantilla.sustituyeTags = function (plantilla, jugador) {
-    return plantilla
-        .replace(new RegExp(Plantilla.plantillaTags.ID, 'g'), jugador.ref['@ref'].id)
-        .replace(new RegExp(Plantilla.plantillaTags.NOMBRE, 'g'), jugador.data.nombre_completo.nombre)
-        .replace(new RegExp(Plantilla.plantillaTags.APELLIDOS, 'g'), jugador.data.nombre_completo.apellidos)
-        .replace(new RegExp(Plantilla.plantillaTags.FECHA_NACIMIENTO, 'g'), jugador.data.fecha_nacimiento.dia + "/" + jugador.data.fecha_nacimiento.mes + "/" + jugador.data.fecha_nacimiento.año)
-        .replace(new RegExp(Plantilla.plantillaTags.DIRECCION, 'g'), jugador.data.direccion.calle + ", " + jugador.data.direccion.localidad + ", " + jugador.data.direccion.provincia + ", " + jugador.data.direccion.pais)
-        .replace(new RegExp(Plantilla.plantillaTags.NUMERO_PARTICIPACIONES, 'g'), jugador.data.numero_particiapciones_Juegos_olimpicos)
-        .replace(new RegExp(Plantilla.plantillaTags["AÑOS PARTICIPACION"], 'g'), jugador.data.años_participacion_juegos_olimpicos)
-        .replace(new RegExp(Plantilla.plantillaTags.COLOR_CINTURON, 'g'), jugador.data.color_cinturon)
-        .replace(new RegExp(Plantilla.plantillaTags.NOMBRE_GIMNASIO, 'g'), jugador.data.nombre_gimnasio)
+KungFu.sustituyeTags = function (kungfu, jugador) {
+    return kungfu
+        .replace(new RegExp(KungFu.KungFuTags.ID, 'g'), jugador.ref['@ref'].id)
+        .replace(new RegExp(KungFu.KungFuTags.NOMBRE, 'g'), jugador.data.nombre_completo.nombre)
+        .replace(new RegExp(KungFu.KungFuTags.APELLIDOS, 'g'), jugador.data.nombre_completo.apellidos)
+        .replace(new RegExp(KungFu.KungFuTags.FECHA_NACIMIENTO, 'g'), jugador.data.fecha_nacimiento.dia + "/" + jugador.data.fecha_nacimiento.mes + "/" + jugador.data.fecha_nacimiento.año)
+        .replace(new RegExp(KungFu.KungFuTags.DIRECCION, 'g'), jugador.data.direccion.calle + ", " + jugador.data.direccion.localidad + ", " + jugador.data.direccion.provincia + ", " + jugador.data.direccion.pais)
+        .replace(new RegExp(KungFu.KungFuTags.NUMERO_PARTICIPACIONES, 'g'), jugador.data.numero_particiapciones_Juegos_olimpicos)
+        .replace(new RegExp(KungFu.KungFuTags["AÑOS PARTICIPACION"], 'g'), jugador.data.años_participacion_juegos_olimpicos)
+        .replace(new RegExp(KungFu.KungFuTags.COLOR_CINTURON, 'g'), jugador.data.color_cinturon)
+        .replace(new RegExp(KungFu.KungFuTags.NOMBRE_GIMNASIO, 'g'), jugador.data.nombre_gimnasio)
 }
         
 /**
  * Actualiza el cuerpo de la tabla con los datos de el jugadores que se le pasa
  * @param {Jugador} jugador Objeto con los datos de la persona que queremos escribir el TR
- * @returns La plantilla des cuerpo de la tabla con los datos actualizados
+ * @returns La KungFu des cuerpo de la tabla con los datos actualizados
  */
-Plantilla.plantillaTablaJugadores.actualiza = function (jugador) {
-    return Plantilla.sustituyeTags(this.cuerpo, jugador)
+KungFu.KungFuTablaJugadores.actualiza = function (jugador) {
+    return KungFu.sustituyeTags(this.cuerpo, jugador)
 }
 
 /**
  * Actualiza el cuerpo de la tabla con los datos de el jugadores que se le pasa
  * @param {Jugador} jugador Objeto con los datos de la persona que queremos escribir el TR
- * @returns La plantilla des cuerpo de la tabla con los datos actualizados
+ * @returns La KungFu des cuerpo de la tabla con los datos actualizados
  */
-Plantilla.plantillaTablaJugadores.actualizaEspecifico = function (jugador) {
-    return Plantilla.sustituyeTags(this.cuerpoEspecifico, jugador)
+KungFu.KungFuTablaJugadores.actualizaEspecifico = function (jugador) {
+    return KungFu.sustituyeTags(this.cuerpoEspecifico, jugador)
 }
 
 /**
  * Actualiza el cuerpo de la tabla con los datos del jugadores que se le pasa
  * @param {Jugador} jugador Objeto con los datos de la persona que queremos escribir el TR
- * @returns La plantilla de cuerpo de la tabla con los datos actualizados
+ * @returns La KungFu de cuerpo de la tabla con los datos actualizados
  */
-Plantilla.plantillaTablaJugadores.actualizaNombres = function (jugador) {
-    return Plantilla.sustituyeTags(this.cuerpoNombres, jugador)
+KungFu.KungFuTablaJugadores.actualizaNombres = function (jugador) {
+    return KungFu.sustituyeTags(this.cuerpoNombres, jugador)
 }
 
 /**
  * Actualiza el cuerpo de la tabla con los datos del jugador que se le psas
  * @param {Jugador} jugador Objeto con los datos de la persona que queremos escribir el TR
- * @returns La plantilla de cuerpo de la tabla con los datos actualizados
+ * @returns La KungFu de cuerpo de la tabla con los datos actualizados
  */
-Plantilla.plantillaTablaJugadores.actualizaNombresOrdenados = function (jugador) {
-    return Plantilla.sustituyeTags(this.cuerpoNombres, jugador)
+KungFu.KungFuTablaJugadores.actualizaNombresOrdenados = function (jugador) {
+    return KungFu.sustituyeTags(this.cuerpoNombres, jugador)
 }
 
 /**
- * Función que recupera todos los jugadores llamando al MS Plantilla 
+ * Función que recupera todos los jugadores llamando al MS KungFu 
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recupera = async function (callBackFn, orden) {
+KungFu.recupera = async function (callBackFn, orden) {
     let response = null
 
-    // Intento conectar el microservicio Plantilla
+    // Intento conectar el microservicio KungFu
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/kungfu/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -295,14 +294,14 @@ Plantilla.recupera = async function (callBackFn, orden) {
 }
 
 /**
- * Función que recupera todos los jugadores llamando al MS Plantilla
+ * Función que recupera todos los jugadores llamando al MS KungFu
  * Posteriormente, llama a la función callBackFn para trabajar con los datos recuperados.
  * @param {String} idJugador Identificador del jugador a mostrar
  * @param {funcion} callBackFn Función a la que se llamará una vez recibidos los datos
  */
-Plantilla.recuperaUnJugador = async function (idJugador, callBackFn) {
+KungFu.recuperaUnJugador = async function (idJugador, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idJugador
+        const url = Frontend.API_GATEWAY + "/kungfu/getPorId/" + idJugador
         const response = await fetch(url);
         if (response) {
             const jugador = await response.json()
@@ -315,14 +314,14 @@ Plantilla.recuperaUnJugador = async function (idJugador, callBackFn) {
 }
 
 /**
- * Función que recupera todos los jugadores llamando al MS Plantilla
+ * Función que recupera todos los jugadores llamando al MS KungFu
  * Posteriormente, llama a la función callBackFn para trabajar con los datos recperados.
  * @param {string} nombreBuscado El nombre del jugador buscado
  * @param {funcion} callBackFn Función a la que se llamará una vez recibidos los datos
  */
-Plantilla.recuperaJugadorBuscado = async function (nombreBuscado, callBackFn) {
+KungFu.recuperaJugadorBuscado = async function (nombreBuscado, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/kungfu/getTodos"
         const response = await fetch(url);
         let vectorJugadores = null
         if (response) {
@@ -337,16 +336,16 @@ Plantilla.recuperaJugadorBuscado = async function (nombreBuscado, callBackFn) {
 }
 
 /**
- * Función que recupera todos los jugadores llamando al MS Plantilla
+ * Función que recupera todos los jugadores llamando al MS KungFu
  * Posteriormente, llama a la función callBackFn para trabajar con los datos recperados.
  * @param {string} aspecto1 El primer aspecto que se busca
  * * @param {string} aspecto2 El segundo aspecto que se busca
  * * @param {string} aspecto3 El tercer aspecto que se busca
  * @param {funcion} callBackFn Función a la que se llamará una vez recibidos los datos
  */
-Plantilla.recuperaJugadorBuscadoPorAspecto = async function (aspecto1, aspecto2, aspecto3, callBackFn) {
+KungFu.recuperaJugadorBuscadoPorAspecto = async function (aspecto1, aspecto2, aspecto3, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/kungfu/getTodos"
         const response = await fetch(url);
         let vectorJugadores = null
         if (response) {
@@ -363,16 +362,16 @@ Plantilla.recuperaJugadorBuscadoPorAspecto = async function (aspecto1, aspecto2,
 }
 
 /**
- * Función que recupera todos los jugadores llamando al MS Plantilla
+ * Función que recupera todos los jugadores llamando al MS KungFu
  * Posteriormente, llama a la función callBackFn para trabajar con los datos recperados.
  * @param {string} aspecto1 El primer aspecto que se busca
  * * @param {string} aspecto2 El segundo aspecto que se busca
  * * @param {string} aspecto3 El tercer aspecto que se busca
  * @param {funcion} callBackFn Función a la que se llamará una vez recibidos los datos
  */
-Plantilla.recuperaJugadorBuscadoPorAspectoExacto = async function (aspecto1, aspecto2, aspecto3, callBackFn) {
+KungFu.recuperaJugadorBuscadoPorAspectoExacto = async function (aspecto1, aspecto2, aspecto3, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/kungfu/getTodos"
         const response = await fetch(url);
         let vectorJugadores = null
         if (response) {
@@ -391,21 +390,21 @@ Plantilla.recuperaJugadorBuscadoPorAspectoExacto = async function (aspecto1, asp
  * que se han recuperado de la BBDD
  * @param {vector_de_jugadores} vector 
  */
-Plantilla.imprimeTodosJugadores = function (vector) {
+KungFu.imprimeTodosJugadores = function (vector) {
     
     vector = vector || this.datosJugadoresNulos
 
     if (typeof vector !== "object") vector = this.datosJugadoresNulos
 
     // Compongo el contenido que se va a mostrar dentro de la tabla
-    let msj = Plantilla.plantillaTablaJugadores.cabecera
+    let msj = KungFu.KungFuTablaJugadores.cabecera
     if (vector && Array.isArray(vector)) {
-        vector.forEach(e => msj += Plantilla.plantillaTablaJugadores.actualiza(e));
+        vector.forEach(e => msj += KungFu.KungFuTablaJugadores.actualiza(e));
     }
-    msj += Plantilla.plantillaTablaJugadores.pie
+    msj += KungFu.KungFuTablaJugadores.pie
 
     // Borrar toda la información de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Plantilla del listados de los datos de todos los jugadores" , msj)
+    Frontend.Article.actualizar("KungFu del listados de los datos de todos los jugadores" , msj)
 }
 
 /**
@@ -413,25 +412,29 @@ Plantilla.imprimeTodosJugadores = function (vector) {
  * que se recuperan de la BBDD
  * @param {vector_de_jugadores} vector 
  */
-Plantilla.imprimeSoloNombres = function (vector) {
+KungFu.imprimeSoloNombres = function (vector) {
+
     // Compongo el contenido que se va a mostrar dentro de la tabla
-    let msj = Plantilla.plantillaTablaJugadores.cabeceraNombres
+    let msj = KungFu.KungFuTablaJugadores.cabeceraNombres
+
     if (vector && Array.isArray(vector)) {
-        vector.forEach(e => msj += Plantilla.plantillaTablaJugadores.actualizaNombres(e));
+        vector.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombres(e));
     }
-    msj += Plantilla.plantillaTablaJugadores.pie
+    msj += KungFu.KungFuTablaJugadores.pie
 
     // Borrar toda la información del Article y la sustituyo por la que ma interesa
-    Frontend.Article.actualizar("Plantilla del listado de los nombres de todos los jugadores", msj)
+    Frontend.Article.actualizar("KungFu del listado de los nombres de todos los jugadores", msj)
 }
 
 /**
  * Función que imprime todos los datos de todos los jugadores que se recuperan de la BBDD ordenados alfabéticamente
  * @param {vector_de_jugadores} vector 
  */
-Plantilla.imprimeOrdenados = function(vector) {
+KungFu.imprimeOrdenados = function(vector) {
+
     // Compongo el contenido que se va a mostrar dentro de la tabla
-    let msj = Plantilla.plantillaTablaJugadores.cabeceraNombres
+    let msj = KungFu.KungFuTablaJugadores.cabeceraNombres
+
     if (vector && Array.isArray(vector)) {
         vector.sort(function(a, b) {
             let nombreA = a.data.nombre_completo.nombre.toUpperCase(); // convertir a mayúsculas para evitar problemas de ordenamiento
@@ -445,12 +448,12 @@ Plantilla.imprimeOrdenados = function(vector) {
             return 0;
         });
 
-        vector.forEach(e => msj += Plantilla.plantillaTablaJugadores.actualizaNombresOrdenados(e));
+        vector.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresOrdenados(e));
     }
-    msj += Plantilla.plantillaTablaJugadores.pie
+    msj += KungFu.KungFuTablaJugadores.pie
 
     // Borrar toda la información del Article y la sustituyo por la que ma interesa
-    Frontend.Article.actualizar("Plantilla del listado de los nombres de todos los jugadores ordenados", msj)
+    Frontend.Article.actualizar("KungFu del listado de los nombres de todos los jugadores ordenados", msj)
 }
 
 /**
@@ -458,7 +461,7 @@ Plantilla.imprimeOrdenados = function(vector) {
  * @param {entero} num numero para saber si es de una cifra o no
  * @returns devuelve el numero con dos cifras si no tiene
  */
-Plantilla.cerear = function(num) {
+KungFu.cerear = function(num) {
     if (num < 10) {
         return "0" + num.toString();
     } else {
@@ -471,21 +474,23 @@ Plantilla.cerear = function(num) {
  * @param {vector_de_jugadores} vector Array con todos los datos de todos los jugadores
  * @param {string} orden El tipo de orden deseado para ordenar los jugadores en la tabla
  */
-Plantilla.imprimeVariosOrdenados = function(vector, orden) {
+KungFu.imprimeVariosOrdenados = function(vector, orden) {
     vector = vector || this.datosJugadoresNulos
 
     if (typeof vector !== "object") vector = this.datosJugadoresNulos
 
     // Compongo el contenido que se va a mostrar dentro de la tabla
-    let msj = Plantilla.plantillaTablaJugadores.cabecera
+    let msj = KungFu.KungFuTablaJugadores.cabecera
+
     if (vector && Array.isArray(vector)) {
-        
         vector.sort(function(a, b){
             let campoA = null;
             let campoB = null;
             if(orden == 'fecha_nacimiento'){
-                campoA = a.data[orden].año + "" +  Plantilla.cerear(a.data[orden].mes) + "" + Plantilla.cerear(a.data[orden].dia)
-                campoB = b.data[orden].año + "" +  Plantilla.cerear(b.data[orden].mes) + "" + Plantilla.cerear(b.data[orden].dia)
+                campoA = a.data[orden].año + "" +  KungFu.cerear(a.data[orden].mes) + "" + KungFu.cerear(a.data[orden].dia)
+            
+                campoB = b.data[orden].año + "" +  KungFu.cerear(b.data[orden].mes) + "" + KungFu.cerear(b.data[orden].dia)
+            
             }else if (orden == 'nombre'){
                 campoA = a.data.nombre_completo.nombre.toUpperCase(); // convertir a mayúsculas para evitar problemas de ordenamiento
                 campoB = b.data.nombre_completo.nombre.toUpperCase(); // convertir a mayúsculas para evitar problemas de ordenamiento
@@ -511,75 +516,76 @@ Plantilla.imprimeVariosOrdenados = function(vector, orden) {
             return 0;
         });
         
-        vector.forEach(e => msj += Plantilla.plantillaTablaJugadores.actualiza(e));
+        vector.forEach(e => msj += KungFu.KungFuTablaJugadores.actualiza(e));
     }
-    msj += Plantilla.plantillaTablaJugadores.pie
+    msj += KungFu.KungFuTablaJugadores.pie
 
     // Borrar toda la información de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Plantilla del listados de los datos de todos los jugadores ordenado según un criterio" , msj)
+    Frontend.Article.actualizar("KungFu del listados de los datos de todos los jugadores ordenado según un criterio" , msj)
 }
 
 /**
  * Función que almacena en una variable el jugador mostrado actualmente
  * @param {vector} jugador Los datos del jugador mostrado
  */
-Plantilla.almacenaDatos = function (jugador) {
-    Plantilla.jugadorMostrado = jugador;
+KungFu.almacenaDatos = function (jugador) {
+    KungFu.jugadorMostrado = jugador;
 }
 
 /**
  * Una función que imprime los datos de un jugador especifico en una tabla
  * @param {object} jugador El jugador buscado
  */
-Plantilla.imprimeUnJugador = function (jugador) {
+KungFu.imprimeUnJugador = function (jugador) {
+
     if (!jugador || typeof jugador !== "object") {
         elementoTitulo.innerHTML = "Mostrar los datos del jugador";
 
     } else {
-        let msj = Plantilla.jugadorComoTabla(jugador);
-
-        //let msj = Plantilla.jugadorComoFormulario(jugador);
+        let msj = KungFu.jugadorComoTabla(jugador);
+    
+        //let msj = KungFu.jugadorComoFormulario(jugador);
         //Borrar toda la información de Article y la sustituyo por la que me interesa
         Frontend.Article.actualizarBoton("Mostrar los datos del jugador", msj)
 
         //Actualiza el objeto que guarda los datos mostrados
-        Plantilla.almacenaDatos(jugador)
+        KungFu.almacenaDatos(jugador)
     }
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+KungFu.procesarHome = function () {
+    this.descargarRuta("/kungfu/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+KungFu.procesarAcercaDe = function () {
+    this.descargarRuta("/kungfu/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Función principal para recuperar los jugadores desde el MS, y posteriormente imprimirlos
  */
-Plantilla.listarJugadores = function () {
-    Plantilla.recupera(Plantilla.imprimeTodosJugadores);
+KungFu.listarJugadores = function () {
+    KungFu.recupera(KungFu.imprimeTodosJugadores);
 }
 
 /**
  * Función principal para recuperar solo los nombres de los jugadores desde el MS, y posteriormente imprimirlos
  */
-Plantilla.listarNombresJugadores = function () {
-    Plantilla.recupera(Plantilla.imprimeSoloNombres);
+KungFu.listarNombresJugadores = function () {
+    KungFu.recupera(KungFu.imprimeSoloNombres);
 }
 
 /**
  * Función que muestra los datos de un jugador especifico
  * @param {string} idJugador id del jugador
  */
-Plantilla.mostrar = function (idJugador) {
+KungFu.mostrar = function (idJugador) {
     this.recuperaUnJugador(idJugador, this.imprimeUnJugador);
 }
 
@@ -587,7 +593,7 @@ Plantilla.mostrar = function (idJugador) {
  * Función que muestra el jugador con el nombre indicado
  * @param {string} nombreBuscado El nombre del jugador buscado
  */
-Plantilla.jugadorBuscado = function (nombreBuscado) {
+KungFu.jugadorBuscado = function (nombreBuscado) {
     this.recuperaJugadorBuscado(nombreBuscado, this.imprimeTodosJugadores); 
 }
 
@@ -595,29 +601,29 @@ Plantilla.jugadorBuscado = function (nombreBuscado) {
  * Función que muestra el/los jugador/es con uno o varios aspectos indicados
  * @param {string} nombreBuscado El nombre del jugador buscado
  */
-Plantilla.jugadorBuscadoPorAspecto = function (aspecto1, aspecto2, aspecto3) {
+KungFu.jugadorBuscadoPorAspecto = function (aspecto1, aspecto2, aspecto3) {
     this.recuperaJugadorBuscadoPorAspecto(aspecto1, aspecto2, aspecto3, this.imprimeTodosJugadores); 
 }
 
 /**
  * Funcion que lista los nombres de los usuario ordenados alfabéticamente
  */
-Plantilla.listarNombresOrdenados = function() {
-    Plantilla.recupera(Plantilla.imprimeOrdenados);
+KungFu.listarNombresOrdenados = function() {
+    KungFu.recupera(KungFu.imprimeOrdenados);
 }
 
 /**
  * Función que ordena los datos según como desee el usuario
  * @param {string} orden El orden deseado para ordenar los datos
  */
-Plantilla.listarOrdenados = function(orden) {
-    Plantilla.recupera(Plantilla.imprimeVariosOrdenados, orden);
+KungFu.listarOrdenados = function(orden) {
+    KungFu.recupera(KungFu.imprimeVariosOrdenados, orden);
 }
 
 /**
  * Función que muestra el/los jugador/es con los aspectos indicados exactamente
  * @param {string} nombreBuscado El nombre del jugador buscado
  */
-Plantilla.jugadorBuscadoPorAspectoExactos = function (aspecto1, aspecto2, aspecto3) {
+KungFu.jugadorBuscadoPorAspectoExactos = function (aspecto1, aspecto2, aspecto3) {
     this.recuperaJugadorBuscadoPorAspectoExacto(aspecto1, aspecto2, aspecto3, this.imprimeTodosJugadores); 
 }

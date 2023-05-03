@@ -1,6 +1,6 @@
 /**
  * @file routes.js
- * @description Define las rutas ante las que va a responder al MS Plantilla
+ * @description Define las rutas ante las que va a responder al MS KungFu
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */

@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-KungFu-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS KungFu en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -11,14 +11,14 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
-const TITULO_IMPRIME_TODOS_JUGADORES = "Plantilla del listados de los datos de todos los jugadores"
-const TITULO_IMPRIME_NOMBRES_JUGADORES = "Plantilla del listado de los nombres de todos los jugadores"
+const TITULO_HOME = "KungFu Home"
+const TITULO_ACERCA_DE = "KungFu Acerca de"
+const TITULO_IMPRIME_TODOS_JUGADORES = "KungFu del listados de los datos de todos los jugadores"
+const TITULO_IMPRIME_NOMBRES_JUGADORES = "KungFu del listado de los nombres de todos los jugadores"
 const TITULO_IMPRIME_DATOS_JUGADOR = "Mostrar los datos del jugador"
 const OBJETO_VACIO = '';
-const TITULO_IMPRIME_NOMBRES_ORDENADOS = "Plantilla del listado de los nombres de todos los jugadores ordenados"
-const TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO = "Plantilla del listados de los datos de todos los jugadores ordenado según un criterio"
+const TITULO_IMPRIME_NOMBRES_ORDENADOS = "KungFu del listado de los nombres de todos los jugadores ordenados"
+const TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO = "KungFu del listados de los datos de todos los jugadores ordenado según un criterio"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -41,86 +41,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("KungFu.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            KungFu.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(KungFu.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            KungFu.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(KungFu.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            KungFu.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(KungFu.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            KungFu.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(KungFu.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            KungFu.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("KungFu.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            KungFu.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(KungFu.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            KungFu.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(KungFu.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            KungFu.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(KungFu.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            KungFu.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(KungFu.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            KungFu.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(KungFu.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            KungFu.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(KungFu.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            KungFu.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(KungFu.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            KungFu.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -130,7 +130,7 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
         })
 })
 
-describe("Plantilla.recupera: ", function() {
+describe("KungFu.recupera: ", function() {
   let callBackFn = jasmine.createSpy("callBackFn");
 
   beforeEach(function() {
@@ -146,7 +146,7 @@ describe("Plantilla.recupera: ", function() {
   });
 
   it("debe llamar a la función callback con los datos descargados y ordenados", async function() {
-    await Plantilla.recupera(callBackFn, 'nombre');
+    await KungFu.recupera(callBackFn, 'nombre');
 
     expect(callBackFn).toHaveBeenCalledWith([
       { name: "player1" },
@@ -155,7 +155,7 @@ describe("Plantilla.recupera: ", function() {
   });
 
   it("debe llamar a la función callback con los datos descargados y ordenados", async function() {
-    await Plantilla.recupera(callBackFn, 'fecha_nacimiento');
+    await KungFu.recupera(callBackFn, 'fecha_nacimiento');
 
     expect(callBackFn).toHaveBeenCalledWith([
       { name: "player1" },
@@ -164,117 +164,117 @@ describe("Plantilla.recupera: ", function() {
   });
 
   it("debe llamar a la API del gateway con la URL correcta", async function() {
-    await Plantilla.recupera(callBackFn, 'nombre');
+    await KungFu.recupera(callBackFn, 'nombre');
 
     expect(window.fetch).toHaveBeenCalledWith(
-      Frontend.API_GATEWAY + "/plantilla/getTodos"
+      Frontend.API_GATEWAY + "/kungfu/getTodos"
     );
   });
 });
   
 
-describe("Plantilla.imprimeTodosJugadores: ", function() {
+describe("KungFu.imprimeTodosJugadores: ", function() {
     it("Mostrar datos nulos cuando le pasamos vector nulo", 
         function () {
             // Objeto vacio
-            Plantilla.imprimeTodosJugadores([])
+            KungFu.imprimeTodosJugadores([])
             expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS_JUGADORES)
             expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
     })
 
     it("Mostrar datos nulos cuando le pasamos un valor que no es un objeto",
         function() {
-            Plantilla.imprimeTodosJugadores(10)
+            KungFu.imprimeTodosJugadores(10)
             expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS_JUGADORES)
             expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
     })
 })
 
-describe("Plantilla.imprimeSoloNombres: ", function() {
+describe("KungFu.imprimeSoloNombres: ", function() {
     it("Mostrar datos nulos cuando le pasamos vector nulo", 
         function() {
-            Plantilla.imprimeSoloNombres([])
+            KungFu.imprimeSoloNombres([])
             expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_NOMBRES_JUGADORES)
             expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
     })
 
     it("Mostrar datos nulos cuando le pasamos un valor que no es un objeto",
         function() {
-            Plantilla.imprimeSoloNombres(10)
+            KungFu.imprimeSoloNombres(10)
             expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_NOMBRES_JUGADORES)
             expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
     })
 })
 
-describe("Plantilla.imprimeUnJugador: " , function() {
+describe("KungFu.imprimeUnJugador: " , function() {
     it("Mostrar datos nulos cuando le pasamos un valor nulo", 
     function() {
         let jugador = null;
-        Plantilla.imprimeUnJugador(jugador);
+        KungFu.imprimeUnJugador(jugador);
         expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_DATOS_JUGADOR);
     })
 })
 
-describe("Plantilla.recuperaJugadorBuscado", function() {
+describe("KungFu.recuperaJugadorBuscado", function() {
   it("devuelve un vector vacío cuando no se encuentra el jugador buscado", async function() {
     const callBackFn = function(resultado) {
       expect(resultado).toEqual([]);
     }
-    await Plantilla.recuperaJugadorBuscado("Jugador Inexistente", callBackFn);
+    await KungFu.recuperaJugadorBuscado("Jugador Inexistente", callBackFn);
   });
 });
 
-describe("Plantilla.recuperaJugadorBuscadoPorAspecto", function() {
+describe("KungFu.recuperaJugadorBuscadoPorAspecto", function() {
     it("devuelve un vector vacío cuando no se encuentra el jugador buscado", async function() {
       const callBackFn = function(resultado) {
         expect(resultado).toEqual([]);
       }
-      await Plantilla.recuperaJugadorBuscadoPorAspecto("Jugador Inexistente", "Jugador Inexistente", "Jugador Inexistente", callBackFn);
+      await KungFu.recuperaJugadorBuscadoPorAspecto("Jugador Inexistente", "Jugador Inexistente", "Jugador Inexistente", callBackFn);
     });
 });
 
-describe("Plantilla.imprimeOrdenados: ", function() {
+describe("KungFu.imprimeOrdenados: ", function() {
   it("Mostrar datos nulos cuando le pasamos vector nulo", 
       function() {
-          Plantilla.imprimeOrdenados([])
+          KungFu.imprimeOrdenados([])
           expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_NOMBRES_ORDENADOS)
           expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
   })
 
   it("Mostrar datos nulos cuando le pasamos un valor que no es un objeto",
       function() {
-          Plantilla.imprimeOrdenados(10)
+          KungFu.imprimeOrdenados(10)
           expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_NOMBRES_ORDENADOS)
           expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
   })
 })
 
-describe("Plantilla.imprimeVariosOrdenados: ", function() {
+describe("KungFu.imprimeVariosOrdenados: ", function() {
   it("Mostrar datos nulos cuando le pasamos vector nulo", 
       function() {
-          Plantilla.imprimeVariosOrdenados([])
+          KungFu.imprimeVariosOrdenados([])
           expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO)
           expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
   })
 
   it("Mostrar datos nulos cuando le pasamos un valor que no es un objeto",
       function() {
-          Plantilla.imprimeVariosOrdenados(10)
+          KungFu.imprimeVariosOrdenados(10)
           expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO)
           expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
   })
 })
 
-describe("Plantilla.recuperaJugadorBuscadoPorAspectoExacto", function() {
+describe("KungFu.recuperaJugadorBuscadoPorAspectoExacto", function() {
   it("devuelve un vector vacío cuando no se encuentra el jugador buscado", async function() {
     const callBackFn = function(resultado) {
       expect(resultado).toEqual([]);
     }
-    await Plantilla.recuperaJugadorBuscadoPorAspectoExacto("Jugador Inexistente", "Jugador Inexistente", "Jugador Inexistente", callBackFn);
+    await KungFu.recuperaJugadorBuscadoPorAspectoExacto("Jugador Inexistente", "Jugador Inexistente", "Jugador Inexistente", callBackFn);
   });
 });
 
-describe("Plantilla.recuperaUnJugador: ", function() {
+describe("KungFu.recuperaUnJugador: ", function() {
   let callBackFn = jasmine.createSpy("callBackFn");
   let idJugador = "123";
 
@@ -289,27 +289,27 @@ describe("Plantilla.recuperaUnJugador: ", function() {
   });
 
   it("debe llamar a la API del gateway con la URL correcta", async function() {
-    await Plantilla.recuperaUnJugador(idJugador, callBackFn);
+    await KungFu.recuperaUnJugador(idJugador, callBackFn);
 
     expect(window.fetch).toHaveBeenCalledWith(
-      Frontend.API_GATEWAY + "/plantilla/getPorId/" + idJugador
+      Frontend.API_GATEWAY + "/kungfu/getPorId/" + idJugador
     );
   });
 
   it("debe llamar a la función callback con los datos recuperados", async function() {
-    await Plantilla.recuperaUnJugador(idJugador, callBackFn);
+    await KungFu.recuperaUnJugador(idJugador, callBackFn);
 
     expect(callBackFn).toHaveBeenCalledWith({ name: "player1" });
   });
 });
 
-describe("Plantilla.cerear", () => {
+describe("KungFu.cerear", () => {
   it("devuelve un número con dos cifras si el número pasado es menor que 10", () => {
-    expect(Plantilla.cerear(5)).toBe("05");
+    expect(KungFu.cerear(5)).toBe("05");
   });
 
   it("devuelve un número sin cambios si el número pasado es mayor o igual a 10", () => {
-    expect(Plantilla.cerear(15)).toBe("15");
+    expect(KungFu.cerear(15)).toBe("15");
   });
 });
 
@@ -321,9 +321,9 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - KungFu.descargarRuta
+ - KungFu.procesarAcercaDe
+ - KungFu.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.

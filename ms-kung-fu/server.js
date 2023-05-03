@@ -21,7 +21,7 @@ app.use("/", routes);
 
 const port = 8002;
 app.listen(port, () => {
-    console.log(`Microservicio PLANTILLA ejecutándose en puerto ${port}!`);
+    console.log(`Microservicio KUNG FU ejecutándose en puerto ${port}!`);
 });
 
 
