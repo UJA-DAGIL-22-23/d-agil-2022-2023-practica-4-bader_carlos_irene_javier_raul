@@ -259,30 +259,57 @@
     <!--<a href="javascript:Motociclismo.procesarHome()" class="opcion-principal"
         title="Llama a la ruta / del MS Motociclismo">Home</a>
     <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
-        title="Llama a la ruta /acercade del MS Motociclismo">Acerca de</a>-->
+        title="Llama a la ruta /acercade del MS Motociclismo">Acerca de</a>
     <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
         title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
     <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
         title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
     <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
         title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>
-        <br>
+        <br>-->
      
+        <nav>
+            <table class="listado-motociclistas">
+                <thead>
+                    <tr>
+                        <th colspan="4">Aplicación Motociclismo</th>
+                    </tr>
+                </thead>
+                <thead>
+                        <th>Opciones de mostrar</th><th>Búsqueda por Nombre y apellido</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
+                            title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
+                        <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
+                            title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
+                        <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
+                            title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>                    
+                        </td>
 
-        <!--HU 08-->
-    
-        <form> 
-            <br>
-            <br>
-            <label>Buscar por nombre completo:</label> 
-        <input type="text" id="searchh" name="searchh">
-        <button type="button" onclick="Buscar()"> BUSCAR DATOS </button>
-        </form>
-        <script>function Buscar(){
-            var searchTermm = document.getElementById("searchh").value;
-            Motociclismo.personaBuscar(searchTermm);
-        }
-        </script>
+                        <td>
+                            
+                                  <!--HU 08-->
+                                  
+                               <form> 
+                                <br>
+                                <br>
+                                 <label>Buscar por nombre completo:</label> 
+                                <input type="text" id="searchh" name="searchh">
+                                 <button type="button" onclick="Buscar()"> BUSCAR DATOS </button>
+                                 </form>
+                                <script>function Buscar(){
+                                      var searchTermm = document.getElementById("searchh").value;
+                                    Motociclismo.personaBuscar(searchTermm);
+                                 }
+                                </script>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
 
 <!--HU 10-->
 
