@@ -129,16 +129,31 @@ Deporte: Parkour
 
 ## Los campos elegidos para realizar la base de datos son:
 
+
 **-	CAMPOS TIPO NOMBRE:**
+
+•	Nombre: El nombre del participante.
+
+•	Apellidos: Apellidos del participante.
+
 
 
 **-	CAMPOS TIPO COMPUESTO:**
 
+•	Fecha de nacimiento: Compuesto por un campo día, mes y año.
+
 
 **-	CAMPOS TIPO VECTOR:**
 
+•	participaciones_en_competiciones_oficiales: Un vector que contiene los años en los que el piloto ha competido en competiciones oficiales.
+
+
 
 **-	CAMPOS TIPO NUMÉRICO:**
+
+•	Participaciones_en_eventos_a_nivel_internacional: Un campo numérico que indica el numero de participaciones internacionales.
+• Numero_de_trofeos_conseguidos:Un campo numérico que indica el numero de trofeos conseguidos.
+
 
 
 # *Historias de usuario elegidas a implementar en mi aplicación de microservicios:* 
@@ -174,6 +189,26 @@ Deporte: Parkour
 ## HU 04. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Javier
 
 ## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
+
+
+![Cap2HU5](https://user-images.githubusercontent.com/124685268/235994397-0d84a8f6-a536-4159-8720-75bdf0c53722.png)
+![Cap3HU5](https://user-images.githubusercontent.com/124685268/235994399-0034d9d0-0ebc-4b0c-b7c1-ff9da6c72914.png)
+![Cap4HU5](https://user-images.githubusercontent.com/124685268/235994402-3def8955-7106-459b-af2a-97ae2b5e8b8f.png)
+![Cap1HU5](https://user-images.githubusercontent.com/124685268/235994408-cd653dbb-a394-426a-acbf-191005d98105.png)
+
+
+* Barra de navegacion parkour.
+
+![BarraNavegacionParkour](https://user-images.githubusercontent.com/124685268/235996393-f45850d5-f8bf-4bb3-b880-ece5b510d428.png)
+
+
+
+* Esta es la captura de mi aplicación de parkour en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar todos los datos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+
+
+![parkourIndex](https://user-images.githubusercontent.com/124685268/235995819-6a9bfd43-30e4-48a3-a45f-5ce23a9731c4.png)
+
+
 
 ## HU 06. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
 ## Capturas TRELLO "HU 06":
