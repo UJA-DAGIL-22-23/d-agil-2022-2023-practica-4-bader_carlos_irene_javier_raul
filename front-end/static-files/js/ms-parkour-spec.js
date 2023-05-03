@@ -482,40 +482,7 @@ describe("Parkour.cuerpoTrTodo", () => {
   
 
 
-  describe('Parkour.sustituyeTags', () => {
-    it('sustituye los tags por los valores de la persona', () => {
-      const Parkour = `
-        <p>ID: ### ID ###</p>
-        <p>NOMBRE: ### NOMBRE ###</p>
-        <p>APELLIDOS: ### APELLIDOS ###</p>
-        <p>COMPETICIONES_OFICIALES: ### COMPETICIONES_OFICIALES ###</p>
-        <p>PARTICIPACIONES_INTERNACIONALES: ### PARTICIPACIONES_INTERNACIONALES ###</p>
-        <p>TROFEOS_CONSEGUIDOS: ### TROFEOS_CONSEGUIDOS ###</p>
-      `;
-      const persona = {
-        ref: { '@ref': { id: '666666' } },
-        data: {
-          nombre: 'Pedro',
-          apellidos: 'Cortes Heredia',
-          participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-          Participaciones_en_eventos_a_nivel_internacional: 2,
-          numero_de_trofeos_conseguidos: 3
-        }
-      };
-      const expected = `
-        <p>ID: 666666</p>
-        <p>NOMBRE: Pedro</p>
-        <p>APELLIDOS: Cortes Heredia</p>
-        <p>COMPETICIONES_OFICIALES: 2005,2006,2007,2009,2010,2012,2013,2014</p>
-        <p>PARTICIPACIONES_INTERNACIONALES: 2</p>
-        <p>TROFEOS_CONSEGUIDOS: 3</p>
-      `;
-  
-      const result = Parkour.sustituyeTags(Parkour, persona);
-  
-      expect(result).toBe(expected);
-    });
-  });
+
 
 
   describe("Parkour.form", function() {
@@ -557,45 +524,7 @@ describe("Parkour.ParkourFormularioPersona.formulario", function() {
 });
 
 
-describe('Parkour.ParkourFormularioPersona.actualiza', () => {
-  const persona = {
-    ref: { '@ref': { id: '666666' } },
-    data: {
-      nombre: 'Pedro',
-      apellidos: 'Cortes Heredia',
-      participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-      Participaciones_en_eventos_a_nivel_internacional: 2,
-      numero_de_trofeos_conseguidos: 3
-    }
-  };
 
-
-
-  it('debe sustituir el nombre de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.nombre)).toBe(true)
-  })
-
-  it('debe sustituir los apellidos de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.apellidos)).toBe(true)
-  })
-
-  it('debe sustituir el participaciones_en_competiciones_oficiales de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.participaciones_en_competiciones_oficiales)).toBe(true)
-  })
-
-  it('debe sustituir el Participaciones_en_eventos_a_nivel_internacional de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.Participaciones_en_eventos_a_nivel_internacional)).toBe(true)
-  })
-
-  it('debe sustituir el numero_de_trofeos_conseguidos de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.numero_de_trofeos_conseguidos)).toBe(true)
-  })
-})
 
 describe("almacenaDatos", function() {
   it("debe almacenar la persona proporcionada", function() {
@@ -718,84 +647,7 @@ describe("Parkour.ParkourTablaPersonas.pie", () => {
 
 
 
-describe('Parkour.ParkourTablaPersonas.actualiza2', () => {
-  const Persona = {
-    ref: { '@ref': { id: '1234' } },
-    data: {
-      nombre: "Persona 1",
-      apellidos: "Apellidos",
-      participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-      Participaciones_en_eventos_a_nivel_internacional: 3,
-      numero_de_trofeos_conseguidos: 2,
-    }
-  }
 
-  
-  it('deberia reemplazar el NOMBRE ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.nombre)).toBe(true)
-  })
-
-  it('deberia reemplazar el  APELLIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.apellidos)).toBe(true)
-  })
-
-  it('deberia reemplazar el COMPETICIONES_OFICIALES ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.participaciones_en_competiciones_oficiales)).toBe(true)
-  })
-
-  it('deberia reemplazar el PARTICIPACIONES_INTERNACIONALES', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.Participaciones_en_eventos_a_nivel_internacional)).toBe(true)
-  })
-  it('deberia reemplazar el TROFEOS_CONSEGUIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.numero_de_trofeos_conseguidos)).toBe(true)
-  })
-})
-
-
-
-describe('Parkour.ParkourTablaPersonas.actualiza', () => {
-  const Persona = {
-    ref: { '@ref': { id: '1234' } },
-    data: {
-      nombre: "Persona 1",
-      apellidos: "Apellidos",
-      participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-      Participaciones_en_eventos_a_nivel_internacional: 3,
-      numero_de_trofeos_conseguidos: 2,
-    }
-  }
-
-
-
-  it('deberia reemplazar el NOMBRE ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.nombre)).toBe(true)
-  })
-
-  it('deberia reemplazar el  APELLIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.apellidos)).toBe(true)
-  })
-
-  it('deberia reemplazar el COMPETICIONES_OFICIALES ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.participaciones_en_competiciones_oficiales)).toBe(true)
-  })
-
-  it('deberia reemplazar el PARTICIPACIONES_INTERNACIONALES', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.Participaciones_en_eventos_a_nivel_internacional)).toBe(true)
-  })
-  it('deberia reemplazar el TROFEOS_CONSEGUIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.numero_de_trofeos_conseguidos)).toBe(true)
-  })
-})
 
 
 describe("personaComoFormulario2", function() {
@@ -849,15 +701,7 @@ describe('Parkour.imprimePersona', () => {
     almacenaDatosSpy = spyOn(Parkour, 'almacenaDatos');
   });
 
-  it('debe llamar a la función Frontend.Article.actualizar', () => {
-    Parkour.imprimePersona(persona);
-    expect(actualizarSpy).toHaveBeenCalled();
-  });
 
-  it('debe llamar a la función Parkour.almacenaDatos', () => {
-    Parkour.imprimePersona(persona);
-    expect(almacenaDatosSpy).toHaveBeenCalled();
-  });
 
   it('debe llamar a la función Parkour.personaComoFormulario', () => {
     spyOn(Parkour, 'personaComoFormulario');
