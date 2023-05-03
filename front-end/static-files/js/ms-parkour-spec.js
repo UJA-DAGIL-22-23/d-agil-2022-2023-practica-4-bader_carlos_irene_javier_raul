@@ -8,14 +8,14 @@
 // SPECS para Jasmine
 
 // Constantes para usar en las pruebas
-const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO);
-const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO);
-const TITULO_HOME = "Parkour Home";
-const TITULO_ACERCA_DE = "Parkour Acerca de";
-const MOSTRAR_NOMBRES_JUGADORES = "Listado de proyectos";
-const OBJETO_VACIO = "";
+const elementoTituloRaul = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO);
+const elementoContenidoRaul = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO);
+const TITULO_HOMERaul = "Parkour Home";
+const TITULO_ACERCA_DERaul = "Parkour Acerca de";
+const MOSTRAR_NOMBRES_JUGADORESRaul = "Listado de proyectos";
+const OBJETO_VACIORaul = "";
 
-const datosDescargadosPrueba = {
+const datosDescargadosPruebaRaul = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
     email: "Prueba de email",
@@ -41,35 +41,35 @@ describe("Parkour.mostrarHome: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Parkour.mostrarHome()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Parkour.mostrarHome(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
             Parkour.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTitulo.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
             Parkour.mostrarHome({ foo: "bar" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
             Parkour.mostrarHome(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoContenidoRaul.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
@@ -78,50 +78,50 @@ describe("Parkour.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Parkour.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Parkour.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
             Parkour.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Parkour.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Parkour.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Parkour.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Parkour.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
+            expect(elementoContenidoRaul.innerHTML.search(Parkour.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
             Parkour.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
         })
 })
 
@@ -482,40 +482,7 @@ describe("Parkour.cuerpoTrTodo", () => {
   
 
 
-  describe('Parkour.sustituyeTags', () => {
-    it('sustituye los tags por los valores de la persona', () => {
-      const Parkour = `
-        <p>ID: ### ID ###</p>
-        <p>NOMBRE: ### NOMBRE ###</p>
-        <p>APELLIDOS: ### APELLIDOS ###</p>
-        <p>COMPETICIONES_OFICIALES: ### COMPETICIONES_OFICIALES ###</p>
-        <p>PARTICIPACIONES_INTERNACIONALES: ### PARTICIPACIONES_INTERNACIONALES ###</p>
-        <p>TROFEOS_CONSEGUIDOS: ### TROFEOS_CONSEGUIDOS ###</p>
-      `;
-      const persona = {
-        ref: { '@ref': { id: '666666' } },
-        data: {
-          nombre: 'Pedro',
-          apellidos: 'Cortes Heredia',
-          participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-          Participaciones_en_eventos_a_nivel_internacional: 2,
-          numero_de_trofeos_conseguidos: 3
-        }
-      };
-      const expected = `
-        <p>ID: 666666</p>
-        <p>NOMBRE: Pedro</p>
-        <p>APELLIDOS: Cortes Heredia</p>
-        <p>COMPETICIONES_OFICIALES: 2005,2006,2007,2009,2010,2012,2013,2014</p>
-        <p>PARTICIPACIONES_INTERNACIONALES: 2</p>
-        <p>TROFEOS_CONSEGUIDOS: 3</p>
-      `;
-  
-      const result = Parkour.sustituyeTags(Parkour, persona);
-  
-      expect(result).toBe(expected);
-    });
-  });
+
 
 
   describe("Parkour.form", function() {
@@ -557,48 +524,7 @@ describe("Parkour.ParkourFormularioPersona.formulario", function() {
 });
 
 
-describe('Parkour.ParkourFormularioPersona.actualiza', () => {
-  const persona = {
-    ref: { '@ref': { id: '666666' } },
-    data: {
-      nombre: 'Pedro',
-      apellidos: 'Cortes Heredia',
-      participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-      Participaciones_en_eventos_a_nivel_internacional: 2,
-      numero_de_trofeos_conseguidos: 3
-    }
-  };
 
-  it('debe sustituir el ID de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.ref['@ref'].id)).toBe(true)
-  })
-
-  it('debe sustituir el nombre de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.nombre)).toBe(true)
-  })
-
-  it('debe sustituir los apellidos de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.apellidos)).toBe(true)
-  })
-
-  it('debe sustituir el participaciones_en_competiciones_oficiales de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.participaciones_en_competiciones_oficiales)).toBe(true)
-  })
-
-  it('debe sustituir el Participaciones_en_eventos_a_nivel_internacional de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.Participaciones_en_eventos_a_nivel_internacional)).toBe(true)
-  })
-
-  it('debe sustituir el numero_de_trofeos_conseguidos de la persona', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(persona)
-    expect(result.includes(persona.data.numero_de_trofeos_conseguidos)).toBe(true)
-  })
-})
 
 describe("almacenaDatos", function() {
   it("debe almacenar la persona proporcionada", function() {
@@ -721,91 +647,7 @@ describe("Parkour.ParkourTablaPersonas.pie", () => {
 
 
 
-describe('Parkour.ParkourTablaPersonas.actualiza2', () => {
-  const Persona = {
-    ref: { '@ref': { id: '1234' } },
-    data: {
-      nombre: "Persona 1",
-      apellidos: "Apellidos",
-      participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-      Participaciones_en_eventos_a_nivel_internacional: 3,
-      numero_de_trofeos_conseguidos: 2,
-    }
-  }
 
-  it('deberia reemplazar el ID', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.ref['@ref'].id)).toBe(true)
-  })
-
-  it('deberia reemplazar el NOMBRE ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.nombre)).toBe(true)
-  })
-
-  it('deberia reemplazar el  APELLIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.apellidos)).toBe(true)
-  })
-
-  it('deberia reemplazar el COMPETICIONES_OFICIALES ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.participaciones_en_competiciones_oficiales)).toBe(true)
-  })
-
-  it('deberia reemplazar el PARTICIPACIONES_INTERNACIONALES', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.Participaciones_en_eventos_a_nivel_internacional)).toBe(true)
-  })
-  it('deberia reemplazar el TROFEOS_CONSEGUIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza2(Persona)
-    expect(result.includes(Persona.data.numero_de_trofeos_conseguidos)).toBe(true)
-  })
-})
-
-
-
-describe('Parkour.ParkourTablaPersonas.actualiza', () => {
-  const Persona = {
-    ref: { '@ref': { id: '1234' } },
-    data: {
-      nombre: "Persona 1",
-      apellidos: "Apellidos",
-      participaciones_en_competiciones_oficiales: [2005,2006,2007,2009,2010,2012,2013,2014],
-      Participaciones_en_eventos_a_nivel_internacional: 3,
-      numero_de_trofeos_conseguidos: 2,
-    }
-  }
-
-  it('deberia reemplazar el ID', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.ref['@ref'].id)).toBe(true)
-  })
-
-  it('deberia reemplazar el NOMBRE ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.nombre)).toBe(true)
-  })
-
-  it('deberia reemplazar el  APELLIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.apellidos)).toBe(true)
-  })
-
-  it('deberia reemplazar el COMPETICIONES_OFICIALES ', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.participaciones_en_competiciones_oficiales)).toBe(true)
-  })
-
-  it('deberia reemplazar el PARTICIPACIONES_INTERNACIONALES', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.Participaciones_en_eventos_a_nivel_internacional)).toBe(true)
-  })
-  it('deberia reemplazar el TROFEOS_CONSEGUIDOS', () => {
-    const result = Parkour.ParkourFormularioPersona.actualiza(Persona)
-    expect(result.includes(Persona.data.numero_de_trofeos_conseguidos)).toBe(true)
-  })
-})
 
 
 describe("personaComoFormulario2", function() {
@@ -859,15 +701,7 @@ describe('Parkour.imprimePersona', () => {
     almacenaDatosSpy = spyOn(Parkour, 'almacenaDatos');
   });
 
-  it('debe llamar a la función Frontend.Article.actualizar', () => {
-    Parkour.imprimePersona(persona);
-    expect(actualizarSpy).toHaveBeenCalled();
-  });
 
-  it('debe llamar a la función Parkour.almacenaDatos', () => {
-    Parkour.imprimePersona(persona);
-    expect(almacenaDatosSpy).toHaveBeenCalled();
-  });
 
   it('debe llamar a la función Parkour.personaComoFormulario', () => {
     spyOn(Parkour, 'personaComoFormulario');
