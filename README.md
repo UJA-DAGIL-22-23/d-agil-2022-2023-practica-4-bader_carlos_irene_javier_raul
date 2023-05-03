@@ -21,15 +21,25 @@ Deporte: Kung-Fu
 
 **-	CAMPOS TIPO NOMBRE:**
 
+•	color_cinturón: El color del cinturón del jugador
+
+•	nombre_gimnasio: El nombre del gimnasio donde entrena el jugador
 
 **-	CAMPOS TIPO COMPUESTO:**
 
+•	nombre_completo: El nombre completo del jugador (nombre y apellidos)
+
+•	fecha_nacimiento: La fecha de nacimiento del jugador (día, mes y año)
+
+•	dirección: La dircción donde vive el jugador (calle, localidad, provincia y pais)
 
 **-	CAMPOS TIPO VECTOR:**
 
+•	años_participacion_juegos_olimpicos: Los años en el que participó el jugador en los juegos olimpicos
 
 **-	CAMPOS TIPO NUMÉRICO:**
 
+•	numero_particiapciones_Juegos_olimpicos: El número de participaciones en los juegos olimpicos
 
 ## Estudiante 2:
 
@@ -156,6 +166,16 @@ Deporte: Parkour
 ![Captura Trello](./assets/img/x.jpg)
 
 ## HU 01.Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Bader
+## Captura TRELLO "HU 01":
+![Captura Trello HU1](./assets/img/productBacklogHU1.png)
+![Captura Trello HU3](./assets/img/sprintBacklogHU1.png)
+![Captura Trello HU3](./assets/img/testHU1.png)
+![Captura Trello HU3](./assets/img/doneHU1.png)
+
+* Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+
+![Captura Index1](./assets/img/HTMLHU1.png)
+![Captura Index1](./assets/img/funcionHU1.png)
 
 ## HU 02. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Carlos
 
@@ -166,7 +186,7 @@ Deporte: Parkour
 ![Captura Trello HU3](./assets/img/trello3.jpeg)
 ![Captura Trello HU3](./assets/img/trello4.jpeg)
 
-* Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+* Esta es la captura de mi aplicación de kungfu en el index, como ejemplo de su correcto funcionamiento, busco el nombre de un jugador y al hacer click en el botón de "Buscar por nombre" aparecen los datos completos de el jugador buscado. Aún así, el resto de funcionalidades también se ejecutan correctamente:
 
 ![Captura Index1](./assets/img/motociclismoindex.png)
 
