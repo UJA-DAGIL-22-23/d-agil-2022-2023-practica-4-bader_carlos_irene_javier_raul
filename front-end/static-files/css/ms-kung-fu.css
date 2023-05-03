@@ -114,4 +114,45 @@ table.listado_jugadores {
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  
+
+
+
+
+
+
+
+
+table.Aplicacion-KungFu {
+  width: 100%;
+  border: 1px solid rgba(44, 131, 181, 0.8);
+}
+
+table.Aplicacion-KungFu thead th,
+table.Aplicacion-KungFu tbody th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(101, 161, 193, 0.704);
+    text-transform: uppercase;
+
+}
+
+table.Aplicacion-KungFu tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.Aplicacion-KungFu tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(182, 229, 255, 0.441)
+}
+table.Aplicacion-KungFu thead,
+table.Aplicacion-KungFu tbody,
+table.Aplicacion-KungFu tr,
+table.Aplicacion-KungFu td {
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+table.Aplicacion-KungFu {
+    width: 100%;
+}
