@@ -21,15 +21,25 @@ Deporte: Kung-Fu
 
 **-	CAMPOS TIPO NOMBRE:**
 
+•	color_cinturón: El color del cinturón del jugador
+
+•	nombre_gimnasio: El nombre del gimnasio donde entrena el jugador
 
 **-	CAMPOS TIPO COMPUESTO:**
 
+•	nombre_completo: El nombre completo del jugador (nombre y apellidos)
+
+•	fecha_nacimiento: La fecha de nacimiento del jugador (día, mes y año)
+
+•	dirección: La dircción donde vive el jugador (calle, localidad, provincia y pais)
 
 **-	CAMPOS TIPO VECTOR:**
 
+•	años_participacion_juegos_olimpicos: Los años en el que participó el jugador en los juegos olimpicos
 
 **-	CAMPOS TIPO NUMÉRICO:**
 
+•	numero_particiapciones_Juegos_olimpicos: El número de participaciones en los juegos olimpicos
 
 ## Estudiante 2:
 
