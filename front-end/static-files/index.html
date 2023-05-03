@@ -26,16 +26,42 @@
 
 <body>
 
-    <h1>Aplicación Microservicios Deportes</h1>
+   <!-- <h1>Aplicación Microservicios Deportes</h1>-->
 
     <!-- Barra de navegación -->
-    <nav>
+    <!--<nav>
         <a href="javascript:Motociclismo.procesarHome()" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
         <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-        </nav>
+        </nav>-->
 
+        <nav>
+            <table class="listado-motociclistas">
+                <thead>
+                    <tr>
+                        <th colspan="4">Aplicación Microservicios Deportes</th>
+                    </tr>
+                </thead>
+                <thead>
+                        <th>Opcion Home</th><th>Opción Acerca De</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <br> 
+                            <a href="javascript:Motociclismo.procesarHome()" class="opcion-principal"
+                            title="Llama a la ruta / del MS Plantilla">Home</a>  
+                            <br> </br> 
+                        </td>
+                        <td>
+                            <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
+                            title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>  
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
     
 <br></br>
     <!-- Barra de navegación de Kung-fu -->
@@ -85,7 +111,209 @@
             </tbody>
         </table>
         </nav>
-    <br></br>
+
+    <!--  Barra de navegación de Motociclismo-->
+<nav>
+    
+    <!--<a href="javascript:Motociclismo.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Motociclismo">Home</a>
+    <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Motociclismo">Acerca de</a>
+    <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
+        title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
+    <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
+        title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
+    <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
+        title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>
+        <br>-->
+     
+        <nav>
+            <table class="listado-motociclistas">
+                <thead>
+                    <tr>
+                        <th colspan="4">Aplicación Motociclismo</th>
+                    </tr>
+                </thead>
+                <thead>
+                        <th>Opciones de mostrar</th><th>Búsqueda por Nombre y apellido</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
+                            title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
+                        <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
+                            title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
+                        <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
+                            title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>                    
+                        </td>
+
+                        <td>
+                            
+                                  <!--HU 08-->
+                                  
+                               <form> 
+                                <br>
+                                <br>
+                                 <label>Buscar por nombre completo:</label> 
+                                <input type="text" id="searchh" name="searchh">
+                                 <button type="button" onclick="Buscar()"> BUSCAR DATOS </button>
+                                 </form>
+                                <script>function Buscar(){
+                                      var searchTermm = document.getElementById("searchh").value;
+                                    Motociclismo.personaBuscar(searchTermm);
+                                 }
+                                </script>
+                                 <br> </br> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+<!--HU 10-->
+
+<table class="listado-motociclistas">
+<br>
+<thead>
+    <thead>
+        <th>Buscar Motociclista que cumpla exactamente con los siguientes campos a rellenar</th>
+    </thead>
+    <th>Tipo_Moto</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th><th>Opción</th>
+</thead>
+<tbody>
+<tr>
+   
+    
+    <td>
+    <label for="Tipo_Moto">Tipo_Moto</label>
+    <select id="criterio1" name="criterio1">
+        <option value="">Selecciona una opción</option>
+        <option value="Yamaha YZR-M1">Yamaha YZR-M1</option>
+        <option value="Honda RC213V">Honda RC213V</option>
+        <option value="Suzuki GSX-RR">Suzuki GSX-RR</option>
+        <option value="Ducati Desmosedici GP">Ducati Desmosedici GP</option>
+        <option value="KTM RC16">KTM RC16</option>
+        
+    </select><br><br>
+    </td>
+    <td>
+    <label for="Nombre_Equipo">Nombre_Equipo:</label>
+    <select id="criterio2" name="criterio2">
+        <option value="">Selecciona una opción</option>
+        <option value="Yamaha Factory Racing">Yamaha Factory Racing</option>
+        <option value="Monster Energy Yamaha MotoGP">Monster Energy Yamaha MotoGP</option>
+        <option value="Repsol Honda Team">Repsol Honda Team</option>
+        <option value="Team Suzuki Ecstar">Team Suzuki Ecstar</option>
+        <option value="Pramac Racing">Pramac Racing</option>
+        <option value="Avintia Esponsorama Racing">Avintia Esponsorama Racing</option>
+        <option value="Tech 3 KTM Factory Racing">Tech 3 KTM Factory Racing</option>
+
+    </select><br><br>
+    </td>
+    <td>
+        <label for="Posicion_Campeonato">Posicion_Campeonato:</label>
+        <input type="number" id="criterio3" name="criterio3"><br><br>
+        </td> 
+    <td>
+    <div><button type="button" onclick="BuscarCumpleCriterios()">BUSCAR MOTOCILISTA/S</button></div>
+    <br> </br> 
+    </td>
+</tr>
+</tbody>
+</table>
+</form>
+<script>function BuscarCumpleCriterios(){
+var criterio1term = document.getElementById('criterio1').value;
+var criterio2term = document.getElementById('criterio2').value;
+var criterio3term = document.getElementById('criterio3').value;
+Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3term);
+}
+
+</script>
+</nav>
+</nav>
+
+<!--HU 11-->
+
+    
+    <table class="listado-motociclistas">
+        <br>
+    <thead>
+        <thead>
+            <th>Buscar motociclistas que cumplen/tienen en común alguno de los siguientes campos a rellenar</th>
+        </thead>
+        <th>Tipo_Moto</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th><th>Opción</th>
+    </thead>
+    <tbody>
+    <tr>
+       
+        
+        <td>
+        <label for="Tipo_Moto">Tipo_Moto</label>
+        <select id="criterio1p" name="criterio1p">
+            <option value="">Selecciona una opción</option>
+            <option value="Yamaha YZR-M1">Yamaha YZR-M1</option>
+            <option value="Honda RC213V">Honda RC213V</option>
+            <option value="Suzuki GSX-RR">Suzuki GSX-RR</option>
+            <option value="Ducati Desmosedici GP">Ducati Desmosedici GP</option>
+            <option value="KTM RC16">KTM RC16</option>
+            
+        </select><br><br>
+        </td>
+        <td>
+        <label for="Nombre_Equipo">Nombre_Equipo:</label>
+        <select id="criterio2p" name="criterio2p">
+            <option value="">Selecciona una opción</option>
+            <option value="Yamaha Factory Racing">Yamaha Factory Racing</option>
+            <option value="Monster Energy Yamaha MotoGP">Monster Energy Yamaha MotoGP</option>
+            <option value="Repsol Honda Team">Repsol Honda Team</option>
+            <option value="Team Suzuki Ecstar">Team Suzuki Ecstar</option>
+            <option value="Pramac Racing">Pramac Racing</option>
+            <option value="Avintia Esponsorama Racing">Avintia Esponsorama Racing</option>
+            <option value="Tech 3 KTM Factory Racing">Tech 3 KTM Factory Racing</option>
+
+        </select><br><br>
+        </td>
+        <td>
+            <label for="Posicion_Campeonato">Posicion_Campeonato:</label>
+            <input type="number" id="criterio3p" name="criterio3p"><br><br>
+            </td> 
+        
+        <td>
+        <div><button type="button" onclick="BuscarCriterios()">BUSCAR MOTOCILISTA/S</button></div>
+        <br> </br> 
+        </td>
+    </tr>
+    </tbody>
+    </table>
+</form>
+<script>function BuscarCriterios(){
+    var criterio1term = document.getElementById('criterio1p').value;
+    var criterio2term = document.getElementById('criterio2p').value;
+    var criterio3term = document.getElementById('criterio3p').value;
+    Motociclismo.BuscarVariosCriterios(criterio1term,criterio2term,criterio3term);
+}
+</script>
+</nav>
+</nav>
+
+
+
+    <!-- 
+        Article en el que se va a mostrar la info cuando se pinche una opción del menú 
+        Todos los apartados de este article se rellenarán con funciones en Javascript
+    -->
+    <article id="seccion-principal">
+        <!-- Título del article -->
+        <h2 id="seccion-principal-titulo"></h2>
+        <!-- Contenido del article -->
+        <div id="seccion-principal-contenido">
+            <div id="tabla_formulario_persona" class="ocultar"></div>
+        </div>
+    </article>
+
+
     <!--  Barra de navegación de Equitación -->
     <nav>
         <br>
@@ -210,202 +438,7 @@
 
         <br></br>
         
-<!--  Barra de navegación de Motociclismo-->
-<nav>
-    <h1>Aplicación Motociclismo</h1>
-    <!--<a href="javascript:Motociclismo.procesarHome()" class="opcion-principal"
-        title="Llama a la ruta / del MS Motociclismo">Home</a>
-    <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
-        title="Llama a la ruta /acercade del MS Motociclismo">Acerca de</a>
-    <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
-        title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
-    <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
-        title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
-    <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
-        title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>
-        <br>-->
-     
-        <nav>
-            <table class="listado-motociclistas">
-                <thead>
-                    <tr>
-                        <th colspan="4">Aplicación Motociclismo</th>
-                    </tr>
-                </thead>
-                <thead>
-                        <th>Opciones de mostrar</th><th>Búsqueda por Nombre y apellido</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="javascript:Motociclismo.listar()" class="opcion-principal mostrar"
-                            title="Realiza un listado de todas los motociclistas y datos que hay en la BBDD">Listar Datos Completos</a>
-                        <a href="javascript:Motociclismo.listarNombres()" class="opcion-principal mostrar"
-                            title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Motociclistas</a>
-                        <a href="javascript:Motociclismo.listarNombresAZ()" class="opcion-principal mostrar"
-                            title="Realiza un listado de todas los nombres de los motociclistas que hay en la BBDD">Listar Nombres Aa-Zz Motociclistas</a>                    
-                        </td>
 
-                        <td>
-                            
-                                  <!--HU 08-->
-                                  
-                               <form> 
-                                <br>
-                                <br>
-                                 <label>Buscar por nombre completo:</label> 
-                                <input type="text" id="searchh" name="searchh">
-                                 <button type="button" onclick="Buscar()"> BUSCAR DATOS </button>
-                                 </form>
-                                <script>function Buscar(){
-                                      var searchTermm = document.getElementById("searchh").value;
-                                    Motociclismo.personaBuscar(searchTermm);
-                                 }
-                                </script>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-<!--HU 10-->
-
-<table class="listado-motociclistas">
-<br>
-<thead>
-    <thead>
-        <th>Buscar Motociclista que cumpla exactamente con los siguientes campos a rellenar</th>
-    </thead>
-    <th>Tipo_Moto</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th><th>Opción</th>
-</thead>
-<tbody>
-<tr>
-   
-    
-    <td>
-    <label for="Tipo_Moto">Tipo_Moto</label>
-    <select id="criterio1" name="criterio1">
-        <option value="">Selecciona una opción</option>
-        <option value="Yamaha YZR-M1">Yamaha YZR-M1</option>
-        <option value="Honda RC213V">Honda RC213V</option>
-        <option value="Suzuki GSX-RR">Suzuki GSX-RR</option>
-        <option value="Ducati Desmosedici GP">Ducati Desmosedici GP</option>
-        <option value="KTM RC16">KTM RC16</option>
-        
-    </select><br><br>
-    </td>
-    <td>
-    <label for="Nombre_Equipo">Nombre_Equipo:</label>
-    <select id="criterio2" name="criterio2">
-        <option value="">Selecciona una opción</option>
-        <option value="Yamaha Factory Racing">Yamaha Factory Racing</option>
-        <option value="Monster Energy Yamaha MotoGP">Monster Energy Yamaha MotoGP</option>
-        <option value="Repsol Honda Team">Repsol Honda Team</option>
-        <option value="Team Suzuki Ecstar">Team Suzuki Ecstar</option>
-        <option value="Pramac Racing">Pramac Racing</option>
-        <option value="Avintia Esponsorama Racing">Avintia Esponsorama Racing</option>
-        <option value="Tech 3 KTM Factory Racing">Tech 3 KTM Factory Racing</option>
-
-    </select><br><br>
-    </td>
-    <td>
-        <label for="Posicion_Campeonato">Posicion_Campeonato:</label>
-        <input type="number" id="criterio3" name="criterio3"><br><br>
-        </td> 
-    <td>
-    <div><button type="button" onclick="BuscarCumpleCriterios()">BUSCAR MOTOCILISTA/S</button></div>
-    </td>
-</tr>
-</tbody>
-</table>
-</form>
-<script>function BuscarCumpleCriterios(){
-var criterio1term = document.getElementById('criterio1').value;
-var criterio2term = document.getElementById('criterio2').value;
-var criterio3term = document.getElementById('criterio3').value;
-Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3term);
-}
-</script>
-</nav>
-</nav>
-
-<!--HU 11-->
-
-    
-    <table class="listado-motociclistas">
-        <br>
-    <thead>
-        <thead>
-            <th>Buscar motociclistas que cumplen/tienen en común alguno de los siguientes campos a rellenar</th>
-        </thead>
-        <th>Tipo_Moto</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th><th>Opción</th>
-    </thead>
-    <tbody>
-    <tr>
-       
-        
-        <td>
-        <label for="Tipo_Moto">Tipo_Moto</label>
-        <select id="criterio1p" name="criterio1p">
-            <option value="">Selecciona una opción</option>
-            <option value="Yamaha YZR-M1">Yamaha YZR-M1</option>
-            <option value="Honda RC213V">Honda RC213V</option>
-            <option value="Suzuki GSX-RR">Suzuki GSX-RR</option>
-            <option value="Ducati Desmosedici GP">Ducati Desmosedici GP</option>
-            <option value="KTM RC16">KTM RC16</option>
-            
-        </select><br><br>
-        </td>
-        <td>
-        <label for="Nombre_Equipo">Nombre_Equipo:</label>
-        <select id="criterio2p" name="criterio2p">
-            <option value="">Selecciona una opción</option>
-            <option value="Yamaha Factory Racing">Yamaha Factory Racing</option>
-            <option value="Monster Energy Yamaha MotoGP">Monster Energy Yamaha MotoGP</option>
-            <option value="Repsol Honda Team">Repsol Honda Team</option>
-            <option value="Team Suzuki Ecstar">Team Suzuki Ecstar</option>
-            <option value="Pramac Racing">Pramac Racing</option>
-            <option value="Avintia Esponsorama Racing">Avintia Esponsorama Racing</option>
-            <option value="Tech 3 KTM Factory Racing">Tech 3 KTM Factory Racing</option>
-
-        </select><br><br>
-        </td>
-        <td>
-            <label for="Posicion_Campeonato">Posicion_Campeonato:</label>
-            <input type="number" id="criterio3p" name="criterio3p"><br><br>
-            </td> 
-        
-        <td>
-        <div><button type="button" onclick="BuscarCriterios()">BUSCAR MOTOCILISTA/S</button></div>
-        </td>
-    </tr>
-    </tbody>
-    </table>
-</form>
-<script>function BuscarCriterios(){
-    var criterio1term = document.getElementById('criterio1p').value;
-    var criterio2term = document.getElementById('criterio2p').value;
-    var criterio3term = document.getElementById('criterio3p').value;
-    Motociclismo.BuscarVariosCriterios(criterio1term,criterio2term,criterio3term);
-}
-</script>
-</nav>
-</nav>
-
-
-
-    <!-- 
-        Article en el que se va a mostrar la info cuando se pinche una opción del menú 
-        Todos los apartados de este article se rellenarán con funciones en Javascript
-    -->
-    <article id="seccion-principal">
-        <!-- Título del article -->
-        <h2 id="seccion-principal-titulo"></h2>
-        <!-- Contenido del article -->
-        <div id="seccion-principal-contenido">
-            <div id="tabla_formulario_persona" class="ocultar"></div>
-        </div>
-    </article>
 
     <!-- 
         ...............  ZONA DE CARGA DE FICHEROS JS .........................
