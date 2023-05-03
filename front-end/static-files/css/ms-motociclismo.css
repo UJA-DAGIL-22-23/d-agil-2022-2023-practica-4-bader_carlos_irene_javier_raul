@@ -11,13 +11,13 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-table.listado-Motociclistas {
+table.listado-Motociclistas1 {
     width: 100%;
     border: 1px solid rgba(44, 131, 181, 0.8);
 }
 
-table.listado-Motociclistas thead th,
-table.listado-Motociclistas tbody th {
+table.listado-Motociclistas1 thead th,
+table.listado-Motociclistas1 tbody th {
     margin: 3px;
     height: 2.5em;
     background-color: rgba(101, 161, 193, 0.704);
@@ -26,16 +26,16 @@ table.listado-Motociclistas tbody th {
 }
 
 
-table.listado-Motociclistas tbody th {
+table.listado-Motociclistas1 tbody th {
     background-color: rgba(39, 154, 199, 0.611);
 }
 
-table.listado-Motociclistas tbody td {
+table.listado-Motociclistas1 tbody td {
     padding: 0.5em;
     text-align: center;
 }
 
-table.listado-Motociclistas tbody tr {
+table.listado-Motociclistas1 tbody tr {
     margin: 3px;
     height: 2em;
     background-color: rgba(182, 229, 255, 0.441)

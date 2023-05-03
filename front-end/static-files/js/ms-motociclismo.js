@@ -161,7 +161,7 @@ Motociclismo.imprime = function (vector) {
  * @returns Cabecera de la tabla
  */
 Motociclismo.cabeceraTable = function () {
-    return `<table class="listado-Motociclistas">
+    return `<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th><th>Nombre_Equipo</th><th>Tipo_Moto</th><th>Fecha_Nacimiento</th><th>Anios_Experiencia</th><th>Puntuaciones_Carrera</th><th>Marcas_Motocicletas</th><th>Posicion_Campeonato</th>
         </thead>
@@ -268,7 +268,7 @@ Motociclismo.imprimeNombres = function (vector) {
  * @returns Cabecera de la tabla
  */
 Motociclismo.cabeceraTableN = function () {
-    return `<table class="listado-Motociclistas">
+    return `<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th>
         </thead>
@@ -363,7 +363,7 @@ Motociclismo.imprimeNAZ = function (vector) {
  * @returns Cabecera de la tabla
  */
 Motociclismo.cabeceraTableNAZ = function () {
-    return `<table class="listado-Motociclistas">
+    return `<table class="listado-Motociclistas1">
         <thead>
         <th>Nombre</th>
         </thead>
