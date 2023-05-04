@@ -55,14 +55,27 @@ Deporte: Equitación
 
 **-	CAMPOS TIPO NOMBRE:**
 
+•	Nombre: El nombre del jinete.
+
+•	Apellido: El apellido del jinete.
+
+•	Nacionalidad: Nacionalidad del jinete.
 
 **-	CAMPOS TIPO COMPUESTO:**
 
+•	Fecha de nacimiento: La fecha de nacimiento del jinete (día, mes y año)
 
 **-	CAMPOS TIPO VECTOR:**
 
+•	Disciplinas: Diferentes disciplinas en las que compite el jinete.
+
+•	Caballos: Nombre de los caballos que tiene el jinete.
+
+•	Años de participación en juegos olímpicos: Diferentes años en los que el jinete ha participado en los JJOO.
 
 **-	CAMPOS TIPO NUMÉRICO:**
+
+•	Edad: Edad del jinete.
 
 ## Estudiante 3:
 
