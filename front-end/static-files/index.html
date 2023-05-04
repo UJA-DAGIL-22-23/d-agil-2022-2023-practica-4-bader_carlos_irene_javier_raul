@@ -5,13 +5,13 @@
     <title>Aplicación Microservicios Plantilla</title>
 
     <!-- Cargamos biblioteca Jasmine -->
-    <!-- -->
+    <!-- 
     <link rel="stylesheet" href="lib/jasmine-4.5.0/jasmine.css">
     <script src="lib/jasmine-4.5.0/jasmine.js"></script>
     <script src="lib/jasmine-4.5.0/jasmine-html.js"></script>
     <script src="lib/jasmine-4.5.0/boot0.js"></script>
     <script src="lib/jasmine-4.5.0/boot1.js"></script>
-    
+    -->
     
     
     <!-- Cargamos nuestros CSS -->
@@ -114,6 +114,7 @@
         </table>
         </nav>
         <br></br>
+
     <!--  Barra de navegación de Motociclismo-->
 <nav>
     
@@ -237,8 +238,6 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
 </nav>
 
 <!--HU 11-->
-
-    
     <table class="listado-motociclistas">
         <br>
     <thead>
@@ -299,7 +298,146 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
 </script>
 </nav>
 </nav>
+<br></br>
 
+<!--  Barra de navegación de Equitación -->
+<nav>
+    <table class="Aplicacion-Equitacion">
+        <thead>
+            <tr>
+                <th colspan="4">Aplicación Equitación</th>
+            </tr>
+        </thead>
+        <thead>
+                <th>Opciones de mostrar</th><th>Editar un deportista y mostrarlo</th><th>Busqueda deportistas</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="javascript:Equitacion.listar_nombres()" class="opcion-principal"
+                    title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD">Listar nombres</a>
+                    <a href="javascript:Equitacion.listar_alfabeticamente()" class="opcion-principal"
+                    title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD por orden alfabetico">Listar nombres alfabeticamente</a>
+                    <a href="javascript:Equitacion.listar()" class="opcion-principal"
+                    title="Realiza un listado con toda la información de los deportistas de equitación que hay en la BBDD">Listar informacion completa</a>
+                </td>
+                <td>
+                    <a href="javascript:Equitacion.mostrarDeportista('359074418347999438')" class="opcion-principal mostrar"
+                    title="Muestra los datos de un deportista como ejemplo">Mostrar/Editar un deportista</a>
+                </td>
+                <td>
+                    <a href="javascript:Equitacion.mostrar()" class="opcion-principal"
+                    title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por nombre</a>   
+                    <a href="javascript:Equitacion.mostrar_dos()" class="opcion-principal"
+                    title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por campos</a> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</nav>
+<br></br>
+
+<!--  Barra de navegación de Gimnasia -->
+<nav>
+    <h1>Aplicación Gimnasia</h1>
+    <br>
+   <!-- <a href="javascript:Gimnasia.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Gimnasia">Home</a>
+    <a href="javascript:Gimnasia.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Gimnasia">Acerca de</a>-->
+    <a href="javascript:Gimnasia.listarPersona()" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Nombre completo de los Participantes</a>
+    <a href="javascript:Gimnasia.listarAlfb()" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Participantes ordenados alfabéticamente</a>
+    <a href="javascript:Gimnasia.listar()" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Participantes</a>
+    <a href="javascript:Gimnasia.mostrarP('359558425872433356')" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Mostrar un participante por id</a>
+    <a href="javascript:Gimnasia.listar2()" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Modificar el nombre de un participante</a>  
+        <br/>
+        <br/>
+        <h1>Formulario para obtener un jugador introduciendo su nombre y apellidos</h1>
+     <form>
+        <label>Buscar por nombre:</label>
+        <br/>
+        <input type="text" id="search" name="search">
+        <button type="button" onclick="buscar()">Buscar</button>
+    </form>
+    <script>
+        function buscar(){
+            var searchTerm=document.getElementById("search").value;
+            Gimnasia.listarParaForm(searchTerm);
+        }
+    </script>
+      <h1>Formulario para obtener un jugador introduciendo varios campos</h1>
+      <form>
+         <input type="text" id="nomb" name="nomb" placeholder="Nombre">
+         <input type="text" id="eda" name="eda"  placeholder="Edad">
+         <input type="text" id="pai" name="pai" placeholder="Pais">
+         <input type="text" id="grup" name="grup" placeholder="Grupo">
+         <button type="button" onclick="buscarHistoria10()">Buscar</button>
+     </form>
+     <script>
+        function buscarHistoria10(){
+            var term1 = document.getElementById("nomb").value;
+            var term2 = document.getElementById("eda").value;
+            var term3 = document.getElementById("pai").value;
+            var term4 = document.getElementById("grup").value;
+            Gimnasia.historia10(term1,term2,term3,term4);
+         }
+     </script>
+</nav>
+<br></br>
+
+<!--  Barra de navegación de Parkour -->
+<br>
+<nav>
+    <h1>Aplicación Parkour</h1>
+    <!--<a href="javascript:Parkour.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Parkour">Home</a>
+    <a href="javascript:Parkour.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Parkour">Acerca de</a>-->
+    <a href="javascript:Parkour.listar()" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Listar Solo Nombres</a>
+    <a href="javascript:Parkour.listar1()" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Listar Nombres Alfabeticamente</a>
+    <a href="javascript:Parkour.listarTodo()" class="opcion-principal"
+        title="Realiza un listado de todas las personas que hay en la BBDD">Listar Todos los datos</a>
+    <a href="javascript:Parkour.mostrarP('359809616226287820')" class="opcion-principal"
+        title="Realiza un listado de la informacion de el usuario marcado">Ver datos de un jugador</a>
+    <a href="javascript:Parkour.ModificarDatos()" class="opcion-principal"
+        title="Modificar varios de los datos a la vez de un jugador">Modificar Datos</a>
+        <br/>
+        <br/>
+        <h1>Buscador de jugadores por nombre</h1>
+        <form>
+            <label>Buscar por nombre:</label>
+            <br/>
+            <input type="text" id="search" name="search">
+            <button type="button" onclick="buscador()">Buscar</button>
+        </form>
+        <script>
+            function buscador(){
+                var searchTerm=document.getElementById("search").value;
+                Parkour.listarBuscador(searchTerm);
+            }
+        </script>
+        <h1>Buscador de jugadores por varios campos</h1>
+        <form>
+            <label>Buscar por varios campos:</label>
+            <br/>
+            <input type="text" id="search2" name="search2">
+            <button type="button" onclick="buscarCampos()">Buscar</button>
+        </form>
+        <script>
+            function buscarCampos(){
+                var searchTerm=document.getElementById("search2").value;
+                Parkour.buscarCampos(searchTerm);
+            }
+        </script>
+    </nav>
+    <br></br>
 
 
     <!-- 
@@ -315,130 +453,6 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
         </div>
     </article>
 
-
-    <!--  Barra de navegación de Equitación -->
-    <nav>
-        <br>
-        <h1>Aplicación Equitación</h1>
-        <!--<a href="javascript:Equitacion.procesarHome()" class="opcion-principal"
-            title="Llama a la ruta / del MS Plantilla">Home</a>
-        <a href="javascript:Equitacion.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>-->
-        <a href="javascript:Equitacion.listar_nombres()" class="opcion-principal"
-            title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD">Listar nombres</a>
-        <a href="javascript:Equitacion.listar_alfabeticamente()" class="opcion-principal"
-            title="Realiza un listado con los nombres de los deportistas de equitación que hay en la BBDD por orden alfabetico">Listar nombres alfabeticamente</a>
-        <a href="javascript:Equitacion.listar()" class="opcion-principal"
-            title="Realiza un listado con toda la información de los deportistas de equitación que hay en la BBDD">Listar informacion completa</a>
-        <a href="javascript:Equitacion.mostrarDeportista('359074418347999438')" class="opcion-principal mostrar"
-            title="Muestra los datos de un deportista como ejemplo">Mostrar/Editar un deportista</a>
-        <a href="javascript:Equitacion.mostrar()" class="opcion-principal"
-            title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por nombre</a>   
-        <a href="javascript:Equitacion.mostrar_dos()" class="opcion-principal"
-            title="Elije tres campos a demas del nombre, para ver que deportistas cumplen los requisitos">Buscar por campos</a>   
-    </nav>
-    <br></br>
-    <!--  Barra de navegación de Gimnasia -->
-    <nav>
-        <h1>Aplicación Gimnasia</h1>
-        <br>
-       <!-- <a href="javascript:Gimnasia.procesarHome()" class="opcion-principal"
-            title="Llama a la ruta / del MS Gimnasia">Home</a>
-        <a href="javascript:Gimnasia.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS Gimnasia">Acerca de</a>-->
-        <a href="javascript:Gimnasia.listarPersona()" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Nombre completo de los Participantes</a>
-        <a href="javascript:Gimnasia.listarAlfb()" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Participantes ordenados alfabéticamente</a>
-        <a href="javascript:Gimnasia.listar()" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Participantes</a>
-        <a href="javascript:Gimnasia.mostrarP('359558425872433356')" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Mostrar un participante por id</a>
-        <a href="javascript:Gimnasia.listar2()" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Modificar el nombre de un participante</a>  
-            <br/>
-            <br/>
-            <h1>Formulario para obtener un jugador introduciendo su nombre y apellidos</h1>
-         <form>
-            <label>Buscar por nombre:</label>
-            <br/>
-            <input type="text" id="search" name="search">
-            <button type="button" onclick="buscar()">Buscar</button>
-        </form>
-        <script>
-            function buscar(){
-                var searchTerm=document.getElementById("search").value;
-                Gimnasia.listarParaForm(searchTerm);
-            }
-        </script>
-          <h1>Formulario para obtener un jugador introduciendo varios campos</h1>
-          <form>
-             <input type="text" id="nomb" name="nomb" placeholder="Nombre">
-             <input type="text" id="eda" name="eda"  placeholder="Edad">
-             <input type="text" id="pai" name="pai" placeholder="Pais">
-             <input type="text" id="grup" name="grup" placeholder="Grupo">
-             <button type="button" onclick="buscarHistoria10()">Buscar</button>
-         </form>
-         <script>
-            function buscarHistoria10(){
-                var term1 = document.getElementById("nomb").value;
-                var term2 = document.getElementById("eda").value;
-                var term3 = document.getElementById("pai").value;
-                var term4 = document.getElementById("grup").value;
-                Gimnasia.historia10(term1,term2,term3,term4);
-             }
-         </script>
-    </nav>
-    <br></br>
-    <!--  Barra de navegación de Parkour -->
-    <br>
-    <nav>
-        <h1>Aplicación Parkour</h1>
-        <!--<a href="javascript:Parkour.procesarHome()" class="opcion-principal"
-            title="Llama a la ruta / del MS Parkour">Home</a>
-        <a href="javascript:Parkour.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS Parkour">Acerca de</a>-->
-        <a href="javascript:Parkour.listar()" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Solo Nombres</a>
-        <a href="javascript:Parkour.listar1()" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Nombres Alfabeticamente</a>
-        <a href="javascript:Parkour.listarTodo()" class="opcion-principal"
-            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Todos los datos</a>
-        <a href="javascript:Parkour.mostrarP('359809616226287820')" class="opcion-principal"
-            title="Realiza un listado de la informacion de el usuario marcado">Ver datos de un jugador</a>
-        <a href="javascript:Parkour.ModificarDatos()" class="opcion-principal"
-            title="Modificar varios de los datos a la vez de un jugador">Modificar Datos</a>
-            <br/>
-            <br/>
-            <h1>Buscador de jugadores por nombre</h1>
-            <form>
-                <label>Buscar por nombre:</label>
-                <br/>
-                <input type="text" id="search" name="search">
-                <button type="button" onclick="buscador()">Buscar</button>
-            </form>
-            <script>
-                function buscador(){
-                    var searchTerm=document.getElementById("search").value;
-                    Parkour.listarBuscador(searchTerm);
-                }
-            </script>
-            <h1>Buscador de jugadores por varios campos</h1>
-            <form>
-                <label>Buscar por varios campos:</label>
-                <br/>
-                <input type="text" id="search2" name="search2">
-                <button type="button" onclick="buscarCampos()">Buscar</button>
-            </form>
-            <script>
-                function buscarCampos(){
-                    var searchTerm=document.getElementById("search2").value;
-                    Parkour.buscarCampos(searchTerm);
-                }
-            </script>
-        </nav>
-
-        <br></br>
         
 
 
@@ -460,9 +474,9 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
 
     <!-- Cargamos ficheros spec con los tests -->
     <!--<script src="js/front-end-spec.js"></script>-->
-    <!----><script src="js/ms-kung-fu-spec.js"></script>
+    <!--<script src="js/ms-kung-fu-spec.js"></script>-->
     <!--<script src="js/ms-equitacion-spec.js"></script>-->
-    <script src="js/ms-motociclismo-spec.js"></script>
+    <!--<script src="js/ms-motociclismo-spec.js"></script>-->
     <!--<script src="js/ms-gimnasia-spec.js"></script>-->
     <!--<script src="js/ms-parkour-spec.js"></script>-->
     
