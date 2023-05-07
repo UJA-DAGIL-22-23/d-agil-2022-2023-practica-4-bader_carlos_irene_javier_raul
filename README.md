@@ -121,24 +121,35 @@ Deporte: Motociclismo
 
 Nombre: Javier
 
-Apellidos: Martinez López
+Apellidos: Martínez López
 
 Correo Electronico: jml00059@red.ujaen.es
 
-Deporte: Gimnasia
+Deporte: Gimnasia 
 
 ## Los campos elegidos para realizar la base de datos son:
 
 **-	CAMPOS TIPO NOMBRE:**
 
+•	Nombre: El nombre de el/la gimnasta
+
+•	Pais: El pais de el/la gimnasta
+
+•	Modalidad: La modalidad de el/la gimnasta
 
 **-	CAMPOS TIPO COMPUESTO:**
 
+•	Fecha Nacimiento: La fecha de nacimiento de el/la gimnasta en formato día, mes y año
 
 **-	CAMPOS TIPO VECTOR:**
 
+•	AniosJJ00: Los años que ha participado en los JJOO el/la gimnasta
 
 **-	CAMPOS TIPO NUMÉRICO:**
+
+•	Edad: La edad de el/la gimnasta
+
+•	Grupo: El grupo de el/la gimnasta
 
 ## Estudiante 5:
 
