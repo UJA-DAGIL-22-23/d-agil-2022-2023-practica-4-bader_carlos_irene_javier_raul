@@ -8,13 +8,13 @@
 
  table.listado-proyectos {
     width: 100%;
-    border: 1px solid rgba(0, 0, 100, 0.8);
+    border: 1px solid rgba(44, 131, 181, 0.8);
 }
 
 table.listado-proyectos thead th {
     margin: 3px;
     height: 2.5em;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(101, 161, 193, 0.704);
     text-transform: uppercase;
 
 }
@@ -27,12 +27,12 @@ table.listado-proyectos tbody td {
 table.listado-proyectos tbody tr {
     margin: 3px;
     height: 2em;
-    background-color: rgba(0, 0, 100, 0.1)
+    background-color: rgba(182, 229, 255, 0.441)
 }
 
 
 .form-persona-elemento:disabled {
-    color: black;
+    color: rgb(0, 0, 0);
     background-color: inherit;
     border-width: 0px;
     text-align: center;
