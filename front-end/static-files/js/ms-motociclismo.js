@@ -62,7 +62,7 @@ Motociclismo.mostrarHome = function (datosDescargados) {
     // Si datos descargados NO contiene el campo mensaje
     if (typeof datosDescargados.mensaje === "undefined") datosDescargados = this.datosDescargadosNulos
 
-    Frontend.Article.actualizar("Motociclismo Home", datosDescargados.mensaje)
+    Frontend.Article.actualizar("Proyecto Grupal Home", datosDescargados.mensaje)
 }
 
 /**
