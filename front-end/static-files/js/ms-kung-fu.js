@@ -335,6 +335,59 @@ KungFu.recuperaJugadorBuscado = async function (nombreBuscado, callBackFn) {
     }
 }
 
+//---
+
+/**
+ * Función que recupera todos los jugadores llamando al MS KungFu
+ * Posteriormente, llama a la función callBackFn para trabajar con los datos recperados.
+ * @param {string} nombreBuscado El nombre del jugador buscado
+ * @param {funcion} callBackFn Función a la que se llamará una vez recibidos los datos
+ */
+KungFu.recuperaJugadoresCompleto = async function (nombreBuscado, callBackFn) {
+    try {
+        const urlKungFu = Frontend.API_GATEWAY + "/kungfu/getTodos"
+        const urlEquitacion = Frontend.API_GATEWAY + "/equitacion/getNombres"
+        const urlMotociclismo = Frontend.API_GATEWAY + "/motociclismo/getNombres"
+        const urlParkour = Frontend.API_GATEWAY + "/parkour/getTodos"
+        const urlGimnasia = Frontend.API_GATEWAY + "/gimnasia/getTodas"
+        
+        const responseKungFu = await fetch(urlKungFu);
+        const responseEquitacion = await fetch(urlEquitacion);
+        const responseMotociclismo = await fetch(urlMotociclismo);
+        const responseParkour = await fetch(urlParkour);
+        const responseGimnasia = await fetch(urlGimnasia);
+
+        let vectorJugadoresKungFu = null
+        let vectorJugadoresEquitacion = null
+        let vectorJugadoresMotociclismo = null
+        let vectorJugadoresParkour = null
+        let vectorJugadoresGimnasia = null
+
+        if (responseKungFu && responseEquitacion && responseMotociclismo && responseParkour && responseGimnasia) {
+            vectorJugadoresKungFu = await responseKungFu.json()
+            vectorJugadoresEquitacion = await responseEquitacion.json()
+            vectorJugadoresMotociclismo = await responseMotociclismo.json()
+            vectorJugadoresParkour = await responseParkour.json()
+            vectorJugadoresGimnasia = await responseGimnasia.json()
+
+            const filtroKungFu = vectorJugadoresKungFu.data.filter(jugador => jugador.data.nombre_completo.nombre === nombreBuscado)
+            const filtroEquitacion = vectorJugadoresEquitacion.data.filter(jugador => jugador.data.nombre === nombreBuscado)
+            const filtroMotociclismo = vectorJugadoresMotociclismo.data.filter(jugador => jugador.data.nombre === nombreBuscado)
+            const filtroParkour = vectorJugadoresKungFu.data.filter(jugador => jugador.data.nombre === nombreBuscado)
+            const filtroGimnasia = vectorJugadoresKungFu.data.filter(jugador => jugador.data.nombre === nombreBuscado)
+
+            const todos = filtroKungFu + filtroParkour + filtroGimnasia + filtroEquitacion + filtroMotociclismo
+
+            callBackFn(todos)
+        }
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Geteway")
+        console.error(error)
+    }
+}
+
+//---
+
 /**
  * Función que recupera todos los jugadores llamando al MS KungFu
  * Posteriormente, llama a la función callBackFn para trabajar con los datos recperados.
@@ -406,6 +459,32 @@ KungFu.imprimeTodosJugadores = function (vector) {
     // Borrar toda la información de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("KungFu del listados de los datos de todos los jugadores" , msj)
 }
+
+//---
+
+/**
+ * Función para mostrar los datos de todos los jugadores
+ * que se han recuperado de la BBDD
+ * @param {vector_de_jugadores} vector 
+ */
+KungFu.imprimeTodos = function (vector) {
+    
+    vector = vector || this.datosJugadoresNulos
+
+    if (typeof vector !== "object") vector = this.datosJugadoresNulos
+
+    // Compongo el contenido que se va a mostrar dentro de la tabla
+    let msj = KungFu.KungFuTablaJugadores.cabecera
+    if (vector && Array.isArray(vector)) {
+        vector.forEach(e => msj += KungFu.KungFuTablaJugadores.actualiza(e));
+    }
+    msj += KungFu.KungFuTablaJugadores.pie
+
+    // Borrar toda la información de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Listados de los datos de todos los jugadores" , msj)
+}
+
+//---
 
 /**
  * Función para mostrar solo los nombre de todos los jugadores
@@ -596,6 +675,18 @@ KungFu.mostrar = function (idJugador) {
 KungFu.jugadorBuscado = function (nombreBuscado) {
     this.recuperaJugadorBuscado(nombreBuscado, this.imprimeTodosJugadores); 
 }
+
+//---
+
+/**
+ * Función que muestra el jugador con el nombre indicado
+ * @param {string} nombreBuscado El nombre del jugador buscado
+ */
+KungFu.listarTodosJugadores = function (nombreBuscado) {
+    this.recuperaJugadoresCompleto(nombreBuscado, this.imprimeTodos); 
+}
+
+//---
 
 /**
  * Función que muestra el/los jugador/es con uno o varios aspectos indicados
