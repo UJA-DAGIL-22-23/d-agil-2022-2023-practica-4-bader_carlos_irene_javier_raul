@@ -142,7 +142,7 @@ const CB_OTHERS = {
      */
     home: async (req, res) => {
         try {
-            CORS(res).status(200).json({ mensaje: "Microservicio MS Motociclismo: home" });
+            CORS(res).status(200).json({ mensaje: "Microservicio MS Proyecto Grupal: home" });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
