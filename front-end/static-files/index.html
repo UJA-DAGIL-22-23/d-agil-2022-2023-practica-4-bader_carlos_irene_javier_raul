@@ -389,7 +389,7 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
             </tr>
         </thead>
         <thead>
-                <th>Opciones de mostrar</th><th>Acciones</th>
+                <th>Opciones de mostrar</th><th>Modificar datos</th><th>Acciones</th>
         </thead>
         <tbody>
             <tr>
@@ -398,33 +398,22 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
                     <a href="javascript:Parkour.listar()" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD">Listar Solo Nombres</a>
                     <a href="javascript:Parkour.listar1()" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD">Listar Nombres Alfabeticamente</a>
                     <a href="javascript:Parkour.listarTodo()" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD">Listar Todos los datos</a>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">Opciones de listar datos por</button>
-                        <div class="dropdown-content">
-                            <a href="javascript:Parkour.mostrarP('359809616226287820')" class="opcion-principal" title="Realiza un listado de la informacion de el usuario marcado">Ver datos de un jugador</a>                 </div>
-                        <br> </br> 
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn">Modificar datos</button>
-                        <div class="dropdown-content">
-                            <a href="javascript:Parkour.ModificarDatos()" class="opcion-principal" title="Modificar varios de los datos a la vez de un jugador">Modificar Datos</a><br> </br> 
-                    </div>
-                </td>
-                <td>
-                    <input type="text" id="search" name="search">
+                    <a href="javascript:Parkour.mostrarP('359809616226287820')" class="opcion-principal" title="Realiza un listado de la informacion de el usuario marcado">Ver datos de un jugador</a>                 </div>
                     
-                    
-                </td>
-                <td>
-                        <input type="text" id="search2" name="search2">
                 </td>
                 
                 <td>
-                    <button type="button" onclick="buscador()">Buscar</button>
-                    <button type="button" onclick="buscarCampos()">Buscar por varios campos</button>
-                    <button class="btn" onclick="KungFu.jugadorBuscadoPorAspectoExactos(document.getElementById('aspecto-1').value, document.getElementById('aspecto-2').value, document.getElementById('aspecto-3').value)">Buscar por asectos exactos</button>
+                    <br> </br>
+                    <a href="javascript:Parkour.ModificarDatos()" class="opcion-principal" title="Modificar varios de los datos a la vez de un jugador">Modificar Datos</a> 
+                
                 </td>
+                <td>
+                    <br> </br>
+                    <input type="text" id="search" name="search"><button type="button" onclick="buscador()">Buscar</button>
+                    <input type="text" id="search2" name="search2"><button type="button" onclick="buscarCampos()">Buscar por varios campos</button>
+                    
+                </td>
+        
             </tr>
         </tbody>
     </table>
