@@ -14,7 +14,7 @@ table.Aplicacion-Parkour thead th,
 table.Aplicacion-Parkour tbody th {
     margin: 3px;
     height: 2.5em;
-    background-color: rgba(14, 97, 153, 0.699);
+    background-color: rgba(225, 153, 19, 0.758);
     text-transform: uppercase;
 }
   
@@ -26,7 +26,7 @@ table.Aplicacion-Parkour tbody td {
 table.Aplicacion-Parkour tbody tr {
     margin: 3px;
     height: 2em;
-    background-color: rgba(0, 138, 252, 0.575)
+    background-color: rgba(252, 227, 0, 0.575)
 }
 table.Aplicacion-Parkour thead,
 table.Aplicacion-Parkour tbody,
