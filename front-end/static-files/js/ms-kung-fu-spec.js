@@ -333,6 +333,85 @@ describe("KungFu.imprimeTodos: ", function() {
   })
 })
 
+describe("KungFu.recuperaJugadoresCompleto: ", function() {
+  let callBackFn = jasmine.createSpy("callBackFn");
+
+  beforeEach(function() {
+    spyOn(window, "fetch").and.returnValues(
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player1" }, { name: "player2" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player3" }, { name: "player4" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player5" }, { name: "player6" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player7" }, { name: "player8" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player9" }, { name: "player10" }]
+          });
+        }
+      })
+    );
+  });
+
+  it("debe llamar a la función callback con los datos descargados de kungfu", async function() {
+    await KungFu.recuperaJugadoresCompleto(callBackFn);
+
+    expect(callBackFn).toHaveBeenCalledWith(
+      [{ name: "player1" }, { name: "player2" }],
+      [{ name: "player3" }, { name: "player4" }],
+      [{ name: "player5" }, { name: "player6" }],
+      [{ name: "player7" }, { name: "player8" }],
+      [{ name: "player9" }, { name: "player10" }]
+    );
+  });
+
+  it("debe llamar a la API del gateway con las URLs correctas", async function() {
+    await KungFu.recuperaJugadoresCompleto(callBackFn);
+
+    expect(window.fetch).toHaveBeenCalledTimes(5);
+    expect(window.fetch.calls.argsFor(0)[0]).toEqual(
+      Frontend.API_GATEWAY + "/kungfu/getTodos"
+    );
+    expect(window.fetch.calls.argsFor(1)[0]).toEqual(
+      Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
+    );
+    expect(window.fetch.calls.argsFor(2)[0]).toEqual(
+      Frontend.API_GATEWAY + "/motociclismo/getTodos"
+    );
+    expect(window.fetch.calls.argsFor(3)[0]).toEqual(
+      Frontend.API_GATEWAY + "/parkour/getTodas"
+    );
+    expect(window.fetch.calls.argsFor(4)[0]).toEqual(
+      Frontend.API_GATEWAY + "/gimnasia/getTodas"
+    );
+  });
+});
+
+
+//############################################################################################################################################################
 
 /*
 IMPORTANTE
