@@ -268,7 +268,247 @@ Deporte: Parkour
 ![Captura Index3](./assets/img/capbarranavegacion.png)
 
 ## HU 07. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
+* Para esta historia de usuario, hemos trabajado en ramas (RAMA: HU7), para intentar generar el menor número de conflictos posibles y agilizar el trabajo como equipo.
+* El objetivo d dicha historia de usuario es conseguir visualizar todos los nombres de cada uno de los deportes integrados en la aplicación de manera conjunta en una misma tabla.
 
+![Captura Trello](./assets/img/HU71.jpeg)
+![Captura Trello](./assets/img/HU72.jpeg)
+![Captura Trello](./assets/img/HU73.jpeg)
+![Captura Trello](./assets/img/HU74.jpeg)
+
+
+
+* Hemos realizado estos métodos en el fichero ms-kung-fu, utilizando las funciones:
+
+* plantillaTags(), sustituyeTags(), actualiza(), recupera() e imprime(). Con sus correspondientes y nuevas denominaciones:
+
+* plantillaTags() y sustituyeTags(), incluyen en la denominación el nombre de cada deporte al que corresponde su función.
+```
+//plantillaTags
+//KUNGFU
+KungFu.KungFuTags = {
+    "ID": "### ID ###",
+    "NOMBRE_COMPLETO": "### NOMBRE_COMPLETO ###",
+    "NOMBRE": "### NOMBRE ###",
+    "APELLIDOS": "### APELLIDS ###",
+    "FECHA_NACIMIENTO": "### FECHA DE NACIMIENTO ###",
+    "DIRECCION": "### DIRECCION ###",
+    "NUMERO_PARTICIPACIONES": "### NUMERO PARTICIPACIONES ###",
+    "AÑOS PARTICIPACION": "### AÑOS PARTICIPACION ###",
+    "COLOR_CINTURON": "### COLOR_CINTURON ###",
+    "NOMBRE_GIMNASIO": "### NOMBRE DEL GIMNASIO ###"
+}
+//EQUITACION
+KungFu.equitacionTags = {
+    ID: "### ID ###",
+    NOMBRE: "### NOMBRE ###",
+    APELLIDO: "### APELLIDO ###",
+    FECHANACIMIENTODia: "### FECHA DE NACIMIENTO Día ###",
+    FECHANACIMIENTOMes: "### FECHA DE NACIMIENTO Mes ###",
+    FECHANACIMIENTOAnio: "### FECHA DE NACIMIENTO Anio ###",
+    NACIONALIDAD: "### NACIONALIDAD ###",
+    EDAD: "### EDAD ###",
+    DISCIPLINAS: "### DISCIPLINAS ###",
+    CABALLOS: "### CABALLOS ###",
+    ANIOSPARTICPACIONJJOO: "### AÑOS DE PARTICIPACION EN LOS JJOO ###"
+}
+
+//MOTOCICLISMO
+KungFu.motociclismoTags = {
+    "NOMBRE": "### NOMBRE ###",
+    "NOMBRE_EQUIPO": "### NOMBRE_EQUIPO ###",
+    "TIPO_MOTO": "### TIPO_MOTO ###",
+    "FECHA_NACIMIENTO": "### FECHA_NACIMIENTO ###",
+    "ANIOS_EXPERIENCIA": "### ANIOS_EXPERIENCIA ###",
+    "PUNTUACIONES_CARRERA": "### PUNTUACIONES_CARRERA ###",
+    "MARCAS_MOTOCICLETAS": "### MARCAS_MOTOCICLETAS ###",
+    "POSICION_CAMPEONATO": "### POSICION_CAMPEONATO ###",
+}
+
+//PARKOUR
+KungFu.ParkourTags = {
+    "ID": "### ID ###",
+    "NOMBRE": "### NOMBRE ###",
+    "APELLIDOS": "### APELLIDOS ###",
+    "COMPETICIONES_OFICIALES": "### COMPETICIONES_OFICIALES ###",
+    "PARTICIPACIONES_INTERNACIONALES": "### PARTICIPACIONES_INTERNACIONALES ###",
+    "TROFEOS_CONSEGUIDOS": "### TROFEOS_CONSEGUIDOS ###",
+}
+
+//GIMNASIA
+KungFu.gimnasiaTags = { //hecho el TDD
+    "ID": "### ID ###",
+    "NOMBRE": "### NOMBRE ###",
+    "PAIS": "### PAIS ###",
+    "EDAD": "### EDAD ###",
+    "MODALIDAD": "### MODALIDAD ###",
+    "GRUPO": "### GRUPO ###",
+    "AniosJJOO": "### AniosJJOO ###",
+}
+```
+```
+//sustituyeTags
+
+KungFu.sustituyeTags = function (kungfu, jugador) {
+    return kungfu
+        .replace(new RegExp(KungFu.KungFuTags.ID, 'g'), jugador.ref['@ref'].id)
+        .replace(new RegExp(KungFu.KungFuTags.NOMBRE, 'g'), jugador.data.nombre_completo.nombre)
+        .replace(new RegExp(KungFu.KungFuTags.APELLIDOS, 'g'), jugador.data.nombre_completo.apellidos)
+        .replace(new RegExp(KungFu.KungFuTags.FECHA_NACIMIENTO, 'g'), jugador.data.fecha_nacimiento.dia + "/" + jugador.data.fecha_nacimiento.mes + "/" + jugador.data.fecha_nacimiento.año)
+        .replace(new RegExp(KungFu.KungFuTags.DIRECCION, 'g'), jugador.data.direccion.calle + ", " + jugador.data.direccion.localidad + ", " + jugador.data.direccion.provincia + ", " + jugador.data.direccion.pais)
+        .replace(new RegExp(KungFu.KungFuTags.NUMERO_PARTICIPACIONES, 'g'), jugador.data.numero_particiapciones_Juegos_olimpicos)
+        .replace(new RegExp(KungFu.KungFuTags["AÑOS PARTICIPACION"], 'g'), jugador.data.años_participacion_juegos_olimpicos)
+        .replace(new RegExp(KungFu.KungFuTags.COLOR_CINTURON, 'g'), jugador.data.color_cinturon)
+        .replace(new RegExp(KungFu.KungFuTags.NOMBRE_GIMNASIO, 'g'), jugador.data.nombre_gimnasio)
+}
+KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
+    return equitacion
+         .replace(new RegExp(KungFu.equitacionTags.ID, 'g'), deportista.ref['@ref'].id)
+         .replace(new RegExp(KungFu.equitacionTags.NOMBRE, 'g'), deportista.data.nombre)
+         .replace(new RegExp(KungFu.equitacionTags.APELLIDO, 'g'), deportista.data.apellido)
+         .replace(new RegExp(KungFu.equitacionTags.FECHANACIMIENTODia, 'g'), deportista.data.fechaNacimiento.dia)
+         .replace(new RegExp(KungFu.equitacionTags.FECHANACIMIENTOMes, 'g'), deportista.data.fechaNacimiento.mes)
+         .replace(new RegExp(KungFu.equitacionTags.FECHANACIMIENTOAnio, 'g'), deportista.data.fechaNacimiento.anio)
+         .replace(new RegExp(KungFu.equitacionTags.NACIONALIDAD, 'g'), deportista.data.nacionalidad)
+         .replace(new RegExp(KungFu.equitacionTags.EDAD, 'g'), deportista.data.edad)
+         .replace(new RegExp(KungFu.equitacionTags.DISCIPLINAS, 'g'), deportista.data.disciplinas)
+         .replace(new RegExp(KungFu.equitacionTags.CABALLOS, 'g'), deportista.data.caballos)
+         .replace(new RegExp(KungFu.equitacionTags.ANIOSPARTICPACIONJJOO, 'g'), deportista.data.aniosParticipacionJJOO)
+}
+KungFu.sustituyeTagsMotociclismo = function (motociclismo, persona) {
+    return motociclismo
+        .replace(new RegExp(KungFu.motociclismoTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(KungFu.motociclismoTags.NOMBRE_EQUIPO, 'g'), persona.data.nombre_equipo)
+        .replace(new RegExp(KungFu.motociclismoTags.TIPO_MOTO, 'g'), persona.data.tipo_moto)
+        .replace(new RegExp(KungFu.motociclismoTags["FECHA_NACIMIENTO"], 'g'),  persona.data.fecha_nacimiento.dia + "/" + persona.data.fecha_nacimiento.mes + "/" + persona.data.fecha_nacimiento.anio)
+        .replace(new RegExp(KungFu.motociclismoTags["ANIOS_EXPERIENCIA"], 'g'), persona.data.anios_experiencia.join( ", "))
+        .replace(new RegExp(KungFu.motociclismoTags["PUNTUACIONES_CARRERA"], 'g'), persona.data.puntuaciones_carrera.join( ", "))
+        .replace(new RegExp(KungFu.motociclismoTags["MARCAS_MOTOCICLETAS"], 'g'), persona.data.marcas_motocicletas.join( ", "))
+        .replace(new RegExp(KungFu.motociclismoTags.POSICION_CAMPEONATO, 'g'), persona.data.posicion_campeonato)
+        
+}
+
+KungFu.sustituyeTagsParkour = function (Parkour, persona) {
+    return Parkour
+        .replace(new RegExp(KungFu.ParkourTags.ID, 'g'), persona.ref['@ref'].id)
+        .replace(new RegExp(KungFu.ParkourTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(KungFu.ParkourTags.APELLIDOS, 'g'), persona.data.apellidos)
+        .replace(new RegExp(KungFu.ParkourTags.COMPETICIONES_OFICIALES, 'g'), persona.data.participaciones_en_competiciones_oficiales)
+        .replace(new RegExp(KungFu.ParkourTags.PARTICIPACIONES_INTERNACIONALES, 'g'), persona.data.Participaciones_en_eventos_a_nivel_internacional)
+        .replace(new RegExp(KungFu.ParkourTags.TROFEOS_CONSEGUIDOS, 'g'), persona.data.numero_de_trofeos_conseguidos)   
+}
+
+KungFu.sustituyeTagsGimnasia = function (gimnasia, persona) {   //hecho el TDD
+    return gimnasia
+    .replace(new RegExp(KungFu.gimnasiaTags.ID, 'g'), persona.ref['@ref'].id)
+    .replace(new RegExp(KungFu.gimnasiaTags.NOMBRE, 'g'), persona.data.nombre)
+    .replace(new RegExp(KungFu.gimnasiaTags.PAIS, 'g'), persona.data.pais)
+    .replace(new RegExp(KungFu.gimnasiaTags.EDAD, 'g'), persona.data.edad)
+    .replace(new RegExp(KungFu.gimnasiaTags.MODALIDAD, 'g'), persona.data.modalidad)
+    .replace(new RegExp(KungFu.gimnasiaTags.GRUPO, 'g'), persona.data.grupo)
+    .replace(new RegExp(KungFu.gimnasiaTags.AniosJJOO, 'g'), persona.data.aniosJJOO)
+}
+
+```
+
+* actualiza es actualizaNombres + denominación de cada uno de los deportes
+```
+KungFu.KungFuTablaJugadores.actualizaNombresKungfu = function (jugador) {
+    return KungFu.sustituyeTags(this.cuerpoNombresTodos, jugador)
+}
+
+KungFu.KungFuTablaJugadores.actualizaNombresEquitacion = function (jugador) {
+    return KungFu.sustituyeTagsEquitacion(this.cuerpoNombresTodos, jugador)
+}
+
+KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo = function (jugador) {
+    return KungFu.sustituyeTagsMotociclismo(this.cuerpoNombresTodos, jugador)
+}
+
+KungFu.KungFuTablaJugadores.actualizaNombresParkour = function (jugador) {
+    return KungFu.sustituyeTagsParkour(this.cuerpoNombresTodos, jugador)
+}
+KungFu.KungFuTablaJugadores.actualizaNombresGimnasia = function (jugador) {
+    return KungFu.sustituyeTagsGimnasia(this.cuerpoNombresTodos, jugador)
+}
+```
+
+* recupera() es recuperaJugadoresCompleto
+
+```
+KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
+   
+    let response_kungfu = null
+    let response_equitacion = null
+    let response_motociclismo = null
+    let response_parkour = null
+    let response_gimnasia = null
+
+    // Intento conectar el microservicio KungFu
+    try {
+        const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
+        const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
+        const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
+        const url_parkour = Frontend.API_GATEWAY + "/parkour/getTodas"
+        const url_gimnasia = Frontend.API_GATEWAY + "/gimnasia/getTodas"
+
+        response_kungfu = await fetch(url_kungfu)
+        response_equitacion = await fetch(url_equitacion)
+        response_motociclismo = await fetch(url_motociclismo)
+        response_parkour = await fetch(url_parkour)
+        response_gimnasia = await fetch(url_gimnasia)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Geteway")
+        console.error(error)
+    }
+
+    //mostrar todos los jugadores que se han descargado
+    let vectorJugadores_kungfu = null
+    let vectorJugadores_equitacion = null
+    let vectorJugadores_motociclismo = null
+    let vectorJugadores_parkour = null
+    let vectorJugadores_gimnasia = null
+
+    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour&& response_gimnasia) {
+        vectorJugadores_kungfu = await response_kungfu.json()
+        vectorJugadores_equitacion = await response_equitacion.json()
+        vectorJugadores_motociclismo = await response_motociclismo.json()
+        vectorJugadores_parkour = await response_parkour.json()
+        vectorJugadores_gimnasia = await response_gimnasia.json()
+        
+        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
+    }
+}
+
+```
+
+*imprime() es imprimeTodosJugadores
+
+```
+KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
+    
+    // Compongo el contenido que se va a mostrar dentro de la tabla
+    let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos
+
+    if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour ) && Array.isArray(vectorJugadores_gimnasia)) {
+        vectorJugadores_kungfu.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresKungfu(e));
+        vectorJugadores_equitacion.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresEquitacion(e));
+        vectorJugadores_motociclismo.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo(e));
+        vectorJugadores_parkour.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresParkour(e));
+        vectorJugadores_gimnasia.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresGimnasia(e));
+    }
+    msj += KungFu.KungFuTablaJugadores.pie
+
+    // Borrar toda la información del Article y la sustituyo por la que ma interesa
+    Frontend.Article.actualizar("Listado de los nombres de todos los jugadores de todos los deportes", msj)
+}
+```
+* PRUEBA DE QUE FUNCIONA LA HU7: 
+![Captura HU7](./assets/img/pruebaHU7.png)
+
+* Además para esta nueva funcionalidad, hemos añadido un botón en el index en al barra de navegación general de la aplicación: 
+![Captura HU7](./assets/img/barranavegacionHU7.png)
 ## HU 08. Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app.
 
 ## HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
@@ -276,3 +516,23 @@ Deporte: Parkour
 # *TDDS Y expects*
 Aquí inserto la captura de los TDD's de los deportes de : Motociclismo y equitación. Demostrando así, su correcto funcionamiento, adaptación al código e implementación:
 ![Captura Tdds](./assets/img/TDD23.png)
+
+## TDD de la HU1:
+
+## TDD de la HU2:
+
+## TDD de la HU3:
+
+## TDD de la HU4:
+
+## TDD de la HU5:
+
+## TDD de la HU6:
+
+## TDD de la HU7:
+![Captura Tdds07](./assets/img/TDDimprimeHU7.jpeg)
+![Captura Tdds07](./assets/img/TDDrecuperaHU7.jpeg)
+
+## TDD de la HU8:
+
+## TDD de la HU9:
