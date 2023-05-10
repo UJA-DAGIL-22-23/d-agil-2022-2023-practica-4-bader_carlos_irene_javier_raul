@@ -20,6 +20,8 @@ const OBJETO_VACIO = '';
 const TITULO_IMPRIME_NOMBRES_ORDENADOS = "KungFu del listado de los nombres de todos los jugadores ordenados"
 const TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO = "KungFu del listados de los datos de todos los jugadores ordenado según un criterio"
 
+const TITULO_IMPRIME_TODOS = "Listado de los nombres de todos los jugadores de todos los deportes"
+
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
@@ -313,6 +315,103 @@ describe("KungFu.cerear", () => {
   });
 });
 
+//############################################################################################################################################################
+
+describe("KungFu.imprimeTodos: ", function() {
+  it("Mostrar datos nulos cuando le pasamos vector nulo", 
+      function() {
+          KungFu.imprimeTodos([])
+          expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS)
+          expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
+  })
+
+  it("Mostrar datos nulos cuando le pasamos un valor que no es un objeto",
+      function() {
+          KungFu.imprimeTodos(10)
+          expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS)
+          expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
+  })
+})
+
+describe("KungFu.recuperaJugadoresCompleto: ", function() {
+  let callBackFn = jasmine.createSpy("callBackFn");
+
+  beforeEach(function() {
+    spyOn(window, "fetch").and.returnValues(
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player1" }, { name: "player2" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player3" }, { name: "player4" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player5" }, { name: "player6" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player7" }, { name: "player8" }]
+          });
+        }
+      }),
+      Promise.resolve({
+        json: function() {
+          return Promise.resolve({
+            data: [{ name: "player9" }, { name: "player10" }]
+          });
+        }
+      })
+    );
+  });
+
+  it("debe llamar a la función callback con los datos descargados de kungfu", async function() {
+    await KungFu.recuperaJugadoresCompleto(callBackFn);
+
+    expect(callBackFn).toHaveBeenCalledWith(
+      [{ name: "player1" }, { name: "player2" }],
+      [{ name: "player3" }, { name: "player4" }],
+      [{ name: "player5" }, { name: "player6" }],
+      [{ name: "player7" }, { name: "player8" }],
+      [{ name: "player9" }, { name: "player10" }]
+    );
+  });
+
+  it("debe llamar a la API del gateway con las URLs correctas", async function() {
+    await KungFu.recuperaJugadoresCompleto(callBackFn);
+
+    expect(window.fetch).toHaveBeenCalledTimes(5);
+    expect(window.fetch.calls.argsFor(0)[0]).toEqual(
+      Frontend.API_GATEWAY + "/kungfu/getTodos"
+    );
+    expect(window.fetch.calls.argsFor(1)[0]).toEqual(
+      Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
+    );
+    expect(window.fetch.calls.argsFor(2)[0]).toEqual(
+      Frontend.API_GATEWAY + "/motociclismo/getTodos"
+    );
+    expect(window.fetch.calls.argsFor(3)[0]).toEqual(
+      Frontend.API_GATEWAY + "/parkour/getTodas"
+    );
+    expect(window.fetch.calls.argsFor(4)[0]).toEqual(
+      Frontend.API_GATEWAY + "/gimnasia/getTodas"
+    );
+  });
+});
+
+
+//############################################################################################################################################################
 
 /*
 IMPORTANTE
