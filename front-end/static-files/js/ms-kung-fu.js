@@ -317,6 +317,10 @@ KungFu.KungFuTablaJugadores.actualizaNombresOrdenados = function (jugador) {
 
 //############################################################################################################################################################
 
+KungFu.KungFuTablaJugadores.actualizaNombresKungfu = function (jugador) {
+    return KungFu.sustituyeTags(this.cuerpoNombresTodos, jugador)
+}
+
 KungFu.KungFuTablaJugadores.actualizaNombresEquitacion = function (jugador) {
     return KungFu.sustituyeTagsEquitacion(this.cuerpoNombresTodos, jugador)
 }
@@ -503,7 +507,7 @@ KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitaci
     let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos
 
     if (vectorJugadores_kungfu || vectorJugadores_equitacion && Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion)) {
-        vectorJugadores_kungfu.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombres(e));
+        vectorJugadores_kungfu.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresKungfu(e));
         vectorJugadores_equitacion.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresEquitacion(e));
     }
     msj += KungFu.KungFuTablaJugadores.pie
