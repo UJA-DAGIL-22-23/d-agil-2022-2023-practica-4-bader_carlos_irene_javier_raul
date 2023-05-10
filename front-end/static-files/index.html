@@ -327,12 +327,80 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
 
 <!--  Barra de navegación de Gimnasia -->
 <nav>
+    <table class="listado-tablagimnasia">
+        <thead>
+            <tr>
+                <th colspan="4">Aplicación Gimnasia</th>
+            </tr>
+        </thead>
+        <thead>
+            <th>Opciones de mostrar</th><th>Busqueda por nombre/apellido</th><th>Busqueda por un aspecto</th>
+    </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <br></br>
+                    <a href="javascript:Gimnasia.listarPersona()" class="opcion-principal"
+                    title="Realiza un listado de todas las personas que hay en la BBDD">Nombre completo de los Participantes</a>
+                <a href="javascript:Gimnasia.listarAlfb()" class="opcion-principal"
+                    title="Realiza un listado de todas las personas que hay en la BBDD">Participantes ordenados alfabéticamente</a>
+                <a href="javascript:Gimnasia.listar()" class="opcion-principal"
+                    title="Realiza un listado de todas las personas que hay en la BBDD">Participantes</a><br></br>
+                    <br></br>
+                    <a href="javascript:Gimnasia.mostrarP('359558425872433356')" class="opcion-principal"
+                    title="Realiza un listado de todas las personas que hay en la BBDD">Mostrar un participante por id</a>
+               
+                    <a href="javascript:Gimnasia.listar2()" class="opcion-principal"
+                    title="Realiza un listado de todas las personas que hay en la BBDD">Modificar el nombre de un participante</a>  
+                    <br></br>    
+                </td>
+                    <td>
+                       <!-- <h1>Formulario para obtener un jugador introduciendo su nombre y apellidos</h1>-->
+                        <form>
+                           <label>Buscar por nombre:</label>
+                           <br/>
+                           <input type="text" id="search" name="search">
+                           <button type="button" onclick="buscar()">Buscar</button>
+                       </form>
+                       <script>
+                           function buscar(){
+                               var searchTerm=document.getElementById("search").value;
+                               Gimnasia.listarParaForm(searchTerm);
+                           }
+                       </script>
+                    </td>
+                    <td>
+
+                        <!--<h1>Formulario para obtener un jugador introduciendo varios campos</h1>-->
+      <form>
+         <input type="text" id="nomb" name="nomb" placeholder="Nombre">
+         <input type="text" id="eda" name="eda"  placeholder="Edad">
+         <input type="text" id="pai" name="pai" placeholder="Pais">
+         <input type="text" id="grup" name="grup" placeholder="Grupo">
+         <button type="button" onclick="buscarHistoria10()">Buscar</button>
+     </form>
+     <script>
+        function buscarHistoria10(){
+            var term1 = document.getElementById("nomb").value;
+            var term2 = document.getElementById("eda").value;
+            var term3 = document.getElementById("pai").value;
+            var term4 = document.getElementById("grup").value;
+            Gimnasia.historia10(term1,term2,term3,term4);
+         }
+     </script>
+
+                    </td>
+
+            </tr>
+        </tbody>
+    </table>
+<!--<nav>
     <h1>Aplicación Gimnasia</h1>
     <br>
-   <!-- <a href="javascript:Gimnasia.procesarHome()" class="opcion-principal"
+   <a href="javascript:Gimnasia.procesarHome()" class="opcion-principal"
         title="Llama a la ruta / del MS Gimnasia">Home</a>
     <a href="javascript:Gimnasia.procesarAcercaDe()" class="opcion-principal"
-        title="Llama a la ruta /acercade del MS Gimnasia">Acerca de</a>-->
+        title="Llama a la ruta /acercade del MS Gimnasia">Acerca de</a>
     <a href="javascript:Gimnasia.listarPersona()" class="opcion-principal"
         title="Realiza un listado de todas las personas que hay en la BBDD">Nombre completo de los Participantes</a>
     <a href="javascript:Gimnasia.listarAlfb()" class="opcion-principal"
@@ -377,7 +445,7 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
      </script>
 </nav>
 <br></br>
-
+-->
 <!--  Barra de navegación de Parkour -->
 <br>
 <nav>

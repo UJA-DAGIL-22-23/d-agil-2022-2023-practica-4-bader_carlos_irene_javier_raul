@@ -8,13 +8,13 @@
 
  table.listado-proyectos {
     width: 100%;
-    border: 1px solid rgba(44, 131, 181, 0.8);
+    border: 1px solid rgba(0, 0, 100, 0.8);
 }
 
 table.listado-proyectos thead th {
     margin: 3px;
     height: 2.5em;
-    background-color: rgba(101, 161, 193, 0.704);
+    background-color: rgba(0, 0, 0, 0.4);
     text-transform: uppercase;
 
 }
@@ -27,7 +27,7 @@ table.listado-proyectos tbody td {
 table.listado-proyectos tbody tr {
     margin: 3px;
     height: 2em;
-    background-color: rgba(182, 229, 255, 0.441)
+    background-color: rgba(0, 0, 100, 0.1)
 }
 
 
@@ -58,3 +58,41 @@ table.listado-proyectos {
     width: 100%;
 }
 
+
+/**LISTADO TABLA Gimnasia**/
+
+table.listado-tablalgimnasia {
+    width: 100%;
+    border: 1px solid rgba(48, 165, 13, 0.8);
+}
+
+table.listado-tablagimnasia thead th,
+table.listado-tablagimnasia tbody th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(32, 117, 6, 0.577);
+    text-transform: uppercase;
+
+}
+
+
+table.listado-tablagimnasia tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.listado-tablagimnasia tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(127, 213, 101, 0.737)
+}
+table.listado-tablagimnasia thead,
+table.listado-tablagimnasia tbody,
+table.listado-tablagimnasia tr,
+table.listado-tablagimnasia td {
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+table.listado-tablagimnasia {
+    width: 100%;
+}
