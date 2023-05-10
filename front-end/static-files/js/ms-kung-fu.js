@@ -261,6 +261,16 @@ KungFu.equitacionTags = {
     CABALLOS: "### CABALLOS ###",
     ANIOSPARTICPACIONJJOO: "### AÑOS DE PARTICIPACION EN LOS JJOO ###"
 }
+KungFu.plantillaTags = {
+    "NOMBRE": "### NOMBRE ###",
+    "NOMBRE_EQUIPO": "### NOMBRE_EQUIPO ###",
+    "TIPO_MOTO": "### TIPO_MOTO ###",
+    "FECHA_NACIMIENTO": "### FECHA_NACIMIENTO ###",
+    "ANIOS_EXPERIENCIA": "### ANIOS_EXPERIENCIA ###",
+    "PUNTUACIONES_CARRERA": "### PUNTUACIONES_CARRERA ###",
+    "MARCAS_MOTOCICLETAS": "### MARCAS_MOTOCICLETAS ###",
+    "POSICION_CAMPEONATO": "### POSICION_CAMPEONATO ###",
+}
 
 KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
     return equitacion
@@ -276,7 +286,19 @@ KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
          .replace(new RegExp(KungFu.equitacionTags.CABALLOS, 'g'), deportista.data.caballos)
          .replace(new RegExp(KungFu.equitacionTags.ANIOSPARTICPACIONJJOO, 'g'), deportista.data.aniosParticipacionJJOO)
 }
-
+KungFu.sustituyeTagsMotociclismo = function (plantilla, persona) {
+    return plantilla
+        .replace(new RegExp(KungFu.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(KungFu.plantillaTags.NOMBRE_EQUIPO, 'g'), persona.data.nombre_equipo)
+        .replace(new RegExp(KungFu.plantillaTags.TIPO_MOTO, 'g'), persona.data.tipo_moto)
+        .replace(new RegExp(KungFu.plantillaTags["FECHA_NACIMIENTO"], 'g'),  persona.data.fecha_nacimiento.dia + "/" + persona.data.fecha_nacimiento.mes + "/" + persona.data.fecha_nacimiento.anio)
+        .replace(new RegExp(KungFu.plantillaTags["ANIOS_EXPERIENCIA"], 'g'), persona.data.anios_experiencia.join( ", "))
+        .replace(new RegExp(KungFu.plantillaTags["PUNTUACIONES_CARRERA"], 'g'), persona.data.puntuaciones_carrera.join( ", "))
+        .replace(new RegExp(KungFu.plantillaTags["MARCAS_MOTOCICLETAS"], 'g'), persona.data.marcas_motocicletas.join( ", "))
+        .replace(new RegExp(KungFu.plantillaTags.POSICION_CAMPEONATO, 'g'), persona.data.posicion_campeonato)
+        
+}
+//07
 //############################################################################################################################################################
 
 /**
@@ -323,6 +345,9 @@ KungFu.KungFuTablaJugadores.actualizaNombresKungfu = function (jugador) {
 
 KungFu.KungFuTablaJugadores.actualizaNombresEquitacion = function (jugador) {
     return KungFu.sustituyeTagsEquitacion(this.cuerpoNombresTodos, jugador)
+}
+KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo = function (jugador) {
+    return KungFu.sustituyeTagsMotociclismo(this.cuerpoNombresTodos, jugador)
 }
 
 //############################################################################################################################################################
@@ -400,14 +425,17 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
    
     let response_kungfu = null
     let response_equitacion = null
+    let response_motociclismo = null
 
     // Intento conectar el microservicio KungFu
     try {
         const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
         const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
+        const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
 
         response_kungfu = await fetch(url_kungfu)
         response_equitacion = await fetch(url_equitacion)
+        response_motociclismo = await fetch(url_motociclismo)
 
     } catch (error) {
         alert("Error: No se han podido acceder al API Geteway")
@@ -417,11 +445,13 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
     //mostrar todos los jugadores que se han descargado
     let vectorJugadores_kungfu = null
     let vectorJugadores_equitacion = null
-    if (response_kungfu && response_equitacion) {
+    let vectorJugadores_motociclismo = null
+    if (response_kungfu && response_equitacion && response_motociclismo) {
         vectorJugadores_kungfu = await response_kungfu.json()
         vectorJugadores_equitacion = await response_equitacion.json()
+        vectorJugadores_motociclismo = await response_motociclismo.json()
         
-        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data)
+        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data)
     }
 }
 
@@ -501,14 +531,15 @@ KungFu.imprimeTodosJugadores = function (vector) {
 
 //############################################################################################################################################################
 
-KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion) {
+KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo) {
     
     // Compongo el contenido que se va a mostrar dentro de la tabla
     let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos
 
-    if (vectorJugadores_kungfu || vectorJugadores_equitacion && Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion)) {
+    if (vectorJugadores_kungfu || vectorJugadores_equitacion || vectorJugadores_motociclismo && Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo)) {
         vectorJugadores_kungfu.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresKungfu(e));
         vectorJugadores_equitacion.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresEquitacion(e));
+        vectorJugadores_motociclismo.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo(e));
     }
     msj += KungFu.KungFuTablaJugadores.pie
 
