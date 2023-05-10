@@ -248,6 +248,7 @@ KungFu.sustituyeTags = function (kungfu, jugador) {
 
 //############################################################################################################################################################
 
+//EQUITACION
 KungFu.equitacionTags = {
     ID: "### ID ###",
     NOMBRE: "### NOMBRE ###",
@@ -262,7 +263,8 @@ KungFu.equitacionTags = {
     ANIOSPARTICPACIONJJOO: "### AÑOS DE PARTICIPACION EN LOS JJOO ###"
 }
 
-KungFu.plantillaTags = {
+//MOTOCICLISMO
+KungFu.motociclismoTags = {
     "NOMBRE": "### NOMBRE ###",
     "NOMBRE_EQUIPO": "### NOMBRE_EQUIPO ###",
     "TIPO_MOTO": "### TIPO_MOTO ###",
@@ -273,6 +275,7 @@ KungFu.plantillaTags = {
     "POSICION_CAMPEONATO": "### POSICION_CAMPEONATO ###",
 }
 
+//PARKOUR
 KungFu.ParkourTags = {
     "ID": "### ID ###",
     "NOMBRE": "### NOMBRE ###",
@@ -282,6 +285,16 @@ KungFu.ParkourTags = {
     "TROFEOS_CONSEGUIDOS": "### TROFEOS_CONSEGUIDOS ###",
 }
 
+//GIMNASIA
+KungFu.gimnasiaTags = { //hecho el TDD
+    "ID": "### ID ###",
+    "NOMBRE": "### NOMBRE ###",
+    "PAIS": "### PAIS ###",
+    "EDAD": "### EDAD ###",
+    "MODALIDAD": "### MODALIDAD ###",
+    "GRUPO": "### GRUPO ###",
+    "AniosJJOO": "### AniosJJOO ###",
+}
 KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
     return equitacion
          .replace(new RegExp(KungFu.equitacionTags.ID, 'g'), deportista.ref['@ref'].id)
@@ -296,16 +309,16 @@ KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
          .replace(new RegExp(KungFu.equitacionTags.CABALLOS, 'g'), deportista.data.caballos)
          .replace(new RegExp(KungFu.equitacionTags.ANIOSPARTICPACIONJJOO, 'g'), deportista.data.aniosParticipacionJJOO)
 }
-KungFu.sustituyeTagsMotociclismo = function (plantilla, persona) {
-    return plantilla
-        .replace(new RegExp(KungFu.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
-        .replace(new RegExp(KungFu.plantillaTags.NOMBRE_EQUIPO, 'g'), persona.data.nombre_equipo)
-        .replace(new RegExp(KungFu.plantillaTags.TIPO_MOTO, 'g'), persona.data.tipo_moto)
-        .replace(new RegExp(KungFu.plantillaTags["FECHA_NACIMIENTO"], 'g'),  persona.data.fecha_nacimiento.dia + "/" + persona.data.fecha_nacimiento.mes + "/" + persona.data.fecha_nacimiento.anio)
-        .replace(new RegExp(KungFu.plantillaTags["ANIOS_EXPERIENCIA"], 'g'), persona.data.anios_experiencia.join( ", "))
-        .replace(new RegExp(KungFu.plantillaTags["PUNTUACIONES_CARRERA"], 'g'), persona.data.puntuaciones_carrera.join( ", "))
-        .replace(new RegExp(KungFu.plantillaTags["MARCAS_MOTOCICLETAS"], 'g'), persona.data.marcas_motocicletas.join( ", "))
-        .replace(new RegExp(KungFu.plantillaTags.POSICION_CAMPEONATO, 'g'), persona.data.posicion_campeonato)
+KungFu.sustituyeTagsMotociclismo = function (motociclismo, persona) {
+    return motociclismo
+        .replace(new RegExp(KungFu.motociclismoTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(KungFu.motociclismoTags.NOMBRE_EQUIPO, 'g'), persona.data.nombre_equipo)
+        .replace(new RegExp(KungFu.motociclismoTags.TIPO_MOTO, 'g'), persona.data.tipo_moto)
+        .replace(new RegExp(KungFu.motociclismoTags["FECHA_NACIMIENTO"], 'g'),  persona.data.fecha_nacimiento.dia + "/" + persona.data.fecha_nacimiento.mes + "/" + persona.data.fecha_nacimiento.anio)
+        .replace(new RegExp(KungFu.motociclismoTags["ANIOS_EXPERIENCIA"], 'g'), persona.data.anios_experiencia.join( ", "))
+        .replace(new RegExp(KungFu.motociclismoTags["PUNTUACIONES_CARRERA"], 'g'), persona.data.puntuaciones_carrera.join( ", "))
+        .replace(new RegExp(KungFu.motociclismoTags["MARCAS_MOTOCICLETAS"], 'g'), persona.data.marcas_motocicletas.join( ", "))
+        .replace(new RegExp(KungFu.motociclismoTags.POSICION_CAMPEONATO, 'g'), persona.data.posicion_campeonato)
         
 }
 
@@ -317,6 +330,17 @@ KungFu.sustituyeTagsParkour = function (Parkour, persona) {
         .replace(new RegExp(KungFu.ParkourTags.COMPETICIONES_OFICIALES, 'g'), persona.data.participaciones_en_competiciones_oficiales)
         .replace(new RegExp(KungFu.ParkourTags.PARTICIPACIONES_INTERNACIONALES, 'g'), persona.data.Participaciones_en_eventos_a_nivel_internacional)
         .replace(new RegExp(KungFu.ParkourTags.TROFEOS_CONSEGUIDOS, 'g'), persona.data.numero_de_trofeos_conseguidos)   
+}
+
+KungFu.sustituyeTagsGimnasia = function (gimnasia, persona) {   //hecho el TDD
+    return gimnasia
+    .replace(new RegExp(KungFu.gimnasiaTags.ID, 'g'), persona.ref['@ref'].id)
+    .replace(new RegExp(KungFu.gimnasiaTags.NOMBRE, 'g'), persona.data.nombre)
+    .replace(new RegExp(KungFu.gimnasiaTags.PAIS, 'g'), persona.data.pais)
+    .replace(new RegExp(KungFu.gimnasiaTags.EDAD, 'g'), persona.data.edad)
+    .replace(new RegExp(KungFu.gimnasiaTags.MODALIDAD, 'g'), persona.data.modalidad)
+    .replace(new RegExp(KungFu.gimnasiaTags.GRUPO, 'g'), persona.data.grupo)
+    .replace(new RegExp(KungFu.gimnasiaTags.AniosJJOO, 'g'), persona.data.aniosJJOO)
 }
 
 //07
@@ -374,6 +398,9 @@ KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo = function (jugador) {
 
 KungFu.KungFuTablaJugadores.actualizaNombresParkour = function (jugador) {
     return KungFu.sustituyeTagsParkour(this.cuerpoNombresTodos, jugador)
+}
+KungFu.KungFuTablaJugadores.actualizaNombresGimnasia = function (jugador) {
+    return KungFu.sustituyeTagsGimnasia(this.cuerpoNombresTodos, jugador)
 }
 
 //############################################################################################################################################################
@@ -453,6 +480,7 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
     let response_equitacion = null
     let response_motociclismo = null
     let response_parkour = null
+    let response_gimnasia = null
 
     // Intento conectar el microservicio KungFu
     try {
@@ -460,11 +488,13 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
         const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
         const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
         const url_parkour = Frontend.API_GATEWAY + "/parkour/getTodas"
+        const url_gimnasia = Frontend.API_GATEWAY + "/gimnasia/getTodas"
 
         response_kungfu = await fetch(url_kungfu)
         response_equitacion = await fetch(url_equitacion)
         response_motociclismo = await fetch(url_motociclismo)
         response_parkour = await fetch(url_parkour)
+        response_gimnasia = await fetch(url_gimnasia)
 
     } catch (error) {
         alert("Error: No se han podido acceder al API Geteway")
@@ -476,14 +506,16 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
     let vectorJugadores_equitacion = null
     let vectorJugadores_motociclismo = null
     let vectorJugadores_parkour = null
+    let vectorJugadores_gimnasia = null
 
-    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour) {
+    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour&& response_gimnasia) {
         vectorJugadores_kungfu = await response_kungfu.json()
         vectorJugadores_equitacion = await response_equitacion.json()
         vectorJugadores_motociclismo = await response_motociclismo.json()
         vectorJugadores_parkour = await response_parkour.json()
+        vectorJugadores_gimnasia = await response_gimnasia.json()
         
-        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data)
+        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
     }
 }
 
@@ -563,16 +595,17 @@ KungFu.imprimeTodosJugadores = function (vector) {
 
 //############################################################################################################################################################
 
-KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour) {
+KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
     
     // Compongo el contenido que se va a mostrar dentro de la tabla
     let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos
 
-    if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour)) {
+    if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour ) && Array.isArray(vectorJugadores_gimnasia)) {
         vectorJugadores_kungfu.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresKungfu(e));
         vectorJugadores_equitacion.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresEquitacion(e));
         vectorJugadores_motociclismo.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo(e));
         vectorJugadores_parkour.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresParkour(e));
+        vectorJugadores_gimnasia.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresGimnasia(e));
     }
     msj += KungFu.KungFuTablaJugadores.pie
 
