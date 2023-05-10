@@ -269,7 +269,7 @@ Deporte: Parkour
 
 ## HU 07. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
 * Para esta historia de usuario, hemos trabajado en ramas (RAMA: HU7), para intentar generar el menor número de conflictos posibles y agilizar el trabajo como equipo.
-* El objetivo d dicha historia de usuario es conseguir visualizar todos los nombres de cada uno de los deportes integrados en la aplicación de manera conjunta en una misma tabla.
+* El objetivo de dicha historia de usuario es conseguir visualizar todos los nombres de cada uno de los deportes integrados en la aplicación de manera conjunta en una misma tabla.
 
 ![Captura Trello](./assets/img/HU71.jpeg)
 ![Captura Trello](./assets/img/HU72.jpeg)
