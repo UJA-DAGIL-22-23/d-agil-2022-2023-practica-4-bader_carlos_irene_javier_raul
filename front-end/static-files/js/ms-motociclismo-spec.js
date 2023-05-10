@@ -11,7 +11,7 @@
 const elementoTituloMotociclismo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenidoMotociclismo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
 const TITULO_HOME_MOTOCICLISMO = "Proyecto Grupal Home"
-const TITULO_ACERCA_DE_MOTOCICLISMO = "Motociclismo Acerca de"
+const TITULO_ACERCA_DE_MOTOCICLISMO = "Proyecto Grupal Acerca de"
 const TITULO_IMPRIME_MOTOCICLISMO = "Listado de motociclistas"
 const TITULO_NAZ_MOTOCICLISMO = "Listado de NOMBRES Aa-Zz de motociclistas"
 const TITULO_MOTOCICLISTAS_MOTOCICLISMO = "Listado de motocilistas"
@@ -117,7 +117,7 @@ describe("Motociclismo.mostrarAcercaDe: ", function () {
             expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)
             expect(elementoContenidoMotociclismo.innerHTML.search(Motociclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
-    it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
+    it("muestra correctamente los titulos y los mensajes conteniendo los autores, los email y las fechas",
         function () {
             Motociclismo.mostrarAcercaDe(datosDescargadosPrueba_MOTOCICLISMO)
             expect(elementoTituloMotociclismo.innerHTML).toBe(TITULO_ACERCA_DE_MOTOCICLISMO)

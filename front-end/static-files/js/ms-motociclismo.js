@@ -136,7 +136,7 @@ Motociclismo.mostrarAcercaDe = function (datosDescargados) {
 
     </div>
     `;
-    Frontend.Article.actualizar("Motociclismo Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("Proyecto Grupal Acerca de", mensajeAMostrar)
 }
 
 

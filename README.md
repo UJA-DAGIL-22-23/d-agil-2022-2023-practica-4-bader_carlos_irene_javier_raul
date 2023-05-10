@@ -411,7 +411,7 @@ KungFu.sustituyeTagsGimnasia = function (gimnasia, persona) {   //hecho el TDD
 
 ```
 
-* actualiza es actualizaNombres + denominación de cada uno de los deportes
+* actualiza() es actualizaNombres + denominación de cada uno de los deportes()
 ```
 KungFu.KungFuTablaJugadores.actualizaNombresKungfu = function (jugador) {
     return KungFu.sustituyeTags(this.cuerpoNombresTodos, jugador)
@@ -433,7 +433,7 @@ KungFu.KungFuTablaJugadores.actualizaNombresGimnasia = function (jugador) {
 }
 ```
 
-* recupera() es recuperaJugadoresCompleto
+* recupera() es recuperaJugadoresCompleto()
 
 ```
 KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
@@ -483,7 +483,7 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
 
 ```
 
-*imprime() es imprimeTodosJugadores
+*imprime() es imprimeTodosJugadores()
 
 ```
 KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
@@ -514,24 +514,24 @@ KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitaci
 ## HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
 
 # *TDDS Y expects*
-Aquí inserto la captura de los TDD's de los deportes de : Motociclismo y equitación. Demostrando así, su correcto funcionamiento, adaptación al código e implementación:
-![Captura Tdds](./assets/img/TDD23.png)
+Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su correcto funcionamiento, adaptación al código e implementación:
+
 
 ## TDD de la HU1:
-
+![Captura Tdds07](./assets/img/TDDkungfu.png)
 ## TDD de la HU2:
-
+![Captura Tdds07](./assets/img/TDDequitacion.png)
 ## TDD de la HU3:
-
+![Captura Tdds07](./assets/img/TDDmotociclismo.png)
 ## TDD de la HU4:
 
 ## TDD de la HU5:
 
 ## TDD de la HU6:
-
+![Captura Tdds07](./assets/img/TDDHU6.png)
 ## TDD de la HU7:
-![Captura Tdds07](./assets/img/TDDimprimeHU7.jpeg)
-![Captura Tdds07](./assets/img/TDDrecuperaHU7.jpeg)
+![Captura Tdds07](./assets/img/TDDimprimeHU7.png)
+![Captura Tdds07](./assets/img/TDDrecuperaHU7.png)
 
 ## TDD de la HU8:
 
