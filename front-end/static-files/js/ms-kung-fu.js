@@ -261,6 +261,7 @@ KungFu.equitacionTags = {
     CABALLOS: "### CABALLOS ###",
     ANIOSPARTICPACIONJJOO: "### AÑOS DE PARTICIPACION EN LOS JJOO ###"
 }
+
 KungFu.plantillaTags = {
     "NOMBRE": "### NOMBRE ###",
     "NOMBRE_EQUIPO": "### NOMBRE_EQUIPO ###",
@@ -270,6 +271,15 @@ KungFu.plantillaTags = {
     "PUNTUACIONES_CARRERA": "### PUNTUACIONES_CARRERA ###",
     "MARCAS_MOTOCICLETAS": "### MARCAS_MOTOCICLETAS ###",
     "POSICION_CAMPEONATO": "### POSICION_CAMPEONATO ###",
+}
+
+KungFu.ParkourTags = {
+    "ID": "### ID ###",
+    "NOMBRE": "### NOMBRE ###",
+    "APELLIDOS": "### APELLIDOS ###",
+    "COMPETICIONES_OFICIALES": "### COMPETICIONES_OFICIALES ###",
+    "PARTICIPACIONES_INTERNACIONALES": "### PARTICIPACIONES_INTERNACIONALES ###",
+    "TROFEOS_CONSEGUIDOS": "### TROFEOS_CONSEGUIDOS ###",
 }
 
 KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
@@ -298,6 +308,17 @@ KungFu.sustituyeTagsMotociclismo = function (plantilla, persona) {
         .replace(new RegExp(KungFu.plantillaTags.POSICION_CAMPEONATO, 'g'), persona.data.posicion_campeonato)
         
 }
+
+KungFu.sustituyeTagsParkour = function (Parkour, persona) {
+    return Parkour
+        .replace(new RegExp(KungFu.ParkourTags.ID, 'g'), persona.ref['@ref'].id)
+        .replace(new RegExp(KungFu.ParkourTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(KungFu.ParkourTags.APELLIDOS, 'g'), persona.data.apellidos)
+        .replace(new RegExp(KungFu.ParkourTags.COMPETICIONES_OFICIALES, 'g'), persona.data.participaciones_en_competiciones_oficiales)
+        .replace(new RegExp(KungFu.ParkourTags.PARTICIPACIONES_INTERNACIONALES, 'g'), persona.data.Participaciones_en_eventos_a_nivel_internacional)
+        .replace(new RegExp(KungFu.ParkourTags.TROFEOS_CONSEGUIDOS, 'g'), persona.data.numero_de_trofeos_conseguidos)   
+}
+
 //07
 //############################################################################################################################################################
 
@@ -346,8 +367,13 @@ KungFu.KungFuTablaJugadores.actualizaNombresKungfu = function (jugador) {
 KungFu.KungFuTablaJugadores.actualizaNombresEquitacion = function (jugador) {
     return KungFu.sustituyeTagsEquitacion(this.cuerpoNombresTodos, jugador)
 }
+
 KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo = function (jugador) {
     return KungFu.sustituyeTagsMotociclismo(this.cuerpoNombresTodos, jugador)
+}
+
+KungFu.KungFuTablaJugadores.actualizaNombresParkour = function (jugador) {
+    return KungFu.sustituyeTagsParkour(this.cuerpoNombresTodos, jugador)
 }
 
 //############################################################################################################################################################
@@ -426,16 +452,19 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
     let response_kungfu = null
     let response_equitacion = null
     let response_motociclismo = null
+    let response_parkour = null
 
     // Intento conectar el microservicio KungFu
     try {
         const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
         const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
         const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
+        const url_parkour = Frontend.API_GATEWAY + "/parkour/getTodas"
 
         response_kungfu = await fetch(url_kungfu)
         response_equitacion = await fetch(url_equitacion)
         response_motociclismo = await fetch(url_motociclismo)
+        response_parkour = await fetch(url_parkour)
 
     } catch (error) {
         alert("Error: No se han podido acceder al API Geteway")
@@ -446,12 +475,15 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
     let vectorJugadores_kungfu = null
     let vectorJugadores_equitacion = null
     let vectorJugadores_motociclismo = null
-    if (response_kungfu && response_equitacion && response_motociclismo) {
+    let vectorJugadores_parkour = null
+
+    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour) {
         vectorJugadores_kungfu = await response_kungfu.json()
         vectorJugadores_equitacion = await response_equitacion.json()
         vectorJugadores_motociclismo = await response_motociclismo.json()
+        vectorJugadores_parkour = await response_parkour.json()
         
-        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data)
+        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data)
     }
 }
 
@@ -531,15 +563,16 @@ KungFu.imprimeTodosJugadores = function (vector) {
 
 //############################################################################################################################################################
 
-KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo) {
+KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour) {
     
     // Compongo el contenido que se va a mostrar dentro de la tabla
     let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos
 
-    if (vectorJugadores_kungfu || vectorJugadores_equitacion || vectorJugadores_motociclismo && Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo)) {
+    if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour)) {
         vectorJugadores_kungfu.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresKungfu(e));
         vectorJugadores_equitacion.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresEquitacion(e));
         vectorJugadores_motociclismo.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo(e));
+        vectorJugadores_parkour.forEach(e => msj += KungFu.KungFuTablaJugadores.actualizaNombresParkour(e));
     }
     msj += KungFu.KungFuTablaJugadores.pie
 
