@@ -20,6 +20,8 @@ const OBJETO_VACIO = '';
 const TITULO_IMPRIME_NOMBRES_ORDENADOS = "KungFu del listado de los nombres de todos los jugadores ordenados"
 const TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO = "KungFu del listados de los datos de todos los jugadores ordenado según un criterio"
 
+const TITULO_IMPRIME_TODOS = "Listado de los nombres de todos los jugadores de todos los deportes"
+
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
@@ -312,6 +314,24 @@ describe("KungFu.cerear", () => {
     expect(KungFu.cerear(15)).toBe("15");
   });
 });
+
+//############################################################################################################################################################
+
+describe("KungFu.imprimeTodos: ", function() {
+  it("Mostrar datos nulos cuando le pasamos vector nulo", 
+      function() {
+          KungFu.imprimeTodos([])
+          expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS)
+          expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
+  })
+
+  it("Mostrar datos nulos cuando le pasamos un valor que no es un objeto",
+      function() {
+          KungFu.imprimeTodos(10)
+          expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS)
+          expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
+  })
+})
 
 
 /*
