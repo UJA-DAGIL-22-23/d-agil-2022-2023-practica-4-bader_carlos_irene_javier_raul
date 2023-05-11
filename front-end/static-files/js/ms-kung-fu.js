@@ -519,6 +519,58 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
     }
 }
 
+KungFu.recuperaJugadoresCompletoAlfabeticamente = async function (callBackFn) {
+
+    let response_kungfu = null
+    let response_equitacion = null
+    let response_motociclismo = null
+    let response_parkour = null
+    let response_gimnasia = null
+
+    // Intento conectar el microservicio KungFu
+    try {
+        const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
+        const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
+        const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
+        const url_parkour = Frontend.API_GATEWAY + "/parkour/getTodas"
+        const url_gimnasia = Frontend.API_GATEWAY + "/gimnasia/getTodas"
+
+        response_kungfu = await fetch(url_kungfu)
+        response_equitacion = await fetch(url_equitacion)
+        response_motociclismo = await fetch(url_motociclismo)
+        response_parkour = await fetch(url_parkour)
+        response_gimnasia = await fetch(url_gimnasia)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Geteway")
+        console.error(error)
+    }
+
+    //mostrar todos los jugadores que se han descargado
+    let vectorJugadores_kungfu = null
+    let vectorJugadores_equitacion = null
+    let vectorJugadores_motociclismo = null
+    let vectorJugadores_parkour = null
+    let vectorJugadores_gimnasia = null
+
+    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour&& response_gimnasia) {
+        vectorJugadores_kungfu = await response_kungfu.json()
+        vectorJugadores_equitacion = await response_equitacion.json()
+        vectorJugadores_motociclismo = await response_motociclismo.json()
+        vectorJugadores_parkour = await response_parkour.json()
+        vectorJugadores_gimnasia = await response_gimnasia.json()
+
+        const vectorJugadores = vectorJugadores_kungfu.data.concat(vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
+
+        // Ordenamos el vector resultante alfabéticamente
+        vectorJugadores.sort((a, b) => a.nombre.localeCompare(b.nombre))
+
+        // Pasamos el vector ordenado a la función callBackFn
+        callBackFn(vectorJugadores) 
+         }
+}
+
+
 //############################################################################################################################################################
 
 /**
@@ -847,4 +899,15 @@ KungFu.listarTodosJugadores = function () {
     this.recuperaJugadoresCompleto(this.imprimeTodos); 
 }
 
+//---
+
+//---
+
+/**
+ * Función que muestra el jugador con el nombre indicado en orden alfabetico
+ * @param {string} nombreBuscado El nombre del jugador buscado
+ */
+KungFu.listarTodosJugadoresAlfabeticamente = function () {
+    this.recuperaJugadoresCompletoAlfabeticamente(this.imprimeTodos);
+}
 //---
