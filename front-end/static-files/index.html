@@ -409,6 +409,7 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
                 </td>
                 <td>
                     <br> </br>
+                    
                     <input type="text" id="search" name="search"><button type="button" onclick="buscador()">Buscar</button>
                     <input type="text" id="search2" name="search2"><button type="button" onclick="buscarCampos()">Buscar por varios campos</button>
                     
@@ -424,13 +425,13 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
         <script>
             function buscador(){
                 var searchTerm=document.getElementById("search").value;
-                Parkour.listarBuscador(searchTerm);
+                Parkour.buscador(searchTerm);
             }
         </script>
         <script>
             function buscarCampos(){
-                var searchTerm=document.getElementById("search2").value;
-                Parkour.buscarCampos(searchTerm);
+                var searchTerm2=document.getElementById("search2").value;
+                Parkour.buscarCampos(searchTerm2);
             }
         </script>
 </nav>
@@ -474,7 +475,7 @@ Motociclismo.BuscarCumpleVariosCriterios(criterio1term,criterio2term,criterio3te
     <!--<script src="js/ms-equitacion-spec.js"></script>-->
    <!--<script src="js/ms-motociclismo-spec.js"></script>-->
     <!--<script src="js/ms-gimnasia-spec.js"></script>-->
-    <!--<script src="js/ms-parkour-spec.js"></script>-->
+    <script src="js/ms-parkour-spec.js"></script>
     
 </body>
 
