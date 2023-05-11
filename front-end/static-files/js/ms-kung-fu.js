@@ -515,6 +515,7 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
         vectorJugadores_parkour = await response_parkour.json()
         vectorJugadores_gimnasia = await response_gimnasia.json()
         
+        
         callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
     }
 }
@@ -560,13 +561,40 @@ KungFu.recuperaJugadoresCompletoAlfabeticamente = async function (callBackFn) {
         vectorJugadores_parkour = await response_parkour.json()
         vectorJugadores_gimnasia = await response_gimnasia.json()
 
-        const vectorJugadores = vectorJugadores_kungfu.data.concat(vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
+        const vectorJugadores = vectorJugadores_kungfu
+        .concat(vectorJugadores_equitacion)
+        .concat(vectorJugadores_motociclismo)
+        .concat(vectorJugadores_parkour)
+        .concat(vectorJugadores_gimnasia);
+      
+        
 
+        const [responseKungfu, responseEquitacion, responseMotociclismo, responseParkour, responseGimnasia] = await Promise.all([
+            response_kungfu,
+            response_equitacion,
+            response_motociclismo,
+            response_parkour,
+            response_gimnasia
+          ]);
+          
+          let responses = [responseKungfu, responseEquitacion, responseMotociclismo, responseParkour, responseGimnasia];
         // Ordenamos el vector resultante alfabéticamente
-        vectorJugadores.sort((a, b) => a.nombre.localeCompare(b.nombre))
+        vectorJugadores = await responses.json()
+        vectorJugadores.data.sort((a, b) => {
+            const nombreA = a.data.nombre.toLowerCase();
+            const nombreB = b.data.nombre.toLowerCase();
+            if (nombreA < nombreB) {
+                return -1;
+            }
+            if (nombreA > nombreB) {
+                return 1;
+            }
+            return 0;
+        });
+        
 
         // Pasamos el vector ordenado a la función callBackFn
-        callBackFn(vectorJugadores) 
+        callBackFn(vectorJugadores.data)
          }
 }
 

@@ -332,7 +332,7 @@ Parkour.imprimeUnaPersona = function (persona) {
 
 Parkour.recuperaUnaPersona = async function (idPersona, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/parkour/getPorId/" + idPersona
+        const url = Frontend.API_GATEWAY + "/parkour/getPorId/" + idPersona 
         const response = await fetch(url);
             if (response) {
                 const persona = await response.json()
@@ -459,7 +459,7 @@ Parkour.recuperaBuscador = async function (callBackFn,nombre) {
     let vectorPersonas = null
     if (response) {
         vectorPersonas = await response.json()
-        const filtro=vectorPersonas.data.filter(persona => persona.data.nombre === nombre)
+        const filtro = vectorPersonas.data.filter(persona => persona.data.nombre === nombre )
         callBackFn(filtro)
     }
 }
