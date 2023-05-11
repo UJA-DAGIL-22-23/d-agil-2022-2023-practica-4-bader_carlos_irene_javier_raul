@@ -560,14 +560,81 @@ KungFu.recuperaJugadoresCompletoAlfabeticamente = async function (callBackFn) {
         vectorJugadores_parkour = await response_parkour.json()
         vectorJugadores_gimnasia = await response_gimnasia.json()
 
-        const vectorJugadores = vectorJugadores_kungfu.data.concat(vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
+        
+        vectorJugadores_kungfu.data.sort((a,b) => {
+            const nombreA = a.data.nombre.toLowerCase();
+            const nombreB = b.data.nombre.toLowerCase();
+            if (nombreA < nombreB) {
+                return -1;
+            }
+            if (nombreA > nombreB) {
+                return 1;
+            }
+            return 0;
 
-        // Ordenamos el vector resultante alfabéticamente
-        vectorJugadores.sort((a, b) => a.nombre.localeCompare(b.nombre))
+            
+        });
 
-        // Pasamos el vector ordenado a la función callBackFn
-        callBackFn(vectorJugadores) 
-         }
+        vectorJugadores_equitacion.data.sort((a1,b1) => {
+            const nombreA1 = a1.data.nombre.toLowerCase();
+            const nombreB1 = b1.data.nombre.toLowerCase();
+            if (nombreA1 < nombreB1) {
+                return -1;
+            }
+            if (nombreA1 > nombreB1) {
+                return 1;
+            }
+            return 0;
+
+            
+        });
+
+        vectorJugadores_motociclismo.data.sort((a2,b2) => {
+            const nombreA2 = a2.data.nombre.toLowerCase();
+            const nombreB2 = b2.data.nombre.toLowerCase();
+            if (nombreA2 < nombreB2) {
+                return -1;
+            }
+            if (nombreA2 > nombreB2) {
+                return 1;
+            }
+            return 0;
+
+            
+        });
+
+        vectorJugadores_parkour.data.sort((a3,b3) => {
+            const nombreA3 = a3.data.nombre.toLowerCase();
+            const nombreB3 = b3.data.nombre.toLowerCase();
+            if (nombreA3 < nombreB3) {
+                return -1;
+            }
+            if (nombreA3 > nombreB3) {
+                return 1;
+            }
+            return 0;
+            
+        });
+
+        vectorJugadores_gimnasia.data.sort((a4,b4) => {
+            const nombreA4 = a4.data.nombre.toLowerCase();
+            const nombreB4 = b4.data.nombre.toLowerCase();
+            if (nombreA4 < nombreB4) {
+                return -1;
+            }
+            if (nombreA4 > nombre4) {
+                return 1;
+            }
+            return 0;
+            
+        });
+        
+        callBackFn(vectorJugadores_kungfu) 
+        callBackFn(vectorJugadores_equitacion) 
+        callBackFn(vectorJugadores_motociclismo) 
+        callBackFn(vectorJugadores_parkour) 
+        callBackFn(vectorJugadores_gimnasia) 
+        }
 }
 
 
