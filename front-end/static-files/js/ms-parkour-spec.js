@@ -56,7 +56,7 @@ describe("Parkour.mostrarHome: ", function () {
         function () {
             // Objeto vacío
             Parkour.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOMERaul)
+            expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
             expect(elementoContenidoRaul.innerHTML).toBe(Parkour.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
@@ -67,9 +67,9 @@ describe("Parkour.mostrarHome: ", function () {
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Parkour.mostrarHome(datosDescargadosPrueba)
+            Parkour.mostrarHome(datosDescargadosPruebaRaul)
             expect(elementoTituloRaul.innerHTML).toBe(TITULO_HOMERaul)
-            expect(elementoContenidoRaul.innerHTML).toBe(datosDescargadosPrueba.mensaje)
+            expect(elementoContenidoRaul.innerHTML).toBe(datosDescargadosPruebaRaul.mensaje)
         })
 })
 
@@ -115,13 +115,13 @@ describe("Parkour.mostrarAcercaDe: ", function () {
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Parkour.mostrarAcercaDe(datosDescargadosPrueba)
+            Parkour.mostrarAcercaDe(datosDescargadosPruebaRaul)
             expect(elementoTituloRaul.innerHTML).toBe(TITULO_ACERCA_DERaul)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPruebaRaul.autor) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPruebaRaul.email) >= 0).toBeTrue()
+            expect(elementoContenidoRaul.innerHTML.search(datosDescargadosPruebaRaul.fecha) >= 0).toBeTrue()
         })
 })
 
