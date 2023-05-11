@@ -561,7 +561,7 @@ KungFu.recuperaJugadoresCompletoAlfabeticamente = async function (callBackFn) {
         vectorJugadores_gimnasia = await response_gimnasia.json()
 
         
-        vectorJugadores_kungfu.data.sort((a,b) => {
+        /*vectorJugadores_kungfu.data.sort((a,b) => {
             const nombreA = a.data.nombre.toLowerCase();
             const nombreB = b.data.nombre.toLowerCase();
             if (nombreA < nombreB) {
@@ -614,26 +614,26 @@ KungFu.recuperaJugadoresCompletoAlfabeticamente = async function (callBackFn) {
             }
             return 0;
             
-        });
+        });*/
 
-        vectorJugadores_gimnasia.data.sort((a4,b4) => {
-            const nombreA4 = a4.data.nombre.toLowerCase();
-            const nombreB4 = b4.data.nombre.toLowerCase();
-            if (nombreA4 < nombreB4) {
+        /*vectorJugadores_gimnasia.data.sort((a,b) => {
+            const nombreA = a.data.nombre_completo.toLowerCase();
+            const nombreB = b.data.nombre_completo.toLowerCase();
+            if (nombreA < nombreB) {
                 return -1;
             }
-            if (nombreA4 > nombre4) {
+            if (nombreA > nombre) {
                 return 1;
             }
             return 0;
             
-        });
+        });*/
         
-        callBackFn(vectorJugadores_kungfu) 
-        callBackFn(vectorJugadores_equitacion) 
-        callBackFn(vectorJugadores_motociclismo) 
-        callBackFn(vectorJugadores_parkour) 
-        callBackFn(vectorJugadores_gimnasia) 
+
+        // Ordenamos el vector resultante alfabéticamente
+        //vectorJugadores_gimnasia.sort((a, b) => a.nombre.localeCompare(b.nombre))
+        
+        callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
         }
 }
 
