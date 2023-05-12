@@ -295,6 +295,7 @@ KungFu.gimnasiaTags = { //hecho el TDD
     "GRUPO": "### GRUPO ###",
     "AniosJJOO": "### AniosJJOO ###",
 }
+
 KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
     return equitacion
          .replace(new RegExp(KungFu.equitacionTags.ID, 'g'), deportista.ref['@ref'].id)
@@ -309,6 +310,7 @@ KungFu.sustituyeTagsEquitacion = function (equitacion, deportista) {
          .replace(new RegExp(KungFu.equitacionTags.CABALLOS, 'g'), deportista.data.caballos)
          .replace(new RegExp(KungFu.equitacionTags.ANIOSPARTICPACIONJJOO, 'g'), deportista.data.aniosParticipacionJJOO)
 }
+
 KungFu.sustituyeTagsMotociclismo = function (motociclismo, persona) {
     return motociclismo
         .replace(new RegExp(KungFu.motociclismoTags.NOMBRE, 'g'), persona.data.nombre)
@@ -332,7 +334,7 @@ KungFu.sustituyeTagsParkour = function (Parkour, persona) {
         .replace(new RegExp(KungFu.ParkourTags.TROFEOS_CONSEGUIDOS, 'g'), persona.data.numero_de_trofeos_conseguidos)   
 }
 
-KungFu.sustituyeTagsGimnasia = function (gimnasia, persona) {   //hecho el TDD
+KungFu.sustituyeTagsGimnasia = function (gimnasia, persona) {
     return gimnasia
     .replace(new RegExp(KungFu.gimnasiaTags.ID, 'g'), persona.ref['@ref'].id)
     .replace(new RegExp(KungFu.gimnasiaTags.NOMBRE, 'g'), persona.data.nombre)
@@ -343,7 +345,6 @@ KungFu.sustituyeTagsGimnasia = function (gimnasia, persona) {   //hecho el TDD
     .replace(new RegExp(KungFu.gimnasiaTags.AniosJJOO, 'g'), persona.data.aniosJJOO)
 }
 
-//07
 //############################################################################################################################################################
 
 /**
@@ -399,6 +400,7 @@ KungFu.KungFuTablaJugadores.actualizaNombresMotociclismo = function (jugador) {
 KungFu.KungFuTablaJugadores.actualizaNombresParkour = function (jugador) {
     return KungFu.sustituyeTagsParkour(this.cuerpoNombresTodos, jugador)
 }
+
 KungFu.KungFuTablaJugadores.actualizaNombresGimnasia = function (jugador) {
     return KungFu.sustituyeTagsGimnasia(this.cuerpoNombresTodos, jugador)
 }
@@ -519,85 +521,6 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
         callBackFn(vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
     }
 }
-
-KungFu.recuperaJugadoresCompletoAlfabeticamente = async function (callBackFn) {
-
-    let response_kungfu = null
-    let response_equitacion = null
-    let response_motociclismo = null
-    let response_parkour = null
-    let response_gimnasia = null
-
-    // Intento conectar el microservicio KungFu
-    try {
-        const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
-        const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
-        const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
-        const url_parkour = Frontend.API_GATEWAY + "/parkour/getTodas"
-        const url_gimnasia = Frontend.API_GATEWAY + "/gimnasia/getTodas"
-
-        response_kungfu = await fetch(url_kungfu)
-        response_equitacion = await fetch(url_equitacion)
-        response_motociclismo = await fetch(url_motociclismo)
-        response_parkour = await fetch(url_parkour)
-        response_gimnasia = await fetch(url_gimnasia)
-
-    } catch (error) {
-        alert("Error: No se han podido acceder al API Geteway")
-        console.error(error)
-    }
-
-    //mostrar todos los jugadores que se han descargado
-    let vectorJugadores_kungfu = null
-    let vectorJugadores_equitacion = null
-    let vectorJugadores_motociclismo = null
-    let vectorJugadores_parkour = null
-    let vectorJugadores_gimnasia = null
-
-    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour&& response_gimnasia) {
-        vectorJugadores_kungfu = await response_kungfu.json()
-        vectorJugadores_equitacion = await response_equitacion.json()
-        vectorJugadores_motociclismo = await response_motociclismo.json()
-        vectorJugadores_parkour = await response_parkour.json()
-        vectorJugadores_gimnasia = await response_gimnasia.json()
-
-        const vectorJugadores = vectorJugadores_kungfu
-        .concat(vectorJugadores_equitacion)
-        .concat(vectorJugadores_motociclismo)
-        .concat(vectorJugadores_parkour)
-        .concat(vectorJugadores_gimnasia);
-      
-        
-
-        const [responseKungfu, responseEquitacion, responseMotociclismo, responseParkour, responseGimnasia] = await Promise.all([
-            response_kungfu,
-            response_equitacion,
-            response_motociclismo,
-            response_parkour,
-            response_gimnasia
-          ]);
-          
-          let responses = [responseKungfu, responseEquitacion, responseMotociclismo, responseParkour, responseGimnasia];
-        // Ordenamos el vector resultante alfabéticamente
-        vectorJugadores = await responses.json()
-        vectorJugadores.data.sort((a, b) => {
-            const nombreA = a.data.nombre.toLowerCase();
-            const nombreB = b.data.nombre.toLowerCase();
-            if (nombreA < nombreB) {
-                return -1;
-            }
-            if (nombreA > nombreB) {
-                return 1;
-            }
-            return 0;
-        });
-        
-
-        // Pasamos el vector ordenado a la función callBackFn
-        callBackFn(vectorJugadores.data)
-         }
-}
-
 
 //############################################################################################################################################################
 
@@ -916,8 +839,7 @@ KungFu.jugadorBuscadoPorAspectoExactos = function (aspecto1, aspecto2, aspecto3)
     this.recuperaJugadorBuscadoPorAspectoExacto(aspecto1, aspecto2, aspecto3, this.imprimeTodosJugadores); 
 }
 
-
-//---
+//############################################################################################################################################################
 
 /**
  * Función que muestra el jugador con el nombre indicado
@@ -927,15 +849,4 @@ KungFu.listarTodosJugadores = function () {
     this.recuperaJugadoresCompleto(this.imprimeTodos); 
 }
 
-//---
-
-//---
-
-/**
- * Función que muestra el jugador con el nombre indicado en orden alfabetico
- * @param {string} nombreBuscado El nombre del jugador buscado
- */
-KungFu.listarTodosJugadoresAlfabeticamente = function () {
-    this.recuperaJugadoresCompletoAlfabeticamente(this.imprimeTodos);
-}
-//---
+//############################################################################################################################################################

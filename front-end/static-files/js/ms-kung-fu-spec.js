@@ -21,6 +21,7 @@ const TITULO_IMPRIME_NOMBRES_ORDENADOS = "KungFu del listado de los nombres de t
 const TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO = "KungFu del listados de los datos de todos los jugadores ordenado según un criterio"
 
 const TITULO_IMPRIME_TODOS = "Listado de los nombres de todos los jugadores de todos los deportes"
+const TITULO_IMPRIME_TODOS_ORDENADOS = "Listado de los nombres de todos los jugadores de todos los deportes ordenados alfabeticamente"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -410,6 +411,22 @@ describe("KungFu.recuperaJugadoresCompleto: ", function() {
   });
 });
 
+describe("KungFu.imprimeTodosOrdenados:", function() {
+  it("Mostrar datos nulos cuando le pasamos vector nulo", 
+      function () {
+          // Objeto vacio
+          KungFu.imprimeTodosOrdenados([], [], [], [], [])
+          expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS_ORDENADOS)
+          expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
+  })
+
+  it("Mostrar datos nulos cuando le pasamos un valor que no es un objeto",
+      function() {
+          KungFu.imprimeTodosOrdenados(10, 20, 'cadena', true, [])
+          expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS_ORDENADOS)
+          expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO)
+  })
+})
 
 //############################################################################################################################################################
 
