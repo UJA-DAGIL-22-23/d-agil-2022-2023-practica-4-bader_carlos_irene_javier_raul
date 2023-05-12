@@ -34,7 +34,7 @@
                 </tr>
             </thead>
             <thead>
-                    <th>Opcion Home</th><th>Opción Acerca De</th><th>Listar nombres</th>
+                    <th>Opcion Home</th><th>Opción Acerca De</th><th>Listar nombres</th><th>Buscar por cadena</th>
             </thead>
             <tbody>
                 <tr>
@@ -52,6 +52,22 @@
                         <a href="javascript:KungFu.listarTodosJugadores()" class="opcion-principal" title="Realizar un listado de todos los nombres de todos los BBDD">Listar nombres</a><br><br>
                         <a href="javascript:KungFu.listarTodosJugadoresAlfabeticamente()" class="opcion-principal" title="Realizar un listado de todos los nombres de todos los BBDD ordenados alfabeticamente">Listar los nombres alfabeticamente</a><br><br>
 
+                    </td>
+
+                    <td>
+                        <form> 
+                        <br> <br>
+                            <label>Introduce cadena:</label> 
+                        <input type="text" id="cadena" name="caadena">
+                            <button type="button" onclick="Buscarcadena()"> BUSCAR NOMBRES </button>
+                        </form>
+
+                        <script>function Buscarcadena(){
+                                var cadenaTermm = document.getElementById("cadena").value;
+                                KungFu.imprimePorCadena(cadenaTermm);
+                            }
+                        </script>
+                        <br> </br> 
                     </td>
                 </tr>
             </tbody>
