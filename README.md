@@ -510,6 +510,57 @@ KungFu.imprimeTodos = function (vectorJugadores_kungfu, vectorJugadores_equitaci
 * Además para esta nueva funcionalidad, hemos añadido un botón en el index en al barra de navegación general de la aplicación: 
 ![Captura HU7](./assets/img/barranavegacionHU7.png)
 ## HU 08. Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app.
+* Para esta historia de usuario, hemos trabajado en varias ramas, para intentar cada uno por separado la implementación de esta historia de usuario, hasta conseguir la funcionalidad deseada, también nos hemos reunido algunos miembros del grupo y hemos trabajado en una misma rama.
+
+![Captura Trello](./assets/img/HU81.jpeg)
+![Captura Trello](./assets/img/HU82.jpeg)
+![Captura Trello](./assets/img/HU83.jpeg)
+![Captura Trello](./assets/img/HU84.jpeg)
+
+* El objetivo de dicha historia de usuario es conseguir visualizar todos los nombres de cada uno de los deportes integrados en la aplicación de manera conjunta en una misma tabla Y MOSTRARLOS POR ORDEN ALFABÉTICO.
+* Para ello, hemos concatenado(concat) los datos de vectores de cada uno de los deportes a un vector,además, se ordena el vector al que se han concatenado:
+
+´´´
+KungFu.imprimeTodosOrdenados = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
+    
+    // Componemos el contenido que se va a mostrar dentro de la tabla
+    let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos;
+
+    if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour) && Array.isArray(vectorJugadores_gimnasia)) {
+        // Unimos todos los vectores en uno solo
+        const todosLosJugadores = [
+            ...vectorJugadores_kungfu.map(jugador => jugador.data.nombre_completo.nombre),
+            ...vectorJugadores_equitacion.map(jugador => jugador.data.nombre),
+            ...vectorJugadores_motociclismo.map(jugador => jugador.data.nombre),
+            ...vectorJugadores_parkour.map(jugador => jugador.data.nombre),
+            ...vectorJugadores_gimnasia.map(jugador => jugador.data.nombre)
+        ];
+
+        // Ordenamos alfabéticamente el array de nombres de jugadores
+        todosLosJugadores.sort((a, b) => a.localeCompare(b));
+
+        // Agregamos los nombres de los jugadores ordenados al mensaje
+        todosLosJugadores.forEach(nombreJugador => {
+            msj += `<tr><td>${nombreJugador}</td></tr>`;
+        });
+    }
+    
+    msj += KungFu.KungFuTablaJugadores.pie;
+
+    // Borramos toda la información del Article y la sustituimos por la que nos interesa
+    Frontend.Article.actualizar("Listado de los nombres de todos los jugadores de todos los deportes ordenados alfabeticamente", msj);
+}
+
+´´´
+* Esta función toma cinco vectores de jugadores correspondientes a diferentes deportes: Kung Fu, equitación, motociclismo, parkour y gimnasia.
+
+La función comienza comprobando si todos los parámetros que se han pasado son de tipo array. Si todos son arrays, entonces todos los jugadores se combinan en un único array llamado "todosLosJugadores" mediante el uso de "spread" y el método "map". A continuación, se ordena alfabéticamente el array "todosLosJugadores" usando el método "sort" y se agregan los nombres de los jugadores ordenados al mensaje msj utilizando el método forEach.
+
+* PRUEBA DE QUE FUNCIONA LA HU7: 
+![Captura HU8](./assets/img/pruebaHU8.png)
+
+* Además para esta nueva funcionalidad, hemos añadido un botón en el index en al barra de navegación general de la aplicación: 
+![Captura HU8](./assets/img/barranavegacionHU8.png)
 
 ## HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
 
