@@ -627,3 +627,42 @@ KungFu.listarOrdenados = function(orden) {
 KungFu.jugadorBuscadoPorAspectoExactos = function (aspecto1, aspecto2, aspecto3) {
     this.recuperaJugadorBuscadoPorAspectoExacto(aspecto1, aspecto2, aspecto3, this.imprimeTodosJugadores); 
 }
+
+//HU 9
+KungFu.imprimePorCadena = function (cadena) {
+    // Compongo el contenido que se va a mostrar dentro de la tabla
+    let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos
+
+    // Busco en cada deporte los jugadores que contengan la cadena y muestro el nombre del jugador y el deporte
+    if (Array.isArray(KungFu.vectorJugadores_kungfu) && Array.isArray(KungFu.vectorJugadores_equitacion) && Array.isArray(KungFu.vectorJugadores_motociclismo) && Array.isArray(KungFu.vectorJugadores_parkour ) && Array.isArray(KungFu.vectorJugadores_gimnasia)) {
+        KungFu.vectorJugadores_kungfu.forEach(e => {
+            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
+                msj += `${e.nombre} (Kung Fu)\n`;
+            }
+        });
+        KungFu.vectorJugadores_equitacion.forEach(e => {
+            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
+                msj += `${e.nombre} (Equitación)\n`;
+            }
+        });
+        KungFu.vectorJugadores_motociclismo.forEach(e => {
+            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
+                msj += `${e.nombre} (Motociclismo)\n`;
+            }
+        });
+        KungFu.vectorJugadores_parkour.forEach(e => {
+            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
+                msj += `${e.nombre} (Parkour)\n`;
+            }
+        });
+        KungFu.vectorJugadores_gimnasia.forEach(e => {
+            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
+                msj += `${e.nombre} (Gimnasia)\n`;
+            }
+        });
+    }
+    msj += KungFu.KungFuTablaJugadores.pie
+
+    // Borrar toda la información del Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar(`Listado de jugadores que contienen "${cadena}" en su nombre`, msj)
+}

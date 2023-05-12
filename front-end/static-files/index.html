@@ -44,7 +44,7 @@
                     </tr>
                 </thead>
                 <thead>
-                        <th>Opcion Home</th><th>Opción Acerca De</th>
+                        <th>Opcion Home</th><th>Opción Acerca De</th><th>Buscar por cadena</th>
                 </thead>
                 <tbody>
                     <tr>
@@ -58,6 +58,26 @@
                             <a href="javascript:Motociclismo.procesarAcercaDe()" class="opcion-principal"
                             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>  
                         </td>
+
+
+                        <td>
+                            
+                            <!--HU 09-->
+                            
+                         <form> 
+                          <br>
+                          <br>
+                           <label>Inserta cadena:</label> 
+                          <input type="text" id="cadenaa" name="cadenaa">
+                           <button type="button" onclick="Buscar()"> BUSCAR DATOS </button>
+                           </form>
+                          <script>function Buscar(){
+                                var cadenaTermm = document.getElementById("cadenaa").value;
+                                KungFu.imprimePorCadena(cadenaTermm);
+                           }
+                          </script>
+                           <br> </br> 
+                  </td>
 
                     </tr>
                 </tbody>
