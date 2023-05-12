@@ -256,6 +256,10 @@ Deporte: Parkour
 ![Captura Trello HU5](./assets/img/HTMLHU5.png)
 ![parkourIndex](https://user-images.githubusercontent.com/124685268/235995819-6a9bfd43-30e4-48a3-a45f-5ce23a9731c4.png)
 
+* Posteriormente he procedido a organizar mis funciones en el index en una tabla del color de su HU asignada en trello para su mejoría en la visualización:
+
+![ParkouConTabla](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-bader_carlos_irene_javier_raul/assets/124685268/7f264fbe-ae07-4db0-ad7d-2bc3801ba08d)
+
 
 
 ## HU 06. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
