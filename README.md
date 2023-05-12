@@ -218,6 +218,8 @@ Deporte: Parkour
 
 ## HU 02. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Carlos
 
+![Captura Trello HU5](./assets/img/HTMLHU3.png)
+
 ## HU 03: Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene.
 ## Capturas TRELLO "HU 03":
 ![Captura Trello HU3](./assets/img/trello1.jpeg)
@@ -231,6 +233,8 @@ Deporte: Parkour
 
 
 ## HU 04. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Javier
+
+![Captura Trello HU4](./assets/img/HTMLHU5.png)
 
 ## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
 
@@ -249,7 +253,7 @@ Deporte: Parkour
 
 * Esta es la captura de mi aplicación de parkour en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar todos los datos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
 
-
+![Captura Trello HU5](./assets/img/HTMLHU5.png)
 ![parkourIndex](https://user-images.githubusercontent.com/124685268/235995819-6a9bfd43-30e4-48a3-a45f-5ce23a9731c4.png)
 
 
@@ -585,5 +589,6 @@ Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su
 ![Captura Tdds07](./assets/img/TDDrecuperaHU7.png)
 
 ## TDD de la HU8:
+![Captura Tdds07](./assets/img/TDDHU8.png)
 
 ## TDD de la HU9:
