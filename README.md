@@ -234,7 +234,7 @@ Deporte: Parkour
 
 ## HU 04. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Javier
 
-![Captura Trello HU4](./assets/img/HTMLHU5.png)
+![Captura Trello HU4](./assets/img/HTMLHU4.png)
 
 ## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
 
