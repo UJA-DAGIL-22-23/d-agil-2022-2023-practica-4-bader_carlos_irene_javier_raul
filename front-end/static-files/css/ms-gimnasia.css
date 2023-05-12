@@ -8,13 +8,13 @@
 
  table.listado-proyectos {
     width: 100%;
-    border: 1px solid rgba(0, 0, 100, 0.8);
+    border: 1px solid rgba(48, 165, 13, 0.8);
 }
 
 table.listado-proyectos thead th {
     margin: 3px;
     height: 2.5em;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(32, 117, 6, 0.577);
     text-transform: uppercase;
 
 }
@@ -27,7 +27,7 @@ table.listado-proyectos tbody td {
 table.listado-proyectos tbody tr {
     margin: 3px;
     height: 2em;
-    background-color: rgba(0, 0, 100, 0.1)
+    background-color: rgba(127, 213, 101, 0.737)
 }
 
 
