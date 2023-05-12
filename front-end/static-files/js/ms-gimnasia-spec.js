@@ -769,7 +769,6 @@ describe("Gimnasia.mostrarOpcionesTerciariasEditar", () => {
     opcionesTerciarias.forEach((opcion) => {
       opcion.classList.add("hidden");
     });
-    
 
     opcionesTerciarias.forEach((opcion) => {
       expect(opcion.classList.contains("hidden")).toBe(false);
