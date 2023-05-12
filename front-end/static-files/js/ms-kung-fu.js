@@ -887,89 +887,83 @@ KungFu.listarTodosJugadoresAlfabeticamente = function () {
     this.recuperaJugadoresCompleto(this.imprimeTodosOrdenados);
 }
 
-KungFu.imprimePorCadena = function (cadena) {
-    // Compongo el contenido que se va a mostrar dentro de la tabla
-    let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos
+KungFu.imprimeTodosBuscados = function (cadena, vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
+    
+     // Componemos el contenido que se va a mostrar dentro de la tabla
+     let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos;
 
-    // Busco en cada deporte los jugadores que contengan la cadena y muestro el nombre del jugador y el deporte
-    if (Array.isArray(KungFu.vectorJugadores_kungfu) && Array.isArray(KungFu.vectorJugadores_equitacion) && Array.isArray(KungFu.vectorJugadores_motociclismo) && Array.isArray(KungFu.vectorJugadores_parkour ) && Array.isArray(KungFu.vectorJugadores_gimnasia)) {
-        KungFu.vectorJugadores_kungfu.forEach(e => {
-            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
-                msj += `${e.nombre} (Kung Fu)\n`;
-            }
-        });
-        KungFu.vectorJugadores_equitacion.forEach(e => {
-            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
-                msj += `${e.nombre} (Equitación)\n`;
-            }
-        });
-        KungFu.vectorJugadores_motociclismo.forEach(e => {
-            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
-                msj += `${e.nombre} (Motociclismo)\n`;
-            }
-        });
-        KungFu.vectorJugadores_parkour.forEach(e => {
-            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
-                msj += `${e.nombre} (Parkour)\n`;
-            }
-        });
-        KungFu.vectorJugadores_gimnasia.forEach(e => {
-            if (e.nombre.toLowerCase().includes(cadena.toLowerCase())) {
-                msj += `${e.nombre} (Gimnasia)\n`;
-            }
-        });
-    }
-    msj += KungFu.KungFuTablaJugadores.pie
-
-    // Borrar toda la información del Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar(`Listado de jugadores que contienen "${cadena}" en su nombre`, msj)
+     if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour) && Array.isArray(vectorJugadores_gimnasia)) {
+         // Unimos todos los vectores en uno solo
+         const todosLosJugadores = [
+             ...vectorJugadores_kungfu.map(jugador => jugador.data.nombre_completo.nombre),
+             ...vectorJugadores_equitacion.map(jugador => jugador.data.nombre),
+             ...vectorJugadores_motociclismo.map(jugador => jugador.data.nombre),
+             ...vectorJugadores_parkour.map(jugador => jugador.data.nombre),
+             ...vectorJugadores_gimnasia.map(jugador => jugador.data.nombre)
+         ];
+ 
+         //Filtramos los nombres de los jugadores que contienen la cadena buscada
+         const jugadoresFiltrados = todosLosJugadores.filter(nombreJugador => nombreJugador.includes(cadena));
+ 
+         // Agregamos los nombres de los jugadores ordenados al mensaje
+         jugadoresFiltrados.forEach(nombreJugador => {
+             msj += `<tr><td>${nombreJugador}</td></tr>`;
+         });
+     }
+     
+     msj += KungFu.KungFuTablaJugadores.pie;
+ 
+     // Borramos toda la información del Article y la sustituimos por la que nos interesa
+     Frontend.Article.actualizar(`Listado de jugadores que contienen "${cadena}" en su nombre`, msj);
 }
 
+KungFu.recuperaBuscado = async function (cadena, callBackFn) {
+    let response_kungfu = null
+    let response_equitacion = null
+    let response_motociclismo = null
+    let response_parkour = null
+    let response_gimnasia = null
 
-/** 
-function imprimePorCadena(cadena) {
-    let resultados = "";
-  
-    if (Array.isArray(KungFu.jugadores) && Array.isArray(Equitacion.jugadores) && Array.isArray(Motociclismo.jugadores) && Array.isArray(Parkour.jugadores) && Array.isArray(Gimnasia.jugadores)) {
-  
-      KungFu.jugadores.forEach(jugador => {
-        if (jugador.nombre.indexOf(cadena) !== -1) {
-          resultados += "Jugador: " + jugador.nombre + " - Deporte: Kung Fu\n";
-        }
-      });
-  
-      Equitacion.jugadores.forEach(jugador => {
-        if (jugador.nombre.indexOf(cadena) !== -1) {
-          resultados += "Jugador: " + jugador.nombre + " - Deporte: Equitación\n";
-        }
-      });
-  
-      Motociclismo.jugadores.forEach(jugador => {
-        if (jugador.nombre.indexOf(cadena) !== -1) {
-          resultados += "Jugador: " + jugador.nombre + " - Deporte: Motociclismo\n";
-        }
-      });
-  
-      Parkour.jugadores.forEach(jugador => {
-        if (jugador.nombre.indexOf(cadena) !== -1) {
-          resultados += "Jugador: " + jugador.nombre + " - Deporte: Parkour\n";
-        }
-      });
-  
-      Gimnasia.jugadores.forEach(jugador => {
-        if (jugador.nombre.indexOf(cadena) !== -1) {
-          resultados += "Jugador: " + jugador.nombre + " - Deporte: Gimnasia\n";
-        }
-      });
-    }
-  
-    if (resultados === "") {
-      resultados = "No se encontraron resultados para la cadena ingresada";
-    }
-  
-    return resultados;
-  }*/
-  
+    // Intento conectar el microservicio KungFu
+    try {
+        const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
+        const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
+        const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
+        const url_parkour = Frontend.API_GATEWAY + "/parkour/getTodas"
+        const url_gimnasia = Frontend.API_GATEWAY + "/gimnasia/getTodas"
 
+        response_kungfu = await fetch(url_kungfu)
+        response_equitacion = await fetch(url_equitacion)
+        response_motociclismo = await fetch(url_motociclismo)
+        response_parkour = await fetch(url_parkour)
+        response_gimnasia = await fetch(url_gimnasia)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Geteway")
+        console.error(error)
+    }
+
+    //mostrar todos los jugadores que se han descargado
+    let vectorJugadores_kungfu = null
+    let vectorJugadores_equitacion = null
+    let vectorJugadores_motociclismo = null
+    let vectorJugadores_parkour = null
+    let vectorJugadores_gimnasia = null
+
+    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour&& response_gimnasia) {
+        vectorJugadores_kungfu = await response_kungfu.json()
+        vectorJugadores_equitacion = await response_equitacion.json()
+        vectorJugadores_motociclismo = await response_motociclismo.json()
+        vectorJugadores_parkour = await response_parkour.json()
+        vectorJugadores_gimnasia = await response_gimnasia.json()
+        
+        
+        callBackFn(cadena, vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
+    }
+}
+
+KungFu.imprimePorCadena = function (cadena) {
+    this.recuperaBuscado(cadena, this.imprimeTodosBuscados);
+}
 
 //############################################################################################################################################################
