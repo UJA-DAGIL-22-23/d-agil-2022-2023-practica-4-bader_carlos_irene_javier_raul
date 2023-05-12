@@ -431,7 +431,7 @@ Gimnasia.plantillaTablaPersonas.pie = `        </tbody>
              `;
 
 
-Gimnasia.sustituyeTags = function (gimnasia, persona) {   //hecho el TDD
+Gimnasia.sustituyeTags = function (gimnasia, persona) {   
     return gimnasia
     .replace(new RegExp(Gimnasia.plantillaTags.ID, 'g'), persona.ref['@ref'].id)
     .replace(new RegExp(Gimnasia.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
