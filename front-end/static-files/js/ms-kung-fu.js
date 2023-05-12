@@ -528,6 +528,9 @@ KungFu.recuperaJugadoresCompletoAlfabeticamente = async function (callBackFn) {
     let response_parkour = null
     let response_gimnasia = null
 
+
+
+    
     // Intento conectar el microservicio KungFu
     try {
         const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
