@@ -522,6 +522,36 @@ KungFu.recuperaJugadoresCompleto = async function (callBackFn) {
     }
 }
 
+KungFu.imprimeTodosOrdenados = function (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
+    
+    // Componemos el contenido que se va a mostrar dentro de la tabla
+    let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos;
+
+    if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour) && Array.isArray(vectorJugadores_gimnasia)) {
+        // Unimos todos los vectores en uno solo
+        const todosLosJugadores = [
+            ...vectorJugadores_kungfu.map(jugador => jugador.data.nombre_completo.nombre),
+            ...vectorJugadores_equitacion.map(jugador => jugador.data.nombre),
+            ...vectorJugadores_motociclismo.map(jugador => jugador.data.nombre),
+            ...vectorJugadores_parkour.map(jugador => jugador.data.nombre),
+            ...vectorJugadores_gimnasia.map(jugador => jugador.data.nombre)
+        ];
+
+        // Ordenamos alfabéticamente el array de nombres de jugadores
+        todosLosJugadores.sort((a, b) => a.localeCompare(b));
+
+        // Agregamos los nombres de los jugadores ordenados al mensaje
+        todosLosJugadores.forEach(nombreJugador => {
+            msj += `<tr><td>${nombreJugador}</td></tr>`;
+        });
+    }
+    
+    msj += KungFu.KungFuTablaJugadores.pie;
+
+    // Borramos toda la información del Article y la sustituimos por la que nos interesa
+    Frontend.Article.actualizar("Listado de los nombres de todos los jugadores de todos los deportes ordenados alfabeticamente", msj);
+}
+
 //############################################################################################################################################################
 
 /**
@@ -847,6 +877,14 @@ KungFu.jugadorBuscadoPorAspectoExactos = function (aspecto1, aspecto2, aspecto3)
  */
 KungFu.listarTodosJugadores = function () {
     this.recuperaJugadoresCompleto(this.imprimeTodos); 
+}
+
+/**
+ * Función que muestra el jugador con el nombre indicado en orden alfabetico
+ * @param {string} nombreBuscado El nombre del jugador buscado
+ */
+KungFu.listarTodosJugadoresAlfabeticamente = function () {
+    this.recuperaJugadoresCompleto(this.imprimeTodosOrdenados);
 }
 
 //############################################################################################################################################################
