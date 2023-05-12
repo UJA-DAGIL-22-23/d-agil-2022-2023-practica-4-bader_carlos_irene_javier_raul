@@ -22,6 +22,7 @@ const TITULO_IMPRIME_NOMBRES_ORDENADOS_CRITERIO = "KungFu del listados de los da
 
 const TITULO_IMPRIME_TODOS = "Listado de los nombres de todos los jugadores de todos los deportes"
 const TITULO_IMPRIME_TODOS_ORDENADOS = "Listado de los nombres de todos los jugadores de todos los deportes ordenados alfabeticamente"
+const TITULO_IMPRIME_TODOS_BUSCADOS = 'Listado de jugadores que contienen "cadena" en su nombre';
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -509,9 +510,20 @@ describe("KungFu.recuperaBuscado: ", function() {
 });
 
 
+describe("KungFu.imprimeTodosBuscados:", function() {
+  it("Mostrar datos nulos cuando le pasamos vectores vacíos", 
+  function () {
+    KungFu.imprimeTodosBuscados("cadena", [], [], [], [], []);
+    expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS_BUSCADOS);
+    expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO);
+  });
 
-
-
+  it("Mostrar datos nulos cuando le pasamos un valor que no es un vector", function() {
+    KungFu.imprimeTodosBuscados("cadena", 10, 20, 'cadena', true, []);
+    expect(elementoTitulo.innerHTML).toBe(TITULO_IMPRIME_TODOS_BUSCADOS);
+    expect(elementoContenido.querySelector('tbody').innerHTML).toBe(OBJETO_VACIO);
+  });
+});
 
 
 //############################################################################################################################################################
