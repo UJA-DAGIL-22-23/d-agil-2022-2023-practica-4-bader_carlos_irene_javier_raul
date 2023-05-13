@@ -163,31 +163,24 @@ Deporte: Parkour
 
 ## Los campos elegidos para realizar la base de datos son:
 
-
 **-	CAMPOS TIPO NOMBRE:**
 
 •	Nombre: El nombre del participante.
 
 •	Apellidos: Apellidos del participante.
 
-
-
 **-	CAMPOS TIPO COMPUESTO:**
 
 •	Fecha de nacimiento: Compuesto por un campo día, mes y año.
-
 
 **-	CAMPOS TIPO VECTOR:**
 
 •	participaciones_en_competiciones_oficiales: Un vector que contiene los años en los que el piloto ha competido en competiciones oficiales.
 
-
-
 **-	CAMPOS TIPO NUMÉRICO:**
 
 •	Participaciones_en_eventos_a_nivel_internacional: Un campo numérico que indica el numero de participaciones internacionales.
 • Numero_de_trofeos_conseguidos:Un campo numérico que indica el numero de trofeos conseguidos.
-
 
 
 # *Historias de usuario elegidas a implementar en mi aplicación de microservicios:* 
@@ -218,7 +211,10 @@ Deporte: Parkour
 
 ## HU 02. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Carlos
 
-![Captura Trello HU5](./assets/img/HTMLHU3.png)
+![Captura Trello HU1](./assets/img/H3_Inicio.png)
+![Captura Trello HU3](./assets/img/H3_2.png)
+![Captura Trello HU3](./assets/img/H3_Test.png)
+![Captura Trello HU3](./assets/img/H3_Done.png)
 
 ## HU 03: Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene.
 ## Capturas TRELLO "HU 03":
