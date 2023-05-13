@@ -163,31 +163,24 @@ Deporte: Parkour
 
 ## Los campos elegidos para realizar la base de datos son:
 
-
 **-	CAMPOS TIPO NOMBRE:**
 
 •	Nombre: El nombre del participante.
 
 •	Apellidos: Apellidos del participante.
 
-
-
 **-	CAMPOS TIPO COMPUESTO:**
 
 •	Fecha de nacimiento: Compuesto por un campo día, mes y año.
-
 
 **-	CAMPOS TIPO VECTOR:**
 
 •	participaciones_en_competiciones_oficiales: Un vector que contiene los años en los que el piloto ha competido en competiciones oficiales.
 
-
-
 **-	CAMPOS TIPO NUMÉRICO:**
 
 •	Participaciones_en_eventos_a_nivel_internacional: Un campo numérico que indica el numero de participaciones internacionales.
 • Numero_de_trofeos_conseguidos:Un campo numérico que indica el numero de trofeos conseguidos.
-
 
 
 # *Historias de usuario elegidas a implementar en mi aplicación de microservicios:* 
@@ -211,14 +204,22 @@ Deporte: Parkour
 ![Captura Trello HU3](./assets/img/testHU1.png)
 ![Captura Trello HU3](./assets/img/doneHU1.png)
 
-* Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+* Esta es la captura de mi aplicación de Kung-Fu en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Buscar por campos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
 
 ![Captura Index1](./assets/img/HTMLHU1.png)
 ![Captura Index1](./assets/img/funcionHU1.png)
 
 ## HU 02. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Carlos
 
-![Captura Trello HU5](./assets/img/HTMLHU3.png)
+![Captura Trello HU1](./assets/img/H3_Inicio.png)
+![Captura Trello HU3](./assets/img/H3_2.png)
+![Captura Trello HU3](./assets/img/H3_Test.png)
+![Captura Trello HU3](./assets/img/H3_Done.png)
+
+* Esta es la captura de mi aplicación de equitación en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la funcionalidad de buscar un jinete por 4 campos al hacer click en el botón de "Listar datos completos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+
+![Captura Index1](./assets/img/HTMLHU2.png)
+![Captura Index1](./assets/img/Funcionalidad_HU2.png)
 
 ## HU 03: Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Irene.
 ## Capturas TRELLO "HU 03":
@@ -255,6 +256,10 @@ Deporte: Parkour
 
 ![Captura Trello HU5](./assets/img/HTMLHU5.png)
 ![parkourIndex](https://user-images.githubusercontent.com/124685268/235995819-6a9bfd43-30e4-48a3-a45f-5ce23a9731c4.png)
+
+* Posteriormente he procedido a organizar mis funciones en el index en una tabla del color de su HU asignada en trello para su mejoría en la visualización:
+
+![ParkouConTabla](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-bader_carlos_irene_javier_raul/assets/124685268/7f264fbe-ae07-4db0-ad7d-2bc3801ba08d)
 
 
 
@@ -581,7 +586,7 @@ Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su
 ## TDD de la HU4:
 
 ## TDD de la HU5:
-
+![Captura Tdds07](./assets/img/TDDParkour.png)
 ## TDD de la HU6:
 ![Captura Tdds07](./assets/img/TDDHU6.png)
 ## TDD de la HU7:
