@@ -173,6 +173,13 @@ KungFu.KungFuTablaJugadores.cabeceraNombresTodos = `<table width="100%" class="l
 </thead>
 <tbody>`;
 
+// Cabecera de la tabla para solo los nombres y deportes
+KungFu.KungFuTablaJugadores.cabeceraNombresTodosDeporte = `<table width="100%" class="listado_jugadores">
+<thead>
+    <th>Nombre</th><th>Deporte</th>
+</thead>
+<tbody>`;
+
 //Elementos RT que muestra los datos de un jugador
 KungFu.KungFuTablaJugadores.cuerpo = `
 <tr title="${KungFu.KungFuTags.ID}">
@@ -890,24 +897,24 @@ KungFu.listarTodosJugadoresAlfabeticamente = function () {
 KungFu.imprimeTodosBuscados = function (cadena, vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
     
      // Componemos el contenido que se va a mostrar dentro de la tabla
-     let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodos;
+     let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodosDeporte;
 
      if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour) && Array.isArray(vectorJugadores_gimnasia)) {
          // Unimos todos los vectores en uno solo
          const todosLosJugadores = [
-             ...vectorJugadores_kungfu.map(jugador => jugador.data.nombre_completo.nombre),
-             ...vectorJugadores_equitacion.map(jugador => jugador.data.nombre),
-             ...vectorJugadores_motociclismo.map(jugador => jugador.data.nombre),
-             ...vectorJugadores_parkour.map(jugador => jugador.data.nombre),
-             ...vectorJugadores_gimnasia.map(jugador => jugador.data.nombre)
-         ];
+            ...vectorJugadores_kungfu.map(jugador => ({nombre: jugador.data.nombre_completo.nombre, deporte: "Kung Fu"})),
+            ...vectorJugadores_equitacion.map(jugador => ({nombre: jugador.data.nombre, deporte: "Equitación"})),
+            ...vectorJugadores_motociclismo.map(jugador => ({nombre: jugador.data.nombre, deporte: "Motociclismo"})),
+            ...vectorJugadores_parkour.map(jugador => ({nombre: jugador.data.nombre, deporte: "Parkour"})),
+            ...vectorJugadores_gimnasia.map(jugador => ({nombre: jugador.data.nombre, deporte: "Gimnasia"}))
+        ];
  
          //Filtramos los nombres de los jugadores que contienen la cadena buscada
-         const jugadoresFiltrados = todosLosJugadores.filter(nombreJugador => nombreJugador.includes(cadena));
+         const jugadoresFiltrados = todosLosJugadores.filter(jugador => jugador.nombre.includes(cadena));
  
          // Agregamos los nombres de los jugadores ordenados al mensaje
          jugadoresFiltrados.forEach(nombreJugador => {
-             msj += `<tr><td>${nombreJugador}</td></tr>`;
+            msj += `<tr><td>${jugador.nombre}</td><td>${jugador.deporte}</td></tr>`;
          });
      }
      
