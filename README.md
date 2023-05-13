@@ -204,7 +204,7 @@ Deporte: Parkour
 ![Captura Trello HU3](./assets/img/testHU1.png)
 ![Captura Trello HU3](./assets/img/doneHU1.png)
 
-* Esta es la captura de mi aplicación de motociclismo en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Buscar por campos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
+* Esta es la captura de mi aplicación de Kung-Fu en el index, como ejemplo de su correcto funcionamiento, inserto también en la captura la tabla que muestra todos los datos de los jugadores al hacer click en el botón de "Buscar por campos". Aún así, el resto de funcionalidades también se ejecutan correctamente:
 
 ![Captura Index1](./assets/img/HTMLHU1.png)
 ![Captura Index1](./assets/img/funcionHU1.png)
