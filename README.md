@@ -618,7 +618,6 @@ La función comienza comprobando si todos los parámetros que se han pasado son 
 * Además para esta nueva funcionalidad, hemos añadido un botón en el index en al barra de navegación general de la aplicación: 
 ![Captura HU8](./assets/img/barranavegacionHU8.png)
 
-## HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
 
 ## HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
 
@@ -641,7 +640,90 @@ La función comienza comprobando si todos los parámetros que se han pasado son 
 3. Unir todos los vectores de jugadores en uno solo, utilizando el operador spread y la función map() para crear objetos con el formato {nombre: jugador.data.nombre_completo.nombre, deporte: 'Kung Fu'}, {nombre: jugador.data.nombre, deporte: 'Equitación'}, etc. dependiendo de la disciplina deportiva de cada jugador.
 4. Filtrar los jugadores que contienen la cadena buscada en su nombre, utilizando la función filter().
 5. Agregar los nombres y disciplinas deportivas de los jugadores filtrados al mensaje de la tabla, utilizando la función forEach() para recorrer los objetos filtrados y crear una fila de la tabla por cada jugador.
-6. Completar el mensaje con la etiqueta de cierre de la tabla y actualizar el artículo en el frontend con la información obtenida.
+6. Completar el mensaje con la etiqueta de cierre de la tabla y actualizar el artículo en el frontend con la información obtenida:
+
+* "imprimeTodosBuscados"
+
+```
+KungFu.imprimeTodosBuscados = function (cadena, vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia) {
+    
+    // Componemos el contenido que se va a mostrar dentro de la tabla
+    let msj = KungFu.KungFuTablaJugadores.cabeceraNombresTodosDeporte
+
+    if (Array.isArray(vectorJugadores_kungfu) && Array.isArray(vectorJugadores_equitacion) && Array.isArray(vectorJugadores_motociclismo) && Array.isArray(vectorJugadores_parkour) && Array.isArray(vectorJugadores_gimnasia)) {
+        // Unimos todos los vectores en uno solo
+        const todosLosJugadores = [             ...vectorJugadores_kungfu.map(jugador => ({nombre: jugador.data.nombre_completo.nombre, deporte: 'Kung Fu'})),             ...vectorJugadores_equitacion.map(jugador => ({nombre: jugador.data.nombre, deporte: 'Equitación'})),             ...vectorJugadores_motociclismo.map(jugador => ({nombre: jugador.data.nombre, deporte: 'Motociclismo'})),             ...vectorJugadores_parkour.map(jugador => ({nombre: jugador.data.nombre, deporte: 'Parkour'})),             ...vectorJugadores_gimnasia.map(jugador => ({nombre: jugador.data.nombre, deporte: 'Gimnasia'}))         ];
+
+        //Filtramos los jugadores que contienen la cadena buscada
+        const jugadoresFiltrados = todosLosJugadores.filter(jugador => jugador.nombre.includes(cadena));
+
+        // Agregamos los nombres de los jugadores y sus deportes ordenados al mensaje
+        jugadoresFiltrados.forEach(jugador => {
+            msj += `<tr><td>${jugador.nombre}</td><td>${jugador.deporte}</td></tr>`;
+        });
+    }
+    
+    msj += `</tbody></table>`;
+
+    // Borramos toda la información del Article y la sustituimos por la que nos interesa
+    Frontend.Article.actualizar(`Listado de jugadores que contienen "${cadena}" en su nombre`, msj);
+}
+```
+* "recuperaBuscado"
+
+```
+KungFu.recuperaBuscado = async function (cadena, callBackFn) {
+    let response_kungfu = null
+    let response_equitacion = null
+    let response_motociclismo = null
+    let response_parkour = null
+    let response_gimnasia = null
+
+    // Intento conectar el microservicio KungFu
+    try {
+        const url_kungfu = Frontend.API_GATEWAY + "/kungfu/getTodos"
+        const url_equitacion = Frontend.API_GATEWAY + "/equitacion/getTodosInfo"
+        const url_motociclismo = Frontend.API_GATEWAY + "/motociclismo/getTodos"
+        const url_parkour = Frontend.API_GATEWAY + "/parkour/getTodas"
+        const url_gimnasia = Frontend.API_GATEWAY + "/gimnasia/getTodas"
+
+        response_kungfu = await fetch(url_kungfu)
+        response_equitacion = await fetch(url_equitacion)
+        response_motociclismo = await fetch(url_motociclismo)
+        response_parkour = await fetch(url_parkour)
+        response_gimnasia = await fetch(url_gimnasia)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Geteway")
+        console.error(error)
+    }
+
+    //mostrar todos los jugadores que se han descargado
+    let vectorJugadores_kungfu = null
+    let vectorJugadores_equitacion = null
+    let vectorJugadores_motociclismo = null
+    let vectorJugadores_parkour = null
+    let vectorJugadores_gimnasia = null
+
+    if (response_kungfu && response_equitacion && response_motociclismo && response_parkour&& response_gimnasia) {
+        vectorJugadores_kungfu = await response_kungfu.json()
+        vectorJugadores_equitacion = await response_equitacion.json()
+        vectorJugadores_motociclismo = await response_motociclismo.json()
+        vectorJugadores_parkour = await response_parkour.json()
+        vectorJugadores_gimnasia = await response_gimnasia.json()
+        
+        
+        callBackFn(cadena, vectorJugadores_kungfu.data, vectorJugadores_equitacion.data, vectorJugadores_motociclismo.data, vectorJugadores_parkour.data, vectorJugadores_gimnasia.data)
+    }
+}
+```
+* "imprimePorCadena"
+
+```
+KungFu.imprimePorCadena = function (cadena) {
+    this.recuperaBuscado(cadena, this.imprimeTodosBuscados);
+}
+```
 
 * PRUEBA DE QUE FUNCIONA LA HU9 - EJEMPLO 1 (Buscamos jugadores que contengan "org" en su nombre): 
 
@@ -680,4 +762,4 @@ Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su
 ![Captura Tdds08](./assets/img/TDDHU8.png)
 
 ## TDD de la HU9:
-![Captura Tdds09](./assets/img/TDDHU9.png)
+![Captura Tdds09](./assets/img/TDDHU9.jpeg)
