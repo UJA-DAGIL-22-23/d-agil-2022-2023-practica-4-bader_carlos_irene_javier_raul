@@ -3,7 +3,6 @@
 
 
 * Trello Tablero: https://trello.com/b/UQcDXxuk/varios-microservicios-api-gateway-front-end
-* GitHub: https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-bader_carlos_irene_javier_raul
 * Daily Scrum: https://docs.google.com/document/d/1olmXA_z8nd6RmnHquL04fEoVBWBdoe5aGUP_Z9PwRIg/edit
 
 # *Datos Estudiantes*
