@@ -567,6 +567,39 @@ La función comienza comprobando si todos los parámetros que se han pasado son 
 ![Captura HU8](./assets/img/barranavegacionHU8.png)
 
 ## HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
+* Para esta historia de usuario, hemos trabajado en varias ramas, para intentar cada uno por separado la implementación de esta historia de usuario, hasta conseguir la funcionalidad deseada.
+* Para el desarrollo de esta historia de usuario, hemos utilizado las funciones: "imprimeTodosBuscados", "recuperaBuscado", "imprimePorCadena", además, hemos creado una nueva cabecera que incluya "Deporte" para clasificar de manera ordenada a los jugadores.
+
+![Captura Trello](./assets/img/HU91.jpeg)
+![Captura Trello](./assets/img/HU92.jpeg)
+![Captura Trello](./assets/img/HU93.jpeg)
+![Captura Trello](./assets/img/HU94.jpeg)
+
+* La función "imprimeTodosBuscados" recibe como parámetros una cadena de texto (cadena) y cinco vectores de jugadores correspondientes a distintas disciplinas deportivas (vectorJugadores_kungfu, vectorJugadores_equitacion, vectorJugadores_motociclismo, vectorJugadores_parkour, vectorJugadores_gimnasia).
+
+* La función se encarga de unir todos los vectores de jugadores en uno solo, filtrar los jugadores cuyos nombres contienen la cadena buscada, y crear un mensaje con una tabla que muestra los nombres y disciplinas deportivas de los jugadores que cumplen con el filtro.
+
+* En concreto, la función realiza las siguientes acciones:
+
+1.  Componer una cabecera para la tabla que se mostrará, con los nombres de las columnas "Nombre" y "Deporte".
+2. Verificar que todos los vectores de jugadores son en realidad vectores, utilizando la función Array.isArray().
+3. Unir todos los vectores de jugadores en uno solo, utilizando el operador spread y la función map() para crear objetos con el formato {nombre: jugador.data.nombre_completo.nombre, deporte: 'Kung Fu'}, {nombre: jugador.data.nombre, deporte: 'Equitación'}, etc. dependiendo de la disciplina deportiva de cada jugador.
+4. Filtrar los jugadores que contienen la cadena buscada en su nombre, utilizando la función filter().
+5. Agregar los nombres y disciplinas deportivas de los jugadores filtrados al mensaje de la tabla, utilizando la función forEach() para recorrer los objetos filtrados y crear una fila de la tabla por cada jugador.
+6. Completar el mensaje con la etiqueta de cierre de la tabla y actualizar el artículo en el frontend con la información obtenida.
+
+* PRUEBA DE QUE FUNCIONA LA HU9 - EJEMPLO 1 (Buscamos jugadores que contengan "org" en su nombre): 
+
+![Captura HU9](./assets/img/HU9EJ1.png)
+![Captura HU9](./assets/img/HU9FUNCIONAEJ1.png)
+
+* PRUEBA DE QUE FUNCIONA LA HU9 - EJEMPLO 2(Buscamos jugadores que contengan "er en su nombre):
+
+![Captura HU9](./assets/img/HU9EJ2.png)
+![Captura HU9](./assets/img/HU9FUNCIONAEJ2.png)
+
+* Además para esta nueva funcionalidad, hemos añadido un botón en el index en al barra de navegación general de la aplicación: 
+![Captura HU8](./assets/img/barranavegacionHU9.png)
 
 # *TDDS Y expects*
 Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su correcto funcionamiento, adaptación al código e implementación:
@@ -592,3 +625,4 @@ Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su
 ![Captura Tdds07](./assets/img/TDDHU8.png)
 
 ## TDD de la HU9:
+![Captura Tdds07](./assets/img/TDDHU9.jpeg)
