@@ -250,16 +250,16 @@ Deporte: Parkour
 
 * Aquí muestro lo que se muestra si pincho en mostrar un participante por id
 
-<img src='./assets/img/gimnasia img2.jpg'> 
+<img src='./assets/img/gimnasiaimg2.jpg'> 
 
 * Aquí muestro lo que se muestra si pincho en modificar el nombre de un participante
 
-<img src='./assets/img/gimnasia img3.jpg'> 
+<img src='./assets/img/gimnasiaimg3.jpg'> 
 
 * Aquí muestro lo que se muestra si busco por nombre Sabina Pradells
 
-<img src='./assets/img/gimnasia img4.jpg'> 
-<img src='./assets/img/gimnasia img5.jpg'> 
+<img src='./assets/img/gimnasiaimg4.jpg'> 
+<img src='./assets/img/gimnasiaimg5.jpg'> 
 
 
 ## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
