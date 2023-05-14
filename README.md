@@ -246,7 +246,7 @@ Deporte: Parkour
 
 * Aquí muestro lo que se muestra si pincho en participantes
 
-<img src='./assets/img/gimnasia img1.jpg'> 
+<img src='./assets/img/gimnasiaimg1.jpg'> 
 
 * Aquí muestro lo que se muestra si pincho en mostrar un participante por id
 
