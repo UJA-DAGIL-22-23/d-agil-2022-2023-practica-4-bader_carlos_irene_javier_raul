@@ -234,8 +234,33 @@ Deporte: Parkour
 
 
 ## HU 04. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Javier
+## Capturas TRELLO "HU 04":
+<img src='./assets/img/HU4 Trello1.jpg'> 
+<img src='./assets/img/HU4 Trello2.jpg'> 
+<img src='./assets/img/HU4 Trello3.jpg'> 
+<img src='./assets/img/HU4 Trello4.jpg'> 
+
+* A continuación muestro una captura de mi aplicación de gimnasia y cómo quedaría la cabecera de mi tabla donde se pueden observar todas las funcionalidades
 
 ![Captura Trello HU4](./assets/img/HTMLHU4.png)
+
+* Aquí muestro lo que se muestra si pincho en participantes
+
+<img src='./assets/img/gimnasia img1.jpg'> 
+
+* Aquí muestro lo que se muestra si pincho en mostrar un participante por id
+
+<img src='./assets/img/gimnasia img2.jpg'> 
+
+* Aquí muestro lo que se muestra si pincho en modificar el nombre de un participante
+
+<img src='./assets/img/gimnasia img3.jpg'> 
+
+* Aquí muestro lo que se muestra si busco por nombre Sabina Pradells
+
+<img src='./assets/img/gimnasia img4.jpg'> 
+<img src='./assets/img/gimnasia img5.jpg'> 
+
 
 ## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
 
