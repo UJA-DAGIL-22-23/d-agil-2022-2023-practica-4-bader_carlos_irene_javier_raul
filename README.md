@@ -242,7 +242,6 @@ Deporte: Parkour
 
 * A continuación muestro una captura de mi aplicación de gimnasia y cómo quedaría la cabecera de mi tabla donde se pueden observar todas las funcionalidades
 
-![Captura Trello HU4](./assets/img/HTMLHU4.png)
 <img src='./assets/img/HTMLHU4.png'> 
 
 * Aquí muestro lo que se muestra si pincho en participantes
