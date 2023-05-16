@@ -272,30 +272,7 @@ Deporte: Parkour
 
 ![ParkouConTabla](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-bader_carlos_irene_javier_raul/assets/124685268/7f264fbe-ae07-4db0-ad7d-2bc3801ba08d)
 
-* Captura de funcionalidad al pulsar "Listar Solo Nombres"
 
-<img src='./assets/img/CapListarNombres.png'> 
-
-* Captura de funcionalidad al pulsar "Listar Nombres Alfabéticamente"
-
-<img src='./assets/img/ListarAlfabeticamente.png'> 
-
-* Captura de funcionalidad al pulsar "Listar Todos los datos"
-
-<img src='./assets/img/ListarTodo.png'> 
-
-
-* Captura de funcionalidad al pulsar "Ver datos de un jugador"
-
-<img src='./assets/img/verDatosUnJugador.png'> 
-
-* Captura de funcionalidad al pulsar "buscar"
-
-<img src='./assets/img/Buscar.png'> 
-
-* Captura de funcionalidad al pulsar "buscar por varios campos"
-
-<img src='./assets/img/BuscarVariosCampos.png'> 
 
 ## HU 06. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
 ## Capturas TRELLO "HU 06":
