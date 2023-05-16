@@ -243,22 +243,9 @@ Deporte: Parkour
 
 <img src='./assets/img/HTMLHU4.png'> 
 
-* Aquí muestro lo que se muestra si pincho en participantes
+* Aquí muestro lo que se muestra si pincho en participantes, para demostrar el correcto funcionamiento de mi ms
 
 <img src='./assets/img/gimnasiaimg1.jpg'> 
-
-* Aquí muestro lo que se muestra si pincho en mostrar un participante por id
-
-<img src='./assets/img/gimnasiaimg2.jpg'> 
-
-* Aquí muestro lo que se muestra si pincho en modificar el nombre de un participante
-
-<img src='./assets/img/gimnasiaimg3.jpg'> 
-
-* Aquí muestro lo que se muestra si busco por nombre Sabina Pradells
-
-<img src='./assets/img/gimnasiaimg4.jpg'> 
-<img src='./assets/img/gimnasiaimg5.jpg'> 
 
 
 ## HU 05. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Raúl
