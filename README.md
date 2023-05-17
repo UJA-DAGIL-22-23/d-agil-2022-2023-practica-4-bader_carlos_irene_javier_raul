@@ -735,7 +735,6 @@ KungFu.imprimePorCadena = function (cadena) {
 # *TDDS Y expects*
 Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su correcto funcionamiento, adaptación al código e implementación:
 
-
 ## TDD de la HU1:
 ![Captura Tdds01](./assets/img/TDDkungfu.png)
 ## TDD de la HU2:
@@ -757,3 +756,30 @@ Aquí insertamos las capturas de los TDD's de los deportes. Demostrando así, su
 
 ## TDD de la HU9:
 ![Captura Tdds09](./assets/img/TDDHU9.jpeg)
+
+## *Problemas que hemos encontrado en la realización del proyecto:*
+Durante la realización del proyecto de prácticas de aplicaciones de microservicios para la asignatura de desarrollo ágil, nos hemos encontrado con varios problemas que han afectado al desarrollo y funcionamiento del proyecto. A continuación, se resumen los principales problemas identificados:
+
+1. Limitación de una única plantilla: Hemos encontrado dificultades debido a la restricción de tener solo un espacio de plantilla en el proyecto, lo que ha generado conflictos al tratar de incorporar diferentes estilos y configuraciones.
+
+2. Conflictos de puertos: Nos hemos enfrentado a la limitación de no poder tener dos microservicios utilizando el mismo puerto, lo que ha requerido ajustes y cambios en la configuración de los microservicios.
+
+3. Problemas de carga de estilos CSS: Al crear un archivo CSS específico para equitación, hemos experimentado dificultades para cargar los estilos correctamente, siendo necesario incluir el código CSS en el archivo de la plantilla general.
+
+4. Errores al añadir archivos al repositorio Git: Al intentar añadir archivos al repositorio Git utilizando el comando "git add *", se han producido errores en GitBash, lo que ha obligado a crear nuevamente los archivos desde Visual Studio y copiar el código en cada uno de ellos.
+
+5. Conflictos de puerto por diferencias de mayúsculas y minúsculas: Se ha presentado un problema al acceder al puerto 8000 debido a una diferencia entre la definición de la plantilla en minúscula y la llamada al puerto en mayúscula, lo cual ha afectado el funcionamiento del sistema.
+
+6. Problemas con la funcionalidad de mostrar y editar jugadores: Hemos enfrentado dificultades para mostrar un jugador por su identificador y para editar los campos de un jugador, lo que ha requerido investigar y corregir posibles errores en el código.
+
+7. Fallos en la aplicación de motociclismo y problemas con la carpeta node-modules: Hemos tenido dificultades para que la aplicación de motociclismo funcione correctamente y para que las funciones asociadas a los botones del índice sean reconocidas, además de enfrentar problemas persistentes relacionados con la carpeta node-modules.
+
+8. Cuidado necesario al añadir y renombrar microservicios: Al añadir un nuevo microservicio de gimnasia y realizar cambios de nombres, ha sido necesario tener precaución con las mayúsculas y minúsculas para evitar conflictos y asegurar un funcionamiento adecuado.
+
+9. Corrección adicional de fallos en TDD: Aunque se han realizado correcciones en los TDD (Desarrollo Dirigido por Pruebas) previos, se han identificado la necesidad de corregir más fallos en esta área para garantizar la calidad del código y las pruebas.
+
+10. Problemas en las llamadas a las funciones: Se han presentado algunos problemas en las llamadas a las funciones, pero hemos logrado resolverlos durante el desarrollo del proyecto.
+
+11. Necesidad de reformular los TDD: Debido a los problemas y ajustes realizados en el código, ha sido necesario reformular y actualizar los TDD para adaptarlos a los cambios y asegurar pruebas efectivas.
+
+12. Conflictos de nombres de constantes: Hemos encontrado coincidencias de nombres de constantes, como Elementotitulo, Elementocontenido y TituloHome, que se han utilizado tanto en la aplicación de equitación como en otras partes del proyecto, lo que ha
