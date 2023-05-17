@@ -181,6 +181,32 @@ Deporte: Parkour
 •	Participaciones_en_eventos_a_nivel_internacional: Un campo numérico que indica el numero de participaciones internacionales.
 • Numero_de_trofeos_conseguidos:Un campo numérico que indica el numero de trofeos conseguidos.
 
+## *SPRINT RETROSPECTIVE
+* Resumen del sprint:
+Durante este sprint, el equipo se centró en la creación del proyecto y la implementación de historias de usuario. Se encontraron algunos problemas técnicos relacionados con la configuración de los microservicios y la integración de los archivos. Además, hubo dificultades con el control de versiones y problemas relacionados con el manejo de Git. A pesar de estos desafíos, el equipo logró avanzar en la implementación de las historias de usuario asignadas.
+
+* Lo que funcionó bien:
+Se logró la creación del proyecto y la integración del equipo de desarrollo.
+Se seleccionaron y asignaron historias de usuario para su implementación.
+Hubo colaboración y comunicación entre los miembros del equipo.
+
+* Lo que se podría mejorar:
+Mejorar la gestión de problemas técnicos y la resolución de errores.
+Reforzar el conocimiento y el manejo de Git y el control de versiones.
+Establecer una estructura clara para el desarrollo y la implementación de historias de usuario.
+
+* Acciones de mejora:
+Realizar sesiones de capacitación o revisión sobre Git y control de versiones.
+Debemos trabajar más en ramas para no ocasionar conflictos y poder trabajar simultáneamente
+Establecer prácticas de desarrollo más rigurosas para evitar conflictos y errores en la integración de archivos.
+Mejorar la comunicación y colaboración entre los miembros del equipo para compartir soluciones y conocimientos técnicos.
+
+
+## * SPRINT REVIEW
+# *Descripción de incremento*
+El incremento del proyecto grupal de aplicaciones microservicios consiste en agregar la funcionalidad de las prácticas individuales de los estudiantes del número 1 al 5. 
+Además, se debe permitir ver la información de todos los autores en una sola página al pulsar el botón "Acerca de". También se debe proporcionar un listado con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la aplicación. Este listado estará ordenado alfabéticamente en una tabla única. 
+Por último, se requiere mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una cadena específica introducida por el usuario. Por ejemplo, si el usuario introduce "EST", se mostrarán los nombres y deportes de los jugadores/equipos que contengan esa cadena.
 
 # *Historias de usuario elegidas a implementar en mi aplicación de microservicios:* 
 * HU 01.Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por Bader
@@ -192,6 +218,10 @@ Deporte: Parkour
 * HU 07. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
 * HU 08. Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app.
 * HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)
+
+## Captura TRELLO "Al principio y al final de incremento":
+![Captura Trello](./assets/img/principio.jpeg)
+![Captura Trello](./assets/img/final.jpeg)
 
 ## Captura TRELLO "Historias de usuario":
 ![Captura Trello](./assets/img/x.jpg)
